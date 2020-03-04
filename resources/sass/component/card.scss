@@ -1,0 +1,23 @@
+.card {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  padding: 35px 25px;
+  border-radius: 16px;
+  background: $white;
+  border: none;
+  transition: all 1s ease !important;
+  &-image-width {
+    width: 50%;
+  }
+  &-height {
+    @include media-breakpoint-up(md) {
+      height: 400px;
+    }
+  }
+
+  &-scale {
+    transition: all .5s;
+    &:hover {
+      transform: scaleY(0.8);
+    }
+  }
+}

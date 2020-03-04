@@ -1,0 +1,159 @@
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0;
+  color: $brand-grey;
+  font-family: 'Nunito', sans-serif;
+}
+
+.header {
+  &-bg {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/bg-img.png) no-repeat fixed center;
+    background-size: cover;
+    padding-top: 100px;
+  }
+  &-content {
+    margin-bottom: 6rem;
+  }
+}
+
+// NAVIGATION
+.navbar {
+  &-logo {
+    height: 30px;
+  }
+  &-right {
+    @media (min-width: 768px){
+      float: right !important;
+      margin-right: -15px;
+    }
+  }
+
+  &-wrapper {
+    .nav {
+      .nav-link {
+        padding: 0 1rem;
+        @include media-breakpoint-up(md) {
+          padding: 10px 15px !important;
+        }
+      }
+    }
+    .navbar-collapse {
+      line-height: 3 !important;
+    }
+  }
+  &-scrolling {
+    .box-text {
+      background-color: $white;
+      padding: 5px;
+    }
+  }
+
+  &-toggler {
+    border-color: unset !important;
+    border: unset !important;
+  }
+}
+
+// BACKGROUND
+.bg {
+  &-brand {
+    &-primary {
+      background-color: $brand-orange;
+    }
+    &-dark-gray {
+      background-color: $brand-grey;
+    }
+  }
+  &-lg {
+    background: linear-gradient($brand-orange, lighten($brand-orange, 10%))
+  }
+}
+
+// Text
+.text {
+  &-brand-primary {
+    color: $brand-orange;
+  }
+  &-gray {
+    color: $brand-off-white
+  }
+}
+
+// Font
+
+.font {
+  &-size-60 {
+    font-size: 60px;
+  }
+}
+
+.bd-radius {
+  border-radius: 50%;
+}
+
+// Why Us
+.py-100 {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.page-title:after {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 100px;
+  padding-top: 10px;
+  border-bottom: 2px solid $brand-orange;
+}
+
+.mockup-width {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.icon-big {
+  font-size: 50px !important;
+  color: $white;
+}
+
+.font-size-20 {
+  font-size: 20px;
+}
+
+#works {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/bg-img.png) no-repeat fixed center;
+  background-size: cover;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+//Footer
+#footer {
+  background: $brand-grey;
+  color: $white;
+  padding-top: 60px;
+  font-size: 12px;
+  .row {
+    border-bottom: 1px solid #bbbbbb;
+    padding-bottom: 30px
+  }
+  .quick-links p a {
+    color: $white;
+    &:hover {
+      color: $white;
+    }
+  }
+  .email {
+    text-decoration: underline;
+  }
+
+  .social-media-logo-container {
+    margin-top: 30px
+  }
+
+  .copyright-footer {
+    padding-top: 30px;
+    padding-bottom: 30px
+  }
+}
