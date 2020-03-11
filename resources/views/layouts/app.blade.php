@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="{{ asset('css/material-icons-min.css') }}" />
 </head>
 <body>
+    <div class="loading hidden">
+        <img src="{{ asset('images/loading.gif') }}">
+    </div>
     <div class="header-bg">
         <nav class="navbar bg-brand-primary navbar-scrolling fixed-top">
             <marquee class="container">
@@ -50,16 +53,9 @@
             <div class="row">
                 <div class="col-md-8 mt-5 mx-auto header-content text-center text-white">
                     <div class="header-text">
-                        <h2>Get a Professionally Designed App UI Mockup, from the World #1Mockup Design Company</h2>
-                        <a href="#">
-                            <div class="btn-brand-primary btn-pill mt-3 btn">
-                                <span class="d-inline-block text-decoration-none">
-                                    Get Started
-                                </span>
-                                <button class="d-none d-inline-block btn pt-1 btn-circle">
-                                    <i class="material-icons">flash_on</i>
-                                </button>
-                            </div>
+                        <h2>Get a Professionally Designed App UI Mockup, from the World #1 Mockup Design Company</h2>
+                        <a href="#" class="btn-brand-primary btn-lg mt-3 btn px-5">
+                            Get Started
                         </a>
                     </div>
                 </div>

@@ -35764,7 +35764,8 @@ module.exports = function(module) {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 (function ($) {
-  var steps = $(".steps-to");
+  var steps = $(".steps-to"),
+      customer = $(".customer");
   steps.mouseenter(function () {
     $(this).addClass('card');
     $(this).addClass('bg-brand-primary');
@@ -35773,6 +35774,9 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
   steps.mouseleave(function () {
     $(this).removeClass('card');
     $(this).removeClass('bg-brand-primary');
+  });
+  $(window).load(function () {
+    $('.loading').addClass('hidden');
   });
 })(jQuery);
 

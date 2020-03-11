@@ -1,5 +1,6 @@
 // Fonts
-@import "font/font";
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+
 
 // Variables
 @import 'variables';
@@ -10,5 +11,7 @@
 // Component
 @import "component/button";
 @import "component/card";
+@import "component/loader";
 
 @import "homepage";
+@import "checkout";

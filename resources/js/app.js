@@ -1,7 +1,8 @@
 require('./bootstrap');
 
 (function ($) {
-    let steps = $(".steps-to");
+    let steps = $(".steps-to"),
+        customer = $(".customer");
 
     steps.mouseenter(function () {
         $(this).addClass('card');
@@ -12,6 +13,10 @@ require('./bootstrap');
     steps.mouseleave(function () {
         $(this).removeClass('card');
         $(this).removeClass('bg-brand-primary');
-    })
+    });
+
+    $(window).load(function () {
+       $('.loading').addClass('hidden')
+    });
 })(jQuery);
 

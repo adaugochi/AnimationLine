@@ -50,13 +50,8 @@
                 Any Style & Any Genre...
                 Professionally Designed To Appeal To Your Target Audience
             </h1>
-            <a href="#">
-                <div class="btn-brand-primary btn-pill mt-3 mb-5 btn">
-                    <span class="d-inline-block text-decoration-none">Get Started</span>
-                    <button class="d-none d-inline-block btn pt-1 btn-circle">
-                        <i class="material-icons">flash_on</i>
-                    </button>
-                </div>
+            <a href="#" class="btn-brand-primary btn-lg my-3 btn px-5">
+                Get Started
             </a>
             
             <div class="row">
@@ -84,23 +79,23 @@
                 <div class="row">
                     <div class="col-md-3 steps-to">
                         <i class="material-icons icon-big my-3">add_shopping_cart</i>
-                        <h1>1.</h1>
-                        <h4 class="my-3 font-size-20">Place Your Order</h4>
+                        <h1 class="font-weight-bold">01.</h1>
+                        <h4 class="my-3 font-size-18">Place Your Order</h4>
                     </div>
                     <div class="col-md-3 mt-4 mt-md-0 steps-to">
                         <i class="material-icons icon-big my-3">create</i>
-                        <h1>2.</h1>
-                        <h4 class="my-3 font-size-20">Give Us Your Brief</h4>
+                        <h1>02.</h1>
+                        <h4 class="my-3 font-size-18">Give Us Your Brief</h4>
                     </div>
                     <div class="col-md-3 mt-4 mt-md-0 steps-to">
                         <i class="material-icons icon-big my-3">email</i>
-                        <h1>3.</h1>
-                        <h4 class="my-3 font-size-20">First Draft Delivered</h4>
+                        <h1>03.</h1>
+                        <h4 class="my-3 font-size-18">First Draft Delivered</h4>
                     </div>
                     <div class="col-md-3 mt-4 mt-md-0 steps-to">
                         <i class="material-icons icon-big my-3">send</i>
-                        <h1>4.</h1>
-                        <h4 class="my-3 font-size-20">Final Design Delivered</h4>
+                        <h1>04.</h1>
+                        <h4 class="my-3 font-size-18">Final Design Delivered</h4>
                     </div>
                 </div>
             </div>
@@ -117,7 +112,7 @@
 
             <div class="row mt-5">
                 <div class="col-md-4 mb-4">
-                    <div class="card card-height">
+                    <div class="card card-height customer">
                         <div class="mb-3">
                             <img src="{{ asset('images/customer2.jpg') }}" class="card-image-width bd-radius">
                         </div>
@@ -133,7 +128,7 @@
                 </div>
 
                 <div class="col-md-4 mb-4">
-                    <div class="card card-height">
+                    <div class="card card-height customer">
                         <div class="mb-3">
                             <img src="{{ asset('images/customer1.jpg') }}" class="card-image-width bd-radius">
                         </div>
@@ -149,7 +144,7 @@
                 </div>
 
                 <div class="col-md-4 mb-4">
-                    <div class="card card-height">
+                    <div class="card card-height customer">
                         <div class="mb-3">
                             <img src="{{ asset('images/customer3.jpg') }}" class="card-image-width bd-radius">
                         </div>
@@ -165,7 +160,7 @@
                 </div>
 
                 <div class="col-md-4 mb-4">
-                    <div class="card card-height">
+                    <div class="card card-height customer">
                         <div class="mb-3">
                             <img src="{{ asset('images/customer4.jpg') }}" class="card-image-width bd-radius">
                         </div>
@@ -180,7 +175,7 @@
                 </div>
 
                 <div class="col-md-4 mb-4">
-                    <div class="card card-height">
+                    <div class="card card-height customer">
                         <div class="mb-3">
                             <img src="{{ asset('images/customer1.jpg') }}" class="card-image-width bd-radius">
                         </div>
@@ -195,7 +190,7 @@
                 </div>
 
                 <div class="col-md-4 mb-4">
-                    <div class="card card-height">
+                    <div class="card card-height customer">
                         <div class="mb-3">
                             <img src="{{ asset('images/customer5.jpg') }}" class="card-image-width bd-radius">
                         </div>
@@ -225,7 +220,7 @@
                         <p>Source PSD Layered file</p>
                         <p>Unlimited Revisions</p>
                         <div>
-                            <a class="btn btn-brand-primary btn-small mt-2" href="#">Check out</a>
+                            <a class="btn btn-brand-primary btn-lg mt-2" href="/checkout-basic">Check out</a>
                         </div>
                     </div>
                 </div>
@@ -239,7 +234,7 @@
                         <p>Commercial use</p>
                         <p>Unlimited Revisions</p>
                         <div>
-                            <a class="btn btn-brand-white btn-small mt-2" href="#">Checkout</a>
+                            <a class="btn btn-brand-white btn-lg mt-2" href="/checkout-standard">Check out</a>
                         </div>
                     </div>
                 </div>
@@ -254,7 +249,7 @@
                         <p>Responsive Design</p>
                         <p>Unlimited Revisions</p>
                         <div>
-                            <a class="btn btn-brand-primary btn-small mt-2" href="#">Checkout</a>
+                            <a class="btn btn-brand-primary btn-lg mt-2" href="/checkout-pro">Check out</a>
                         </div>
                     </div>
                 </div>
@@ -274,57 +269,22 @@
             <p><small>CEO,  Active Mockup</small></p>
         </div>
     </section>
-    <section id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-2 quick-links">
-                    <h6><label>Quick Links</label></h6>
-                    <p><a href="#works"><span class="text-gray">Our Work</span></a></p>
-                    <p><a href="#pricing"><span class="text-gray">Pricing</span></a></p>
-                    <p><a href="#ourDesigns"><span class="text-gray">Our Design</span></a></p>
-                    <p>
-                        <a href="" data-toggle="modal" data-target="#policyModal">
-                            <span class="text-gray tx-12">Privacy policy</span>
-                        </a>
-                        @include('elements.modal', ['modalId' => 'policyModal', 'modalTitle' => 'Privacy Policy'])
-                    </p>
-                    <p>
-                        <a href="" data-toggle="modal" data-target="#tcModal">
-                            <span class="text-gray tx-12">Terms &amp; Conditions</span>
-                        </a>
-                        @include('elements.modal', ['modalId' => 'tcModal', 'modalTitle' => 'Terms & Conditions'])
-                    </p>
-                </div>
+    <section class="footer">
+        <div class="copyright-footer container d-md-flex justify-content-between">
+            <p>
+                <span>© <?= date('Y'); ?> Active Mockup. All rights reserved. </span>
+                <a class="text-brand-primary" href="#">www.activemockup.com</a>
+            </p>
 
-                <div class="col-sm-2">
-                    <h6><label>Contact</label></h6>
-                    <p class="text-gray tx-12">+234 (0) 703 710 3288</p>
-                    <p class="email text-gray">info@activemockup.com</p>
-                </div>
-
-                <div class="col-sm-2">
-                    <h6><label>Address</label></h6>
-                    <p class="text-gray">123 Main Street, Lekki, Lagos, Nigeria</p>
-                </div>
-
-                <div class="col-sm-6">
-                    <h6><label>Why Us</label></h6>
-                    <p class="text-gray">
-                        Active Mockup has been the #1 Leading World App UI Mockup Designer. We are sure a trial will
-                        convince you, that's why we go above and beyond to create unique & professional App Mockup
-                        at an affordable price.
-                    </p>
-                    <div>
-                        <img src="{{ asset('img/logo.png') }}" width="200">
-                    </div>
-                </div>
-            </div>
-
-            <div class="copyright-footer">
-                <p class="text-center">
-                    <span>© Copyright <?= date('Y'); ?> Active Mockup. All rights reserved. </span>
-                    <a class="text-brand-primary" href="#">www.activemockup.com</a>
-                </p>
+            <div>
+            <span data-toggle="modal" data-target="#policyModal">
+                <span class="text-gray">Privacy policy</span>
+                @include('elements.modal', ['modalId' => 'policyModal', 'modalTitle' => 'Privacy Policy'])
+            </span>
+                <span data-toggle="modal" data-target="#tcModal" class="ml-3">
+                <span class="text-gray">Terms & Conditions</span>
+                @include('elements.modal', ['modalId' => 'tcModal', 'modalTitle' => 'Terms & Conditions'])
+            </span>
             </div>
         </div>
     </section>

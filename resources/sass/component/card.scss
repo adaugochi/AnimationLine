@@ -5,6 +5,12 @@
   background: $white;
   border: none;
   transition: all 1s ease !important;
+
+  &.customer {
+    &:hover {
+      box-shadow: unset;
+    }
+  }
   &-image-width {
     width: 50%;
   }
@@ -18,6 +24,34 @@
     transition: all .5s;
     &:hover {
       transform: scaleY(0.8);
+    }
+  }
+
+  &-form {
+    &__wrapper {
+      .form-group {
+        margin-bottom: 15px !important;
+        .checkbox {
+          input {
+            vertical-align: middle;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+    &__label {
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 6px !important;
+      display: block;
+    }
+    &__input {
+      color: $brand-grey !important;
+      font-size: 12px !important;
+      &:focus {
+        border-color: $dark !important;
+        box-shadow: none !important;
+      }
     }
   }
 }

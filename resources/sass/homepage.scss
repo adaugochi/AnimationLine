@@ -20,7 +20,7 @@ body {
 // NAVIGATION
 .navbar {
   &-logo {
-    height: 30px;
+    height: 50px;
   }
   &-right {
     @media (min-width: 768px){
@@ -86,6 +86,12 @@ body {
   &-size-60 {
     font-size: 60px;
   }
+  &-size-20 {
+    font-size: 20px;
+  }
+  &-size-18 {
+    font-size: 18px;
+  }
 }
 
 .bd-radius {
@@ -117,10 +123,6 @@ body {
   color: $white;
 }
 
-.font-size-20 {
-  font-size: 20px;
-}
-
 #works {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/bg-img.png) no-repeat fixed center;
   background-size: cover;
@@ -129,10 +131,10 @@ body {
 }
 
 //Footer
-#footer {
+.footer {
   background: $brand-grey;
   color: $white;
-  padding-top: 60px;
+ // padding-top: 60px;
   font-size: 12px;
   .row {
     border-bottom: 1px solid #bbbbbb;
@@ -154,6 +156,14 @@ body {
 
   .copyright-footer {
     padding-top: 30px;
-    padding-bottom: 30px
+    padding-bottom: 30px;
+    p {
+      margin-bottom: unset !important;
+      a {
+        &:hover {
+          color: darken($brand-orange, 5%);
+        }
+      }
+    }
   }
 }
