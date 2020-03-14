@@ -1,0 +1,29 @@
+.ht-100v {
+  height: 100vh;
+}
+
+
+.wd {
+  &-300 {
+    width: 300px;
+  }
+  @media (min-width: 480px) {
+    &-xs-350 {
+      width: 350px;
+    }
+    &-xs-400 {
+      width: 400px;
+    }
+  }
+}
+
+.pd-25 {
+  padding: 25px;
+}
+.shadow-base {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.21);
+}
+
+.rounded {
+  border-radius: 2px !important;
+}

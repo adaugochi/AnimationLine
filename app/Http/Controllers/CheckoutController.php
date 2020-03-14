@@ -4,18 +4,29 @@ namespace App\Http\Controllers;
 
 class CheckoutController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function checkoutBasic()
     {
-        return view('checkout-basic');
+        $amount = 79.00;
+        $package = 'Basic';
+        return view('checkout', compact('amount', 'package'));
     }
 
     public function checkoutStandard()
     {
-        return view('checkout-standard');
+        $amount = 199.00;
+        $package = 'Standard';
+        return view('checkout', compact('amount', 'package'));
     }
 
     public function checkoutPro()
     {
-        return view('checkout-pro');
+        $amount = 299.00;
+        $package = 'Pro';
+        return view('checkout', compact('amount', 'package'));
     }
 }

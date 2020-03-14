@@ -4,13 +4,13 @@
         <div class="container">
             <div class="mx-auto mb-5">
                 <div class="card">
-                    <div class="card-title">
-                        <h3 class="font-weight-bold">Billing Details</h3>
-                    </div>
-                    <form class="card-form__wrapper">
-                        @include('elements.billing-form')
+                    <form class="card-form__wrapper" method="post" action="/submit-payemnt">
+                        @csrf
+                        <input type="hidden" name="sale_amount" value="{{ $amount }}" id="saleAmt">
+                        <input type="hidden" name="discount_price" value="0.00" id="discount">
+                        <input type="hidden" name="total_amount" value="{{ $amount }}" id="totalAmt">
 
-                        <div class="basic-payment__wrapper my-5">
+                        <div class="basic-payment__wrapper mb-5">
                             <h3>Payment Details</h3>
                             <p>
                                 By clicking on the button below, <strong>you will be transferred to PayPal</strong> to
@@ -18,24 +18,33 @@
                             </p>
 
                             <div class="basic-payment__card-box">
-                                <h4>Standard Package</h4>
+                                <h4>{{ $package }} Package</h4>
                                 <hr class="line">
                                 <div class="d-flex justify-content-between">
                                     <p>Amount</p>
-                                    <p>USD 199.10</p>
+                                    <p>
+                                        <span>USD</span>
+                                        <span class="sale-amount">{{ $amount }}</span>
+                                    </p>
                                 </div>
                                 <div class="d-flex justify-content-between">
-                                    <p>Sales Tax (0%)</p>
-                                    <p>USD 0.00</p>
+                                    <p>Discount</p>
+                                    <p>
+                                        <span>USD</span>
+                                        <span class="discount">0.00</span>
+                                    </p>
                                 </div>
                                 <div class="d-flex justify-content-between">
-                                    <input type="text" class="card-form__input form-control">
-                                    <button class="btn btn-brand-primary ml-3">Apply</button>
+                                    <input type="text" class="card-form__input form-control coupon-code">
+                                    <button class="btn btn-brand-primary ml-3 apply-coupon">Apply</button>
                                 </div>
                                 <hr>
                                 <div class="d-flex justify-content-between">
                                     <h4 class="font-weight-bold">Total</h4>
-                                    <h4 class="font-weight-bold">USD 199.10</h4>
+                                    <h4 class="font-weight-bold">
+                                        <span>USD</span>
+                                        <span class="total-amount">{{ $amount }}</span>
+                                    </h4>
                                 </div>
                             </div>
                         </div>

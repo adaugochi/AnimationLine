@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-4">
-        <div class="feature-box">
+        <div class="feature-box mb-4 mb-md-0">
             <div class="icon">
                 <i class="material-icons">check_circle_outline</i>
             </div>
@@ -13,7 +13,7 @@
         </div>
     </div>
     <div class="col-md-4">
-        <div class="feature-box">
+        <div class="feature-box mb-4 mb-md-0">
             <div class="icon">
                 <i class="material-icons">lock_outline</i>
             </div>

@@ -80,22 +80,22 @@
                     <div class="col-md-3 steps-to">
                         <i class="material-icons icon-big my-3">add_shopping_cart</i>
                         <h1 class="font-weight-bold">01.</h1>
-                        <h4 class="my-3 font-size-18">Place Your Order</h4>
+                        <h4 class="my-3 fs-18">Place Your Order</h4>
                     </div>
                     <div class="col-md-3 mt-4 mt-md-0 steps-to">
                         <i class="material-icons icon-big my-3">create</i>
                         <h1>02.</h1>
-                        <h4 class="my-3 font-size-18">Give Us Your Brief</h4>
+                        <h4 class="my-3 fs-18">Give Us Your Brief</h4>
                     </div>
                     <div class="col-md-3 mt-4 mt-md-0 steps-to">
                         <i class="material-icons icon-big my-3">email</i>
                         <h1>03.</h1>
-                        <h4 class="my-3 font-size-18">First Draft Delivered</h4>
+                        <h4 class="my-3 fs-18">First Draft Delivered</h4>
                     </div>
                     <div class="col-md-3 mt-4 mt-md-0 steps-to">
                         <i class="material-icons icon-big my-3">send</i>
                         <h1>04.</h1>
-                        <h4 class="my-3 font-size-18">Final Design Delivered</h4>
+                        <h4 class="my-3 fs-18">Final Design Delivered</h4>
                     </div>
                 </div>
             </div>
@@ -215,7 +215,7 @@
                 <div class="col-md-4 mb-4 mb-md-0">
                     <div class="card card-scale">
                         <h1>Basic</h1>
-                        <h1 class="font-weight-bold text-brand-primary font-size-60">$79</h1>
+                        <h1 class="font-weight-bold text-brand-primary fs-60">$79</h1>
                         <p>One Page App UI</p>
                         <p>Source PSD Layered file</p>
                         <p>Unlimited Revisions</p>
@@ -228,7 +228,7 @@
                 <div class="col-md-4 mb-4 mb-md-0">
                     <div class="card bg-lg card-scale">
                         <h1 class="text-white">Standard</h1>
-                        <h1 class="font-weight-bold text-white font-size-60">$199</h1>
+                        <h1 class="font-weight-bold text-white fs-60">$199</h1>
                         <p>Three Page App UI</p>
                         <p>Source PSD Layered file</p>
                         <p>Commercial use</p>
@@ -242,7 +242,7 @@
                 <div class="col-md-4 mb-4 mb-md-0">
                     <div class="card card-scale">
                         <h1>Pro</h1>
-                        <h1 class="font-weight-bold text-brand-primary font-size-60">$299</h1>
+                        <h1 class="font-weight-bold text-brand-primary fs-60">$299</h1>
                         <p>Six Page App UI </p>
                         <p>Source PSD Layered file</p>
                         <p>Commercial use</p>

@@ -4619,7 +4619,7 @@
 
 /***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/material-icons/iconfont/material-icons.css":
 /*!*************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./node_modules/material-icons/iconfont/material-icons.css ***!
+  !*** ./node_modules/css-loader??ref--7-1!./node_modules/postcss-loader/src??ref--7-2!./node_modules/material-icons/iconfont/material-icons.css ***!
   \*************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -32529,7 +32529,7 @@ module.exports = "/fonts/vendor/material-icons/iconMaterialIcons-Regular.woff2?0
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../css-loader??ref--6-1!../../postcss-loader/src??ref--6-2!./material-icons.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/material-icons/iconfont/material-icons.css");
+var content = __webpack_require__(/*! !../../css-loader??ref--7-1!../../postcss-loader/src??ref--7-2!./material-icons.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/material-icons/iconfont/material-icons.css");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -35765,7 +35765,14 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 (function ($) {
   var steps = $(".steps-to"),
-      customer = $(".customer");
+      applyCoupon = $(".apply-coupon"),
+      couponCode = 'NEW10',
+      saleAmountInput = $('#saleAmt'),
+      totalAmountInput = $('#totalAmt'),
+      discountInput = $('#discount'),
+      totalAmountText = $('.total-amount'),
+      discountText = $('.discount'),
+      couponVal = $('.coupon-code');
   steps.mouseenter(function () {
     $(this).addClass('card');
     $(this).addClass('bg-brand-primary');
@@ -35775,8 +35782,19 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
     $(this).removeClass('card');
     $(this).removeClass('bg-brand-primary');
   });
-  $(window).load(function () {
-    $('.loading').addClass('hidden');
+  applyCoupon.click(function (e) {
+    e.preventDefault();
+
+    if (couponVal.val() === couponCode) {
+      var discountAmount = saleAmountInput.val() * 0.10;
+      discountInput.val(discountAmount.toFixed(2));
+      discountText.text(discountAmount.toFixed(2));
+      var totalAmount = saleAmountInput.val() - discountAmount.toFixed(2);
+      totalAmountInput.val(totalAmount.toFixed(2));
+      totalAmountText.text(totalAmount.toFixed(2));
+    } else {
+      console.log('incorrect coupon code');
+    }
   });
 })(jQuery);
 
@@ -35839,15 +35857,27 @@ window._ = __webpack_require__(/*! material-icons */ "./node_modules/material-ic
 
 /***/ }),
 
+/***/ "./resources/sass/toastr.scss":
+/*!************************************!*\
+  !*** ./resources/sass/toastr.scss ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!*************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
-  \*************************************************************/
+/*!******************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/toastr.scss ***!
+  \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! C:\wamp64\www\active-mockup\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\wamp64\www\active-mockup\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\wamp64\www\active-mockup\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\wamp64\www\active-mockup\resources\sass\toastr.scss */"./resources/sass/toastr.scss");
 
 
 /***/ })

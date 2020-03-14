@@ -8,3 +8,7 @@ Route::get('/checkout-standard', 'CheckoutController@checkoutStandard');
 
 Route::get('/checkout-pro', 'CheckoutController@checkoutPro');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
