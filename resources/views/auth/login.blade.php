@@ -3,7 +3,6 @@
 @section('title', 'Login')
 
 @section('content')
-
     <form method="POST" action="{{ route('login') }}">
         @csrf
         <div class="d-flex align-items-center justify-content-center ht-100v">
@@ -12,6 +11,11 @@
                 <div class="text-center fs-28 font-weight-bold text-gray">
                     Login
                 </div>
+                @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
+                @endif
                 <div class="form-group">
                     <input type="text" class="card-form__input rounded form-control @error('email') is-invalid @enderror"
                     name="email" placeholder="Enter Email">
@@ -38,7 +42,7 @@
     </form>
 @endsection
 
-@section('scripts')
-    @include('elements.flash-messages')
-@endsection
+{{--@section('scripts')--}}
+    {{--@include('elements.flash-messages')--}}
+{{--@endsection--}}
 

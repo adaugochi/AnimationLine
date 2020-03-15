@@ -76,7 +76,7 @@ body {
     color: $brand-orange;
   }
   &-gray {
-    color: $brand-grey
+    color: $brand-grey !important;
   }
 }
 

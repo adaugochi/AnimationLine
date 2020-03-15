@@ -22,6 +22,7 @@ try {
 //window.axios = require('axios');
 
 window._ = require('material-icons');
+window.toastr = require('toastr');
 
 //window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 

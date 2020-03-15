@@ -1,4 +1,4 @@
-@extends('layouts.checkout')
+@extends('layouts.main')
 @section('content')
     <div style="margin-top: 60px">
         <div class="container">

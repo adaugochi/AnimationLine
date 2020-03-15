@@ -11091,7 +11091,7 @@ body {
 }
 
 .text-gray {
-  color: #3d3d3d;
+  color: #3d3d3d !important;
 }
 
 .fs-60 {

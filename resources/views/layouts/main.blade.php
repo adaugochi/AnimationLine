@@ -17,10 +17,33 @@
                 <strong>Offer Ends March 20th 2020</strong>
             </marquee>
         </nav>
-        <nav class="navbar navbar-expand-md bg-white navbar-dark navbar-wrapper" style="top: 40px; height: 80px">
+        <nav class="navbar navbar-expand-md bg-white navbar-dark navbar-wrapper" style="top: 40px;">
             <div class="container">
                 <div class="navbar-brand">
                     <img src="{{ asset('img/logo.png') }}" class="navbar-logo">
+                </div>
+                <span class="navbar-toggler" data-toggle="collapse" data-target="#myNavbar">
+                <i class="material-icons text-gray">menu</i>
+            </span>
+                <div class="collapse navbar-collapse justify-content-end" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a class="nav-link text-gray" href="/home">Dashboard</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-gray" href="/profile">Profile</a>
+                        </li>
+                        <li>
+                            <a class="btn btn-brand-primary-outline btn-small mt-2" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                               document.getElementById('logout-form').submit();">
+                               {{ __('Logout') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -34,16 +57,16 @@
         <div class="copyright-footer container d-md-flex justify-content-md-between">
             <p>
                 <span>© <?= date('Y'); ?> Active Mockup. All rights reserved. </span>
-                <a class="text-brand-primary" href="#">www.activemockup.com</a>
+                <a class="text-brand-primary" href="/">www.activemockup.com</a>
             </p>
 
             <div>
                 <span data-toggle="modal" data-target="#policyModal">
-                    <span class="text-gray">Privacy policy</span>
+                    <span>Privacy policy</span>
                     @include('elements.modal', ['modalId' => 'policyModal', 'modalTitle' => 'Privacy Policy'])
                 </span>
                 <span data-toggle="modal" data-target="#tcModal" class="ml-3">
-                    <span class="text-gray">Terms & Conditions</span>
+                    <span>Terms & Conditions</span>
                     @include('elements.modal', ['modalId' => 'tcModal', 'modalTitle' => 'Terms & Conditions'])
                 </span>
             </div>

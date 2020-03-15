@@ -28,25 +28,34 @@
                     @include('elements.error', ['fieldName' => 'email'])
                 </div>
                 <div class="form-group">
-                    <input type="text" class="card-form__input rounded form-control @error('city') is-invalid @enderror"
-                           name="city" placeholder="Enter City">
-                    @include('elements.error', ['fieldName' => 'city'])
+                    <input type="password" class="card-form__input rounded form-control @error('password') is-invalid @enderror"
+                           name="password" placeholder="Enter Password">
+                    @include('elements.error', ['fieldName' => 'password'])
                 </div>
                 <div class="form-group">
-                    <input type="text" class="card-form__input rounded form-control @error('postal_code') is-invalid @enderror"
-                           name="postal_code" placeholder="Enter Postal Code">
-                    @include('elements.error', ['fieldName' => 'postal_code'])
+                    <input type="password" class="card-form__input rounded form-control @error('email') is-invalid @enderror"
+                           name="password_confirmation" placeholder="Re-enter Password">
                 </div>
-                <div class="form-group">
-                    <input type="text" class="card-form__input rounded form-control @error('state') is-invalid @enderror"
-                           name="state" placeholder="Enter State">
-                    @include('elements.error', ['fieldName' => 'state'])
-                </div>
-                <div class="form-group">
-                    <input type="text" class="card-form__input rounded form-control @error('country') is-invalid @enderror"
-                           name="country" placeholder="Enter Country">
-                    @include('elements.error', ['fieldName' => 'country'])
-                </div>
+                {{--<div class="form-group">--}}
+                    {{--<input type="text" class="card-form__input rounded form-control @error('city') is-invalid @enderror"--}}
+                           {{--name="city" placeholder="Enter City">--}}
+                    {{--@include('elements.error', ['fieldName' => 'city'])--}}
+                {{--</div>--}}
+                {{--<div class="form-group">--}}
+                    {{--<input type="text" class="card-form__input rounded form-control @error('postal_code') is-invalid @enderror"--}}
+                           {{--name="postal_code" placeholder="Enter Postal Code">--}}
+                    {{--@include('elements.error', ['fieldName' => 'postal_code'])--}}
+                {{--</div>--}}
+                {{--<div class="form-group">--}}
+                    {{--<input type="text" class="card-form__input rounded form-control @error('state') is-invalid @enderror"--}}
+                           {{--name="state" placeholder="Enter State">--}}
+                    {{--@include('elements.error', ['fieldName' => 'state'])--}}
+                {{--</div>--}}
+                {{--<div class="form-group">--}}
+                    {{--<input type="text" class="card-form__input rounded form-control @error('country') is-invalid @enderror"--}}
+                           {{--name="country" placeholder="Enter Country">--}}
+                    {{--@include('elements.error', ['fieldName' => 'country'])--}}
+                {{--</div>--}}
                 <button type="submit" class="btn btn-brand-primary btn-block text-uppercase fs-10">Sign Up</button>
 
                 <div class="mt-3 text-center fs-12">
@@ -55,8 +64,4 @@
             </div>
         </div>
     </form>
-@endsection
-
-@section('scripts')
-    @include('elements.flash-messages')
 @endsection
