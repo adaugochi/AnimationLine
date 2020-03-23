@@ -12,21 +12,21 @@ class CheckoutController extends Controller
     public function checkoutBasic()
     {
         $amount = 79.00;
-        $package = 'Basic';
+        $package = 'basic';
         return view('checkout', compact('amount', 'package'));
     }
 
     public function checkoutStandard()
     {
         $amount = 199.00;
-        $package = 'Standard';
+        $package = 'standard';
         return view('checkout', compact('amount', 'package'));
     }
 
     public function checkoutPro()
     {
         $amount = 299.00;
-        $package = 'Pro';
+        $package = 'pro';
         return view('checkout', compact('amount', 'package'));
     }
 }

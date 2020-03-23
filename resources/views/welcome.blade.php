@@ -278,11 +278,11 @@
 
             <div>
             <span data-toggle="modal" data-target="#policyModal">
-                <span class="text-gray">Privacy policy</span>
+                <span>Privacy policy</span>
                 @include('elements.modal', ['modalId' => 'policyModal', 'modalTitle' => 'Privacy Policy'])
             </span>
                 <span data-toggle="modal" data-target="#tcModal" class="ml-3">
-                <span class="text-gray">Terms & Conditions</span>
+                <span>Terms & Conditions</span>
                 @include('elements.modal', ['modalId' => 'tcModal', 'modalTitle' => 'Terms & Conditions'])
             </span>
             </div>

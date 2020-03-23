@@ -30,4 +30,12 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'paypal' => [
+        'id' => env('PAYPAL_CLIENT_ID'),
+        'secret' => env('PAYPAL_SECRET'),
+        'url' => [
+            'execute' => env('BASE_URL'). '/execute-payment',
+            'cancel'=> env('BASE_URL'). '/cancel-payment'
+        ]
+    ],
 ];

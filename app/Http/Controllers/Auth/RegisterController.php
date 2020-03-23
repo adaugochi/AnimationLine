@@ -57,10 +57,6 @@ class RegisterController extends Controller
             'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', 'unique:users', 'regex:/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/'],
             'password' => ['required', 'string', 'min:8', 'confirmed']
-//            'postal_code' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/',
-//            'city' => +['required', 'string', 'max:255'],
-//            'state' => ['required', 'string', 'max:255'],
-//            'country' => ['required', 'string', 'max:255']
         ]);
     }
 
@@ -77,10 +73,6 @@ class RegisterController extends Controller
             'last_name' => $data['last_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password'])
-//            'postal_code' => $data['postal_code'],
-//            'city' => $data['city'],
-//            'state' => $data['state'],
-//            'country' => $data['country'],
         ]);
     }
 

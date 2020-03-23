@@ -11131,9 +11131,9 @@ body {
   content: "";
   display: block;
   margin: 0 auto;
-  width: 100px;
+  width: 60px;
   padding-top: 10px;
-  border-bottom: 2px solid #ff5a1a;
+  border-bottom: 3px solid #ff5a1a;
 }
 
 .mockup-width {
@@ -11191,6 +11191,10 @@ body {
 
 .footer .copyright-footer p a:hover {
   color: #ff4801;
+}
+
+.mt-60 {
+  margin-top: 60px;
 }
 
 .order-text {

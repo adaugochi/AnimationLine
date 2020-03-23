@@ -56,7 +56,7 @@
                            {{--name="country" placeholder="Enter Country">--}}
                     {{--@include('elements.error', ['fieldName' => 'country'])--}}
                 {{--</div>--}}
-                <button type="submit" class="btn btn-brand-primary btn-block text-uppercase fs-10">Sign Up</button>
+                <button type="submit" class="btn btn-lg btn-brand-primary btn-block text-uppercase fs-10">Sign Up</button>
 
                 <div class="mt-3 text-center fs-12">
                     Already a member? <a href="{{ url('login') }}" class="text-brand-primary"> Sign In</a>

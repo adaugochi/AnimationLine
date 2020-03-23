@@ -9,6 +9,9 @@ require('./bootstrap');
         discountInput = $('#discount'),
         totalAmountText = $('.total-amount'),
         discountText = $('.discount'),
+        discountField = $(".discount-field"),
+        Errortext = $(".err-text"),
+        discountSuccess = $(".discount-success"),
         couponVal = $('.coupon-code');
 
     steps.mouseenter(function () {
@@ -33,8 +36,12 @@ require('./bootstrap');
             let totalAmount = saleAmountInput.val() - discountAmount.toFixed(2);
             totalAmountInput.val(totalAmount.toFixed(2));
             totalAmountText.text(totalAmount.toFixed(2));
+            discountField.removeClass('d-flex');
+            discountField.addClass('d-none');
+            discountSuccess.removeClass('d-none');
+            discountSuccess.addClass('d-flex');
         } else {
-            console.log('incorrect coupon code')
+            Errortext.removeClass('d-none')
         }
     })
 
