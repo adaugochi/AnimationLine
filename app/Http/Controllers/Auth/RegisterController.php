@@ -84,6 +84,6 @@ class RegisterController extends Controller
     {
         $this->validator($request->all())->validate();
         event(new Registered($user = $this->create($request->all())));
-        return Redirect::to($this->redirectTo)->withSuccess('Registration was successfully, please login...!');
+        return Redirect::to('/login')->with(['success' => 'Registration was successfully!']);
     }
 }

@@ -28,12 +28,6 @@
                 <div class="collapse navbar-collapse justify-content-end" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a class="nav-link text-gray" href="/home">Dashboard</a>
-                        </li>
-                        <li>
-                            <a class="nav-link text-gray" href="/profile">Profile</a>
-                        </li>
-                        <li>
                             <a class="btn btn-brand-primary-outline btn-small mt-2" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                document.getElementById('logout-form').submit();">

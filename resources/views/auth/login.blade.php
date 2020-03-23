@@ -6,16 +6,11 @@
     <form method="POST" action="{{ route('login') }}">
         @csrf
         <div class="d-flex align-items-center justify-content-center ht-100v">
-
             <div class="wd-300 wd-xs-350 pd-25 bg-white rounded shadow-base">
-                <div class="text-center fs-28 font-weight-bold text-gray">
+                @include('elements.flash-messages')
+                <div class="fs-28 mb-3 font-weight-lighter text-brand-primary">
                     Login
                 </div>
-                @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                @endif
                 <div class="form-group">
                     <input type="text" class="card-form__input rounded form-control @error('email') is-invalid @enderror"
                     name="email" placeholder="Enter Email">
@@ -41,8 +36,3 @@
         </div>
     </form>
 @endsection
-
-{{--@section('scripts')--}}
-    {{--@include('elements.flash-messages')--}}
-{{--@endsection--}}
-

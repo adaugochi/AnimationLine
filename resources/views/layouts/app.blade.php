@@ -39,8 +39,8 @@
                         <li>
                             <a class="nav-link" href="#pricing">Pricing</a>
                         </li>
-                        <li>
-                            <a class="btn btn-brand-primary-outline btn-small mt-2" href="/login">Get Started</a>
+                        <li class="p-10-15">
+                            <a class="btn btn-brand-primary-outline btn-small" href="/login">Get Started</a>
                         </li>
                     </ul>
                 </div>

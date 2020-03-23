@@ -10927,6 +10927,18 @@ a.text-dark:focus {
   color: #ff5a1a;
 }
 
+.alert {
+  border: unset;
+}
+
+.alert-success {
+  border-left: 6px solid #1d643b !important;
+}
+
+.alert-danger {
+  border-left: 6px solid #761b18 !important;
+}
+
 .card {
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
   padding: 35px 25px;
@@ -11195,6 +11207,10 @@ body {
 
 .mt-60 {
   margin-top: 60px;
+}
+
+.p-10-15 {
+  padding: 10px 15px;
 }
 
 .order-text {

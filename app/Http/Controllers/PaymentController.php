@@ -71,7 +71,7 @@ class PaymentController extends Controller
         try {
             $payment->create($this->apiContext);
         } catch (Exception $ex) {
-            return redirect('/home')->with(['message' => 'Some error occurred, could not approve payment']);
+            return redirect('/home')->with(['error' => 'Some error occurred, could not approove payment']);
         }
 
         return redirect($payment->getApprovalLink());
@@ -80,7 +80,7 @@ class PaymentController extends Controller
     public function executePayment(Request $request, Billing $billing)
     {
         if (!session()->has('billing')) {
-            dd(1);
+            return redirect('/home')->with(['error' => 'Could not find billing details']);
         }
         DB::beginTransaction();
 
@@ -114,9 +114,9 @@ class PaymentController extends Controller
             DB::table('billings')->where('payment_id', $paymentId)->update(['payment_status' => 'paid']);
             session()->forget('billing');
             DB::commit();
-            return redirect('/home')->with(['message' => 'Payment successful']);
+            return redirect('/home')->with(['success' => 'Payment was successful']);
         }
 
-        return redirect('/')->with(['message' => 'Payment unsuccessful']);
+        return redirect('/')->with(['error' => 'Payment was unsuccessful']);
     }
 }

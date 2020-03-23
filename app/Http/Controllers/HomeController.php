@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Billing;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $billings = Billing::all()->where('user_id', auth()->user()->id);
+        return view('home', compact('billings'));
     }
 }

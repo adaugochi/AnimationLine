@@ -58,6 +58,6 @@ class LoginController extends Controller
             return redirect()->intended('/admin/home'); //redirect to admin panel
         }
 
-        return redirect()->intended(); //redirect to standard user homepage
+        return redirect()->intended($this->redirectTo); //redirect to standard user homepage
     }
 }

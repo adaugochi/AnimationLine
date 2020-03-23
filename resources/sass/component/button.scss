@@ -36,3 +36,13 @@
     }
   }
 }
+
+.alert {
+  border: unset;
+  &-success {
+    border-left: 6px solid #1d643b !important;
+  }
+  &-danger {
+    border-left: 6px solid #761b18 !important;
+  }
+}

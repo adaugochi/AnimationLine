@@ -9,7 +9,7 @@
         <div class="d-flex align-items-center justify-content-center ht-100v">
 
             <div class="wd-300 wd-xs-400 pd-25 bg-white rounded shadow-base">
-                <div class="text-center fs-28 font-weight-bold text-gray">
+                <div class="fs-28 mb-3 font-weight-lighter text-brand-primary">
                     Register
                 </div>
                 <div class="form-group">
@@ -36,26 +36,6 @@
                     <input type="password" class="card-form__input rounded form-control @error('email') is-invalid @enderror"
                            name="password_confirmation" placeholder="Re-enter Password">
                 </div>
-                {{--<div class="form-group">--}}
-                    {{--<input type="text" class="card-form__input rounded form-control @error('city') is-invalid @enderror"--}}
-                           {{--name="city" placeholder="Enter City">--}}
-                    {{--@include('elements.error', ['fieldName' => 'city'])--}}
-                {{--</div>--}}
-                {{--<div class="form-group">--}}
-                    {{--<input type="text" class="card-form__input rounded form-control @error('postal_code') is-invalid @enderror"--}}
-                           {{--name="postal_code" placeholder="Enter Postal Code">--}}
-                    {{--@include('elements.error', ['fieldName' => 'postal_code'])--}}
-                {{--</div>--}}
-                {{--<div class="form-group">--}}
-                    {{--<input type="text" class="card-form__input rounded form-control @error('state') is-invalid @enderror"--}}
-                           {{--name="state" placeholder="Enter State">--}}
-                    {{--@include('elements.error', ['fieldName' => 'state'])--}}
-                {{--</div>--}}
-                {{--<div class="form-group">--}}
-                    {{--<input type="text" class="card-form__input rounded form-control @error('country') is-invalid @enderror"--}}
-                           {{--name="country" placeholder="Enter Country">--}}
-                    {{--@include('elements.error', ['fieldName' => 'country'])--}}
-                {{--</div>--}}
                 <button type="submit" class="btn btn-lg btn-brand-primary btn-block text-uppercase fs-10">Sign Up</button>
 
                 <div class="mt-3 text-center fs-12">
