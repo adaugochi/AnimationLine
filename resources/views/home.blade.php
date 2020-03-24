@@ -1,24 +1,52 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="mt-60 ht-100v">
+    <div class="mt-60">
         <div class="container">
             @include('elements.flash-messages')
-            <table class="table table-striped table-bordered">
-                <thead>
-                <tr>
-                    <th scope="col">S/N</th>
-                    <th scope="col">Full Name</th>
-                    <th scope="col">Package</th>
-                    <th scope="col">Total Amount</th>
-                    <th scope="col">Status</th>
-                    <th>Payment ID</th>
-                </tr>
-                </thead>
-                <tbody>
+            @if(sizeof($billings) > 0)
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-sm">
+                        <thead>
+                        <tr>
+                            <th class="field-name"><strong>S/N</strong></th>
+                            <th class="field-name"><strong>Package</strong></th>
+                            <th class="field-name"><strong>Total Amount</strong></th>
+                            <th class="field-name"><strong>Payment Status</strong></th>
+                            <th class="field-name"><strong>Payment ID</strong></th>
+                            <th class="field-name"><strong>Created At</strong></th>
+                            <th class="field-name"><strong>Action</strong></th>
+                        </tr>
+                        </thead>
+                        <tbody class="fs-12">
+                        @foreach($billings as $key => $billing)
+                            <tr>
+                                <td>{{ $key+1 }}</td>
+                                <td>{{ ucwords($billing->package) }}</td>
+                                <td>{{ $billing->getCurrencyAndAmount() }}</td>
+                                <td>
+                                    <span class="status status-{{ $billing->payment_status }}">
+                                        {{ $billing->payment_status }}
+                                    </span>
+                                </td>
+                                <td>{{ $billing->payment_id }}</td>
+                                <td>{{ $billing->formatDate() }}</td>
+                                <td>
+                                    ok
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            @else
+                <div class="empty-state">
+                    <span class="material-icons empty-state__icon">payment</span>
+                    <p class="empty-state__description mt-2">No transaction has been made yet.</p>
+                </div>
+            @endif
 
-                </tbody>
-            </table>
+            {{ $billings->render() }}
         </div>
     </div>
 @endsection

@@ -11033,6 +11033,109 @@ a.text-dark:focus {
   }
 }
 
+.table .field-name {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: #343a40;
+  font-family: "Arial", sans-serif;
+}
+
+.status {
+  display: inline-block;
+  padding: 0 6px;
+  font-size: 10px;
+  line-height: 1.3;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  border-radius: 2px;
+}
+
+.status-pending {
+  color: #f6993f;
+  border-color: #f6993f;
+}
+
+.status-cancelled {
+  color: #e3342f;
+  border-color: #dc3545;
+}
+
+.status-paid {
+  color: #38c172;
+  border-color: #38c172;
+}
+
+.status-draft {
+  color: #3d3d3d;
+  border-color: #3d3d3d;
+}
+
+.pagination {
+  margin-top: 10px !important;
+  float: right;
+}
+
+.pagination .page-item.active .page-link {
+  z-index: 2;
+  color: #ffffff;
+  background-color: #ff5a1a;
+  border-color: #dee2e6;
+}
+
+.pagination .page-item.disabled .page-link {
+  color: #868e96;
+  pointer-events: none;
+  background-color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.56);
+}
+
+.pagination .page-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #ff5a1a;
+  background-color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.56);
+}
+
+.pagination .page-link:focus,
+.pagination .page-link:hover {
+  color: #e64000;
+  text-decoration: none;
+  background-color: #e9ecef;
+  border-color: rgba(255, 255, 255, 0.56);
+  box-shadow: unset !important;
+}
+
+.empty-state {
+  min-height: 400px;
+  padding: 40px 0 100px;
+  text-align: center;
+}
+
+.empty-state__icon {
+  display: inline-block;
+  width: 160px;
+  height: 160px;
+  margin: 0 auto;
+  padding: 38px 0;
+  font-size: 80px !important;
+  line-height: 1;
+  color: #999;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+}
+
+.empty-state__description {
+  margin: 0 auto 40px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  color: #666;
+}
+
 body {
   overflow-x: hidden;
   overflow-y: auto;
@@ -11084,6 +11187,7 @@ body {
 .navbar-toggler {
   border-color: unset !important;
   border: unset !important;
+  cursor: pointer;
 }
 
 .bg-brand-primary {
@@ -11104,6 +11208,10 @@ body {
 
 .text-gray {
   color: #3d3d3d !important;
+}
+
+.font-paris {
+  font-family: "Parisienne", cursive;
 }
 
 .fs-60 {

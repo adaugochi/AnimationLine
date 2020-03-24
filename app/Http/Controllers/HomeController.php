@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $billings = Billing::all()->where('user_id', auth()->user()->id);
+        $billings = Billing::where('user_id', auth()->user()->id)->orderBy('id', 'DESC')->paginate(20);
         return view('home', compact('billings'));
     }
 }

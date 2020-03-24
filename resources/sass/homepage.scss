@@ -52,6 +52,7 @@ body {
   &-toggler {
     border-color: unset !important;
     border: unset !important;
+    cursor: pointer;
   }
 }
 
@@ -81,6 +82,11 @@ body {
 }
 
 // Font
+.font {
+  &-paris {
+    font-family: 'Parisienne', cursive;
+  }
+}
 
 .fs {
   &-60 {

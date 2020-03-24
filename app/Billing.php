@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -19,6 +20,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property mixed payment_id
  * @property mixed payer_id
  * @property mixed token
+ * @property mixed created_at
+ * @property mixed currency
  */
 class Billing extends Model
 {
@@ -53,5 +56,15 @@ class Billing extends Model
             $this->has_discount = 1;
         }
         $this->save();
+    }
+
+    public function formatDate()
+    {
+        return date("jS F Y h:i A", strtotime($this->created_at));
+    }
+
+    public function getCurrencyAndAmount()
+    {
+        return $this->currency . ' ' . $this->total_amount;
     }
 }

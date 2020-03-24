@@ -7,8 +7,23 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/material-icons.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-</head>
+    <link href="https://fonts.googleapis.com/css?family=Parisienne&display=swap" rel="stylesheet"></head>
 <body>
+    <?php
+        $time = date("H");
+        $timezone = date("e");
+        $greeting = '';
+
+        if ($time < "12") {
+            $greeting = "Good Morning";
+        } elseif ($time >= "12" && $time < "17") {
+            $greeting = "Good Afternoon";
+        } elseif ($time >= "17" && $time < "19") {
+            $greeting = "Good Evening";
+        } elseif ($time >= "19") {
+            $greeting = "Good Night";
+        }
+    ?>
     <div>
         <nav class="navbar bg-brand-primary navbar-scrolling fixed-top">
             <marquee class="container">
@@ -20,15 +35,18 @@
         <nav class="navbar navbar-expand-md bg-white navbar-dark navbar-wrapper" style="top: 40px;">
             <div class="container">
                 <div class="navbar-brand">
-                    <img src="{{ asset('img/logo.png') }}" class="navbar-logo">
+                    <h3 class="text-gray">
+                        <span class="font-paris">{{ $greeting }} </span>
+                        <span> - {{ auth()->user()->first_name }}</span>
+                    </h3>
                 </div>
                 <span class="navbar-toggler" data-toggle="collapse" data-target="#myNavbar">
-                <i class="material-icons text-gray">menu</i>
-            </span>
+                    <i class="material-icons text-gray">menu</i>
+                </span>
                 <div class="collapse navbar-collapse justify-content-end" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a class="btn btn-brand-primary-outline btn-small mt-2" href="{{ route('logout') }}"
+                            <a class="btn btn-brand-primary-outline btn-small" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                document.getElementById('logout-form').submit();">
                                {{ __('Logout') }}
@@ -47,23 +65,12 @@
         @yield('content')
     </main>
 
-    <section class="footer mt-5">
-        <div class="copyright-footer container d-md-flex justify-content-md-between">
+    <section class="footer">
+        <div class="copyright-footer container text-center">
             <p>
                 <span>© <?= date('Y'); ?> Active Mockup. All rights reserved. </span>
                 <a class="text-brand-primary" href="/">www.activemockup.com</a>
             </p>
-
-            <div>
-                <span data-toggle="modal" data-target="#policyModal">
-                    <span>Privacy policy</span>
-                    @include('elements.modal', ['modalId' => 'policyModal', 'modalTitle' => 'Privacy Policy'])
-                </span>
-                <span data-toggle="modal" data-target="#tcModal" class="ml-3">
-                    <span>Terms & Conditions</span>
-                    @include('elements.modal', ['modalId' => 'tcModal', 'modalTitle' => 'Terms & Conditions'])
-                </span>
-            </div>
         </div>
     </section>
 
