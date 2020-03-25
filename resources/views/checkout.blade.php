@@ -57,19 +57,23 @@
                                         <span class="discount">0.00</span>
                                     </p>
                                 </div>
-                                <div class="d-flex justify-content-between discount-field">
-                                    <div>
-                                        <input type="text" class="card-form__input form-control coupon-code">
-                                        <p class="fs-12 text-danger d-none err-text">You enter an incorrect coupon code</p>
+                                @if($hasDiscount < 1)
+                                    <div class="d-flex justify-content-between discount-field">
+                                        <div>
+                                            <input type="text" class="card-form__input form-control coupon-code">
+                                            <p class="fs-12 text-danger d-none err-text">
+                                                You enter an incorrect coupon code
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <button class="btn btn-brand-primary ml-3 apply-coupon">Apply</button>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <button class="btn btn-brand-primary ml-3 apply-coupon">Apply</button>
+                                    <div class="d-none justify-content-between discount-success">
+                                        <span class="text-success fs-20">Discount Applied Sucessfully</span>
+                                        <span><i class="material-icons text-success fs-28">check</i></span>
                                     </div>
-                                </div>
-                                <div class="d-none justify-content-between discount-success">
-                                    <span class="text-success fs-20">Discount Applied Sucessfully</span>
-                                    <span><i class="material-icons text-success fs-28">check</i></span>
-                                </div>
+                                @endif
                                 <hr>
                                 <div class="d-flex justify-content-between">
                                     <h4 class="font-weight-bold">Total</h4>

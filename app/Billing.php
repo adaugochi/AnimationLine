@@ -67,4 +67,9 @@ class Billing extends Model
     {
         return $this->currency . ' ' . $this->total_amount;
     }
+
+    public static function hasDiscount()
+    {
+        return self::where('user_id', auth()->user()->id)->where('has_discount', 1)->count();
+    }
 }

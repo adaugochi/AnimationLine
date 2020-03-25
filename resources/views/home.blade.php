@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="mt-60">
+    <div class="mt-60 ht-100v">
         <div class="container">
             @include('elements.flash-messages')
             @if(sizeof($billings) > 0)
@@ -32,7 +32,7 @@
                                 <td>{{ $billing->payment_id }}</td>
                                 <td>{{ $billing->formatDate() }}</td>
                                 <td>
-                                    ok
+                                    <button type="button" class="btn btn-sm btn-gray">Complete Brief</button>
                                 </td>
                             </tr>
                         @endforeach

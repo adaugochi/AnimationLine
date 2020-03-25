@@ -35,10 +35,10 @@
         <nav class="navbar navbar-expand-md bg-white navbar-dark navbar-wrapper" style="top: 40px;">
             <div class="container">
                 <div class="navbar-brand">
-                    <h3 class="text-gray">
+                    <h4 class="text-gray">
                         <span class="font-paris">{{ $greeting }} </span>
                         <span> - {{ auth()->user()->first_name }}</span>
-                    </h3>
+                    </h4>
                 </div>
                 <span class="navbar-toggler" data-toggle="collapse" data-target="#myNavbar">
                     <i class="material-icons text-gray">menu</i>

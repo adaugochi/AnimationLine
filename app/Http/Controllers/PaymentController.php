@@ -35,13 +35,14 @@ class PaymentController extends Controller
     public function createPayment(Request $request)
     {
         $this->validate(request(), [
-            'city' => 'required',
-            'state' => 'required',
-            'country' => 'required',
+            'city' => 'required|alpha',
+            'state' => 'required|alpha',
+            'country' => 'required|alpha',
             'sales_amount' => 'required',
             'discount_price' => 'required',
             'total_amount' => 'required',
-            'package' => 'required'
+            'package' => 'required|alpha',
+            'postal_code' => 'digits:6'
         ]);
 
         session()->put('billing', $request->all());

@@ -27,3 +27,15 @@
 .rounded {
   border-radius: 2px !important;
 }
+
+.alert-animated {
+  position: absolute;
+  right: 0;
+  top: 0;
+  .close {
+    font-size: unset !important;
+    line-height: unset !important;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+}

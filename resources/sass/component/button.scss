@@ -35,6 +35,16 @@
       }
     }
   }
+
+  &-gray {
+    background-color: #ddd;
+    color: #0e0e0e;
+    border: 1px solid #bbb;
+    font-size: 10px;
+    &:hover {
+      background-color: darken(#ddd, 10%);
+    }
+  }
 }
 
 .alert {
