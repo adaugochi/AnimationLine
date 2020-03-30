@@ -43,7 +43,70 @@ require('./bootstrap');
         } else {
             Errortext.removeClass('d-none')
         }
-    })
+    });
+
+    jQuery.validator.addMethod("lettersonly", function(value, element) {
+        return this.optional(element) || /^[a-z]+$/i.test(value);
+    }, "Please enter alphabets only");
+
+    jQuery.validator.addMethod("length", function(value, element) {
+        return this.optional(element) || value.length === 6;
+    }, "Invalid postal code");
+
+    $('.validateForm').validate({
+        rules: {
+            city: {
+                required: true,
+                lettersonly: true
+            },
+            country: {
+                required: true,
+                lettersonly: true
+            },
+            state: {
+                required: true,
+                lettersonly: true
+            },
+            first_name: {
+                required: true,
+                lettersonly: true
+            },
+            last_name: {
+                required: true,
+                lettersonly: true
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            postal_code: {
+                digits: true,
+                length: true
+            },
+            password: {
+                required: true,
+                minlength: 6,
+            },
+            password_confirmation: {
+                required: true,
+                minlength: 6,
+                equalTo: "#password"
+            },
+            app_full_name: {
+                required: true,
+                lettersonly: true
+            },
+            description: "required",
+            website : {
+                url: true
+            }
+        },
+        messages: {
+            password_confirmation: {
+                equalTo: "Please enter the same password as above"
+            }
+        }
+    });
 
 })(jQuery);
 

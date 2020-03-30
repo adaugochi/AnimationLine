@@ -8,9 +8,12 @@ Route::get('/checkout-standard', 'CheckoutController@checkoutStandard');
 Route::get('/checkout-pro', 'CheckoutController@checkoutPro');
 Route::get('/pay-with-paypal', 'CheckoutController@paywithpaypal');
 Route::get('/execute-payment', 'PaymentController@executePayment');
+Route::get('/brief/{id}', 'BriefController@index');
 
 
 Route::post('/create-payment', 'PaymentController@createPayment')->name('create-payment');
+Route::post('/create-brief', 'BriefController@createBrief')->name('create-brief');
+
 
 Auth::routes();
 

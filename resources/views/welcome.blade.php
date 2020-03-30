@@ -50,7 +50,7 @@
                 Any Style & Any Genre...
                 Professionally Designed To Appeal To Your Target Audience
             </h1>
-            <a href="#" class="btn-brand-primary btn-lg my-3 btn px-5">
+            <a href="#" class="btn-brand-primary my-3 py-3 btn px-5">
                 Get Started
             </a>
             
@@ -227,14 +227,14 @@
 
                 <div class="col-md-4 mb-4 mb-md-0">
                     <div class="card bg-lg card-scale">
-                        <h1 class="text-white">Standard</h1>
+                        <h1>Standard</h1>
                         <h1 class="font-weight-bold text-white fs-60">$199</h1>
                         <p>Three Page App UI</p>
                         <p>Source PSD Layered file</p>
                         <p>Commercial use</p>
                         <p>Unlimited Revisions</p>
                         <div>
-                            <a class="btn btn-brand-white btn-lg mt-2" href="/checkout-standard">Check out</a>
+                            <a class="btn btn-brand-primary-outline btn-lg mt-2" href="/checkout-standard">Check out</a>
                         </div>
                     </div>
                 </div>

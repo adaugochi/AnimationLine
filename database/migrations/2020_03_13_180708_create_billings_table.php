@@ -14,8 +14,8 @@ class CreateBillingsTable extends Migration
     public function up()
     {
         Schema::create('billings', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('user_id')->unsigned();
+            $table->increments('id');
+            $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('city');
             $table->string('postal_code')->nullable();
@@ -26,6 +26,7 @@ class CreateBillingsTable extends Migration
             $table->string('sales_amount');
             $table->string('discount_price');
             $table->string('has_discount')->default(0);
+            $table->string('has_brief')->default(0);
             $table->string('total_amount');
             $table->string('payment_status')->default('draft'); //paid
             $table->string('payment_id')->unique();

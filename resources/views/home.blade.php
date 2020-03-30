@@ -1,9 +1,8 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="mt-60 ht-100v">
+    <div>
         <div class="container">
-            @include('elements.flash-messages')
             @if(sizeof($billings) > 0)
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered table-sm">
@@ -32,7 +31,7 @@
                                 <td>{{ $billing->payment_id }}</td>
                                 <td>{{ $billing->formatDate() }}</td>
                                 <td>
-                                    <button type="button" class="btn btn-sm btn-gray">Complete Brief</button>
+                                    <a href="/brief/{{ $billing->id }}" type="button" class="btn btn-sm btn-gray">Complete Brief</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -41,7 +40,7 @@
                 </div>
             @else
                 <div class="empty-state">
-                    <span class="material-icons empty-state__icon">payment</span>
+                    <span class="material-icons empty-state__icon icon-grey">payment</span>
                     <p class="empty-state__description mt-2">No transaction has been made yet.</p>
                 </div>
             @endif

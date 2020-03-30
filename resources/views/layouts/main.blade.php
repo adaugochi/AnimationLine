@@ -25,6 +25,7 @@
         }
     ?>
     <div>
+        @include('elements.flash-messages')
         <nav class="navbar bg-brand-primary navbar-scrolling fixed-top">
             <marquee class="container">
                 <span class="text-white">Get 10% OFF Your First Order With </span>
@@ -41,7 +42,7 @@
                     </h4>
                 </div>
                 <span class="navbar-toggler" data-toggle="collapse" data-target="#myNavbar">
-                    <i class="material-icons text-gray">menu</i>
+                    <i class="material-icons">menu</i>
                 </span>
                 <div class="collapse navbar-collapse justify-content-end" id="myNavbar">
                     <ul class="nav navbar-nav">
@@ -49,7 +50,7 @@
                             <a class="btn btn-brand-primary-outline btn-small" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                document.getElementById('logout-form').submit();">
-                               {{ __('Logout') }}
+                               {{ __('LOGOUT') }}
                             </a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
@@ -61,7 +62,7 @@
         </nav>
     </div>
 
-    <main>
+    <main class="mt-60">
         @yield('content')
     </main>
 

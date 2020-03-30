@@ -2,10 +2,13 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+/**
+ * @property mixed first_name
+ * @property mixed last_name
+ */
 class User extends Authenticatable
 {
     use Notifiable;
@@ -40,5 +43,10 @@ class User extends Authenticatable
     public function payments()
     {
         return $this->hasMany(Billing::class);
+    }
+
+    public function getFullName()
+    {
+        return $this->first_name . ' ' . $this->last_name;
     }
 }

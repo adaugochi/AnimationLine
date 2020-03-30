@@ -4,7 +4,7 @@
         <div class="container">
             <div class="mx-auto mb-5">
                 <div class="card">
-                    <form class="card-form__wrapper" method="post" action="{{ route('create-payment') }}">
+                    <form class="card-form__wrapper validateForm" method="post" action="{{ route('create-payment') }}">
                         @csrf
                         <input type="hidden" name="sales_amount" value="{{ $amount }}" id="saleAmt">
                         <input type="hidden" name="discount_price" value="0" id="discount">
@@ -15,7 +15,7 @@
                             <h3>Billing Details</h3>
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <label class="card-form__label">City</label>
+                                    <label class="card-form__label">City<span class="text-danger">*</span></label>
                                     <input type="text" name="city" class="form-control card-form__input">
                                 </div>
                                 <div class="form-group col-md-6">
@@ -23,11 +23,11 @@
                                     <input type="text" name="postal_code" class="card-form__input form-control">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="card-form__label">Country</label>
+                                    <label class="card-form__label">Country<span class="text-danger">*</span></label>
                                     <input type="text" name="country" class="card-form__input form-control">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="card-form__label">State</label>
+                                    <label class="card-form__label">State<span class="text-danger">*</span></label>
                                     <input type="text" name="state" class="card-form__input form-control">
                                 </div>
                             </div>
@@ -84,7 +84,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-brand-primary btn-block">SUBMIT PAYMENT</button>
+                        <button class="btn btn-brand-primary btn-block btn-lg">PAY WITH PAYPAL</button>
                     </form>
                 </div>
             </div>

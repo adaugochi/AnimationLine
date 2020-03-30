@@ -76,8 +76,8 @@
 
 //Empty State
 .empty-state {
-  min-height: 400px;
-  padding: 40px 0 100px;
+  min-height: 300px;
+  padding: 40px 0 20px;
   text-align: center;
 
   &__icon {
@@ -88,13 +88,22 @@
     padding: 38px 0;
     font-size: 80px !important;
     line-height: 1;
-    color: #999;
-    border: 2px solid #ccc;
     border-radius: 50%;
+    &.icon-grey {
+      color: #999;
+      border: 2px solid #ccc;
+    }
+    &.icon-success {
+      color: $success;
+      border: 2px solid $success;
+    }
+    &.icon-danger {
+      color: $red;
+      border: 2px solid $red
+    }
   }
 
   &__description {
-    margin: 0 auto 40px;
     font-size: 18px;
     line-height: 1.3333333;
     color: #666;

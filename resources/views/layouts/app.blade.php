@@ -9,22 +9,22 @@
     <link rel="stylesheet" href="{{ asset('css/material-icons-min.css') }}" />
 </head>
 <body>
-    <div class="header-bg">
-        <nav class="navbar bg-brand-primary navbar-scrolling fixed-top">
-            <marquee class="container">
-                <span class="text-white">Get 10% OFF Your First Order With </span>
-                <span class="box-text">Coupon Code: <b>NEW10.</b></span>
-                <strong>Offer Ends March 20th 2020</strong>
-            </marquee>
-        </nav>
-        <nav class="navbar navbar-expand-md bg-dark navbar-dark navbar-wrapper" style="top: -63px;">
+    <nav class="navbar bg-brand-primary navbar-scrolling fixed-top">
+        <marquee class="container">
+            <span class="text-white">Get 10% OFF Your First Order With </span>
+            <span class="box-text">Coupon Code: <b>NEW10.</b></span>
+            <strong>Offer Ends March 20th 2020</strong>
+        </marquee>
+    </nav>
+    <div class="bg-white">
+        <nav class="navbar navbar-expand-md bg-white navbar-dark navbar-wrapper">
             <div class="container">
                 <div class="navbar-brand">
                     <img src="{{ asset('img/logo.png') }}" class="navbar-logo">
                 </div>
                 <span class="navbar-toggler" data-toggle="collapse" data-target="#myNavbar">
-                <i class="material-icons">menu</i>
-            </span>
+                    <i class="material-icons">menu</i>
+                </span>
                 <div class="collapse navbar-collapse justify-content-end" id="myNavbar">
                     <ul class="nav navbar-nav ">
                         <li>
@@ -40,25 +40,30 @@
                             <a class="nav-link" href="#pricing">Pricing</a>
                         </li>
                         <li class="p-10-15">
-                            <a class="btn btn-brand-primary-outline btn-small" href="/login">Get Started</a>
+                            <a class="btn btn-brand-primary-outline" href="/login">Get Started</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 mt-5 mx-auto header-content text-center text-white">
+        <div class="container" >
+            <div class="row header-wrapper">
+                <div class="col-md-5 my-5 header-content text-md-left text-center">
                     <div class="header-text">
-                        <h2>Get a Professionally Designed App UI Mockup, from the World #1 Mockup Design Company</h2>
-                        <a href="/login" class="btn-brand-primary btn-lg mt-3 btn px-5">
-                            Get Started
-                        </a>
+                        <h1 class="text-brand-primary font-weight-bold">Let handle your designs for you</h1>
+                        <p class="text-gray fs-18">
+                            Get a Professionally Designed App UI Mockup, from the World #1 Mockup Design Company
+                        </p>
+                        <a href="/login" class="btn-brand-white mt-3 py-3 btn px-5">Get Started</a>
                     </div>
+                </div>
+                <div class="col-md-7">
+                    <img src="{{ asset('img/header.svg') }}">
                 </div>
             </div>
         </div>
     </div>
+
     <main>
         @yield('content')
     </main>

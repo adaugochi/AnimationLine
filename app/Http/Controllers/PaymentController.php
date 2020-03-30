@@ -115,7 +115,7 @@ class PaymentController extends Controller
             DB::table('billings')->where('payment_id', $paymentId)->update(['payment_status' => 'paid']);
             session()->forget('billing');
             DB::commit();
-            return redirect('/home')->with(['success' => 'Payment was successful']);
+            return redirect('/brief')->with(['success' => 'Payment was successful']);
         }
 
         return redirect('/')->with(['error' => 'Payment was unsuccessful']);

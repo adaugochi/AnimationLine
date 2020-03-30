@@ -3,7 +3,7 @@
 @section('title', 'Login')
 
 @section('content')
-    <form method="POST" action="{{ route('login') }}">
+    <form method="POST" action="{{ route('login') }}" class="validateForm">
         @csrf
         <div class="d-flex align-items-center justify-content-center ht-100v">
             <div class="wd-300 wd-xs-350 pd-25 bg-white rounded shadow-base">

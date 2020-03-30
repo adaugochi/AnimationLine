@@ -3,9 +3,12 @@
   font-weight: 600 !important;
   letter-spacing: 1px;
   border: none;
-  font-size: 12px;
+  font-size: 11px;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12) !important;
 
-  &:focus, &:active {
+  &:focus, &:active, &:hover {
     box-shadow: none !important;
   }
 
@@ -20,6 +23,7 @@
       &-outline {
         border: 1px solid $brand-orange;
         color: $brand-orange;
+        box-shadow: none !important;
         &:hover {
           background-color: $brand-orange;
           color: $white;
@@ -30,8 +34,9 @@
       background-color: $white;
       color: $brand-orange;
       &:hover {
-        background-color: $white;
+        background-color: transparent;
         color: $brand-orange;
+        border: 1px solid $brand-orange;
       }
     }
   }
@@ -41,6 +46,7 @@
     color: #0e0e0e;
     border: 1px solid #bbb;
     font-size: 10px;
+    box-shadow: unset !important;
     &:hover {
       background-color: darken(#ddd, 10%);
     }

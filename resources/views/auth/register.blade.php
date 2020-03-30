@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('register') }}" class="validateForm">
         @csrf
         <div class="d-flex align-items-center justify-content-center ht-100v">
 
