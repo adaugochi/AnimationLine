@@ -11494,6 +11494,7 @@ p {
   position: absolute;
   right: 0;
   top: 0;
+  z-index: 9999;
 }
 
 .alert-animated .close {
@@ -11501,5 +11502,6 @@ p {
   line-height: unset !important;
   margin-left: 20px;
   cursor: pointer;
+  transition: all 0.5s;
 }
 

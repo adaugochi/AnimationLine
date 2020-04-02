@@ -25,7 +25,6 @@
         }
     ?>
     <div>
-        @include('elements.flash-messages')
         <nav class="navbar bg-brand-primary navbar-scrolling fixed-top">
             <marquee class="container">
                 <span class="text-white">Get 10% OFF Your First Order With </span>

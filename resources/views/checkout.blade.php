@@ -7,7 +7,9 @@
                     <form class="card-form__wrapper validateForm" method="post" action="{{ route('create-payment') }}">
                         @csrf
                         <input type="hidden" name="sales_amount" value="{{ $amount }}" id="saleAmt">
-                        <input type="hidden" name="discount_price" value="0" id="discount">
+                        @if($hasDiscount < 1)
+                            <input type="hidden" name="discount_price" value="0" id="discount">
+                        @endif
                         <input type="hidden" name="total_amount" value="{{ $amount }}" id="totalAmt">
                         <input type="hidden" name="package" value="{{ $package }}">
 

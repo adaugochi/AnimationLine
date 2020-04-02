@@ -13,7 +13,7 @@ Route::get('/brief/{id}', 'BriefController@index');
 
 Route::post('/create-payment', 'PaymentController@createPayment')->name('create-payment');
 Route::post('/create-brief', 'BriefController@createBrief')->name('create-brief');
-
+Route::post('/edit-brief', 'BriefController@updateBrief')->name('edit-brief');
 
 Auth::routes();
 

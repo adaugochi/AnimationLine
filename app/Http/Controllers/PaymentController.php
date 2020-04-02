@@ -78,7 +78,7 @@ class PaymentController extends Controller
         return redirect($payment->getApprovalLink());
     }
 
-    public function executePayment(Request $request, Billing $billing)
+    public function executePayment(Billing $billing)
     {
         if (!session()->has('billing')) {
             return redirect('/home')->with(['error' => 'Could not find billing details']);

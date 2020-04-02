@@ -2,6 +2,7 @@
 
 @section('content')
     <div>
+        @include('elements.flash-messages')
         <div class="container">
             @if(sizeof($billings) > 0)
                 <div class="table-responsive">
@@ -31,7 +32,9 @@
                                 <td>{{ $billing->payment_id }}</td>
                                 <td>{{ $billing->formatDate() }}</td>
                                 <td>
-                                    <a href="/brief/{{ $billing->id }}" type="button" class="btn btn-sm btn-gray">Complete Brief</a>
+                                    <a href="/brief/{{ $billing->id }}" type="button" class="btn btn-sm btn-gray">
+                                        {{ $billing->has_brief ? 'View Brief' : 'Complete Brief' }}
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach

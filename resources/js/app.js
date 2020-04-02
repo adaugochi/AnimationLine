@@ -46,7 +46,7 @@ require('./bootstrap');
     });
 
     jQuery.validator.addMethod("lettersonly", function(value, element) {
-        return this.optional(element) || /^[a-z]+$/i.test(value);
+        return this.optional(element) || /^[a-zA-Z-,]+(\s{0,1}[a-zA-Z-, ])*$/.test(value);
     }, "Please enter alphabets only");
 
     jQuery.validator.addMethod("length", function(value, element) {
