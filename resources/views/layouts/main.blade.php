@@ -24,7 +24,6 @@
             $greeting = "Good Night";
         }
     ?>
-    <div style="height: 100px;">
         <nav class="navbar bg-brand-primary navbar-scrolling fixed-top">
             <marquee class="container">
                 <span class="text-white">Get 10% OFF Your First Order With </span>
@@ -43,6 +42,9 @@
                 <div class="collapse navbar-collapse justify-content-end" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <li>
+                            <a class="nav-link" href="/home">Dashboard</a>
+                        </li>
+                        <li class="p-10-15">
                             <a class="btn btn-brand-primary-outline btn-small" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                document.getElementById('logout-form').submit();">
@@ -56,9 +58,8 @@
                 </div>
             </div>
         </nav>
-    </div>
 
-    <main class="mt-30 container">
+    <main class="mt-60 container">
         <h4 class="text-gray">
             <span class="font-paris">{{ $greeting }} </span>
             <span> - {{ auth()->user()->first_name }}</span>
@@ -69,8 +70,8 @@
     <section class="footer">
         <div class="copyright-footer container text-center">
             <p>
-                <span>© <?= date('Y'); ?> Active Mockup. All rights reserved. </span>
-                <a class="text-brand-primary" href="/">www.activemockup.com</a>
+                <span>© <?= date('Y'); ?> Animation Line. All rights reserved. </span>
+                <a class="text-brand-primary" href="/">www.animationline.com</a>
             </p>
         </div>
     </section>

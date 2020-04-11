@@ -2,9 +2,9 @@
 @section('content')
     <section id="whyUs" class="py-100">
         <div class="container text-center">
-            <h1 class="page-title">Why Choose Animation Online?</h1>
+            <h1 class="page-title">Why Choose Animation Line?</h1>
             <p>
-                Animation Online has been the #1 Leading World Design Animation Video. We are sure a trial will convince
+                Animation Line has been the #1 Leading World Design Animation Video. We are sure a trial will convince
                 you, that's why we go above and beyond to create unique & professional App Mockup at an affordable price.
             </p>
 
@@ -13,19 +13,18 @@
                     <div class="col-md-4">
                         <div class="card">
                             <img src="{{ asset('img/professional.svg') }}" class="card-image-width mx-auto d-block">
-                            <h3 class="font-weight-bold my-3">Professional</h3>
-                            <p>
-                                Our team of experienced designers are on hand to design you a professional bespoke design,
-                                creative and innovative mockups for your business.
+                            <h3 class="font-weight-bold my-4">Professional</h3>
+                            <p class="fs-16">
+                                Our team of experienced designers are on hand to awesome video animation for your business.
                             </p>
                         </div>
                     </div>
                     <div class="col-md-4 mt-4 mt-md-0">
                         <div class="card">
                             <img src="{{ asset('img/affordable.svg') }}" class="card-image-width mx-auto d-block">
-                            <h3 class="font-weight-bold my-3">Affordable</h3>
-                            <p>
-                                We pride ourselves on the most cost-effective App UI design & understand the need to
+                            <h3 class="font-weight-bold my-4">Affordable</h3>
+                            <p class="fs-16">
+                                We pride ourselves on the most cost-effective video animation & understand the need to
                                 keep costs low but quality high.
                             </p>
                         </div>
@@ -33,8 +32,8 @@
                     <div class="col-md-4 mt-4 mt-md-0">
                         <div class="card">
                             <img src="{{ asset('img/perfection.svg') }}" class="card-image-width mx-auto d-block">
-                            <h3 class="font-weight-bold my-3">Perfection</h3>
-                            <p>
+                            <h3 class="font-weight-bold my-4">Perfection</h3>
+                            <p class="fs-16">
                                 We're not happy until you are happy, that's why we offer a 100% money back guarantee
                                 plus unlimited revisions are available
                             </p>
@@ -49,7 +48,7 @@
             <h1 class="page-title">About Us</h1>
             <p>
                 Any Style & Any Genre... Professionally Designed To Appeal To Your Target Audience. Here are some of
-                our work at animation online
+                our work at Animation Line
             </p>
             <a href="/login" class="btn-brand-primary my-3 py-3 btn px-5">Get Started</a>
             
@@ -208,7 +207,7 @@
                 we will be more than happy to edit the design or simply give you a full refund.
             </p>
             <h5 class="font-weight-bold">Ogundairo Abayomi</h5>
-            <p>CEO,  Animation Online</p>
+            <p>CEO,  Animation Line</p>
 
             @include('elements.feature')
         </div>
@@ -216,7 +215,7 @@
     <section class="footer">
         <div class="copyright-footer container d-md-flex justify-content-between">
             <p>
-                <span>© <?= date('Y'); ?> Animation Online. All rights reserved. </span>
+                <span>© <?= date('Y'); ?> Animation Line. All rights reserved. </span>
                 <a class="text-brand-primary" href="#">www.animationline.com</a>
             </p>
 

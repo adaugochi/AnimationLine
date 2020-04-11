@@ -55,7 +55,7 @@ class Billing extends Model
         $this->payment_method = 'paypal';
         $this->user_id = auth()->user()->id;
 
-        if ($discountPrice !== "0") {
+        if ($discountPrice !== 0) {
             $this->has_discount = 1;
         }
         $this->save();

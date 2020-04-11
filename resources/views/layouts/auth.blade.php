@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
 </head>
-<body>
+<body class="ht-100v">
     <main>
         @yield('content')
     </main>

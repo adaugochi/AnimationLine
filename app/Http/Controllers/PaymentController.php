@@ -118,6 +118,6 @@ class PaymentController extends Controller
             return redirect('/brief/'.$billing->id)->with(['success' => 'Payment was successful']);
         }
 
-        return redirect('/')->with(['error' => 'Payment was unsuccessful']);
+        return redirect('/home')->with(['error' => 'Payment was unsuccessful']);
     }
 }

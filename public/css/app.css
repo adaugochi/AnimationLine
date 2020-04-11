@@ -11222,7 +11222,7 @@ p {
 }
 
 .header-wrapper {
-  padding: 100px 0;
+  padding: 80px 0;
 }
 
 .header-wrapper img {
@@ -11341,6 +11341,10 @@ p {
   font-size: 10px;
 }
 
+.fs-16 {
+  font-size: 16px;
+}
+
 .bd-radius {
   border-radius: 50%;
 }
@@ -11419,8 +11423,8 @@ p {
   color: #ff4801;
 }
 
-.mt-30 {
-  margin-top: 30px;
+.mt-60 {
+  margin-top: 60px;
 }
 
 .p-10-15 {
