@@ -8,7 +8,7 @@
         @csrf
         <div class="d-flex align-items-center justify-content-center ht-100v">
 
-            <div class="wd-300 wd-xs-400 pd-25 bg-white rounded shadow-base">
+            <div class="wd-300 wd-xs-400 bg-white auth_wrapper">
                 <div class="fs-28 mb-3 font-weight-lighter text-brand-primary">
                     Register
                 </div>
@@ -29,7 +29,7 @@
                 </div>
                 <div class="form-group">
                     <input type="password" class="card-form__input rounded form-control @error('password') is-invalid @enderror"
-                           name="password" placeholder="Enter Password">
+                           name="password" placeholder="Enter Password" id="password">
                     @include('elements.error', ['fieldName' => 'password'])
                 </div>
                 <div class="form-group">

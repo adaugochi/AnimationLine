@@ -24,7 +24,7 @@
             $greeting = "Good Night";
         }
     ?>
-    <div>
+    <div style="height: 100px;">
         <nav class="navbar bg-brand-primary navbar-scrolling fixed-top">
             <marquee class="container">
                 <span class="text-white">Get 10% OFF Your First Order With </span>
@@ -32,14 +32,11 @@
                 <strong>Offer Ends March 20th 2020</strong>
             </marquee>
         </nav>
-        <nav class="navbar navbar-expand-md bg-white navbar-dark navbar-wrapper" style="top: 40px;">
+        <nav class="navbar navbar-expand-md bg-white navbar-dark navbar-wrapper">
             <div class="container">
-                <div class="navbar-brand">
-                    <h4 class="text-gray">
-                        <span class="font-paris">{{ $greeting }} </span>
-                        <span> - {{ auth()->user()->first_name }}</span>
-                    </h4>
-                </div>
+                <a href="/" class="navbar-brand">
+                    <img src="{{ asset('img/logo.svg') }}" class="navbar-logo">
+                </a>
                 <span class="navbar-toggler" data-toggle="collapse" data-target="#myNavbar">
                     <i class="material-icons">menu</i>
                 </span>
@@ -61,7 +58,11 @@
         </nav>
     </div>
 
-    <main class="mt-60">
+    <main class="mt-30 container">
+        <h4 class="text-gray">
+            <span class="font-paris">{{ $greeting }} </span>
+            <span> - {{ auth()->user()->first_name }}</span>
+        </h4>
         @yield('content')
     </main>
 

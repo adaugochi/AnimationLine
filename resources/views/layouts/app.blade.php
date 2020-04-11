@@ -20,7 +20,7 @@
         <nav class="navbar navbar-expand-md bg-white navbar-dark navbar-wrapper">
             <div class="container">
                 <div class="navbar-brand">
-                    <img src="{{ asset('img/logo.png') }}" class="navbar-logo">
+                    <img src="{{ asset('img/logo.svg') }}" class="navbar-logo">
                 </div>
                 <span class="navbar-toggler" data-toggle="collapse" data-target="#myNavbar">
                     <i class="material-icons">menu</i>
@@ -34,7 +34,7 @@
                             <a class="nav-link" href="#whyUs">Why Us</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="#ourDesigns">Our Work</a>
+                            <a class="nav-link" href="#aboutUs">About Us</a>
                         </li>
                         <li>
                             <a class="nav-link" href="#pricing">Pricing</a>
@@ -50,9 +50,9 @@
             <div class="row header-wrapper">
                 <div class="col-md-5 my-5 header-content text-md-left text-center">
                     <div class="header-text">
-                        <h1 class="text-brand-primary font-weight-bold">Let handle your designs for you</h1>
+                        <h1 class="text-brand-primary font-weight-bold">Let handle your Animation for you </h1>
                         <p class="text-gray fs-18">
-                            Get a Professionally Designed App UI Mockup, from the World #1 Mockup Design Company
+                            Get a professionally designed animation videos from the world #1 Animation video Company
                         </p>
                         <a href="/login" class="btn-brand-white mt-3 py-3 btn px-5">Get Started</a>
                     </div>

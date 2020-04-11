@@ -6,11 +6,9 @@
     <form method="POST" action="{{ route('login') }}" class="validateForm">
         @csrf
         <div class="d-flex align-items-center justify-content-center ht-100v">
-            <div class="wd-300 wd-xs-350 pd-25 bg-white rounded shadow-base">
+            <div class="wd-300 wd-xs-350 bg-white auth_wrapper">
                 @include('elements.flash-messages')
-                <div class="fs-28 mb-3 font-weight-lighter text-brand-primary">
-                    Login
-                </div>
+                <div class="fs-28 mb-3 font-weight-lighter text-brand-primary">Login</div>
                 <div class="form-group">
                     <input type="text" class="card-form__input rounded form-control @error('email') is-invalid @enderror"
                     name="email" placeholder="Enter Email">

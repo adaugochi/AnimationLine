@@ -30,6 +30,7 @@ class CreateBillingsTable extends Migration
             $table->string('total_amount');
             $table->string('payment_status')->default('draft'); //paid
             $table->string('payment_id')->unique();
+            $table->string('payment_method');
             $table->string('payer_id');
             $table->string('token');
             $table->timestamps();
@@ -43,6 +44,6 @@ class CreateBillingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('payment');
+        Schema::dropIfExists('billings');
     }
 }

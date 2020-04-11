@@ -35,7 +35,9 @@ class BriefController extends Controller
         $validateData = $request->validate([
             'billing_id' => 'required',
             'app_full_name' => 'required',
-            'website' => 'required',
+            'country_accent' => 'required',
+            'voiceover_artist' => 'required',
+            'website' => '',
             'description' => 'required'
         ]);
 

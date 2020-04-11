@@ -16,7 +16,7 @@ p {
 
 .header {
   &-bg {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/bg-img.png) no-repeat fixed center;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/bg-img.jpeg) no-repeat fixed center;
     background-size: cover;
     padding: 100px 0;
   }
@@ -34,7 +34,7 @@ p {
 // NAVIGATION
 .navbar {
   &-logo {
-    height: 50px;
+    height: 30px;
   }
   &-right {
     @media (min-width: 768px){
@@ -54,8 +54,10 @@ p {
           &:after {
             content: "";
             display: block;
-            margin: 0 auto;
-            border-bottom: 2px solid #ff5a1a;
+            margin-top: -5px;
+            width: 30px;
+            height: 1px;
+            background-image: linear-gradient(to right, $brand-orange, lighten($brand-orange, 20%));
             transition: all 1s;
           }
         }
@@ -100,7 +102,7 @@ p {
     }
   }
   &-lg {
-    background: linear-gradient($brand-orange, lighten($brand-orange, 10%))
+    background-image: linear-gradient($brand-orange, lighten($brand-orange, 10%))
   }
 }
 
@@ -155,10 +157,10 @@ p {
 .page-title:after {
   content: "";
   display: block;
-  margin: 0 auto;
-  width: 60px;
-  padding-top: 10px;
-  border-bottom: 3px solid $brand-orange;
+  margin: 1px auto;
+  width: 50px;
+  height: 3px;
+  background-image: linear-gradient(to right, $brand-orange, lighten($brand-orange, 20%));
 }
 
 .mockup-width {
@@ -172,7 +174,7 @@ p {
 }
 
 #works {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/bg-img.png) no-repeat fixed center;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/bg-img.jpeg) no-repeat center;
   background-size: cover;
   padding-top: 50px;
   padding-bottom: 50px;
@@ -218,8 +220,8 @@ p {
   }
 }
 
-.mt-60 {
-  margin-top: 60px
+.mt-30 {
+  margin-top: 30px
 }
 
 .p-10-15 {

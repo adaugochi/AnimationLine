@@ -1,4 +1,4 @@
-<div class="row mb-5">
+<div class="row mt-5 text-left">
     <div class="col-md-4">
         <div class="feature-box mb-4 mb-md-0">
             <div class="icon">
@@ -32,7 +32,7 @@
             </div>
             <div class="feature-content">
                 <h5>Customer Support</h5>
-                <p>
+                <p class="mb-2">
                     For support, contact support@activemockup.com
                 </p>
             </div>

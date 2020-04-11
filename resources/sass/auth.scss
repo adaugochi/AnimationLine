@@ -17,15 +17,11 @@
   }
 }
 
-.pd-25 {
+.auth_wrapper {
+  border-top: 2px solid $brand-orange;
   padding: 25px;
-}
-.shadow-base {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.21);
-}
-
-.rounded {
-  border-radius: 2px !important;
+  border-radius: 4px !important;
 }
 
 .alert-animated {

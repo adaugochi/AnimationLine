@@ -4,15 +4,13 @@
 
 @section('content')
 
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('register') }}" class="validateForm">
         @csrf
 
         <div class="d-flex align-items-center justify-content-center ht-100v">
 
-            <div class="wd-300 wd-xs-350 pd-25 bg-white rounded shadow-base">
-                <div class="text-center fs-28 font-weight-bold text-gray">
-                    Forget Password
-                </div>
+            <div class="wd-300 wd-xs-350 bg-white auth_wrapper">
+                <div class="fs-28 mb-3 font-weight-lighter text-brand-primary">Forget Password</div>
 
                 <div class="form-group">
                     <input type="text" class="card-form__input rounded form-control @error('email') is-invalid @enderror"

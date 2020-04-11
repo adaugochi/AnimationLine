@@ -1,7 +1,6 @@
 .card {
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
-  padding: 35px 25px;
-  border-radius: 16px;
+  padding: 25px;
   background: $white;
   border: none;
 
@@ -20,9 +19,13 @@
   }
 
   &-scale {
+    border-bottom: 4px solid $brand-off-white;
     transition: all .5s;
     &:hover {
-      transform: scaleY(0.8);
+      margin-top: -10px;
+    }
+    &.bg-lg {
+      border-bottom: 4px solid lighten($brand-orange, 10%) !important;
     }
   }
 

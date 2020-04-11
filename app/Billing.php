@@ -22,12 +22,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property mixed token
  * @property mixed created_at
  * @property mixed currency
+ * @property string payment_method
+ * @property mixed id
  */
 class Billing extends Model
 {
     protected $fillable = [
         'package', 'currency', 'sales_amount', 'total_amount', 'has_discount', 'discount_price', 'payment_status',
-        'city', 'state', 'country', 'postal_code'
+        'city', 'state', 'country', 'postal_code', 'payment_method'
     ];
 
     public function user()
@@ -50,6 +52,7 @@ class Billing extends Model
         $this->payment_id = $paymentId;
         $this->payer_id = $payerId;
         $this->token = $token;
+        $this->payment_method = 'paypal';
         $this->user_id = auth()->user()->id;
 
         if ($discountPrice !== "0") {

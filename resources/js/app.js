@@ -14,16 +14,20 @@ require('./bootstrap');
         discountSuccess = $(".discount-success"),
         couponVal = $('.coupon-code');
 
-    steps.mouseenter(function () {
-        $(this).addClass('card');
-        $(this).addClass('bg-brand-primary');
-        $(this).css('transition', 'all 0.5s')
+    function addSelectedAttr($this)
+    {
+        let value = $this.data('value');
+        if (value !== '') {
+            $this.find("option[value='" + value + "']").attr('selected', true);
+        }
+    }
+
+    $(document).ready(function () {
+        addSelectedAttr($("#accent"));
+        addSelectedAttr($("#artist"))
     });
 
-    steps.mouseleave(function () {
-        $(this).removeClass('card');
-        $(this).removeClass('bg-brand-primary');
-    });
+
 
     applyCoupon.click(function (e) {
         e.preventDefault();
@@ -54,15 +58,17 @@ require('./bootstrap');
     }, "Invalid postal code");
 
     $('.validateForm').validate({
+        onsubmit: true,
+        onblur: false,
+        onkeyup: false,
         rules: {
             city: {
                 required: true,
                 lettersonly: true
             },
-            country: {
-                required: true,
-                lettersonly: true
-            },
+            country_accent: "required",
+            country: "required",
+            voiceover_artist: "required",
             state: {
                 required: true,
                 lettersonly: true
@@ -92,10 +98,7 @@ require('./bootstrap');
                 minlength: 6,
                 equalTo: "#password"
             },
-            app_full_name: {
-                required: true,
-                lettersonly: true
-            },
+            app_full_name: "required",
             description: "required",
             website : {
                 url: true

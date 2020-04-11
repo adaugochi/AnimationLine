@@ -17,7 +17,9 @@ class CreateBriefsTable extends Migration
             $table->increments('id');
             $table->integer('billing_id')->unsigned();
             $table->foreign('billing_id')->references('id')->on('billings');
-            $table->string('app_full_name');
+            $table->string('app_full_name')->nullable();
+            $table->string('voiceover_artist');
+            $table->string('country_accent');
             $table->string('website')->nullable();
             $table->string('description');
             $table->timestamps();
