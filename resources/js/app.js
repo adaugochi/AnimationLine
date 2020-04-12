@@ -1,18 +1,24 @@
 require('./bootstrap');
 
 (function ($) {
-    let steps = $(".steps-to"),
+    let currency = $(".currency"),
+        currencyId = $("#currency"),
         applyCoupon = $(".apply-coupon"),
         couponCode = 'NEW10',
         saleAmountInput = $('#saleAmt'),
         totalAmountInput = $('#totalAmt'),
         discountInput = $('#discount'),
         totalAmountText = $('.total-amount'),
+        saleAmountText = $('.sale-amount'),
         discountText = $('.discount'),
         discountField = $(".discount-field"),
         Errortext = $(".err-text"),
         discountSuccess = $(".discount-success"),
-        couponVal = $('.coupon-code');
+        paymentMethod = $("#paymentMethod"),
+        backUpSaleAmt = $("#backUpSaleAmt"),
+        payment = $(".payment"),
+        couponVal = $('.coupon-code'),
+        submitButtonId = $("#validateForm");
 
     function addSelectedAttr($this)
     {
@@ -35,11 +41,12 @@ require('./bootstrap');
         if (couponVal.val() === couponCode) {
             let discountAmount = saleAmountInput.val() * 0.10;
             discountInput.val(discountAmount.toFixed(2));
-            discountText.text(discountAmount.toFixed(2));
+            discountText.text(commaSeparated(discountAmount.toFixed(2)));
 
             let totalAmount = saleAmountInput.val() - discountAmount.toFixed(2);
             totalAmountInput.val(totalAmount.toFixed(2));
-            totalAmountText.text(totalAmount.toFixed(2));
+            totalAmountText.text(commaSeparated(totalAmount.toFixed(2)));
+
             discountField.removeClass('d-flex');
             discountField.addClass('d-none');
             discountSuccess.removeClass('d-none');
@@ -59,13 +66,11 @@ require('./bootstrap');
 
     $('.validateForm').validate({
         onsubmit: true,
+        onchange: true,
         onblur: false,
         onkeyup: false,
         rules: {
-            city: {
-                required: true,
-                lettersonly: true
-            },
+            city: "required",
             country_accent: "required",
             country: "required",
             voiceover_artist: "required",
@@ -109,6 +114,63 @@ require('./bootstrap');
                 equalTo: "Please enter the same password as above"
             }
         }
+    });
+
+    function commaSeparated(money) {
+        return money.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+    }
+
+    $("#country").on('change', function () {
+        discountField.addClass('d-flex');
+        discountField.removeClass('d-none');
+        discountSuccess.addClass('d-none');
+        discountSuccess.removeClass('d-flex');
+
+        discountInput.val(0);
+        discountText.text("0.00");
+        if ($(this).val() === 'Nigeria') {
+            $.ajax({
+                url: 'http://data.fixer.io/api/latest?access_key=4e85812a1ae88537761694fe399c8229&format=1',
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    let convertToDollar = data.rates.USD;
+                    let convertToNaira = data.rates.NGN;
+
+                    function conversion(money) {
+                        return (convertToNaira * money)/convertToDollar;
+                    }
+
+                    let amountInNairaSaleInput = conversion(saleAmountInput.val());
+
+                    totalAmountInput.val(amountInNairaSaleInput.toFixed() * 100);
+                    totalAmountText.text(commaSeparated(amountInNairaSaleInput.toFixed()));
+                    saleAmountInput.val(amountInNairaSaleInput.toFixed());
+                    saleAmountText.text(commaSeparated(amountInNairaSaleInput.toFixed()));
+
+                    currency.text('NGN');
+                    currencyId.val('NGN');
+                    paymentMethod.val('paystack');
+                    payment.text("PayStack");
+                    submitButtonId.attr('action', 'pay')
+                }
+            })
+        } else {
+            currency.text('USD');
+            currencyId.val('USD');
+            paymentMethod.val('paypal');
+
+            totalAmountInput.val(backUpSaleAmt.val());
+            totalAmountText.text(backUpSaleAmt.val());
+            saleAmountInput.val(backUpSaleAmt.val());
+            saleAmountText.text(backUpSaleAmt.val());
+            payment.text("PayPal");
+            submitButtonId.attr('action', 'create-payment')
+        }
+    });
+
+    submitButtonId.on('submit', function () {
+        $(this).find('button').prop('disabled', true)
     });
 
 })(jQuery);

@@ -22,17 +22,16 @@ class CreateBillingsTable extends Migration
             $table->string('state');
             $table->string('country');
             $table->string('package');
-            $table->string('currency')->default('USD');
+            $table->string('currency');
             $table->string('sales_amount');
             $table->string('discount_price');
             $table->string('has_discount')->default(0);
             $table->string('has_brief')->default(0);
-            $table->string('total_amount');
+            $table->string('amount');
             $table->string('payment_status')->default('draft'); //paid
             $table->string('payment_id')->unique();
             $table->string('payment_method');
             $table->string('payer_id');
-            $table->string('token');
             $table->timestamps();
         });
     }

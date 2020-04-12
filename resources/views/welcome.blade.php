@@ -11,7 +11,7 @@
             <div class="mt-5">
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="card">
+                        <div class="card card-scale">
                             <img src="{{ asset('img/professional.svg') }}" class="card-image-width mx-auto d-block">
                             <h3 class="font-weight-bold my-4">Professional</h3>
                             <p class="fs-16">
@@ -20,7 +20,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 mt-4 mt-md-0">
-                        <div class="card">
+                        <div class="card card-scale">
                             <img src="{{ asset('img/affordable.svg') }}" class="card-image-width mx-auto d-block">
                             <h3 class="font-weight-bold my-4">Affordable</h3>
                             <p class="fs-16">
@@ -30,7 +30,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 mt-4 mt-md-0">
-                        <div class="card">
+                        <div class="card card-scale">
                             <img src="{{ asset('img/perfection.svg') }}" class="card-image-width mx-auto d-block">
                             <h3 class="font-weight-bold my-4">Perfection</h3>
                             <p class="fs-16">

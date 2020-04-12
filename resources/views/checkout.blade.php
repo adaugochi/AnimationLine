@@ -2,11 +2,16 @@
 @section('content')
     <div class="mx-auto mb-5">
         <div class="card">
-            <form class="card-form__wrapper validateForm" method="post" action="{{ route('create-payment') }}">
+            <form class="card-form__wrapper validateForm" id="validateForm" method="post" action="{{ route('create-payment') }}">
                 @csrf
+                <input type="hidden" value="{{ $amount }}" id="backUpSaleAmt">
+
                 <input type="hidden" name="sales_amount" value="{{ $amount }}" id="saleAmt">
                 <input type="hidden" name="discount_price" value="0" id="discount">
-                <input type="hidden" name="total_amount" value="{{ $amount }}" id="totalAmt">
+                <input type="hidden" name="amount" value="{{ $amount }}" id="totalAmt">
+                <input type="hidden" name="currency" value="USD" id="currency">
+                <input type="hidden" name="email" value="{{ auth()->user()->email }}" id="totalAmt">
+                <input type="hidden" name="payment_method" value="" id="paymentMethod">
                 <input type="hidden" name="package" value="{{ $package }}">
                 <div>
                     <h3>Billing Details</h3>
@@ -21,7 +26,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label class="card-form__label">Country<span class="text-danger">*</span></label>
-                            <select name="country" class="card-form__input form-control">
+                            <select name="country" class="card-form__input form-control" id="country">
                                 <option value="">Please choose a country</option>
                                 @foreach(\App\Country::getAllCountries() as $country)
                                     <option value="{{ $country->name }}">{{ $country->name }}</option>
@@ -37,8 +42,8 @@
                 <div class="basic-payment__wrapper my-5">
                     <h3>Payment Details</h3>
                     <p>
-                        By clicking on the button below, <strong>you will be transferred to PayPal</strong> to
-                        log in and confirm your payment. Then, you will be redirected back to finalize your order.
+                        By clicking on the button below, <b>you will be transferred to <span class="payment">PayPal</span></b>
+                        to confirm your payment. Then, you will be redirected back to finalize your order.
                     </p>
                     <div class="basic-payment__card-box">
                         <h4>{{ ucfirst($package) }} Package</h4>
@@ -46,14 +51,14 @@
                         <div class="d-flex justify-content-between">
                             <p>Amount</p>
                             <p>
-                                <span>USD</span>
+                                <span class="currency">USD</span>
                                 <span class="sale-amount">{{ $amount }}</span>
                             </p>
                         </div>
                         <div class="d-flex justify-content-between">
                             <p>Discount</p>
                             <p>
-                                <span>USD</span>
+                                <span class="currency">USD</span>
                                 <span class="discount">0.00</span>
                             </p>
                         </div>
@@ -78,13 +83,15 @@
                         <div class="d-flex justify-content-between">
                             <h4 class="font-weight-bold">Total</h4>
                             <h4 class="font-weight-bold">
-                                <span>USD</span>
+                                <span class="currency">USD</span>
                                 <span class="total-amount">{{ $amount }}</span>
                             </h4>
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-brand-primary btn-block btn-lg">PAY WITH PAYPAL</button>
+                <button class="btn btn-brand-primary btn-block py-3 text-uppercase">
+                    pay now
+                </button>
             </form>
         </div>
     </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Billing;
+use App\Http\Controllers\Utilities\TransactionUtility;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -15,11 +16,15 @@ use PayPal\Api\RedirectUrls;
 use PayPal\Api\Transaction;
 use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Rest\ApiContext;
+use Paystack;
 
 class PaymentController extends Controller
 {
     protected $apiContext;
 
+    /**
+     * PaymentController constructor.
+     */
     public function __construct()
     {
         $this->apiContext = new ApiContext(
@@ -32,6 +37,12 @@ class PaymentController extends Controller
         $this->middleware('auth');
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Illuminate\Validation\ValidationException
+     * @author Maryfaith Mgbede <adaamgbede@gmail.com>
+     */
     public function createPayment(Request $request)
     {
         $this->validate(request(), [
@@ -40,19 +51,20 @@ class PaymentController extends Controller
             'country' => 'required|alpha',
             'sales_amount' => 'required',
             'discount_price' => 'required',
-            'total_amount' => 'required',
+            'amount' => 'required',
+            'currency' => 'required',
             'package' => 'required|alpha',
-            'postal_code' => 'digits:6'
+            'payment_method' => 'required'
         ]);
 
         session()->put('billing', $request->all());
 
         $payer = new Payer();
-        $payer->setPaymentMethod('paypal');
+        $payer->setPaymentMethod(request('payment_method'));
 
         $amount = new Amount();
-        $amount->setCurrency('USD')
-            ->setTotal(request('total_amount'));
+        $amount->setCurrency(request('currency'))
+            ->setTotal(request('amount'));
 
         $transaction = new Transaction();
         $transaction->setAmount($amount)
@@ -78,6 +90,11 @@ class PaymentController extends Controller
         return redirect($payment->getApprovalLink());
     }
 
+    /**
+     * @param Billing $billing
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @author Maryfaith Mgbede <adaamgbede@gmail.com>
+     */
     public function executePayment(Billing $billing)
     {
         if (!session()->has('billing')) {
@@ -88,13 +105,12 @@ class PaymentController extends Controller
         $postRequest = session()->get('billing');
         $paymentId = request('paymentId');
         $payerId = request('PayerID');
-        $token = request('token');
 
-        $billing->create($postRequest, $paymentId, $payerId, $token);
+        $billing->create($postRequest, $paymentId, $payerId);
         if (!$billing->save()) {
             DB::rollBack();
         }
-        $totalAmount = Session::get('billing.total_amount');
+        $totalAmount = Session::get('billing.amount');
 
         $payment = Payment::get($paymentId, $this->apiContext);
 
@@ -104,7 +120,7 @@ class PaymentController extends Controller
         $transaction = new Transaction();
         $amount = new Amount();
 
-        $amount->setCurrency('USD');
+        $amount->setCurrency($postRequest['currency']);
         $amount->setTotal($totalAmount);
         $transaction->setAmount($amount);
 
@@ -112,6 +128,49 @@ class PaymentController extends Controller
         $result = $payment->execute($execution, $this->apiContext);
 
         if ($result->getState() == 'approved') {
+            DB::table('billings')->where('payment_id', $paymentId)->update(['payment_status' => 'paid']);
+            session()->forget('billing');
+            DB::commit();
+            return redirect('/brief/'.$billing->id)->with(['success' => 'Payment was successful']);
+        }
+
+        return redirect('/home')->with(['error' => 'Payment was unsuccessful']);
+    }
+
+    /**
+     * Redirect the User to Paystack Payment Page
+     * @param Request $request
+     * @return mixed
+     * @author Maryfaith Mgbede <adaamgbede@gmail.com>
+     */
+    public function redirectToGateway(Request $request)
+    {
+        session()->put('billing', $request->all());
+        return Paystack::getAuthorizationUrl()->redirectNow();
+    }
+
+    /**
+     * Obtain Paystack payment information
+     * @author Maryfaith Mgbede <adaamgbede@gmail.com>
+     * @param Billing $billing
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function handleGatewayCallback(Billing $billing)
+    {
+        DB::beginTransaction();
+
+        $postRequest = session()->get('billing');
+        $paymentId = TransactionUtility::GenerateToken();;
+        $payerId = TransactionUtility::GenerateToken();
+
+        $billing->create($postRequest, $paymentId, $payerId);
+        if (!$billing->save()) {
+            DB::rollBack();
+        }
+
+        $paymentDetails = Paystack::getPaymentData();
+
+        if ($paymentDetails['data']['status'] == 'success') {
             DB::table('billings')->where('payment_id', $paymentId)->update(['payment_status' => 'paid']);
             session()->forget('billing');
             DB::commit();

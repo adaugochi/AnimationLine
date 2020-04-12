@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property mixed sales_amount
  * @property mixed discount_price
- * @property mixed total_amount
+ * @property mixed amount
  * @property mixed package
  * @property int user_id
  * @property int has_discount
@@ -28,7 +28,7 @@ use Illuminate\Database\Eloquent\Model;
 class Billing extends Model
 {
     protected $fillable = [
-        'package', 'currency', 'sales_amount', 'total_amount', 'has_discount', 'discount_price', 'payment_status',
+        'package', 'currency', 'sales_amount', 'amount', 'has_discount', 'discount_price', 'payment_status',
         'city', 'state', 'country', 'postal_code', 'payment_method'
     ];
 
@@ -37,7 +37,7 @@ class Billing extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function create($request, $paymentId, $payerId, $token)
+    public function create($request, $paymentId, $payerId)
     {
         $discountPrice = $request['discount_price'];
 
@@ -47,12 +47,12 @@ class Billing extends Model
         $this->postal_code = $request['postal_code'];
         $this->sales_amount = $request['sales_amount'];
         $this->discount_price = $discountPrice;
-        $this->total_amount = $request['total_amount'];
+        $this->amount = $request['amount'];
         $this->package = $request['package'];
         $this->payment_id = $paymentId;
         $this->payer_id = $payerId;
-        $this->token = $token;
-        $this->payment_method = 'paypal';
+        $this->currency = $request['currency'];
+        $this->payment_method = $request['payment_method'];
         $this->user_id = auth()->user()->id;
 
         if ($discountPrice !== 0) {
@@ -68,7 +68,7 @@ class Billing extends Model
 
     public function getCurrencyAndAmount()
     {
-        return $this->currency . ' ' . $this->total_amount;
+        return $this->currency . ' ' . ($this->currency === 'NGN' ? number_format($this->amount/100) : $this->amount);
     }
 
     public static function hasDiscount()
