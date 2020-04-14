@@ -130,7 +130,7 @@ require('./bootstrap');
         discountText.text("0.00");
         if ($(this).val() === 'Nigeria') {
             $.ajax({
-                url: 'http://data.fixer.io/api/latest?access_key=4e85812a1ae88537761694fe399c8229&format=1',
+                url: 'data.fixer.io/api/latest?access_key=4e85812a1ae88537761694fe399c8229&format=1',
                 type: 'GET',
                 dataType: 'json',
                 success: function (data) {
@@ -170,7 +170,11 @@ require('./bootstrap');
     });
 
     submitButtonId.on('submit', function () {
-        $(this).find('button').prop('disabled', true)
+        if ($(this).find('.error')) {
+            $(this).find('.btn-submit').prop('disabled', false)
+        } else {
+            $(this).find('.btn-submit').prop('disabled', true)
+        }
     });
 
 })(jQuery);

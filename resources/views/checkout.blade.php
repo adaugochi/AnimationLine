@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@section('title', 'Checkout')
 @section('content')
     <div class="mx-auto mb-5">
         <div class="card">
@@ -89,7 +90,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-brand-primary btn-block py-3 text-uppercase">
+                <button class="btn btn-brand-primary btn-block py-3 text-uppercase btn-submit">
                     pay now
                 </button>
             </form>

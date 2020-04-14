@@ -10896,6 +10896,10 @@ a.text-dark:focus {
   transition: all 0.5s ease !important;
 }
 
+.btn:disabled {
+  cursor: not-allowed;
+}
+
 .btn:focus,
 .btn:active,
 .btn:hover {
@@ -11230,7 +11234,13 @@ p {
 }
 
 .navbar-logo {
-  height: 30px;
+  height: 24px;
+}
+
+@media (min-width: 576px) {
+  .navbar-logo {
+    height: 30px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -11265,7 +11275,14 @@ p {
   transition: all 1s;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .navbar-wrapper .nav .nav-link {
+    padding: 10px 7px !important;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 992px) {
   .navbar-wrapper .nav .nav-link {
     padding: 10px 15px !important;
   }
@@ -11301,6 +11318,10 @@ p {
   background-color: #3d3d3d;
 }
 
+.bg-darker {
+  background-color: #242424;
+}
+
 .bg-lg {
   background-image: linear-gradient(#ff5a1a, #ff7f4d);
 }
@@ -11311,6 +11332,10 @@ p {
 
 .text-gray {
   color: #3d3d3d !important;
+}
+
+.text-underline {
+  text-decoration: underline;
 }
 
 .font-paris {
@@ -11349,11 +11374,6 @@ p {
   border-radius: 50%;
 }
 
-.py-100 {
-  padding-top: 100px;
-  padding-bottom: 100px;
-}
-
 .page-title:after {
   content: "";
   display: block;
@@ -11383,36 +11403,32 @@ p {
 .footer {
   background: #3d3d3d;
   color: #ffffff;
-  font-size: 12px;
-  position: absolute;
+  font-size: 14px;
   bottom: 0;
   width: 100%;
 }
 
-.footer .row {
-  border-bottom: 1px solid #bbbbbb;
-  padding-bottom: 30px;
+.footer-logo {
+  height: 60px;
+  margin-bottom: 1rem;
 }
 
-.footer .quick-links p a {
-  color: #ffffff;
+.footer-label {
+  margin-bottom: 1rem !important;
 }
 
-.footer .quick-links p a:hover {
-  color: #ffffff;
-}
-
-.footer .email {
-  text-decoration: underline;
-}
-
-.footer .social-media-logo-container {
-  margin-top: 30px;
+.footer-label:after {
+  content: "";
+  display: block;
+  margin-top: 5px;
+  width: 40px;
+  height: 2px;
+  background-image: linear-gradient(to right, #ff5a1a, #ffa380);
+  transition: all 1s;
 }
 
 .footer .copyright-footer {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding: 15px 0;
 }
 
 .footer .copyright-footer p {
@@ -11427,8 +11443,21 @@ p {
   margin-top: 60px;
 }
 
+.py-100 {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
 .p-10-15 {
   padding: 10px 15px;
+}
+
+.pb-100 {
+  padding-bottom: 100px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .order-text {

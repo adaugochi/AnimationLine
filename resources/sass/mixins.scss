@@ -1,0 +1,9 @@
+@mixin bottomBorder($mt, $h, $w) {
+  content: "";
+  display: block;
+  margin-top: $mt;
+  width: $w;
+  height: $h;
+  background-image: linear-gradient(to right, $brand-orange, lighten($brand-orange, 20%));
+  transition: all 1s;
+}

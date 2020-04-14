@@ -9,6 +9,10 @@
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12) !important;
   transition: all .5s ease !important;
 
+  &:disabled {
+    cursor: not-allowed;
+  }
+
   &:focus, &:active, &:hover {
     box-shadow: none !important;
   }

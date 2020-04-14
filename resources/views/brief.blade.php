@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('title', 'Brief')
+
 @section('content')
     <div class="mx-auto mb-5">
         <div class="card">

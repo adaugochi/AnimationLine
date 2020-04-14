@@ -1,9 +1,11 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
 
-
 // Variables
 @import 'variables';
+
+// mixins
+@import "mixins";
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';

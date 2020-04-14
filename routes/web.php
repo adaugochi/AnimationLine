@@ -1,7 +1,8 @@
 <?php
 
 Route::get('/', function () { return view('welcome');});
-Route::get('/text', function () { return view('text');});
+Route::get('/pricing', function () { return view('pricing');});
+Route::get('/contact', function () { return view('contact');});
 
 Route::get('/checkout-basic', 'CheckoutController@checkoutBasic');
 Route::get('/checkout-standard', 'CheckoutController@checkoutStandard');

@@ -52,6 +52,7 @@ class PaymentController extends Controller
             'sales_amount' => 'required',
             'discount_price' => 'required',
             'amount' => 'required',
+            'email' => 'required',
             'currency' => 'required',
             'package' => 'required|alpha',
             'payment_method' => 'required'

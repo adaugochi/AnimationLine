@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('title', 'Dashboard')
+
 @section('content')
     @include('elements.flash-messages')
     @if(sizeof($billings) > 0)

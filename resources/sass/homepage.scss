@@ -34,7 +34,10 @@ p {
 // NAVIGATION
 .navbar {
   &-logo {
-    height: 30px;
+    height: 24px;
+    @include media-breakpoint-up(sm) {
+      height: 30px;
+    }
   }
   &-right {
     @media (min-width: 768px){
@@ -52,17 +55,16 @@ p {
         &:hover, &:focus {
           color: $brand-orange;
           &:after {
-            content: "";
-            display: block;
-            margin-top: -5px;
-            width: 30px;
-            height: 1px;
-            background-image: linear-gradient(to right, $brand-orange, lighten($brand-orange, 20%));
-            transition: all 1s;
+            @include bottomBorder(-5px, 1px, 30px)
           }
         }
 
-        @include media-breakpoint-up(md) {
+        @include media-breakpoint-only(md) {
+          padding: 10px 7px !important;
+          font-size: 14px;
+        }
+
+        @include media-breakpoint-up(lg) {
           padding: 10px 15px !important;
         }
       }
@@ -101,6 +103,9 @@ p {
       background-color: $brand-grey;
     }
   }
+  &-darker {
+    background-color: darken($brand-grey, 10%);
+  }
   &-lg {
     background-image: linear-gradient($brand-orange, lighten($brand-orange, 10%))
   }
@@ -113,6 +118,9 @@ p {
   }
   &-gray {
     color: $brand-grey !important;
+  }
+  &-underline {
+    text-decoration: underline;
   }
 }
 
@@ -152,11 +160,6 @@ p {
 }
 
 // Why Us
-.py-100 {
-  padding-top: 100px;
-  padding-bottom: 100px;
-}
-
 .page-title:after {
   content: "";
   display: block;
@@ -187,31 +190,22 @@ p {
 .footer {
   background: $brand-grey;
   color: $white;
-  font-size: 12px;
-  position: absolute;
+  font-size: 14px;
   bottom: 0;
   width: 100%;
-  .row {
-    border-bottom: 1px solid #bbbbbb;
-    padding-bottom: 30px
+  &-logo {
+    height: 60px;
+    margin-bottom: 1rem;
   }
-  .quick-links p a {
-    color: $white;
-    &:hover {
-      color: $white;
+  &-label {
+    margin-bottom: 1rem !important;
+    &:after {
+      @include bottomBorder(5px, 2px, 40px)
     }
-  }
-  .email {
-    text-decoration: underline;
-  }
-
-  .social-media-logo-container {
-    margin-top: 30px
   }
 
   .copyright-footer {
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding: 15px 0;
     p {
       margin-bottom: unset !important;
       a {
@@ -223,10 +217,25 @@ p {
   }
 }
 
-.mt-60 {
-  margin-top: 60px
+.m {
+  &t-60 {
+    margin-top: 60px
+  }
 }
 
-.p-10-15 {
-  padding: 10px 15px;
+.p {
+  &y-100 {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  &-10-15 {
+    padding: 10px 15px;
+  }
+  &b-100 {
+    padding-bottom: 100px;
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }

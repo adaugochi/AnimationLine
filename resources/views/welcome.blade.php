@@ -1,4 +1,10 @@
 @extends('layouts.app')
+@section('title', 'Welcome')
+@section('header-text', \App\Contants\Message::WELCOME_HEADER_TEXT)
+@section('body-text', \App\Contants\Message::WELCOME_BODY_TEXT)
+@section('image')
+    <img src="{{ asset('img/header.svg') }}">
+@endsection()
 @section('content')
     <section id="whyUs" class="py-100">
         <div class="container text-center">
@@ -148,56 +154,7 @@
             </div>
         </div>
     </section>
-    <section id="pricing" class="py-100 text-center">
-        <div class="container">
-            <h1 class="page-title">Our Services</h1>
-            <p>We offer 3 straight forward packages to match everyones needs.</p>
-            <div class="row mt-5">
-                <div class="col-md-4 mb-4 mb-md-0">
-                    <div class="card card-scale">
-                        <h1>Basic</h1>
-                        <h1 class="font-weight-bold text-brand-primary fs-60">$79</h1>
-                        <p>One Page App UI</p>
-                        <p>Source PSD Layered file</p>
-                        <p>Unlimited Revisions</p>
-                        <div>
-                            <a class="btn btn-brand-primary btn-lg mt-2" href="/checkout-basic">Check out</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 mb-4 mb-md-0">
-                    <div class="card bg-lg card-scale">
-                        <h1>Standard</h1>
-                        <h1 class="font-weight-bold text-white fs-60">$199</h1>
-                        <p>Three Page App UI</p>
-                        <p>Source PSD Layered file</p>
-                        <p>Commercial use</p>
-                        <p>Unlimited Revisions</p>
-                        <div>
-                            <a class="btn btn-brand-white-outline btn-lg mt-2" href="/checkout-standard">Check out</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 mb-4 mb-md-0">
-                    <div class="card card-scale">
-                        <h1>Pro</h1>
-                        <h1 class="font-weight-bold text-brand-primary fs-60">$299</h1>
-                        <p>Six Page App UI </p>
-                        <p>Source PSD Layered file</p>
-                        <p>Commercial use</p>
-                        <p>Responsive Design</p>
-                        <p>Unlimited Revisions</p>
-                        <div>
-                            <a class="btn btn-brand-primary btn-lg mt-2" href="/checkout-pro">Check out</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="py-100 bg-white text-center">
+    <section class="pb-100 text-center">
         <div class="container">
             <h1>Happiness Guarantee</h1>
             <h5 class="page-title">Our 100% Money Back Guarantee</h5>
@@ -209,25 +166,44 @@
             <h5 class="font-weight-bold">Ogundairo Abayomi</h5>
             <p>CEO,  Animation Line</p>
 
-            @include('elements.feature')
-        </div>
-    </section>
-    <section class="footer">
-        <div class="copyright-footer container d-md-flex justify-content-between">
-            <p>
-                <span>© <?= date('Y'); ?> Animation Line. All rights reserved. </span>
-                <a class="text-brand-primary" href="#">www.animationline.com</a>
-            </p>
-
-            <div>
-                <span data-toggle="modal" data-target="#policyModal">
-                    <span>Privacy policy</span>
-                    @include('elements.modal', ['modalId' => 'policyModal', 'modalTitle' => 'Privacy Policy'])
-                </span>
-                    <span data-toggle="modal" data-target="#tcModal" class="ml-3">
-                    <span>Terms & Conditions</span>
-                    @include('elements.modal', ['modalId' => 'tcModal', 'modalTitle' => 'Terms & Conditions'])
-                </span>
+            <div class="row mt-5 text-left">
+                <div class="col-md-4">
+                    <div class="feature-box mb-4 mb-md-0">
+                        <div class="icon">
+                            <i class="material-icons">check_circle_outline</i>
+                        </div>
+                        <div class="feature-content">
+                            <h5>30 Days Refund Policy</h5>
+                            <p>
+                                If you are not 100% satisfied with your order, you have 30 days to request a full refund.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box mb-4 mb-md-0">
+                        <div class="icon">
+                            <i class="material-icons">lock_outline</i>
+                        </div>
+                        <div class="feature-content">
+                            <h5>Your Data is Secure</h5>
+                            <p>
+                                We use a 256-bit encryption protocol to keep your private data secure at all time.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <div class="icon">
+                            <i class="material-icons">contact_support</i>
+                        </div>
+                        <div class="feature-content">
+                            <h5>Customer Support</h5>
+                            <p class="mb-2">For support, contact <span class="text-brand-primary text-underline">support@animationline.com</span></p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
