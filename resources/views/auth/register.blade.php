@@ -14,29 +14,29 @@
                 </div>
                 <div class="form-group">
                     <input type="text" class="card-form__input rounded form-control @error('first_name') is-invalid @enderror"
-                           name="first_name" placeholder="Enter First Name">
+                           name="first_name" placeholder="First Name">
                     @include('elements.error', ['fieldName' => 'first_name'])
                 </div>
                 <div class="form-group">
                     <input type="text" class="card-form__input rounded form-control @error('last_name') is-invalid @enderror"
-                           name="last_name" placeholder="Enter Last Name">
+                           name="last_name" placeholder="Last Name">
                     @include('elements.error', ['fieldName' => 'last_name'])
                 </div>
                 <div class="form-group">
                     <input type="text" class="card-form__input rounded form-control @error('email') is-invalid @enderror"
-                           name="email" placeholder="Enter Email">
+                           name="email" placeholder="Email Address">
                     @include('elements.error', ['fieldName' => 'email'])
                 </div>
                 <div class="form-group">
                     <input type="password" class="card-form__input rounded form-control @error('password') is-invalid @enderror"
-                           name="password" placeholder="Enter Password" id="password">
+                           name="password" placeholder="Password" id="password">
                     @include('elements.error', ['fieldName' => 'password'])
                 </div>
                 <div class="form-group">
                     <input type="password" class="card-form__input rounded form-control @error('email') is-invalid @enderror"
                            name="password_confirmation" placeholder="Re-enter Password">
                 </div>
-                <button type="submit" class="btn btn-lg btn-brand-primary btn-block text-uppercase fs-10">Sign Up</button>
+                <button type="submit" class="btn btn-lg btn-brand-primary py-2 btn-block text-uppercase fs-10">Sign Up</button>
 
                 <div class="mt-3 text-center fs-12">
                     Already a member? <a href="{{ url('login') }}" class="text-brand-primary"> Sign In</a>

@@ -11017,9 +11017,9 @@ a.text-dark:focus {
 }
 
 .card-form__label {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
-  margin-bottom: 6px !important;
+  margin-bottom: 4px !important;
   display: block;
 }
 

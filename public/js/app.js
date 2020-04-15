@@ -37510,11 +37510,11 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
       },
       password: {
         required: true,
-        minlength: 6
+        minlength: 8
       },
       password_confirmation: {
         required: true,
-        minlength: 6,
+        minlength: 8,
         equalTo: "#password"
       },
       app_full_name: "required",
