@@ -19,15 +19,15 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label class="card-form__label">City<span class="text-danger">*</span></label>
-                            <input type="text" name="city" class="form-control card-form__input">
+                            <input type="text" name="city" class="form-control card-form__input" autocomplete="true">
                         </div>
                         <div class="form-group col-md-6">
                             <label class="card-form__label">Postal Code</label>
-                            <input type="text" name="postal_code" class="card-form__input form-control">
+                            <input type="tel" name="postal_code" class="card-form__input form-control">
                         </div>
                         <div class="form-group col-md-6">
                             <label class="card-form__label">Country<span class="text-danger">*</span></label>
-                            <select name="country" class="card-form__input form-control" id="country">
+                            <select name="country" class="card-form__input form-control" id="country" autocomplete="true">
                                 <option value="">Please choose a country</option>
                                 @foreach(\App\Country::getAllCountries() as $country)
                                     <option value="{{ $country->name }}">{{ $country->name }}</option>
@@ -36,7 +36,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label class="card-form__label">State<span class="text-danger">*</span></label>
-                            <input type="text" name="state" class="card-form__input form-control">
+                            <input type="text" name="state" class="card-form__input form-control" autocomplete="true">
                         </div>
                     </div>
                 </div>

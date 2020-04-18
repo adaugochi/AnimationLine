@@ -49,26 +49,28 @@ p {
   &-wrapper {
     top: 40px;
     .nav {
-      .nav-link {
+      &-link.dropdown-toggle {
         padding: 0 1rem;
-        color: $brand-grey;
+        cursor: pointer;
+      }
+      &-active {
+        padding: 0 1rem;
+        color: $brand-grey !important;
         &:hover, &:focus {
-          color: $brand-orange;
+          color: $brand-orange !important;
           &:after {
             @include bottomBorder(-5px, 1px, 30px)
           }
         }
-
-        @include media-breakpoint-only(md) {
-          padding: 10px 7px !important;
-          font-size: 14px;
-        }
-
+      }
+      &-active, &-link.dropdown-toggle {
         @include media-breakpoint-up(lg) {
           padding: 10px 15px !important;
+          font-size: 14px;
         }
       }
     }
+
     .navbar-collapse {
       line-height: 3 !important;
     }
@@ -238,4 +240,17 @@ p {
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+.service {
+  &__img-width {
+    width: 300px;
+  }
+  &__inverted {
+    @include media-breakpoint-up(md) {
+      .service__text {
+        order: 2;
+      }
+    }
+  }
 }

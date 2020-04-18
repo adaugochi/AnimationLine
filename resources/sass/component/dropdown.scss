@@ -1,0 +1,35 @@
+.dropdown {
+  &-menu {
+    transition: all 0.5s;
+    max-height: 0;
+    display: block;
+    overflow: hidden;
+    opacity: 0;
+  }
+  &.show &-menu {
+    max-height: 200px;
+    opacity: 1;
+  }
+
+  &__custom-navbar {
+    top: 50px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    border: unset;
+    padding: 5px;
+    a {
+      font-size: 12px;
+      text-transform: none;
+      padding: 0.25rem 1rem !important;
+      color: $brand-grey !important;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all .25s linear;
+      &:hover {
+        color: $white !important;
+        background-color: $brand-orange;
+        font-size: 13px;
+        box-shadow: 0 12px 20px -10px $brand-orange, 0 4px 20px 0 rgba(0,0,0,.12), 0 7px 8px -5px $brand-orange;
+      }
+    }
+  }
+}

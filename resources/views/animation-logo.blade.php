@@ -8,7 +8,7 @@
 @section('content')
     <section id="pricing" class="py-100 text-center">
         <div class="container">
-            <h1 class="page-title">Our Services</h1>
+            <h1 class="page-title">Pricing</h1>
             <p>We offer 3 straight forward packages to match everyones needs.</p>
             <div class="row mt-5">
                 <div class="col-md-4 mb-4 mb-md-0">

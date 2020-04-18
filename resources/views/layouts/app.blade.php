@@ -19,7 +19,7 @@
         </marquee>
     </nav>
     <div class="bg-white">
-        <nav class="navbar navbar-expand-md bg-white navbar-dark navbar-wrapper">
+        <nav class="navbar navbar-expand-lg bg-white navbar-dark navbar-wrapper">
             <div class="container">
                 <div class="navbar-brand">
                     <img src="{{ asset('img/logo.svg') }}" class="navbar-logo">
@@ -30,19 +30,38 @@
                 <div class="collapse navbar-collapse justify-content-end" id="myNavbar">
                     <ul class="nav navbar-nav ">
                         <li>
-                            <a class="nav-link" href="/">Home</a>
+                            <a class="nav-link nav-active" href="/">Home</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="#whyUs">Why Us</a>
+                            <a class="nav-link nav-active" href="#whyUs">Why Us</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="#aboutUs">About Us</a>
+                            <a class="nav-link nav-active" href="#aboutUs">About Us</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="/pricing">Pricing</a>
+                            <a class="nav-link nav-active" href="#services">Services</a>
+                        </li>
+                        <li class="dropdown">
+                            <a class="nav-link dropdown-toggle text-gray" id="navbardrop" data-toggle="dropdown">
+                                Pricing
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-sm-right dropdown-menu-lg-left dropdown__custom-navbar">
+                                <a class="dropdown-item" href="{{ route('animation-logo') }}">
+                                    Create your logo with animation
+                                </a>
+                                <a class="dropdown-item" href="{{ route('animation-video') }}">
+                                    Create animation video
+                                </a>
+                                <a class="dropdown-item" href="{{ route('animation-photo') }}">
+                                    Make your photo come alive with animation
+                                </a>
+                            </div>
                         </li>
                         <li>
-                            <a class="nav-link" href="/contact">Contact Us</a>
+                            <a class="nav-link nav-active" href="/contact">Contact Us</a>
+                        </li>
+                        <li>
+                            <a class="nav-link nav-active" href="/">Blog</a>
                         </li>
                         <li class="p-10-15">
                             <a class="btn btn-brand-primary-outline" href="/login">Sign In</a>
@@ -137,24 +156,26 @@
                 </div>
             </div>
             <div class="bg-darker">
-                <div class="container copyright-footer d-md-flex justify-content-between">
-                    <p>
-                        <span>© Copyright <?= date('Y'); ?> Animation Line. All rights reserved. </span>
-                        <a class="text-brand-primary" href="https://animationline.com">www.animationline.com</a>
-                    </p>
-                    <div class="mt-3 mt-md-0">
-                        <a class="mr-3 text-decoration-none" href="#" target="_blank">
-                            <i class="fa fa-youtube-play fs-20 text-white"></i>
-                        </a>
-                        <a class="mr-3 text-decoration-none" href="#" target="_blank">
-                            <i class="fa fa-instagram fs-20 text-white"></i>
-                        </a>
-                        <a class="mr-3 text-decoration-none" href="#" target="_blank">
-                            <i class="fa fa-twitter fs-20 text-white"></i>
-                        </a>
-                        <a class="mr-3 text-decoration-none" href="https://fb.me/Animationline2020" target="_blank">
-                            <i class="fa fa-facebook fs-20 text-white"></i>
-                        </a>
+                <div class="container">
+                    <div class="copyright-footer d-md-flex justify-content-between">
+                        <p>
+                            <span>© Copyright <?= date('Y'); ?> Animation Line. All rights reserved. </span>
+                            <a class="text-brand-primary" href="https://animationline.com">www.animationline.com</a>
+                        </p>
+                        <div class="mt-3 mt-md-0">
+                            <a class="mr-3 text-decoration-none" href="#" target="_blank">
+                                <i class="fa fa-youtube-play fs-20 text-white"></i>
+                            </a>
+                            <a class="mr-3 text-decoration-none" href="https://www.instagram.com/animationline/" target="_blank">
+                                <i class="fa fa-instagram fs-20 text-white"></i>
+                            </a>
+                            <a class="mr-3 text-decoration-none" href="https://twitter.com/AnimationLine" target="_blank">
+                                <i class="fa fa-twitter fs-20 text-white"></i>
+                            </a>
+                            <a class="mr-3 text-decoration-none" href="https://fb.me/Animationline2020" target="_blank">
+                                <i class="fa fa-facebook fs-20 text-white"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

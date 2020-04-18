@@ -11,13 +11,13 @@
                 <div class="fs-28 mb-3 font-weight-lighter text-brand-primary">Login</div>
                 <div class="form-group">
                     <input type="text" class="card-form__input rounded form-control @error('email') is-invalid @enderror"
-                    name="email" placeholder="Email Address">
+                    name="email" placeholder="Email Address" autocomplete="true">
                     @include('elements.error', ['fieldName' => 'email'])
                 </div>
 
                 <div class="form-group">
                     <input type="password" class="card-form__input rounded form-control @error('password') is-invalid @enderror"
-                    name="password" placeholder="Password">
+                    name="password" placeholder="Password" autocomplete="true">
                     @include('elements.error', ['fieldName' => 'password'])
                     @if (Route::has('password.request'))
                         <a class="text-brand-primary fs-12 d-block mt-3" href="{{ route('password.request') }}">

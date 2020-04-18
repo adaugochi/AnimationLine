@@ -11199,6 +11199,43 @@ label.error {
   color: #666;
 }
 
+.dropdown-menu {
+  transition: all 0.5s;
+  max-height: 0;
+  display: block;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.dropdown.show .dropdown-menu {
+  max-height: 200px;
+  opacity: 1;
+}
+
+.dropdown__custom-navbar {
+  top: 50px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  border: unset;
+  padding: 5px;
+}
+
+.dropdown__custom-navbar a {
+  font-size: 12px;
+  text-transform: none;
+  padding: 0.25rem 1rem !important;
+  color: #3d3d3d !important;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.25s linear;
+}
+
+.dropdown__custom-navbar a:hover {
+  color: #ffffff !important;
+  background-color: #ff5a1a;
+  font-size: 13px;
+  box-shadow: 0 12px 20px -10px #ff5a1a, 0 4px 20px 0 rgba(0, 0, 0, 0.12), 0 7px 8px -5px #ff5a1a;
+}
+
 body {
   overflow-x: hidden;
   overflow-y: auto;
@@ -11254,18 +11291,23 @@ p {
   top: 40px;
 }
 
-.navbar-wrapper .nav .nav-link {
+.navbar-wrapper .nav-link.dropdown-toggle {
   padding: 0 1rem;
-  color: #3d3d3d;
+  cursor: pointer;
 }
 
-.navbar-wrapper .nav .nav-link:hover,
-.navbar-wrapper .nav .nav-link:focus {
-  color: #ff5a1a;
+.navbar-wrapper .nav-active {
+  padding: 0 1rem;
+  color: #3d3d3d !important;
 }
 
-.navbar-wrapper .nav .nav-link:hover:after,
-.navbar-wrapper .nav .nav-link:focus:after {
+.navbar-wrapper .nav-active:hover,
+.navbar-wrapper .nav-active:focus {
+  color: #ff5a1a !important;
+}
+
+.navbar-wrapper .nav-active:hover:after,
+.navbar-wrapper .nav-active:focus:after {
   content: "";
   display: block;
   margin-top: -5px;
@@ -11275,16 +11317,11 @@ p {
   transition: all 1s;
 }
 
-@media (min-width: 768px) and (max-width: 991.98px) {
-  .navbar-wrapper .nav .nav-link {
-    padding: 10px 7px !important;
-    font-size: 14px;
-  }
-}
-
 @media (min-width: 992px) {
-  .navbar-wrapper .nav .nav-link {
+  .navbar-wrapper .nav-active,
+  .navbar-wrapper .nav-link.dropdown-toggle {
     padding: 10px 15px !important;
+    font-size: 14px;
   }
 }
 
@@ -11458,6 +11495,16 @@ p {
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+.service__img-width {
+  width: 300px;
+}
+
+@media (min-width: 768px) {
+  .service__inverted .service__text {
+    order: 2;
+  }
 }
 
 .order-text {

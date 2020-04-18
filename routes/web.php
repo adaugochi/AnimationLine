@@ -1,7 +1,8 @@
 <?php
-
 Route::get('/', function () { return view('welcome');});
-Route::get('/pricing', function () { return view('pricing');});
+Route::get('/animation-logo', function () { return view('animation-logo');})->name('animation-logo');
+Route::get('/animation-photo', function () { return view('animation-photo');})->name('animation-photo');
+Route::get('/animation-video', function () { return view('animation-video');})->name('animation-video');
 Route::get('/contact', function () { return view('contact');});
 
 Route::get('/checkout-basic', 'CheckoutController@checkoutBasic');
@@ -10,7 +11,6 @@ Route::get('/checkout-pro', 'CheckoutController@checkoutPro');
 Route::get('/pay-with-paypal', 'CheckoutController@paywithpaypal');
 Route::get('/execute-payment', 'PaymentController@executePayment');
 Route::get('/brief/{id}', 'BriefController@index');
-
 
 Route::post('/create-payment', 'PaymentController@createPayment')->name('create-payment');
 Route::post('/create-brief', 'BriefController@createBrief')->name('create-brief');

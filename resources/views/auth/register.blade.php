@@ -14,17 +14,17 @@
                 </div>
                 <div class="form-group">
                     <input type="text" class="card-form__input rounded form-control @error('first_name') is-invalid @enderror"
-                           name="first_name" placeholder="First Name">
+                           name="first_name" placeholder="First Name" autocomplete="true">
                     @include('elements.error', ['fieldName' => 'first_name'])
                 </div>
                 <div class="form-group">
                     <input type="text" class="card-form__input rounded form-control @error('last_name') is-invalid @enderror"
-                           name="last_name" placeholder="Last Name">
+                           name="last_name" placeholder="Last Name" autocomplete="true">
                     @include('elements.error', ['fieldName' => 'last_name'])
                 </div>
                 <div class="form-group">
                     <input type="text" class="card-form__input rounded form-control @error('email') is-invalid @enderror"
-                           name="email" placeholder="Email Address">
+                           name="email" placeholder="Email Address" autocomplete="true">
                     @include('elements.error', ['fieldName' => 'email'])
                 </div>
                 <div class="form-group">
@@ -39,7 +39,7 @@
                 <button type="submit" class="btn btn-lg btn-brand-primary py-2 btn-block text-uppercase fs-10">Sign Up</button>
 
                 <div class="mt-3 text-center fs-12">
-                    Already a member? <a href="{{ url('login') }}" class="text-brand-primary"> Sign In</a>
+                    Already a member? <a href="{{ url('login') }}" class="text-brand-primary">Sign In</a>
                 </div>
             </div>
         </div>

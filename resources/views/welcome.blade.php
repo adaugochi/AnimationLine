@@ -8,10 +8,11 @@
 @section('content')
     <section id="whyUs" class="py-100">
         <div class="container text-center">
-            <h1 class="page-title">Why Choose Animation Line?</h1>
+            <h1 class="page-title">Why Choose AnimationLine?</h1>
             <p>
-                Animation Line has been the #1 Leading World Design Animation Video. We are sure a trial will convince
-                you, that's why we go above and beyond to create unique & professional App Mockup at an affordable price.
+                AnimationLine has been the #1 World Leading Video Animation Company . We are sure a trial
+                will convince you, that's why we go above and beyond to create unique & professional
+                Animation video at an affordable price.
             </p>
 
             <div class="mt-5">
@@ -53,14 +54,12 @@
         <div class="container text-center">
             <h1 class="page-title">About Us</h1>
             <p>
-                Any Style & Any Genre... Professionally Designed To Appeal To Your Target Audience. Here are some of
-                our work at Animation Line
+                AnimationLine is an online animation company that allows you to easily order for your
+                professional animated videos for all industries in job roles like marketing, training, and eLearning.
             </p>
             <a href="/login" class="btn-brand-primary my-3 py-3 btn px-5">Get Started</a>
             
-            <div class="row">
-
-            </div>
+            <div class="row"></div>
         </div>
     </section>
     <section id="works" class="text-center text-white">
@@ -94,13 +93,30 @@
             </div>
         </div>
     </section>
+    <section id="services" class="py-100 text-center">
+        <div class="container">
+            <h1 class="page-title mb-3">Our Services</h1>
+            @include('elements.service', [
+                'header' => 'Create Your Animation Video', 'addClass' => '', 'img' => 'img/video.svg'
+            ])
+            @include('elements.service', [
+                'header' => 'Create Your Logo With Animation',
+                'addClass' => 'service__inverted',
+                'img' => 'img/logo-design.svg'
+            ])
+            @include('elements.service', [
+                'header' => 'Make Your Photo Come Alive With Animation',
+                'addClass' => '', 'img' => 'img/photo.svg'
+            ])
+        </div>
+    </section>
     <section id="customer" class="py-100 bg-white text-center">
         <div class="container">
             <h1 class="page-title">What Our Customers Say</h1>
             <p>
-                We have produced over 2000 App UI in the last 3 years & we have ensured that every single one of our
-                customers are 100% happy with our design, that is why we constantly receive glowing feedback like
-                some of the examples below.
+                We have produced over 2000 App UI in the last 3 years & we have ensured that every single one
+                of our customers are 100% happy with our design, that is why we constantly receive glowing
+                feedback like some of the examples below.
             </p>
 
             <div class="row mt-5">
@@ -113,7 +129,7 @@
                         <p class="page-title">Entrepreneur</p>
                         <div>
                             <p>
-                                "This was not an easy brief and to be honest I expected it to  take longer.
+                                "This was not an easy script and to be honest I expected it to take longer.
                                 When I showed it to others, was well above expectations."
                             </p>
                         </div>
@@ -129,8 +145,8 @@
                         <p class="page-title">App Designer</p>
                         <div>
                             <p>
-                                "Brilliant design. Followed my brief exactly and produced a fantastic App Mock-up.
-                                Will definitely use again."
+                                "Brilliant Animation Video. Followed my Script exactly and produced a fantastic
+                                Animation video. Will definitely use it again"
                             </p>
                         </div>
                     </div>
@@ -145,8 +161,8 @@
                         <p class="page-title">App Designer</p>
                         <div>
                             <p>
-                                "I cannot recommend Active Mockup enough. I'm not very creative so i let them take
-                                charge & they over delivered "
+                                "I cannot recommend AnimationLine enough. I'm not very creative so i let them take
+                                charge & they over delivered"
                             </p>
                         </div>
                     </div>
@@ -164,7 +180,7 @@
                 we will be more than happy to edit the design or simply give you a full refund.
             </p>
             <h5 class="font-weight-bold">Ogundairo Abayomi</h5>
-            <p>CEO,  Animation Line</p>
+            <p>CEO,  AnimationLine</p>
 
             <div class="row mt-5 text-left">
                 <div class="col-md-4">
@@ -188,7 +204,7 @@
                         <div class="feature-content">
                             <h5>Your Data is Secure</h5>
                             <p>
-                                We use a 256-bit encryption protocol to keep your private data secure at all time.
+                                We use a 256-bit encryption protocol to keep your private data secure at all times.
                             </p>
                         </div>
                     </div>
@@ -200,7 +216,10 @@
                         </div>
                         <div class="feature-content">
                             <h5>Customer Support</h5>
-                            <p class="mb-2">For support, contact <span class="text-brand-primary text-underline">support@animationline.com</span></p>
+                            <p class="mb-2">
+                                For support, contact
+                                <span class="text-brand-primary text-underline">support@animationline.com</span>
+                            </p>
                         </div>
                     </div>
                 </div>
