@@ -1,13 +1,16 @@
+html, body {
+  height: 100%;
+}
+
 body {
   overflow-x: hidden;
   overflow-y: auto;
   margin: 0;
+  padding: 0;
   color: $brand-grey;
   font-family: 'Nunito', sans-serif;
   display: block;
   position: relative;
-  min-height: 100vh;
-  padding-bottom: 100px;
 }
 
 p {
@@ -47,7 +50,10 @@ p {
   }
 
   &-wrapper {
-    top: 40px;
+    height: 80px;
+    &.tp-40px {
+      top: 40px;
+    }
     .nav {
       &-link.dropdown-toggle {
         padding: 0 1rem;
@@ -56,7 +62,7 @@ p {
       &-active {
         padding: 0 1rem;
         color: $brand-grey !important;
-        &:hover, &:focus {
+        &:hover, &:focus, &.active-class {
           color: $brand-orange !important;
           &:after {
             @include bottomBorder(-5px, 1px, 30px)
@@ -193,7 +199,7 @@ p {
   background: $brand-grey;
   color: $white;
   font-size: 14px;
-  bottom: 0;
+  position: relative;
   width: 100%;
   &-logo {
     height: 60px;
@@ -205,7 +211,9 @@ p {
       @include bottomBorder(5px, 2px, 40px)
     }
   }
+}
 
+.footer, #footer {
   .copyright-footer {
     padding: 15px 0;
     p {
@@ -251,6 +259,11 @@ p {
       .service__text {
         order: 2;
       }
+    }
+  }
+  &__text {
+    p {
+      font-size: 16px;
     }
   }
 }

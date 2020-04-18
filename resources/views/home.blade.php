@@ -3,6 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content')
+    <div class="mx-auto">
     @include('elements.flash-messages')
     @if(sizeof($billings) > 0)
         <div class="table-responsive">
@@ -48,4 +49,5 @@
         </div>
     @endif
     {{ $billings->render() }}
+    </div>
 @endsection

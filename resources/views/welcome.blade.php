@@ -123,9 +123,9 @@
                 <div class="col-md-4 mb-4">
                     <div class="card card-height customer">
                         <div class="mb-3">
-                            <img src="{{ asset('images/customer2.jpg') }}" class="card-image-width bd-radius">
+                            <img src="{{ asset('images/customer2.jpeg') }}" class="card-image-width bd-radius">
                         </div>
-                        <h4>Michael Smith</h4>
+                        <h4>Michael Adewunmi</h4>
                         <p class="page-title">Entrepreneur</p>
                         <div>
                             <p>
@@ -170,7 +170,7 @@
             </div>
         </div>
     </section>
-    <section class="pb-100 text-center">
+    <section class="py-100 text-center">
         <div class="container">
             <h1>Happiness Guarantee</h1>
             <h5 class="page-title">Our 100% Money Back Guarantee</h5>

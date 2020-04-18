@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Anination Line - @yield('title')</title>
+    <title>AnimationLine - @yield('title')</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -13,13 +13,13 @@
 <body class="ht-100v">
     <nav class="navbar bg-brand-primary navbar-scrolling fixed-top">
         <marquee class="container">
-            <span class="text-white">Get 10% OFF Your First Order With </span>
+            <span class="text-white">Get 10% OFF Your First Order With</span>
             <span class="box-text">Coupon Code: <b>NEW10.</b></span>
             <strong>Offer Ends March 20th 2020</strong>
         </marquee>
     </nav>
     <div class="bg-white">
-        <nav class="navbar navbar-expand-lg bg-white navbar-dark navbar-wrapper">
+        <nav class="navbar navbar-expand-lg bg-white navbar-dark navbar-wrapper tp-40px">
             <div class="container">
                 <div class="navbar-brand">
                     <img src="{{ asset('img/logo.svg') }}" class="navbar-logo">
@@ -29,18 +29,10 @@
                 </span>
                 <div class="collapse navbar-collapse justify-content-end" id="myNavbar">
                     <ul class="nav navbar-nav ">
-                        <li>
-                            <a class="nav-link nav-active" href="/">Home</a>
-                        </li>
-                        <li>
-                            <a class="nav-link nav-active" href="#whyUs">Why Us</a>
-                        </li>
-                        <li>
-                            <a class="nav-link nav-active" href="#aboutUs">About Us</a>
-                        </li>
-                        <li>
-                            <a class="nav-link nav-active" href="#services">Services</a>
-                        </li>
+                        <li><a class="nav-link nav-active" href="/">Home</a></li>
+                        <li><a class="nav-link nav-active" href="/#whyUs">Why Us</a></li>
+                        <li><a class="nav-link nav-active" href="/#aboutUs">About Us</a></li>
+                        <li><a class="nav-link nav-active" href="/#services">Services</a></li>
                         <li class="dropdown">
                             <a class="nav-link dropdown-toggle text-gray" id="navbardrop" data-toggle="dropdown">
                                 Pricing
@@ -57,12 +49,8 @@
                                 </a>
                             </div>
                         </li>
-                        <li>
-                            <a class="nav-link nav-active" href="/contact">Contact Us</a>
-                        </li>
-                        <li>
-                            <a class="nav-link nav-active" href="/">Blog</a>
-                        </li>
+                        <li><a class="nav-link nav-active" href="/contact">Contact Us</a></li>
+                        <li><a class="nav-link nav-active" href="#">Blog</a></li>
                         <li class="p-10-15">
                             <a class="btn btn-brand-primary-outline" href="/login">Sign In</a>
                         </li>
@@ -70,7 +58,7 @@
                 </div>
             </div>
         </nav>
-        <div class="container" >
+        <div class="container mt-0 mt-md-5">
             <div class="row header-wrapper">
                 <div class="col-md-5 my-5 header-content text-md-left text-center">
                     <div class="header-text">
@@ -128,9 +116,9 @@
                             </a>
                         </p>
                         <p class="cursor-pointer">
-                            <a href="/pricing" class="text-decoration-none text-white">
+                            <a href="/" class="text-decoration-none text-white">
                                 <i class="fa fa-thumb-tack text-brand-primary mr-1"></i>
-                                Pricing
+                                Blog
                             </a>
                         </p>
                     </div>
@@ -138,7 +126,7 @@
                         <label class="footer-label fs-20">Contact Us</label>
                         <p>
                             <i class="fa fa-clock-o text-brand-primary mr-1"></i>
-                            Mon - Sat 9:00 a.m. - 6:00 p.m. Sunday Closed
+                            Mon - Sat 9:00 a.m. - 5:00 p.m. Sunday Closed
                         </p>
                         <p>
                             <i class="fa fa-map-marker text-brand-primary mr-1"></i>
@@ -155,30 +143,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-darker">
-                <div class="container">
-                    <div class="copyright-footer d-md-flex justify-content-between">
-                        <p>
-                            <span>© Copyright <?= date('Y'); ?> Animation Line. All rights reserved. </span>
-                            <a class="text-brand-primary" href="https://animationline.com">www.animationline.com</a>
-                        </p>
-                        <div class="mt-3 mt-md-0">
-                            <a class="mr-3 text-decoration-none" href="#" target="_blank">
-                                <i class="fa fa-youtube-play fs-20 text-white"></i>
-                            </a>
-                            <a class="mr-3 text-decoration-none" href="https://www.instagram.com/animationline/" target="_blank">
-                                <i class="fa fa-instagram fs-20 text-white"></i>
-                            </a>
-                            <a class="mr-3 text-decoration-none" href="https://twitter.com/AnimationLine" target="_blank">
-                                <i class="fa fa-twitter fs-20 text-white"></i>
-                            </a>
-                            <a class="mr-3 text-decoration-none" href="https://fb.me/Animationline2020" target="_blank">
-                                <i class="fa fa-facebook fs-20 text-white"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @include('elements.sub-footer')
         </section>
     </main>
 

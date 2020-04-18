@@ -33,8 +33,6 @@ require('./bootstrap');
         addSelectedAttr($("#artist"))
     });
 
-
-
     applyCoupon.click(function (e) {
         e.preventDefault();
 
@@ -113,6 +111,12 @@ require('./bootstrap');
             password_confirmation: {
                 equalTo: "Please enter the same password as above"
             }
+        }
+    });
+
+    $('.nav li a').each(function() {
+        if (this.href === window.location.href) {
+            $(this).addClass('active-class');
         }
     });
 

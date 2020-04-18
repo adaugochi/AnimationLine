@@ -37529,6 +37529,11 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
       }
     }
   });
+  $('.nav li a').each(function () {
+    if (this.href === window.location.href) {
+      $(this).addClass('active-class');
+    }
+  });
 
   function commaSeparated(money) {
     return money.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
