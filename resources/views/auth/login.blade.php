@@ -25,7 +25,7 @@
                         </a>
                     @endif
                 </div>
-                <button type="submit" class="btn btn-lg text-uppercase fs-10 py-2 btn-brand-primary btn-block">Sign In</button>
+                <button type="submit" class="btn btn-lg text-uppercase py-3 btn-brand-primary btn-block">Sign In</button>
 
                 <div class="mt-5 text-center fs-12">
                     Not yet a member? <a href="{{ url('register') }}" class="text-brand-primary"> Sign Up</a>

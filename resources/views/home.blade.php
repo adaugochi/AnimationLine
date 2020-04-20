@@ -1,7 +1,5 @@
 @extends('layouts.main')
-
 @section('title', 'Dashboard')
-
 @section('content')
     <div class="mx-auto">
     @include('elements.flash-messages')

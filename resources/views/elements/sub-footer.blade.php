@@ -1,6 +1,6 @@
 <div class="bg-darker">
     <div class="container">
-        <div class="copyright-footer d-md-flex justify-content-between">
+        <div class="copyright-footer d-md-flex justify-content-between text-center text-md-left">
             <p>
                 <span class="text-white">© Copyright <?= date('Y'); ?> AnimationLine. All rights reserved.</span>
                 <a class="text-brand-primary" href="https://animationline.com">www.animationline.com</a>

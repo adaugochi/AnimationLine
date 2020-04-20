@@ -16,7 +16,7 @@
                     @include('elements.error', ['fieldName' => 'email'])
                 </div>
 
-                <button type="submit" class="btn text-uppercase py-2 fs-10 btn-brand-primary btn-block">
+                <button type="submit" class="btn text-uppercase py-3 btn-brand-primary btn-block">
                     Send Password Reset Link
                 </button>
 

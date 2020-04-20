@@ -1,0 +1,32 @@
+//Footer
+.footer {
+  background: $brand-grey;
+  color: $white;
+  font-size: 14px;
+  position: relative;
+  width: 100%;
+  &-logo {
+    height: 60px;
+    margin-bottom: 1rem;
+  }
+  &-label {
+    margin-bottom: 1rem !important;
+    &:after {
+      @include bottomBorder(5px, 2px, 40px)
+    }
+  }
+}
+
+.footer, #footer {
+  .copyright-footer {
+    padding: 15px 0;
+    p {
+      margin-bottom: unset !important;
+      a {
+        &:hover {
+          color: darken($brand-orange, 5%);
+        }
+      }
+    }
+  }
+}

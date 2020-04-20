@@ -36,7 +36,7 @@
                     <input type="password" class="card-form__input rounded form-control @error('email') is-invalid @enderror"
                            name="password_confirmation" placeholder="Re-enter Password">
                 </div>
-                <button type="submit" class="btn btn-lg btn-brand-primary py-2 btn-block text-uppercase fs-10">Sign Up</button>
+                <button type="submit" class="btn btn-lg btn-brand-primary py-3 btn-block text-uppercase">Sign Up</button>
 
                 <div class="mt-3 text-center fs-12">
                     Already a member? <a href="{{ url('login') }}" class="text-brand-primary">Sign In</a>

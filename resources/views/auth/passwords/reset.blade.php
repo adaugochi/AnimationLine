@@ -25,7 +25,7 @@
                            name="password_confirmation" placeholder="Re-enter Password">
                 </div>
 
-                <button type="submit" class="btn text-uppercase py-2 fs-10 btn-brand-primary btn-block">
+                <button type="submit" class="btn text-uppercase py-3 btn-brand-primary btn-block">
                     Reset Password
                 </button>
 

@@ -1,0 +1,43 @@
+// Text
+.text {
+  &-brand-primary {
+    color: $brand-orange;
+  }
+  &-gray {
+    color: $brand-grey !important;
+  }
+  &-underline {
+    text-decoration: underline;
+  }
+}
+
+// Font
+.font {
+  &-paris {
+    font-family: 'Parisienne', cursive;
+  }
+}
+
+.fs {
+  &-60 {
+    font-size: 60px;
+  }
+  &-20 {
+    font-size: 20px;
+  }
+  &-18 {
+    font-size: 18px;
+  }
+  &-12 {
+    font-size: 12px;
+  }
+  &-28 {
+    font-size: 28px;
+  }
+  &-10 {
+    font-size: 10px;
+  }
+  &-16 {
+    font-size: 16px;
+  }
+}

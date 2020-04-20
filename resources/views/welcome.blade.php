@@ -17,35 +17,24 @@
 
             <div class="mt-5">
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="card card-scale">
-                            <img src="{{ asset('img/professional.svg') }}" class="card-image-width mx-auto d-block">
-                            <h3 class="font-weight-bold my-4">Professional</h3>
-                            <p class="fs-16">
-                                Our team of experienced designers are on hand to awesome video animation for your business.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mt-4 mt-md-0">
-                        <div class="card card-scale">
-                            <img src="{{ asset('img/affordable.svg') }}" class="card-image-width mx-auto d-block">
-                            <h3 class="font-weight-bold my-4">Affordable</h3>
-                            <p class="fs-16">
-                                We pride ourselves on the most cost-effective video animation & understand the need to
-                                keep costs low but quality high.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mt-4 mt-md-0">
-                        <div class="card card-scale">
-                            <img src="{{ asset('img/perfection.svg') }}" class="card-image-width mx-auto d-block">
-                            <h3 class="font-weight-bold my-4">Perfection</h3>
-                            <p class="fs-16">
-                                We're not happy until you are happy, that's why we offer a 100% money back guarantee
-                                plus unlimited revisions are available
-                            </p>
-                        </div>
-                    </div>
+                    @include('elements.why', [
+                        'img' => 'img/professional.svg',
+                        'header' => 'Professional', 'mt4' => '',
+                        'body' => 'Our team of experienced designers are on hand to awesome
+                                   video animation for your business.'
+                    ])
+                    @include('elements.why', [
+                        'img' => 'img/affordable.svg',
+                        'header' => 'Affordable', 'mt4' => 'mt-4',
+                        'body' => 'We pride ourselves on the most cost-effective video animation & understand
+                                   the need to keep costs low but quality high.'
+                    ])
+                    @include('elements.why', [
+                        'img' => 'img/perfection.svg',
+                        'header' => 'Perfection', 'mt4' => 'mt-4',
+                        'body' => "We're not happy until you are happy, that's why we offer a 100% money back
+                                   guarantee plus unlimited revisions are available"
+                    ])
                 </div>
             </div>
         </div>
@@ -95,7 +84,7 @@
     </section>
     <section id="services" class="py-100 text-center">
         <div class="container">
-            <h1 class="page-title mb-3">Our Services</h1>
+            <h1 class="page-title mb-0 mb-md-3">Our Services</h1>
             @include('elements.service', [
                 'header' => 'Create Your Animation Video', 'addClass' => '', 'img' => 'img/video.svg'
             ])
@@ -118,55 +107,28 @@
                 of our customers are 100% happy with our design, that is why we constantly receive glowing
                 feedback like some of the examples below.
             </p>
-
             <div class="row mt-5">
-                <div class="col-md-4 mb-4">
-                    <div class="card card-height customer">
-                        <div class="mb-3">
-                            <img src="{{ asset('images/customer2.jpeg') }}" class="card-image-width bd-radius">
-                        </div>
-                        <h4>Michael Adewunmi</h4>
-                        <p class="page-title">Entrepreneur</p>
-                        <div>
-                            <p>
-                                "This was not an easy script and to be honest I expected it to take longer.
-                                When I showed it to others, was well above expectations."
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 mb-4">
-                    <div class="card card-height customer">
-                        <div class="mb-3">
-                            <img src="{{ asset('images/customer1.jpg') }}" class="card-image-width bd-radius">
-                        </div>
-                        <h4>Monika Kowalska</h4>
-                        <p class="page-title">App Designer</p>
-                        <div>
-                            <p>
-                                "Brilliant Animation Video. Followed my Script exactly and produced a fantastic
-                                Animation video. Will definitely use it again"
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 mb-4">
-                    <div class="card card-height customer">
-                        <div class="mb-3">
-                            <img src="{{ asset('images/customer3.jpg') }}" class="card-image-width bd-radius">
-                        </div>
-                        <h4>Andy Bogacky</h4>
-                        <p class="page-title">App Designer</p>
-                        <div>
-                            <p>
-                                "I cannot recommend AnimationLine enough. I'm not very creative so i let them take
+                @include('elements.customers', [
+                    'img' =>  'images/customer2.jpeg',
+                    'customerName' => 'Michael Adewunmi',
+                    'customerOccupation' => 'Entrepreneur',
+                    'comment' => "This was not an easy script and to be honest I expected it to take longer.
+                    When I showed it to others, was well above expectations."
+                ])
+                @include('elements.customers', [
+                    'img' =>  'images/customer1.jpg',
+                    'customerName' => 'Monika Kowalska',
+                    'customerOccupation' => 'App Designer',
+                    'comment' => "Brilliant Animation Video. Followed my Script exactly and produced a fantastic
+                    Animation video. Will definitely use it again"
+                ])
+                @include('elements.customers', [
+                    'img' =>  'images/customer3.jpg',
+                    'customerName' => 'Andy Bogacky',
+                    'customerOccupation' => 'App Designer',
+                    'comment' => "I cannot recommend AnimationLine enough. I'm not very creative so i let them take
                                 charge & they over delivered"
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                ])
             </div>
         </div>
     </section>
@@ -183,32 +145,16 @@
             <p>CEO,  AnimationLine</p>
 
             <div class="row mt-5 text-left">
-                <div class="col-md-4">
-                    <div class="feature-box mb-4 mb-md-0">
-                        <div class="icon">
-                            <i class="material-icons">check_circle_outline</i>
-                        </div>
-                        <div class="feature-content">
-                            <h5>30 Days Refund Policy</h5>
-                            <p>
-                                If you are not 100% satisfied with your order, you have 30 days to request a full refund.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="feature-box mb-4 mb-md-0">
-                        <div class="icon">
-                            <i class="material-icons">lock_outline</i>
-                        </div>
-                        <div class="feature-content">
-                            <h5>Your Data is Secure</h5>
-                            <p>
-                                We use a 256-bit encryption protocol to keep your private data secure at all times.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                @include('elements.guarantee', [
+                    'iconName' => 'check_circle_outline',
+                    'header' => '30 Days Refund Policy',
+                    'body' => 'If you are not 100% satisfied with your order, you have 30 days to request a full refund.'
+                ])
+                @include('elements.guarantee', [
+                    'iconName' => 'lock_outline',
+                    'header' => 'Your Data is Secure',
+                    'body' => 'We use a 256-bit encryption protocol to keep your private data secure at all times.'
+                ])
                 <div class="col-md-4">
                     <div class="feature-box">
                         <div class="icon">

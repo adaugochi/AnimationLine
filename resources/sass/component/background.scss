@@ -1,0 +1,17 @@
+// BACKGROUND
+.bg {
+  &-brand {
+    &-primary {
+      background-color: $brand-orange;
+    }
+    &-dark-gray {
+      background-color: $brand-grey;
+    }
+  }
+  &-darker {
+    background-color: darken($brand-grey, 10%);
+  }
+  &-lg {
+    background-image: linear-gradient($brand-orange, lighten($brand-orange, 10%))
+  }
+}
