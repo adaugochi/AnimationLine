@@ -30,7 +30,7 @@
                             <select name="country" class="card-form__input form-control" id="country" autocomplete="true">
                                 <option value="">Please choose a country</option>
                                 @foreach(\App\Country::getAllCountries() as $country)
-                                    <option value="{{ $country->name }}">{{ $country->name }}</option>
+                                    <option value="{{ $country->code }}">{{ $country->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -50,7 +50,7 @@
                         <h4>{{ ucfirst($package) }} Package</h4>
                         <hr class="line">
                         <div class="d-flex justify-content-between">
-                            <p>Amount</p>
+                            <p>Sales Amount</p>
                             <p>
                                 <span class="currency">USD</span>
                                 <span class="sale-amount">{{ $amount }}</span>
@@ -82,7 +82,7 @@
                         @endif
                         <hr>
                         <div class="d-flex justify-content-between">
-                            <h4 class="font-weight-bold">Total</h4>
+                            <h4 class="font-weight-bold">Total Amount</h4>
                             <h4 class="font-weight-bold">
                                 <span class="currency">USD</span>
                                 <span class="total-amount">{{ $amount }}</span>

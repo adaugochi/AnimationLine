@@ -50,7 +50,7 @@
                                     data-value="{{ $isEdit ? $brief->country_accent : '' }}" id="accent">
                                 <option value="">Please choose a country</option>
                                 @foreach(\App\Country::getAllCountries() as $country)
-                                    <option value="{{ $country->name }}">{{ $country->name }}</option>
+                                    <option value="{{ $country->code }}">{{ $country->name }}</option>
                                 @endforeach
                             </select>
                         </div>
