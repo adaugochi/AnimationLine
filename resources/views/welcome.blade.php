@@ -20,7 +20,7 @@
                     @include('elements.why', [
                         'img' => 'img/professional.svg',
                         'header' => 'Professional', 'mt4' => '',
-                        'body' => 'Our team of experienced designers are on hand to awesome
+                        'body' => 'Our team of experienced designers are on hand to create awesome
                                    video animation for your business.'
                     ])
                     @include('elements.why', [
@@ -39,18 +39,18 @@
             </div>
         </div>
     </section>
-    <section id="aboutUs" class="bg-white py-100">
-        <div class="container text-center">
-            <h1 class="page-title">About Us</h1>
-            <p>
-                AnimationLine is an online animation company that allows you to easily order for your
-                professional animated videos for all industries in job roles like marketing, training, and eLearning.
-            </p>
-            <a href="/login" class="btn-brand-primary my-3 py-3 btn px-5">Get Started</a>
-            
-            <div class="row"></div>
-        </div>
-    </section>
+    {{--<section id="aboutUs" class="bg-white py-100">--}}
+        {{--<div class="container text-center">--}}
+            {{--<h1 class="page-title">About Us</h1>--}}
+            {{--<p>--}}
+                {{--AnimationLine is an online animation company that allows you to easily order for your--}}
+                {{--professional animated videos for all industries in job roles like marketing, training, and eLearning.--}}
+            {{--</p>--}}
+            {{--<a href="/login" class="btn-brand-primary my-3 py-3 btn px-5">Get Started</a>--}}
+            {{----}}
+            {{--<div class="row"></div>--}}
+        {{--</div>--}}
+    {{--</section>--}}
     <section id="works" class="text-center text-white">
         <div class="container">
             <h1 class="page-title">How It Works</h1>
@@ -86,16 +86,26 @@
         <div class="container">
             <h1 class="page-title mb-0 mb-md-3">Our Services</h1>
             @include('elements.service', [
-                'header' => 'Create Your Animation Video', 'addClass' => '', 'img' => 'img/video.svg'
+                'header' => 'Create Your Animation Video',
+                'addClass' => '', 'img' => 'img/test.gif',
+                'body' => 'Create your  professional and  high quality animation video that will capture
+                           your audience and boost your sales revenue.',
+                'link' => '/animation-video'
             ])
             @include('elements.service', [
                 'header' => 'Create Your Logo With Animation',
                 'addClass' => 'service__inverted',
-                'img' => 'img/logo-design.svg'
+                'img' => 'img/logo-design.svg',
+                'link' => '/animation-logo',
+                'body' => 'You wish for your Logo to come Alive? We will transform your logo into
+                           a Awesome 3D moving animation video.'
             ])
             @include('elements.service', [
-                'header' => 'Make Your Photo Come Alive With Animation',
-                'addClass' => '', 'img' => 'img/photo.svg'
+                'header' => 'Create A Text Typography Animation',
+                'addClass' => '', 'img' => 'img/text.svg',
+                'link' => '/animation-text',
+                'body' => 'Design your text and make them attractive and engaging to the audience.
+                           Make your words captivating and creative'
             ])
         </div>
     </section>

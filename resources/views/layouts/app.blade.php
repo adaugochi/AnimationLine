@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AnimationLine - @yield('title')</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/material-icons-min.css') }}" />
-</head>
+@include('elements.head-tag')
 <body class="ht-100v">
     <nav class="navbar bg-brand-primary navbar-scrolling fixed-top">
         <marquee class="container">
@@ -31,7 +22,7 @@
                     <ul class="nav navbar-nav ">
                         <li><a class="nav-link nav-active" href="/">Home</a></li>
                         <li><a class="nav-link nav-active" href="/#whyUs">Why Us</a></li>
-                        <li><a class="nav-link nav-active" href="/#aboutUs">About Us</a></li>
+                        {{--<li><a class="nav-link nav-active" href="/#aboutUs">About Us</a></li>--}}
                         <li><a class="nav-link nav-active" href="/#services">Services</a></li>
                         <li class="dropdown">
                             <a class="nav-link dropdown-toggle text-gray" id="navbardrop" data-toggle="dropdown">
@@ -44,8 +35,8 @@
                                 <a class="dropdown-item" href="{{ route('animation-video') }}">
                                     Create animation video
                                 </a>
-                                <a class="dropdown-item" href="{{ route('animation-photo') }}">
-                                    Make your photo come alive with animation
+                                <a class="dropdown-item" href="{{ route('animation-text') }}">
+                                    Create a text typography animation
                                 </a>
                             </div>
                         </li>
@@ -110,9 +101,9 @@
                             @include('elements.modal', ['modalId' => 'tcModal', 'modalTitle' => 'Terms & Conditions'])
                         </p>
                         <p class="cursor-pointer">
-                            <a href="#about" class="text-decoration-none text-white">
+                            <a href="#services" class="text-decoration-none text-white">
                                 <i class="fa fa-thumb-tack text-brand-primary mr-1"></i>
-                                About Us
+                                Services
                             </a>
                         </p>
                         <p class="cursor-pointer">

@@ -1,7 +1,7 @@
 <?php
 Route::get('/', function () { return view('welcome');});
 Route::get('/animation-logo', function () { return view('animation-logo');})->name('animation-logo');
-Route::get('/animation-photo', function () { return view('animation-photo');})->name('animation-photo');
+Route::get('/animation-text', function () { return view('animation-text');})->name('animation-text');
 Route::get('/animation-video', function () { return view('animation-video');})->name('animation-video');
 Route::get('/contact', function () { return view('contact');});
 
