@@ -1,14 +1,16 @@
 require('./bootstrap');
 require('./validation');
-require('./checkout');
+//require('./checkout');
 
 (function ($) {
     let submitButtonId = $("#validateForm");
 
-    $('.nav li a').each(function() {
-        if (this.href === window.location.href) {
-            $(this).addClass('active-class');
-        }
+    $(document).ready(function () {
+        $('.nav li a').each(function() {
+            if (this.href === window.location.href) {
+                $(this).addClass('active-class');
+            }
+        });
     });
 
     submitButtonId.on('submit', function () {
@@ -17,6 +19,10 @@ require('./checkout');
         } else {
             $(this).find('.btn-submit').prop('disabled', true)
         }
+    });
+
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
     });
 
 })(jQuery);

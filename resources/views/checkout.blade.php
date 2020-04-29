@@ -90,7 +90,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-brand-primary px-5 py-3 text-uppercase btn-submit">
+                <button class="btn btn-brand-primary px-5 py-12 text-uppercase btn-submit">
                     pay now
                 </button>
             </form>

@@ -2,68 +2,70 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 @include('elements.head-tag')
 <body class="ht-100v">
-    <nav class="navbar bg-brand-primary navbar-scrolling fixed-top">
-        <marquee class="container">
-            <span class="text-white">Get 10% OFF Your First Order With</span>
-            <span class="box-text">Coupon Code: <b>NEW10.</b></span>
-            <strong>Offer Ends March 20th 2020</strong>
-        </marquee>
-    </nav>
     <div class="bg-white">
-        <nav class="navbar navbar-expand-lg bg-white navbar-dark navbar-wrapper tp-40px">
-            <div class="container">
-                <div class="navbar-brand">
-                    <img src="{{ asset('img/logo.svg') }}" class="navbar-logo">
-                </div>
-                <span class="navbar-toggler" data-toggle="collapse" data-target="#myNavbar">
-                    <i class="material-icons">menu</i>
-                </span>
-                <div class="collapse navbar-collapse justify-content-end" id="myNavbar">
-                    <ul class="nav navbar-nav ">
-                        <li><a class="nav-link nav-active" href="/">Home</a></li>
-                        <li><a class="nav-link nav-active" href="/#whyUs">Why Us</a></li>
-                        {{--<li><a class="nav-link nav-active" href="/#aboutUs">About Us</a></li>--}}
-                        <li><a class="nav-link nav-active" href="/#services">Services</a></li>
-                        <li class="dropdown">
-                            <a class="nav-link dropdown-toggle text-gray" id="navbardrop" data-toggle="dropdown">
-                                Pricing
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-sm-right dropdown-menu-lg-left dropdown__custom-navbar">
-                                <a class="dropdown-item" href="{{ route('animation-logo') }}">
-                                    Create your logo with animation
-                                </a>
-                                <a class="dropdown-item" href="{{ route('animation-video') }}">
-                                    Create animation video
-                                </a>
-                                <a class="dropdown-item" href="{{ route('animation-text') }}">
-                                    Create a text typography animation
-                                </a>
-                            </div>
-                        </li>
-                        <li><a class="nav-link nav-active" href="/contact">Contact Us</a></li>
-                        <li><a class="nav-link nav-active" href="#">Blog</a></li>
-                        <li class="p-10-15">
-                            <a class="btn btn-brand-primary-outline" href="/login">Sign In</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+        <nav class="navbar bg-brand-primary navbar-scrolling fixed-top">
+            <marquee class="container">
+                <span class="text-white">Get 10% OFF Your First Order With</span>
+                <span class="box-text">Coupon Code: <b>NEW10.</b></span>
+                <strong>Offer Ends March 20th 2020</strong>
+            </marquee>
         </nav>
-        <div class="container mt-0 mt-md-5">
-            <div class="row header-wrapper">
-                <div class="col-md-5 my-5 header-content text-md-left text-center">
-                    <div class="header-text">
-                        <h1 class="text-brand-primary font-weight-bold">
-                            @yield('header-text')
-                        </h1>
-                        <p class="text-gray fs-18">
-                            @yield('body-text')
-                        </p>
-                        <a href="/login" class="btn-brand-white mt-3 py-3 btn px-5">Get Started</a>
+        <div>
+            <nav class="navbar navbar-expand-lg bg-white navbar-dark navbar-wrapper tp-40px">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <img src="{{ asset('img/logo.svg') }}" class="navbar-logo">
+                    </div>
+                    <span class="navbar-toggler" data-toggle="collapse" data-target="#myNavbar">
+                        <i class="material-icons">menu</i>
+                    </span>
+                    <div class="collapse navbar-collapse justify-content-end" id="myNavbar">
+                        <ul class="nav navbar-nav ">
+                            <li><a class="nav-link nav-active" href="/">Home</a></li>
+                            <li><a class="nav-link nav-active" href="/#whyUs">Why Us</a></li>
+                            {{--<li><a class="nav-link nav-active" href="/#aboutUs">About Us</a></li>--}}
+                            <li><a class="nav-link nav-active" href="/#services">Services</a></li>
+                            <li class="dropdown">
+                                <a class="nav-link dropdown-toggle text-gray" id="navbardrop" data-toggle="dropdown">
+                                    Pricing
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-sm-right dropdown-menu-lg-left dropdown__custom-navbar">
+                                    <a class="dropdown-item" href="{{ route('animation-logo') }}">
+                                        Create your logo with animation
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('animation-video') }}">
+                                        Create animation video
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('animation-text') }}">
+                                        Create a text typography animation
+                                    </a>
+                                </div>
+                            </li>
+                            <li><a class="nav-link nav-active" href="{{ route('contact') }}">Contact Us</a></li>
+                            <li><a class="nav-link nav-active" href="#">Blog</a></li>
+                            <li class="ml-3">
+                                <a class="btn btn-brand-primary-outline" href="{{ route('login') }}">Sign In</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <div class="col-md-7">
-                    @yield('image')
+            </nav>
+            <div class="container mt-0 mt-md-5">
+                <div class="row header-wrapper">
+                    <div class="col-md-5 my-5 header-content text-md-left text-center">
+                        <div class="header-text">
+                            <h1 class="font-weight-bold">
+                                @yield('header-text')
+                            </h1>
+                            <p class="text-gray fs-18 ">
+                                @yield('body-text')
+                            </p>
+                            <a href="{{ route('login') }}" class="btn-brand-white mt-3 py-3 btn px-5">Get Started</a>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        @yield('image')
+                    </div>
                 </div>
             </div>
         </div>

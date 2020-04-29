@@ -7,3 +7,12 @@
   background-image: linear-gradient(to right, $brand-orange, lighten($brand-orange, 20%));
   transition: all 1s;
 }
+
+@mixin headerBottomBorder($m) {
+  content: "";
+  display: block;
+  margin: $m;
+  width: 50px;
+  height: 3px;
+  background-image: linear-gradient(to right, $brand-orange, lighten($brand-orange, 20%));
+}

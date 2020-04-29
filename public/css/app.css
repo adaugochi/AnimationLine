@@ -11085,11 +11085,14 @@ label.error {
 }
 
 .table .field-name {
-  font-weight: bold;
   text-transform: uppercase;
   font-size: 11px;
-  color: #343a40;
+  padding: 0.7rem !important;
   font-family: "Arial", sans-serif;
+}
+
+.table td {
+  padding: 0.4rem !important;
 }
 
 .status {
@@ -11216,7 +11219,7 @@ label.error {
   top: 50px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   border: unset;
-  padding: 5px;
+  padding: unset !important;
   width: 250px;
 }
 
@@ -11253,6 +11256,21 @@ label.error {
 
 .header-wrapper img {
   width: inherit;
+}
+
+.header-text h1:after {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 50px;
+  height: 3px;
+  background-image: linear-gradient(to right, #ff5a1a, #ffa380);
+}
+
+@media (min-width: 768px) {
+  .header-text h1:after {
+    margin: 0 !important;
+  }
 }
 
 .navbar-logo {
@@ -11410,6 +11428,13 @@ label.error {
   text-decoration: underline;
 }
 
+.text-linear-grad {
+  background-image: linear-gradient(to right, #ff5a1a, #ffc8b3);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
 .font-paris {
   font-family: "Parisienne", cursive;
 }
@@ -11507,6 +11532,10 @@ p {
 
 .pb-100 {
   padding-bottom: 100px;
+}
+
+.py-12 {
+  padding: 12px 0;
 }
 
 .cursor-pointer {

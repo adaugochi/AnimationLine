@@ -29,15 +29,15 @@
                 <div class="collapse navbar-collapse justify-content-end" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a class="nav-link nav-active" href="/home">Dashboard</a>
+                            <a class="nav-link text-gray" href="/home">Dashboard</a>
                         </li>
-                        <li class="p-10-15">
-                            <a class="btn btn-brand-primary-outline btn-small" href="{{ route('logout') }}"
+                        <li class="ml-md-3">
+                            <a class="btn btn-brand-primary-outline" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                document.getElementById('logout-form').submit();">
                                 {{ __('LOGOUT') }}
                             </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
                         </li>
@@ -47,11 +47,10 @@
         </nav>
     </header>
 
-    <main class="mt-60 container" style="min-height: calc(100vh - 54px - 80px - 60px)">
-        <section class="pb-100" >
+    <main class="mt-4 container" style="min-height: calc(100vh - 54px - 80px - 23px)">
+        <section class="">
             <h4 class="text-gray">
-                <span class="font-paris">{{ $greeting }} </span>
-                <span> - {{ ucfirst(auth()->user()->first_name) }}</span>
+                <span class="font-paris">{{ $greeting }} - {{ ucfirst(auth()->user()->first_name) }}</span>
             </h4>
             @yield('content')
         </section>

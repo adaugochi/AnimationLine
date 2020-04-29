@@ -10,7 +10,7 @@
                         <p>{{ $body }}</p>
                         <a href="{{ $link }}" class="btn-brand-white mt-3 py-3 btn px-5">Learn More</a>
                     </div>
-                    <div class="col-md-6 text-md-left">
+                    <div class="col-md-6 text-md-left mt-5 mt-md-0">
                         <img src="{{ asset($img) }}" alt="logo design" class="w-100">
                     </div>
                 </div>

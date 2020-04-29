@@ -37422,16 +37422,17 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-__webpack_require__(/*! ./validation */ "./resources/js/validation.js");
+__webpack_require__(/*! ./validation */ "./resources/js/validation.js"); //require('./checkout');
 
-__webpack_require__(/*! ./checkout */ "./resources/js/checkout.js");
 
 (function ($) {
   var submitButtonId = $("#validateForm");
-  $('.nav li a').each(function () {
-    if (this.href === window.location.href) {
-      $(this).addClass('active-class');
-    }
+  $(document).ready(function () {
+    $('.nav li a').each(function () {
+      if (this.href === window.location.href) {
+        $(this).addClass('active-class');
+      }
+    });
   });
   submitButtonId.on('submit', function () {
     if ($(this).find('.error')) {
@@ -37439,6 +37440,9 @@ __webpack_require__(/*! ./checkout */ "./resources/js/checkout.js");
     } else {
       $(this).find('.btn-submit').prop('disabled', true);
     }
+  });
+  $(document).ready(function () {
+    $('[data-toggle="tooltip"]').tooltip();
   });
 })(jQuery);
 
@@ -37464,7 +37468,9 @@ try {
 
   __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
 
-  __webpack_require__(/*! jquery-validation */ "./node_modules/jquery-validation/dist/jquery.validate.js");
+  __webpack_require__(/*! jquery-validation */ "./node_modules/jquery-validation/dist/jquery.validate.js"); // require('datatables.net');
+  // require('datatables.net-dt');
+
 } catch (e) {}
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -37489,136 +37495,6 @@ window._ = __webpack_require__(/*! material-icons */ "./node_modules/material-ic
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
-
-/***/ }),
-
-/***/ "./resources/js/checkout.js":
-/*!**********************************!*\
-  !*** ./resources/js/checkout.js ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-(function ($) {
-  var applyCoupon = $(".apply-coupon"),
-      errorText = $(".err-text"),
-      currency = $(".currency"),
-      couponVal = $('.coupon-code'),
-      currencyId = $("#currency"),
-      country = $("#country"),
-      saleAmountInput = $('#saleAmt'),
-      saleAmountText = $('.sale-amount'),
-      totalAmountInput = $('#totalAmt'),
-      discountInput = $('#discount'),
-      totalAmountText = $('.total-amount'),
-      discountText = $('.discount'),
-      discountField = $(".discount-field"),
-      discountSuccess = $(".discount-success"),
-      paymentMethod = $("#paymentMethod"),
-      backUpSaleAmt = $("#backUpSaleAmt"),
-      payment = $(".payment"),
-      submitButtonId = $("#validateForm"),
-      couponCode = 'NEW10';
-  var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "https://community-neutrino-currency-conversion.p.rapidapi.com/convert",
-    "method": "POST",
-    "headers": {
-      "x-rapidapi-host": "community-neutrino-currency-conversion.p.rapidapi.com",
-      "x-rapidapi-key": rapidApiKey,
-      "content-type": "application/x-www-form-urlencoded"
-    },
-    "data": {
-      "from-type": "USD",
-      "to-type": "NGN",
-      "from-value": "1"
-    }
-  };
-
-  function addSelectedAttr($this) {
-    var value = $this.data('value');
-
-    if (value !== '') {
-      $this.find("option[value='" + value + "']").attr('selected', true);
-    }
-  }
-
-  function commaSeparated(money) {
-    return money.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
-  }
-
-  $(document).ready(function () {
-    addSelectedAttr($("#accent"));
-    addSelectedAttr($("#artist"));
-  });
-  $.get("https://ipinfo.io?token=".concat(IPToken), function (response) {
-    country.val(response.country);
-    convertMoney(response.country);
-  }, "jsonp");
-  applyCoupon.click(function (e) {
-    e.preventDefault();
-
-    if (couponVal.val() === couponCode) {
-      var discountAmount = saleAmountInput.val() * 0.10;
-      discountInput.val(discountAmount.toFixed(2));
-      discountText.text(commaSeparated(discountAmount.toFixed(2)));
-      var totalAmount = saleAmountInput.val() - discountAmount.toFixed(2);
-      totalAmountInput.val(totalAmount.toFixed(2));
-      totalAmountText.text(commaSeparated(totalAmount.toFixed(2)));
-      discountField.removeClass('d-flex');
-      discountField.addClass('d-none');
-      discountSuccess.removeClass('d-none');
-      discountSuccess.addClass('d-flex');
-    } else {
-      errorText.removeClass('d-none');
-    }
-  });
-
-  function convertMoney(value) {
-    discountField.addClass('d-flex');
-    discountField.removeClass('d-none');
-    discountSuccess.addClass('d-none');
-    discountSuccess.removeClass('d-flex');
-    discountInput.val(0);
-    discountText.text("0.00");
-
-    if (value === 'NG') {
-      $.ajax(settings).done(function (response) {
-        console.log(response.result);
-
-        function conversion(money) {
-          return response.result * money;
-        }
-
-        var amountInNairaSaleInput = conversion(saleAmountInput.val());
-        totalAmountInput.val(amountInNairaSaleInput.toFixed() * 100);
-        totalAmountText.text(commaSeparated(amountInNairaSaleInput.toFixed()));
-        saleAmountInput.val(amountInNairaSaleInput.toFixed());
-        saleAmountText.text(commaSeparated(amountInNairaSaleInput.toFixed()));
-        currency.text('NGN');
-        currencyId.val('NGN');
-        paymentMethod.val('paystack');
-        payment.text("PayStack");
-        submitButtonId.attr('action', 'pay');
-      });
-    } else {
-      currency.text('USD');
-      currencyId.val('USD');
-      paymentMethod.val('paypal');
-      totalAmountInput.val(backUpSaleAmt.val());
-      totalAmountText.text(backUpSaleAmt.val());
-      saleAmountInput.val(backUpSaleAmt.val());
-      saleAmountText.text(backUpSaleAmt.val());
-      payment.text("PayPal");
-      submitButtonId.attr('action', 'create-payment');
-    }
-  }
-
-  country.on('change', function () {
-    convertMoney($(this).val());
-  });
-})(jQuery);
 
 /***/ }),
 

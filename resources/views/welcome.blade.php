@@ -20,7 +20,7 @@
                     @include('elements.why', [
                         'img' => 'img/professional.svg',
                         'header' => 'Professional', 'mt4' => '',
-                        'body' => 'Our team of experienced designers are on hand to create awesome
+                        'body' => 'Our team of experienced designers are on hand to create an awesome
                                    video animation for your business.'
                     ])
                     @include('elements.why', [
@@ -76,7 +76,7 @@
                     <div class="col-md-3 mt-4 mt-md-0 steps-to">
                         <img src="{{ asset('img/plane.svg') }}" height="50">
                         <h1 class="font-weight-bold mt-3 text-brand-primary">04.</h1>
-                        <h4 class="mt-3 fs-18">Design Delivered</h4>
+                        <h4 class="mt-3 fs-18">Service Delivered</h4>
                     </div>
                 </div>
             </div>
@@ -84,25 +84,25 @@
     </section>
     <section id="services" class="py-100 text-center">
         <div class="container">
-            <h1 class="page-title mb-0 mb-md-3">Our Services</h1>
+            <h1 class="page-title mb-4 mb-md-3">Our Services</h1>
             @include('elements.service', [
                 'header' => 'Create Your Animation Video',
-                'addClass' => '', 'img' => 'img/test.gif',
-                'body' => 'Create your  professional and  high quality animation video that will capture
+                'addClass' => '', 'img' => 'img/video.gif',
+                'body' => 'Create a professional and high-quality animation video that will capture
                            your audience and boost your sales revenue.',
                 'link' => '/animation-video'
             ])
             @include('elements.service', [
                 'header' => 'Create Your Logo With Animation',
                 'addClass' => 'service__inverted',
-                'img' => 'img/logo-design.svg',
+                'img' => 'img/logo.gif',
                 'link' => '/animation-logo',
-                'body' => 'You wish for your Logo to come Alive? We will transform your logo into
-                           a Awesome 3D moving animation video.'
+                'body' => 'Do you wish for your Logo to come alive? We will transform your logo into
+                           an awesome 3D moving animation video.'
             ])
             @include('elements.service', [
                 'header' => 'Create A Text Typography Animation',
-                'addClass' => '', 'img' => 'img/text.svg',
+                'addClass' => '', 'img' => 'img/text.gif',
                 'link' => '/animation-text',
                 'body' => 'Design your text and make them attractive and engaging to the audience.
                            Make your words captivating and creative'
@@ -114,7 +114,7 @@
             <h1 class="page-title">What Our Customers Say</h1>
             <p>
                 We have produced over 2000 App UI in the last 3 years & we have ensured that every single one
-                of our customers are 100% happy with our design, that is why we constantly receive glowing
+                of our customers is 100% happy with our design, that is why we constantly receive glowing
                 feedback like some of the examples below.
             </p>
             <div class="row mt-5">
@@ -136,7 +136,7 @@
                     'img' =>  'images/customer3.jpg',
                     'customerName' => 'Andy Bogacky',
                     'customerOccupation' => 'App Designer',
-                    'comment' => "I cannot recommend AnimationLine enough. I'm not very creative so i let them take
+                    'comment' => "I cannot recommend AnimationLine enough. I'm not very creative so I let them take
                                 charge & they over delivered"
                 ])
             </div>

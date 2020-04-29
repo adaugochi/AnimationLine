@@ -12,6 +12,8 @@ try {
 
     require('bootstrap');
     require('jquery-validation');
+    // require('datatables.net');
+    // require('datatables.net-dt');
 } catch (e) {}
 
 /**

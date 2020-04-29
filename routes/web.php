@@ -3,7 +3,7 @@ Route::get('/', function () { return view('welcome');});
 Route::get('/animation-logo', function () { return view('animation-logo');})->name('animation-logo');
 Route::get('/animation-text', function () { return view('animation-text');})->name('animation-text');
 Route::get('/animation-video', function () { return view('animation-video');})->name('animation-video');
-Route::get('/contact', function () { return view('contact');});
+Route::get('/contact', function () { return view('contact');})->name('contact');
 
 Route::get('/checkout-basic', 'CheckoutController@checkoutBasic');
 Route::get('/checkout-standard', 'CheckoutController@checkoutStandard');

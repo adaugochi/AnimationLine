@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <div>
-                    <button class="btn btn-brand-primary btn-block btn-lg">
+                    <button class="btn btn-brand-primary px-5 py-12">
                         {{ $isEdit ? 'UPDATE BRIEF' : 'SUBMIT BRIEF' }}
                     </button>
                 </div>

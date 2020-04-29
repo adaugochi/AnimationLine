@@ -13,6 +13,12 @@
       width: inherit
     }
   }
+  &-text h1:after {
+    @include headerBottomBorder(0 auto);
+    @include media-breakpoint-up(md) {
+      margin: 0 !important;
+    }
+  }
 }
 
 // NAVIGATION
