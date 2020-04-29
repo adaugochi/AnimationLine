@@ -39,18 +39,6 @@
             </div>
         </div>
     </section>
-    {{--<section id="aboutUs" class="bg-white py-100">--}}
-        {{--<div class="container text-center">--}}
-            {{--<h1 class="page-title">About Us</h1>--}}
-            {{--<p>--}}
-                {{--AnimationLine is an online animation company that allows you to easily order for your--}}
-                {{--professional animated videos for all industries in job roles like marketing, training, and eLearning.--}}
-            {{--</p>--}}
-            {{--<a href="/login" class="btn-brand-primary my-3 py-3 btn px-5">Get Started</a>--}}
-            {{----}}
-            {{--<div class="row"></div>--}}
-        {{--</div>--}}
-    {{--</section>--}}
     <section id="works" class="text-center text-white">
         <div class="container">
             <h1 class="page-title">How It Works</h1>

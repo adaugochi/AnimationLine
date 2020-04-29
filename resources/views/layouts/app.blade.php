@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 @include('elements.head-tag')
-<body class="ht-100v">
+<body>
     <div class="bg-white">
         <nav class="navbar bg-brand-primary navbar-scrolling fixed-top">
             <marquee class="container">
@@ -23,7 +23,6 @@
                         <ul class="nav navbar-nav ">
                             <li><a class="nav-link nav-active" href="/">Home</a></li>
                             <li><a class="nav-link nav-active" href="/#whyUs">Why Us</a></li>
-                            {{--<li><a class="nav-link nav-active" href="/#aboutUs">About Us</a></li>--}}
                             <li><a class="nav-link nav-active" href="/#services">Services</a></li>
                             <li class="dropdown">
                                 <a class="nav-link dropdown-toggle text-gray" id="navbardrop" data-toggle="dropdown">
@@ -78,12 +77,12 @@
                 <div class="row mb-4">
                     <div class="col-md-4">
                         <div class="navbar-brand">
-                            <img src="{{ asset('img/logo.png') }}" class="footer-logo">
+                            <img src="{{ asset('img/logo-white.png') }}" class="footer-logo">
                         </div>
                         <p class="text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                            ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            AnimationLine is an online animation company that allows you to easily order for your
+                            professional animated videos for all industries in job roles like marketing, training,
+                            and eLearning.
                         </p>
                     </div>
                     <div class="col-md-4">

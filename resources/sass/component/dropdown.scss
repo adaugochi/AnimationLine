@@ -24,12 +24,11 @@
       color: $brand-grey !important;
       border-radius: 2px;
       cursor: pointer;
-      transition: all .25s linear;
       &:hover {
         color: $white !important;
         background-color: $brand-orange;
-        font-size: 13px;
-        box-shadow: 0 12px 20px -10px $brand-orange, 0 4px 20px 0 rgba(0,0,0,.12), 0 7px 8px -5px $brand-orange;
+        //font-size: 13px;
+        //box-shadow: 0 12px 20px -10px $brand-orange, 0 4px 20px 0 rgba(0,0,0,.12), 0 7px 8px -5px $brand-orange;
       }
     }
   }
