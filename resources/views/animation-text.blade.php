@@ -8,47 +8,68 @@
 @section('content')
     <section id="pricing" class="py-100 text-center">
         <div class="container">
-            <h1 class="page-title">Pricing</h1>
-            <p>We offer 3 straight forward packages to match everyones needs.</p>
+            <h2 class="page-title">Pricing</h2>
+            <p class="fs-18">
+                In case you desire more than the packages listed above or you wish for a custom animation, kindly
+                send an email to <span class="text-brand-primary">support@animationline.com</span>
+                and we will send get back to you as early as possible.
+            </p>
             <div class="row mt-5">
                 <div class="col-md-4 mb-4 mb-md-0">
                     <div class="card card-scale">
-                        <h1>Basic</h1>
-                        <h1 class="font-weight-bold text-brand-primary fs-60">$79</h1>
-                        <p>One Page App UI</p>
-                        <p>Source PSD Layered file</p>
-                        <p>Unlimited Revisions</p>
+                        <h5>Bronze Package</h5>
+                        <h2 class="font-weight-bold text-brand-primary fs-50">$94.99</h2>
+                        <p>8 No. of Titles</p>
+                        <p>720P Video Quality</p>
+                        <p>Overlay Text</p>
+                        <p>Transparency Background</p>
+                        <p>1 Review</p>
+                        <p>Delivered in 4 Days</p>
+                        <p>custom colours</p>
                         <div>
-                            <a class="btn btn-brand-primary btn-lg mt-2" href="/checkout-basic">Check out</a>
+                            <a class="btn btn-brand-primary btn-lg mt-2" href="{{ route('text-bronze') }}">
+                                Get Started
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-4 mb-4 mb-md-0">
                     <div class="card bg-lg card-scale">
-                        <h1>Standard</h1>
-                        <h1 class="font-weight-bold text-white fs-60">$199</h1>
-                        <p>Three Page App UI</p>
-                        <p>Source PSD Layered file</p>
-                        <p>Commercial use</p>
-                        <p>Unlimited Revisions</p>
+                        <h5>Silver Package</h5>
+                        <h2 class="font-weight-bold text-white fs-50">$129.99</h2>
+                        <p>20 No. of Titles</p>
+                        <p>1080P Video Quality</p>
+                        <p>Background Music</p>
+                        <p>Overlay Text</p>
+                        <p>Transparency Background</p>
+                        <p>3 Reviews</p>
+                        <p>Delivered in 5 Days</p>
+                        <p>custom colours</p>
                         <div>
-                            <a class="btn btn-brand-white-outline btn-lg mt-2" href="/checkout-standard">Check out</a>
+                            <a class="btn btn-brand-white-outline btn-lg mt-2" href="{{ route('text-silver') }}">
+                                Get Started
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-4 mb-4 mb-md-0">
-                    <div class="card card-scale">
-                        <h1>Pro</h1>
-                        <h1 class="font-weight-bold text-brand-primary fs-60">$299</h1>
-                        <p>Six Page App UI </p>
-                        <p>Source PSD Layered file</p>
-                        <p>Commercial use</p>
-                        <p>Responsive Design</p>
-                        <p>Unlimited Revisions</p>
+                    <div class="card card-scale pb-md-6">
+                        <h5>Gold Package</h5>
+                        <h2 class="font-weight-bold text-brand-primary fs-50">$239.99</h2>
+                        <p>35 No. of Titles</p>
+                        <p>1080P Video Quality</p>
+                        <p>Background Music</p>
+                        <p>Overlay Text</p>
+                        <p>Transparency Background</p>
+                        <p>5 Reviews</p>
+                        <p>Delivered in 7 Days</p>
+                        <p>custom colours</p>
                         <div>
-                            <a class="btn btn-brand-primary btn-lg mt-2" href="/checkout-pro">Check out</a>
+                            <a class="btn btn-brand-primary btn-lg mt-2" href="{{ route('text-gold') }}">
+                                Get Started
+                            </a>
                         </div>
                     </div>
                 </div>

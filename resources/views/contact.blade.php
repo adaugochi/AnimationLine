@@ -9,7 +9,7 @@
     <section class="py-100">
         <div class="container">
             <h1 class="page-title text-center">Contact Us</h1>
-            <p class="text-center">You want to contact us for some business proposition?</p>
+            <p class="text-center fs-18">You want to contact us for some business proposition?</p>
             <div class="mx-auto">
                 <div class="card">
                     <form class="card-form__wrapper validateForm" method="post" action="">

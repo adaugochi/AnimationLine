@@ -9,7 +9,7 @@
     <section id="whyUs" class="py-100">
         <div class="container text-center">
             <h1 class="page-title">Why Choose AnimationLine?</h1>
-            <p>
+            <p class="fs-18">
                 AnimationLine has been the #1 World Leading Video Animation Company . We are sure a trial
                 will convince you, that's why we go above and beyond to create unique & professional
                 Animation video at an affordable price.
@@ -42,7 +42,7 @@
     <section id="works" class="text-center text-white">
         <div class="container">
             <h1 class="page-title">How It Works</h1>
-            <p>Our Simple Online Process Couldn't Be Easier...</p>
+            <p class="fs-18">Our Simple Online Process Couldn't Be Easier...</p>
 
             <div class="mt-5">
                 <div class="row">
@@ -74,7 +74,7 @@
         <div class="container">
             <h1 class="page-title mb-4 mb-md-3">Our Services</h1>
             @include('elements.service', [
-                'header' => 'Create Your Animation Video',
+                'header' => 'Create A 2D Animation Video',
                 'addClass' => '', 'img' => 'img/video.gif',
                 'body' => 'Create a professional and high-quality animation video that will capture
                            your audience and boost your sales revenue.',
@@ -89,7 +89,7 @@
                            an awesome 3D moving animation video.'
             ])
             @include('elements.service', [
-                'header' => 'Create A Text Typography Animation',
+                'header' => 'Create A Kinetic Text Typography Animation',
                 'addClass' => '', 'img' => 'img/text.gif',
                 'link' => '/animation-text',
                 'body' => 'Design your text and make them attractive and engaging to the audience.
@@ -100,7 +100,7 @@
     <section id="customer" class="py-100 bg-white text-center">
         <div class="container">
             <h1 class="page-title">What Our Customers Say</h1>
-            <p>
+            <p class="fs-18">
                 We have produced over 2000 App UI in the last 3 years & we have ensured that every single one
                 of our customers is 100% happy with our design, that is why we constantly receive glowing
                 feedback like some of the examples below.
@@ -134,7 +134,7 @@
         <div class="container">
             <h1>Happiness Guarantee</h1>
             <h5 class="page-title">Our 100% Money Back Guarantee</h5>
-            <p>
+            <p class="fs-18">
                 We're not happy until you are happy, that's why we offer a 100% money back guarantee plus unlimited
                 revisions. If you are not happy with your design or you require any changes just let us know and
                 we will be more than happy to edit the design or simply give you a full refund.

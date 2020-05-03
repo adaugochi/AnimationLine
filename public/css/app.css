@@ -10978,6 +10978,7 @@ a.text-dark:focus {
   padding: 25px;
   background: #ffffff;
   border: none;
+  border-radius: 8px !important;
 }
 
 .card.customer:hover {
@@ -11017,7 +11018,6 @@ a.text-dark:focus {
 }
 
 .card-form__label {
-  font-size: 12px;
   font-weight: bold;
   margin-bottom: 4px !important;
   display: block;
@@ -11220,7 +11220,6 @@ label.error {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   border: unset;
   padding: unset !important;
-  width: 250px;
 }
 
 .dropdown__custom-navbar a {
@@ -11235,6 +11234,7 @@ label.error {
 .dropdown__custom-navbar a:hover {
   color: #ffffff !important;
   background-color: #ff5a1a;
+  border-radius: 0;
 }
 
 .header-bg {
@@ -11440,6 +11440,10 @@ label.error {
   font-size: 60px;
 }
 
+.fs-50 {
+  font-size: 50px;
+}
+
 .fs-20 {
   font-size: 20px;
 }
@@ -11535,6 +11539,16 @@ p {
   padding: 12px 0;
 }
 
+.pb-6 {
+  padding-bottom: 3.5rem;
+}
+
+@media (min-width: 768px) {
+  .pb-md-6 {
+    padding-bottom: 3.5rem;
+  }
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -11626,7 +11640,7 @@ p {
   border-top: 2px solid #ff5a1a;
   padding: 25px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.21);
-  border-radius: 4px !important;
+  border-radius: 8px !important;
 }
 
 .alert-animated {

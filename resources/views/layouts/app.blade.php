@@ -33,10 +33,10 @@
                                         Create your logo with animation
                                     </a>
                                     <a class="dropdown-item" href="{{ route('animation-video') }}">
-                                        Create animation video
+                                        Create your 2D animation video
                                     </a>
                                     <a class="dropdown-item" href="{{ route('animation-text') }}">
-                                        Create a text typography animation
+                                        Create your kinetic text typography animation
                                     </a>
                                 </div>
                             </li>
@@ -102,20 +102,18 @@
                             @include('elements.modal', ['modalId' => 'tcModal', 'modalTitle' => 'Terms & Conditions'])
                         </p>
                         <p class="cursor-pointer">
-                            <a href="#services" class="text-decoration-none text-white">
-                                <i class="fa fa-thumb-tack text-brand-primary mr-1"></i>
-                                Services
+                            <a href="{{ route('contact') }}" class="text-decoration-none text-white">
+                                <i class="fa fa-thumb-tack text-brand-primary mr-1"></i> Contact
                             </a>
                         </p>
                         <p class="cursor-pointer">
                             <a href="/" class="text-decoration-none text-white">
-                                <i class="fa fa-thumb-tack text-brand-primary mr-1"></i>
-                                Blog
+                                <i class="fa fa-thumb-tack text-brand-primary mr-1"></i> Blog
                             </a>
                         </p>
                     </div>
                     <div class="col-md-4">
-                        <label class="footer-label fs-20">Contact Us</label>
+                        <label class="footer-label fs-20">Locate Us</label>
                         <p>
                             <i class="fa fa-clock-o text-brand-primary mr-1"></i>
                             Mon - Sat 9:00 a.m. - 5:00 p.m. Sunday Closed
