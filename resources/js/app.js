@@ -1,6 +1,6 @@
 require('./bootstrap');
 require('./validation');
-//require('./checkout');
+require('./checkout');
 
 (function ($) {
     let submitButtonId = $("#validateForm");

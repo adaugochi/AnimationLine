@@ -5,17 +5,17 @@ Route::get('/animation-text', function () { return view('animation-text');})->na
 Route::get('/animation-video', function () { return view('animation-video');})->name('animation-video');
 Route::get('/contact', function () { return view('contact');})->name('contact');
 
-Route::get('/cart/animation-video/bronze', 'PricingController@videoBronze')->name('video-bronze');
-Route::get('/cart/animation-video/silver', 'PricingController@videoSilver')->name('video-silver');
-Route::get('/cart/animation-video/gold', 'PricingController@videoGold')->name('video-gold');
+Route::get('/animation-video/bronze', 'PricingController@videoBronze')->name('video-bronze');
+Route::get('/animation-video/silver', 'PricingController@videoSilver')->name('video-silver');
+Route::get('/animation-video/gold', 'PricingController@videoGold')->name('video-gold');
 
-Route::get('/cart/animation-logo/bronze', 'PricingController@logoBronze')->name('logo-bronze');
-Route::get('/cart/animation-logo/silver', 'PricingController@logoSilver')->name('logo-silver');
-Route::get('/cart/animation-logo/gold', 'PricingController@logoGold')->name('logo-gold');
+Route::get('/animation-logo/bronze', 'PricingController@logoBronze')->name('logo-bronze');
+Route::get('/animation-logo/silver', 'PricingController@logoSilver')->name('logo-silver');
+Route::get('/animation-logo/gold', 'PricingController@logoGold')->name('logo-gold');
 
-Route::get('/cart/animation-text/bronze', 'PricingController@textBronze')->name('text-bronze');
-Route::get('/cart/animation-text/silver', 'PricingController@textSilver')->name('text-silver');
-Route::get('/cart/animation-text/gold', 'PricingController@textGold')->name('text-gold');
+Route::get('/animation-text/bronze', 'PricingController@textBronze')->name('text-bronze');
+Route::get('/animation-text/silver', 'PricingController@textSilver')->name('text-silver');
+Route::get('/animation-text/gold', 'PricingController@textGold')->name('text-gold');
 
 Route::get('/pay-with-paypal', 'PricingController@paywithpaypal');
 Route::get('/execute-payment', 'PaymentController@executePayment');

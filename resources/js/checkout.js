@@ -1,12 +1,8 @@
 (function ($) {
     let applyCoupon = $(".apply-coupon"),
         errorText = $(".err-text"),
-        currency = $(".currency"),
         couponVal = $('.coupon-code'),
-        currencyId = $("#currency"),
-        country = $("#country"),
         saleAmountInput = $('#saleAmt'),
-        saleAmountText = $('.sale-amount'),
         totalAmountInput = $('#totalAmt'),
         discountInput = $('#discount'),
         totalAmountText = $('.total-amount'),
@@ -15,26 +11,8 @@
         discountSuccess = $(".discount-success"),
         paymentMethod = $("#paymentMethod"),
         backUpSaleAmt = $("#backUpSaleAmt"),
-        payment = $(".payment"),
         submitButtonId = $("#validateForm"),
         couponCode = 'NEW10';
-
-    let settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "https://community-neutrino-currency-conversion.p.rapidapi.com/convert",
-        "method": "POST",
-        "headers": {
-            "x-rapidapi-host": "community-neutrino-currency-conversion.p.rapidapi.com",
-            "x-rapidapi-key": rapidApiKey,
-            "content-type": "application/x-www-form-urlencoded"
-        },
-        "data": {
-            "from-type": "USD",
-            "to-type": "NGN",
-            "from-value": "1"
-        }
-    };
 
     function addSelectedAttr($this) {
         let value = $this.data('value');
@@ -51,11 +29,11 @@
         addSelectedAttr($("#accent"));
         addSelectedAttr($("#artist"))
     });
-
-    $.get(`https://ipinfo.io?token=${IPToken}`, function (response) {
-        country.val(response.country);
-        convertMoney(response.country)
-    }, "jsonp");
+    
+    // $.get(`https://ipinfo.io?token=${IPToken}`, function (response) {
+    //     country.val(response.country);
+    //     convertMoney(response.country)
+    // }, "jsonp");
 
     applyCoupon.click(function (e) {
         e.preventDefault();
@@ -66,7 +44,7 @@
             discountText.text(commaSeparated(discountAmount.toFixed(2)));
 
             let totalAmount = saleAmountInput.val() - discountAmount.toFixed(2);
-            totalAmountInput.val(totalAmount.toFixed(2));
+            totalAmountInput.val(totalAmount);
             totalAmountText.text(commaSeparated(totalAmount.toFixed(2)));
 
             discountField.removeClass('d-flex');
@@ -85,41 +63,29 @@
         discountSuccess.removeClass('d-flex');
         discountInput.val(0);
         discountText.text("0.00");
+        totalAmountText.text(backUpSaleAmt.val());
+        totalAmountInput.val(backUpSaleAmt.val());
 
-        if (value === 'NG') {
-            $.ajax(settings).done(function (response) {
-                console.log(response.result);
-                function conversion(money) {
-                    return (response.result * money);
-                }
-                let amountInNairaSaleInput = conversion(saleAmountInput.val());
-                totalAmountInput.val(amountInNairaSaleInput.toFixed() * 100);
-                totalAmountText.text(commaSeparated(amountInNairaSaleInput.toFixed()));
-                saleAmountInput.val(amountInNairaSaleInput.toFixed());
-                saleAmountText.text(commaSeparated(amountInNairaSaleInput.toFixed()));
-
-                currency.text('NGN');
-                currencyId.val('NGN');
-                paymentMethod.val('paystack');
-                payment.text("PayStack");
-                submitButtonId.attr('action', 'pay')
-            });
+        if (value === 'paystack') {
+            submitButtonId.attr('action', `${BaseURL}/pay`);
+            $('.btn-submit').attr('disabled', false)
+        } else if (value === 'paypal') {
+            submitButtonId.attr('action', `${BaseURL}/create-payment`);
+            $('.btn-submit').attr('disabled', false)
         } else {
-            currency.text('USD');
-            currencyId.val('USD');
-            paymentMethod.val('paypal');
-
-            totalAmountInput.val(backUpSaleAmt.val());
-            totalAmountText.text(backUpSaleAmt.val());
-            saleAmountInput.val(backUpSaleAmt.val());
-            saleAmountText.text(backUpSaleAmt.val());
-            payment.text("PayPal");
-            submitButtonId.attr('action', 'create-payment')
+            $('.btn-submit').attr('disabled', true)
         }
     }
+    convertMoney(paymentMethod.val());
 
-    country.on('change', function () {
+    paymentMethod.on('change', function () {
         convertMoney($(this).val())
     });
+
+    submitButtonId.on('submit', function (e) {
+        if (paymentMethod.val() === 'paystack') {
+            totalAmountInput.val(totalAmountInput.val() * 100)
+        }
+    })
 
 })(jQuery);

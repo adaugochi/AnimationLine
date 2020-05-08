@@ -22,6 +22,7 @@ class CreateBillingsTable extends Migration
             $table->string('state');
             $table->string('country');
             $table->string('package');
+            $table->string('service');
             $table->string('currency');
             $table->string('sales_amount');
             $table->string('discount_price');
@@ -31,7 +32,7 @@ class CreateBillingsTable extends Migration
             $table->string('payment_status')->default('draft'); //paid
             $table->string('payment_id')->unique();
             $table->string('payment_method');
-            $table->string('payer_id');
+            $table->string('payer_id')->unique();
             $table->timestamps();
         });
     }

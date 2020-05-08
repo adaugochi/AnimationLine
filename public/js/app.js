@@ -37422,8 +37422,9 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-__webpack_require__(/*! ./validation */ "./resources/js/validation.js"); //require('./checkout');
+__webpack_require__(/*! ./validation */ "./resources/js/validation.js");
 
+__webpack_require__(/*! ./checkout */ "./resources/js/checkout.js");
 
 (function ($) {
   var submitButtonId = $("#validateForm");
@@ -37468,7 +37469,9 @@ try {
 
   __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
 
-  __webpack_require__(/*! jquery-validation */ "./node_modules/jquery-validation/dist/jquery.validate.js"); // require('datatables.net');
+  __webpack_require__(/*! jquery-validation */ "./node_modules/jquery-validation/dist/jquery.validate.js");
+
+  __webpack_require__(/*! material-icons */ "./node_modules/material-icons/iconfont/material-icons.css"); // require('datatables.net');
   // require('datatables.net-dt');
 
 } catch (e) {}
@@ -37498,6 +37501,102 @@ window._ = __webpack_require__(/*! material-icons */ "./node_modules/material-ic
 
 /***/ }),
 
+/***/ "./resources/js/checkout.js":
+/*!**********************************!*\
+  !*** ./resources/js/checkout.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function ($) {
+  var applyCoupon = $(".apply-coupon"),
+      errorText = $(".err-text"),
+      couponVal = $('.coupon-code'),
+      saleAmountInput = $('#saleAmt'),
+      totalAmountInput = $('#totalAmt'),
+      discountInput = $('#discount'),
+      totalAmountText = $('.total-amount'),
+      discountText = $('.discount'),
+      discountField = $(".discount-field"),
+      discountSuccess = $(".discount-success"),
+      paymentMethod = $("#paymentMethod"),
+      backUpSaleAmt = $("#backUpSaleAmt"),
+      submitButtonId = $("#validateForm"),
+      couponCode = 'NEW10';
+
+  function addSelectedAttr($this) {
+    var value = $this.data('value');
+
+    if (value !== '') {
+      $this.find("option[value='" + value + "']").attr('selected', true);
+    }
+  }
+
+  function commaSeparated(money) {
+    return money.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+  }
+
+  $(document).ready(function () {
+    addSelectedAttr($("#accent"));
+    addSelectedAttr($("#artist"));
+  }); // $.get(`https://ipinfo.io?token=${IPToken}`, function (response) {
+  //     country.val(response.country);
+  //     convertMoney(response.country)
+  // }, "jsonp");
+
+  applyCoupon.click(function (e) {
+    e.preventDefault();
+
+    if (couponVal.val() === couponCode) {
+      var discountAmount = saleAmountInput.val() * 0.10;
+      discountInput.val(discountAmount.toFixed(2));
+      discountText.text(commaSeparated(discountAmount.toFixed(2)));
+      var totalAmount = saleAmountInput.val() - discountAmount.toFixed(2);
+      totalAmountInput.val(totalAmount);
+      totalAmountText.text(commaSeparated(totalAmount.toFixed(2)));
+      discountField.removeClass('d-flex');
+      discountField.addClass('d-none');
+      discountSuccess.removeClass('d-none');
+      discountSuccess.addClass('d-flex');
+    } else {
+      errorText.removeClass('d-none');
+    }
+  });
+
+  function convertMoney(value) {
+    discountField.addClass('d-flex');
+    discountField.removeClass('d-none');
+    discountSuccess.addClass('d-none');
+    discountSuccess.removeClass('d-flex');
+    discountInput.val(0);
+    discountText.text("0.00");
+    totalAmountText.text(backUpSaleAmt.val());
+    totalAmountInput.val(backUpSaleAmt.val());
+
+    if (value === 'paystack') {
+      submitButtonId.attr('action', "".concat(BaseURL, "/pay"));
+      $('.btn-submit').attr('disabled', false);
+    } else if (value === 'paypal') {
+      submitButtonId.attr('action', "".concat(BaseURL, "/create-payment"));
+      $('.btn-submit').attr('disabled', false);
+    } else {
+      $('.btn-submit').attr('disabled', true);
+    }
+  }
+
+  convertMoney(paymentMethod.val());
+  paymentMethod.on('change', function () {
+    convertMoney($(this).val());
+  });
+  submitButtonId.on('submit', function (e) {
+    if (paymentMethod.val() === 'paystack') {
+      totalAmountInput.val(totalAmountInput.val() * 100);
+    }
+  });
+})(jQuery);
+
+/***/ }),
+
 /***/ "./resources/js/validation.js":
 /*!************************************!*\
   !*** ./resources/js/validation.js ***!
@@ -37519,6 +37618,7 @@ window._ = __webpack_require__(/*! material-icons */ "./node_modules/material-ic
     onkeyup: false,
     rules: {
       city: "required",
+      payment_method: "required",
       country_accent: "required",
       country: "required",
       voiceover_artist: "required",

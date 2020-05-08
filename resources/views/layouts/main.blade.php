@@ -62,7 +62,8 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script>
         let rapidApiKey = "{{ env('RAPID_API_KEY') }}";
-        let IPToken = "{{ env('IP_TOKEN') }}"
+        let IPToken = "{{ env('IP_TOKEN') }}";
+        let BaseURL = "{{ env('BASE_URL') }}"
     </script>
 </body>
 </html>

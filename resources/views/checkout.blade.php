@@ -3,27 +3,27 @@
 @section('content')
     <div class="mx-auto mb-5">
         <div class="card">
-            <form class="card-form__wrapper validateForm" id="validateForm" method="post" action="{{ route('create-payment') }}">
+            <form class="card-form__wrapper validateForm" id="validateForm"
+                  method="post" action="{{ route('create-payment') }}">
                 @csrf
                 <input type="hidden" value="{{ $amount }}" id="backUpSaleAmt">
-
                 <input type="hidden" name="sales_amount" value="{{ $amount }}" id="saleAmt">
                 <input type="hidden" name="discount_price" value="0" id="discount">
                 <input type="hidden" name="amount" value="{{ $amount }}" id="totalAmt">
                 <input type="hidden" name="currency" value="USD" id="currency">
-                <input type="hidden" name="email" value="{{ auth()->user()->email }}" id="totalAmt">
-                <input type="hidden" name="payment_method" value="" id="paymentMethod">
+                <input type="hidden" name="email" value="{{ auth()->user()->email }}">
                 <input type="hidden" name="package" value="{{ $package }}">
+                <input type="hidden" name="service" value="{{ $service }}">
                 <div>
                     <h3>Billing Details</h3>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label class="card-form__label">City<span class="text-danger">*</span></label>
-                            <input type="text" name="city" class="form-control card-form__input" autocomplete="true">
+                            <label class="card-form__label">State<span class="text-danger">*</span></label>
+                            <input type="text" name="state" class="card-form__input form-control" autocomplete="true">
                         </div>
                         <div class="form-group col-md-6">
-                            <label class="card-form__label">Postal Code</label>
-                            <input type="tel" name="postal_code" class="card-form__input form-control">
+                            <label class="card-form__label">City<span class="text-danger">*</span></label>
+                            <input type="text" name="city" class="form-control card-form__input" autocomplete="true">
                         </div>
                         <div class="form-group col-md-6">
                             <label class="card-form__label">Country<span class="text-danger">*</span></label>
@@ -35,15 +35,21 @@
                             </select>
                         </div>
                         <div class="form-group col-md-6">
-                            <label class="card-form__label">State<span class="text-danger">*</span></label>
-                            <input type="text" name="state" class="card-form__input form-control" autocomplete="true">
+                            <label class="card-form__label">
+                                Payment Method<span class="text-danger">*</span>
+                            </label>
+                            <select name="payment_method" class="card-form__input form-control" id="paymentMethod">
+                                <option>Please choose a payment method that is applicable</option>
+                                <option value="paypal">PayPal</option>
+                                <option value="paystack">Paystack</option>
+                            </select>
                         </div>
                     </div>
                 </div>
                 <div class="basic-payment__wrapper my-5">
                     <h3>Payment Details</h3>
                     <p>
-                        By clicking on the button below, <b>you will be transferred to <span class="payment">PayPal</span></b>
+                        By clicking on the button below, <b>you will be transferred to PayPal/Paystack</b>
                         to confirm your payment. Then, you will be redirected back to finalize your order.
                     </p>
                     <div class="basic-payment__card-box">

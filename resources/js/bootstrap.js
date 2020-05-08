@@ -12,6 +12,7 @@ try {
 
     require('bootstrap');
     require('jquery-validation');
+    require('material-icons')
     // require('datatables.net');
     // require('datatables.net-dt');
 } catch (e) {}
