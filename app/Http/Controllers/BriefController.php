@@ -15,11 +15,57 @@ class BriefController extends Controller
         $this->middleware('auth');
     }
 
+    public function videoBronze($id)
+    {
+
+    }
+
+    public function videoSilver($id)
+    {
+
+    }
+
+    public function videoGold($id)
+    {
+        $result = self::getBrief($id);
+        dd($result);
+    }
+
+    public function logoBronze($id)
+    {
+
+    }
+
+    public function logoSilver($id)
+    {
+
+    }
+
+    public function logoGold($id)
+    {
+        dd($id);
+    }
+
+    public function textBronze($id)
+    {
+
+    }
+
+    public function textSilver($id)
+    {
+
+    }
+
+    public function textGold($id)
+    {
+        dd($id);
+    }
+
     /**
      * @param $id
-     * @return \Illuminate\Http\RedirectResponse
+     * @return array|\Illuminate\Http\RedirectResponse
      */
-    public function index($id)
+    private static function getBrief($id)
     {
         $email = auth()->user()->email;
         $fullName = auth()->user()->getFullName();
@@ -32,7 +78,7 @@ class BriefController extends Controller
         if ($brief) {
             $isEdit = true;
         }
-        return view('brief', compact('id', 'isEdit', 'email', 'fullName', 'brief'));
+        return ['isEdit' => $isEdit, 'email' => $email, 'fullName' => $fullName, 'brief' => $brief];
     }
 
     private function validateData(Request $request)

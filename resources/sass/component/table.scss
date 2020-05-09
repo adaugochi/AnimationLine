@@ -13,27 +13,21 @@
 //Status
 .status {
   display: inline-block;
-  padding: 0 6px;
-  font-size: 10px;
-  line-height: 1.3;
-  text-transform: uppercase;
+  padding: 0 10px;
+  text-transform: capitalize;
   border: 1px solid transparent;
   border-radius: 30px;
-  &-pending {
-    color: $orange;
-    border-color: $orange;
+  &-bronze {
+    color: darken($pink, 10%);
+    background-color: lighten($pink, 20%);
   }
-  &-cancelled {
-    color: $danger;
-    border-color: #dc3545;
+  &-silver {
+    color: darken($cyan, 10%);
+    background-color: lighten($cyan, 20%);
   }
-  &-paid {
-    color: $success;
-    border-color: $success;
-  }
-  &-draft {
-    color: $brand-grey;
-    border-color: $brand-grey;
+  &-gold{
+    color: darken($gold, 10%);
+    background-color: lighten($gold, 30%);
   }
 }
 

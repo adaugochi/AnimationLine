@@ -4,7 +4,7 @@
     <div class="mx-auto mb-5">
         <div class="card">
             <form class="card-form__wrapper validateForm" id="validateForm"
-                  method="post" action="{{ route('create-payment') }}">
+                  method="post" action="/pay-with-paypal">
                 @csrf
                 <input type="hidden" value="{{ $amount }}" id="backUpSaleAmt">
                 <input type="hidden" name="sales_amount" value="{{ $amount }}" id="saleAmt">
@@ -12,18 +12,19 @@
                 <input type="hidden" name="amount" value="{{ $amount }}" id="totalAmt">
                 <input type="hidden" name="currency" value="USD" id="currency">
                 <input type="hidden" name="email" value="{{ auth()->user()->email }}">
-                <input type="hidden" name="package" value="{{ $package }}">
-                <input type="hidden" name="service" value="{{ $service }}">
+                <input type="hidden" name="metadata" id="metadata">
+                <input type="hidden" name="package" value="{{ $package }}" id="package">
+                <input type="hidden" name="service" value="{{ $service }}" id="service">
                 <div>
                     <h3>Billing Details</h3>
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label class="card-form__label">State<span class="text-danger">*</span></label>
-                            <input type="text" name="state" class="card-form__input form-control" autocomplete="true">
+                            <input type="text" name="state" class="card-form__input form-control" id="state">
                         </div>
                         <div class="form-group col-md-6">
                             <label class="card-form__label">City<span class="text-danger">*</span></label>
-                            <input type="text" name="city" class="form-control card-form__input" autocomplete="true">
+                            <input type="text" name="city" class="form-control card-form__input" id="city">
                         </div>
                         <div class="form-group col-md-6">
                             <label class="card-form__label">Country<span class="text-danger">*</span></label>

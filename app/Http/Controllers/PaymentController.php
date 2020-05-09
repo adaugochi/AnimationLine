@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Billing;
-use App\Http\Controllers\Utilities\TransactionUtility;
+use App\Contants\Message;
+use App\helpers\Utils;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -55,7 +56,8 @@ class PaymentController extends Controller
             'email' => 'required',
             'currency' => 'required',
             'package' => 'required|alpha',
-            'payment_method' => 'required'
+            'payment_method' => 'required',
+            'service' => 'required'
         ]);
 
         session()->put('billing', $request->all());
@@ -85,7 +87,7 @@ class PaymentController extends Controller
         try {
             $payment->create($this->apiContext);
         } catch (Exception $ex) {
-            return redirect('/home')->with(['error' => 'Some error occurred, could not approove payment']);
+            return redirect('/home')->with(['error' => 'Some error occurred, could not approve payment']);
         }
 
         return redirect($payment->getApprovalLink());
@@ -102,10 +104,9 @@ class PaymentController extends Controller
             return redirect('/home')->with(['error' => 'Could not find billing details']);
         }
         DB::beginTransaction();
-
         $postRequest = session()->get('billing');
         $paymentId = request('paymentId');
-        $payerId = request('PayerID');
+        $payerId = Utils::GenerateToken();
 
         $billing->create($postRequest, $paymentId, $payerId);
         if (!$billing->save()) {
@@ -121,7 +122,7 @@ class PaymentController extends Controller
         $transaction = new Transaction();
         $amount = new Amount();
 
-        $amount->setCurrency($postRequest['currency']);
+        $amount->setCurrency('USD');
         $amount->setTotal($totalAmount);
         $transaction->setAmount($amount);
 
@@ -129,13 +130,19 @@ class PaymentController extends Controller
         $result = $payment->execute($execution, $this->apiContext);
 
         if ($result->getState() == 'approved') {
-            DB::table('billings')->where('payment_id', $paymentId)->update(['payment_status' => 'paid']);
+            $slug = Utils::slug($billing->service);
             session()->forget('billing');
             DB::commit();
-            return redirect('/brief/'.$billing->id)->with(['success' => 'Payment was successful']);
+            return redirect('/brief/'.$slug.'/'.$billing->package.'/'.$billing->id)
+                ->with(['success' => Message::PAYMENT_SUCCESSFUL]);
         }
 
-        return redirect('/home')->with(['error' => 'Payment was unsuccessful']);
+        return redirect('/home')->with(['error' => Message::PAYMENT_UNSUCCESSFUL]);
+    }
+
+    public function cancelPayment()
+    {
+        return redirect('/home')->with(['error' => Message::PAYMENT_UNSUCCESSFUL]);
     }
 
     /**
@@ -146,7 +153,6 @@ class PaymentController extends Controller
      */
     public function redirectToGateway(Request $request)
     {
-        session()->put('billing', $request->all());
         return Paystack::getAuthorizationUrl()->redirectNow();
     }
 
@@ -160,24 +166,22 @@ class PaymentController extends Controller
     {
         DB::beginTransaction();
 
-        $postRequest = session()->get('billing');
-        $paymentId = TransactionUtility::GenerateToken();;
-        $payerId = TransactionUtility::GenerateToken();
-
-        $billing->create($postRequest, $paymentId, $payerId);
-        if (!$billing->save()) {
-            DB::rollBack();
-        }
-
         $paymentDetails = Paystack::getPaymentData();
+        $postRequest = $paymentDetails['data']['metadata'];
+        $paymentId = Paystack::genTranxRef();
+        $payerId = Utils::GenerateToken();
+        $slug = Utils::slug($postRequest['service']);
 
         if ($paymentDetails['data']['status'] == 'success') {
-            DB::table('billings')->where('payment_id', $paymentId)->update(['payment_status' => 'paid']);
-            session()->forget('billing');
+            $billing->create($postRequest, $paymentId, $payerId);
+            if (!$billing->save()) {
+                DB::rollBack();
+            }
             DB::commit();
-            return redirect('/brief/'.$billing->id)->with(['success' => 'Payment was successful']);
+            return redirect('/brief/'.$slug.'/'.$postRequest['package'].'/'.$billing->id)
+                ->with(['success' => Message::PAYMENT_SUCCESSFUL]);
         }
 
-        return redirect('/home')->with(['error' => 'Payment was unsuccessful']);
+        return redirect('/home')->with(['error' => Message::PAYMENT_UNSUCCESSFUL]);
     }
 }

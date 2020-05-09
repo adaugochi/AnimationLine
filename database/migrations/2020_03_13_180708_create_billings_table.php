@@ -30,7 +30,7 @@ class CreateBillingsTable extends Migration
             $table->string('has_brief')->default(0);
             $table->string('amount');
             $table->string('payment_status')->default('draft'); //paid
-            $table->string('payment_id')->unique();
+            $table->string('payment_id')->nullable()->unique();
             $table->string('payment_method');
             $table->string('payer_id')->unique();
             $table->timestamps();

@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string city
  * @property string state
  * @property string country
- * @property mixed postal_code
+ * @property mixed service
  * @property string payment_status
  * @property mixed payment_id
  * @property mixed payer_id
@@ -29,7 +29,7 @@ class Billing extends Model
 {
     protected $fillable = [
         'package', 'currency', 'sales_amount', 'amount', 'has_discount', 'discount_price', 'payment_status',
-        'city', 'state', 'country', 'postal_code', 'payment_method'
+        'city', 'state', 'country', 'service', 'payment_method'
     ];
 
     public function user()
@@ -44,7 +44,7 @@ class Billing extends Model
         $this->city = $request['city'];
         $this->state = $request['state'];
         $this->country = $request['country'];
-        $this->postal_code = $request['postal_code'];
+        $this->service = $request['service'];
         $this->sales_amount = $request['sales_amount'];
         $this->discount_price = $discountPrice;
         $this->amount = $request['amount'];

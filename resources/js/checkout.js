@@ -12,7 +12,27 @@
         paymentMethod = $("#paymentMethod"),
         backUpSaleAmt = $("#backUpSaleAmt"),
         submitButtonId = $("#validateForm"),
-        couponCode = 'NEW10';
+        couponCode = 'NEW10',
+        metaData = $('#metadata');
+
+    function fetchMetaDataValues() {
+        let saleAmt = saleAmountInput.val(),
+            discount = discountInput.val(),
+            payment = paymentMethod.val(),
+            pack = $('#package').val(),
+            service = $('#service').val(),
+            totalAmt = totalAmountInput.val(),
+            currency = $('#currency').val(),
+            state = $('#state').val(),
+            country = $('#country').val(),
+            city = $('#city').val();
+
+        let details = {
+            'sales_amount':saleAmt, 'discount_price':discount, 'payment_method':payment, 'package':pack,
+            'service':service, 'city':city, 'state':state, 'country':country, 'amount':totalAmt, 'currency':currency
+        };
+        metaData.val(JSON.stringify(details));
+    }
 
     function addSelectedAttr($this) {
         let value = $this.data('value');
@@ -29,11 +49,6 @@
         addSelectedAttr($("#accent"));
         addSelectedAttr($("#artist"))
     });
-    
-    // $.get(`https://ipinfo.io?token=${IPToken}`, function (response) {
-    //     country.val(response.country);
-    //     convertMoney(response.country)
-    // }, "jsonp");
 
     applyCoupon.click(function (e) {
         e.preventDefault();
@@ -67,10 +82,10 @@
         totalAmountInput.val(backUpSaleAmt.val());
 
         if (value === 'paystack') {
-            submitButtonId.attr('action', `${BaseURL}/pay`);
+            submitButtonId.attr('action', `${BaseURL}/pay-with-paystack`);
             $('.btn-submit').attr('disabled', false)
         } else if (value === 'paypal') {
-            submitButtonId.attr('action', `${BaseURL}/create-payment`);
+            submitButtonId.attr('action', `${BaseURL}/pay-with-paypal`);
             $('.btn-submit').attr('disabled', false)
         } else {
             $('.btn-submit').attr('disabled', true)
@@ -84,6 +99,7 @@
 
     submitButtonId.on('submit', function (e) {
         if (paymentMethod.val() === 'paystack') {
+            fetchMetaDataValues();
             totalAmountInput.val(totalAmountInput.val() * 100)
         }
     })

@@ -11,9 +11,9 @@
                         <thead>
                         <tr>
                             <th class="field-name"><span>S/N</span></th>
-                            <th class="field-name"><span>Package</span></th>
+                            <th class="field-name"><span>Service</span></th>
                             <th class="field-name"><span>Total Amount</span></th>
-                            <th class="field-name"><span>Payment Status</span></th>
+                            <th class="field-name"><span>Package</span></th>
                             <th class="field-name"><span>Payment ID</span></th>
                             <th class="field-name"><span>Created At</span></th>
                             <th class="field-name"><span>Action</span></th>
@@ -23,18 +23,23 @@
                         @foreach($billings as $key => $billing)
                             <tr>
                                 <td>{{ $key+1 }}</td>
-                                <td>{{ ucwords($billing->package) }}</td>
+                                <td>
+                                    <span class="">
+                                        {{ $billing->service }}
+                                    </span>
+                                </td>
                                 <td>{{ $billing->getCurrencyAndAmount() }}</td>
                                 <td>
-                                    <span class="status status-{{ $billing->payment_status }}">
-                                        {{ $billing->payment_status }}
+                                    <span class="font-weight-bold status status-{{ $billing->package }}">
+                                        {{ $billing->package }}
                                     </span>
                                 </td>
                                 <td>{{ $billing->payment_id }}</td>
                                 <td>{{ $billing->formatDate() }}</td>
                                 <td>
-                                    <a href="/brief/{{ $billing->id }}" class="fs-20 text-gray">
-                                        @if($billing->has_brief)
+                                    <a href="/brief/{{ \App\helpers\Utils::slug($billing->service) }}/{{ $billing->package }}/{{ $billing->id }}"
+                                       class="fs-20 text-gray">
+                                        @if(!$billing->has_brief)
                                             <i class="fa fa-pencil-square-o" aria-hidden="true"
                                                data-toggle="tooltip" data-placement="top"
                                                title="complete brief"></i>

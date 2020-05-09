@@ -37445,6 +37445,11 @@ __webpack_require__(/*! ./checkout */ "./resources/js/checkout.js");
   $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip();
   });
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
 })(jQuery);
 
 /***/ }),
@@ -37522,7 +37527,34 @@ window._ = __webpack_require__(/*! material-icons */ "./node_modules/material-ic
       paymentMethod = $("#paymentMethod"),
       backUpSaleAmt = $("#backUpSaleAmt"),
       submitButtonId = $("#validateForm"),
-      couponCode = 'NEW10';
+      couponCode = 'NEW10',
+      metaData = $('#metadata');
+
+  function fetchMetaDataValues() {
+    var saleAmt = saleAmountInput.val(),
+        discount = discountInput.val(),
+        payment = paymentMethod.val(),
+        pack = $('#package').val(),
+        service = $('#service').val(),
+        totalAmt = totalAmountInput.val(),
+        currency = $('#currency').val(),
+        state = $('#state').val(),
+        country = $('#country').val(),
+        city = $('#city').val();
+    var details = {
+      'sales_amount': saleAmt,
+      'discount_price': discount,
+      'payment_method': payment,
+      'package': pack,
+      'service': service,
+      'city': city,
+      'state': state,
+      'country': country,
+      'amount': totalAmt,
+      'currency': currency
+    };
+    metaData.val(JSON.stringify(details));
+  }
 
   function addSelectedAttr($this) {
     var value = $this.data('value');
@@ -37539,11 +37571,7 @@ window._ = __webpack_require__(/*! material-icons */ "./node_modules/material-ic
   $(document).ready(function () {
     addSelectedAttr($("#accent"));
     addSelectedAttr($("#artist"));
-  }); // $.get(`https://ipinfo.io?token=${IPToken}`, function (response) {
-  //     country.val(response.country);
-  //     convertMoney(response.country)
-  // }, "jsonp");
-
+  });
   applyCoupon.click(function (e) {
     e.preventDefault();
 
@@ -37574,10 +37602,10 @@ window._ = __webpack_require__(/*! material-icons */ "./node_modules/material-ic
     totalAmountInput.val(backUpSaleAmt.val());
 
     if (value === 'paystack') {
-      submitButtonId.attr('action', "".concat(BaseURL, "/pay"));
+      submitButtonId.attr('action', "".concat(BaseURL, "/pay-with-paystack"));
       $('.btn-submit').attr('disabled', false);
     } else if (value === 'paypal') {
-      submitButtonId.attr('action', "".concat(BaseURL, "/create-payment"));
+      submitButtonId.attr('action', "".concat(BaseURL, "/pay-with-paypal"));
       $('.btn-submit').attr('disabled', false);
     } else {
       $('.btn-submit').attr('disabled', true);
@@ -37590,6 +37618,7 @@ window._ = __webpack_require__(/*! material-icons */ "./node_modules/material-ic
   });
   submitButtonId.on('submit', function (e) {
     if (paymentMethod.val() === 'paystack') {
+      fetchMetaDataValues();
       totalAmountInput.val(totalAmountInput.val() * 100);
     }
   });

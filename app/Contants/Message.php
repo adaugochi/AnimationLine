@@ -12,4 +12,8 @@ class Message
 
     const CONTACT_HEADER_TEXT = "Let hear from you";
     const CONTACT_BODY_TEXT = "We love to hear from our customer. Please fill out the form below";
+
+    const PAYMENT_UNSUCCESSFUL = 'Payment was unsuccessful';
+    const PAYMENT_SUCCESSFUL = 'Payment was successful';
+
 }
