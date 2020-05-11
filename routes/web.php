@@ -1,9 +1,16 @@
 <?php
 Route::get('/', function () { return view('welcome');});
-Route::get('/animation-logo', function () { return view('animation-logo');})->name('animation-logo');
-Route::get('/animation-text', function () { return view('animation-text');})->name('animation-text');
-Route::get('/animation-video', function () { return view('animation-video');})->name('animation-video');
 Route::get('/contact', function () { return view('contact');})->name('contact');
+
+Route::get('/animation-logo', function () {
+    return view('service.animation-logo');
+})->name('animation-logo');
+Route::get('/animation-text', function () {
+    return view('service.animation-text');
+})->name('animation-text');
+Route::get('/animation-video', function () {
+    return view('service.animation-video');
+})->name('animation-video');
 
 Route::get('/animation-video/bronze', 'PricingController@videoBronze')->name('video-bronze');
 Route::get('/animation-video/silver', 'PricingController@videoSilver')->name('video-silver');

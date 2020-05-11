@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 
@@ -54,7 +55,7 @@ class LoginController extends Controller
     }
 
     protected function authenticated(Request $request, $user){
-        if($user->is_admin === 1) {
+        if($user->user_type_id === User::ADMIN) {
             return redirect()->intended('/admin/home'); //redirect to admin panel
         }
 
