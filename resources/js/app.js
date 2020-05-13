@@ -1,16 +1,15 @@
 require('./bootstrap');
 require('./validation');
 require('./checkout');
+require('./file-upload');
 
 (function ($) {
     let submitButtonId = $("#validateForm");
 
-    $(document).ready(function () {
-        $('.nav li a').each(function() {
-            if (this.href === window.location.href) {
-                $(this).addClass('active-class');
-            }
-        });
+    $('.nav li a').each(function() {
+        if (this.href === window.location.href) {
+            $(this).addClass('active-class');
+        }
     });
 
     submitButtonId.on('submit', function () {
@@ -25,9 +24,39 @@ require('./checkout');
         $('[data-toggle="tooltip"]').tooltip();
     });
 
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
+    function smoothScroll($href) {
+        $($href).on('click', function(event) {
+            if (this.hash !== "") {
+                event.preventDefault();
+                let hash = this.hash;
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 800, function() {
+                    window.location.hash = hash;
+                });
+            }
+        });
+    }
+
+    smoothScroll('a[href^="/#whyUs"]');
+    smoothScroll('a[href^="/#service"]');
+
+    $(".btn-scroll").click(function() {
+        $("html").animate({ scrollTop: 0 }, 800);
+        return false;
     });
+
+    function windowScroll($this) {
+        if ($this.scrollTop() > 100) {
+            $('.btn-scroll').show().fadeIn();
+        } else {
+            $('.btn-scroll').fadeOut().hide();
+        }
+    }
+
+    windowScroll($(window));
+    $(window).scroll(function(){
+        windowScroll($(this))
+    });
+
 })(jQuery);

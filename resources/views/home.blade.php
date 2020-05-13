@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('title', 'Dashboard')
 @section('content')
-    <div class="mx-auto">
+    <div class="mx-auto mb-5">
         <div class="card">
             @include('elements.flash-messages')
             @if(sizeof($billings) > 0)
@@ -24,9 +24,7 @@
                             <tr>
                                 <td>{{ $key+1 }}</td>
                                 <td>
-                                    <span class="">
-                                        {{ $billing->service }}
-                                    </span>
+                                    {{ ucfirst($billing->service) }}
                                 </td>
                                 <td>{{ $billing->getCurrencyAndAmount() }}</td>
                                 <td>

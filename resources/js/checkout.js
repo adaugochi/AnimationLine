@@ -85,7 +85,7 @@
             submitButtonId.attr('action', `${BaseURL}/pay-with-paystack`);
             $('.btn-submit').attr('disabled', false)
         } else if (value === 'paypal') {
-            submitButtonId.attr('action', `${BaseURL}/pay-with-paypal`);
+            submitButtonId.attr('action', `${BaseURL}/create-payment`);
             $('.btn-submit').attr('disabled', false)
         } else {
             $('.btn-submit').attr('disabled', true)

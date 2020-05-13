@@ -3,7 +3,7 @@
 @section('header-text', \App\Contants\Message::PRICING_HEADER_TEXT)
 @section('body-text', \App\Contants\Message::PRICING_BODY_TEXT)
 @section('image')
-    <img src="{{ asset('img/video.svg') }}">
+    <img src="{{ asset('img/pricing.svg') }}">
 @endsection()
 @section('content')
     <section id="pricing" class="py-100 text-center">

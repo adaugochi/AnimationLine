@@ -2,6 +2,9 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 @include('elements.head-tag')
 <body>
+    <button class="btn btn-brand-primary btn-scroll">
+        <i class="fa fa-angle-up text-white" aria-hidden="true"></i>
+    </button>
     <div class="bg-white">
         {{--<nav class="navbar bg-brand-primary navbar-scrolling fixed-top">--}}
             {{--<marquee class="container">--}}
@@ -51,7 +54,7 @@
         </nav>
         <div class="container mt-0">
             <div class="row header-wrapper">
-                <div class="col-md-5 my-5 header-content text-md-left text-center">
+                <div class="col-md-6 col-lg-5 py-5 py-md-0 pt-lg-5 text-md-left text-center">
                     <div class="header-text">
                         <h1 class="font-weight-bold">
                             @yield('header-text')
@@ -62,7 +65,7 @@
                         <a href="{{ route('login') }}" class="btn-brand-white mt-3 py-3 btn px-5">Get Started</a>
                     </div>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-6 col-lg-7">
                     @yield('image')
                 </div>
             </div>
@@ -74,7 +77,7 @@
         <section class="footer pt-5">
             <div class="container">
                 <div class="row mb-4">
-                    <div class="col-md-4">
+                    <div class="col-md-5 col-lg-4">
                         <div class="navbar-brand">
                             <img src="{{ asset('img/logo-white.png') }}" class="footer-logo">
                         </div>
@@ -84,7 +87,7 @@
                             and eLearning.
                         </p>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3 col-lg-4">
                         <label class="footer-label fs-20">Quick Links</label>
                         <p data-toggle="modal" data-target="#policyModal" class="cursor-pointer">
                             <span>
@@ -111,7 +114,7 @@
                             </a>
                         </p>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-lg-4">
                         <label class="footer-label fs-20">Locate Us</label>
                         <p>
                             <i class="fa fa-clock-o text-brand-primary mr-1"></i>
@@ -123,7 +126,7 @@
                         </p>
                         <p>
                             <i class="fa fa-phone text-brand-primary mr-1"></i>
-                            +234-900-700-1005, +234-800-611-2227
+                            +234-708-177-5767, +234-813-095-9873
                         </p>
                         <p>
                             <i class="fa fa-envelope text-brand-primary mr-1"></i>

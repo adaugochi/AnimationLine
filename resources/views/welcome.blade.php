@@ -75,14 +75,14 @@
             <h1 class="page-title mb-4 mb-md-3">Our Services</h1>
             @include('elements.service', [
                 'header' => 'Create A 2D Animation Video',
-                'addClass' => '', 'img' => 'img/video.gif',
+                'addClass' => '', 'img' => 'img/video.gif', 'classWrap' => 'pb-5',
                 'body' => 'Create a professional and high-quality animation video that will capture
                            your audience and boost your sales revenue.',
                 'link' => '/animation-video'
             ])
             @include('elements.service', [
                 'header' => 'Create Your Logo With Animation',
-                'addClass' => 'service__inverted',
+                'addClass' => 'service__inverted', 'classWrap' => 'pb-5',
                 'img' => 'img/logo.gif',
                 'link' => '/animation-logo',
                 'body' => 'Do you wish for your Logo to come alive? We will transform your logo into
@@ -90,7 +90,7 @@
             ])
             @include('elements.service', [
                 'header' => 'Create A Kinetic Text Typography Animation',
-                'addClass' => '', 'img' => 'img/text.gif',
+                'addClass' => '', 'img' => 'img/text.gif', 'classWrap' => '',
                 'link' => '/animation-text',
                 'body' => 'Design your text and make them attractive and engaging to the audience.
                            Make your words captivating and creative'
@@ -162,7 +162,9 @@
                             <h5>Customer Support</h5>
                             <p class="mb-2">
                                 For support, contact
-                                <span class="text-brand-primary text-underline">support@animationline.com</span>
+                                <span class="text-brand-primary text-underline text-break">
+                                    support@animationline.com
+                                </span>
                             </p>
                         </div>
                     </div>

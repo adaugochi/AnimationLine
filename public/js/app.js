@@ -37426,14 +37426,14 @@ __webpack_require__(/*! ./validation */ "./resources/js/validation.js");
 
 __webpack_require__(/*! ./checkout */ "./resources/js/checkout.js");
 
+__webpack_require__(/*! ./file-upload */ "./resources/js/file-upload.js");
+
 (function ($) {
   var submitButtonId = $("#validateForm");
-  $(document).ready(function () {
-    $('.nav li a').each(function () {
-      if (this.href === window.location.href) {
-        $(this).addClass('active-class');
-      }
-    });
+  $('.nav li a').each(function () {
+    if (this.href === window.location.href) {
+      $(this).addClass('active-class');
+    }
   });
   submitButtonId.on('submit', function () {
     if ($(this).find('.error')) {
@@ -37445,10 +37445,41 @@ __webpack_require__(/*! ./checkout */ "./resources/js/checkout.js");
   $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip();
   });
-  $.ajaxSetup({
-    headers: {
-      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+
+  function smoothScroll($href) {
+    $($href).on('click', function (event) {
+      if (this.hash !== "") {
+        event.preventDefault();
+        var hash = this.hash;
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 800, function () {
+          window.location.hash = hash;
+        });
+      }
+    });
+  }
+
+  smoothScroll('a[href^="/#whyUs"]');
+  smoothScroll('a[href^="/#service"]');
+  $(".btn-scroll").click(function () {
+    $("html").animate({
+      scrollTop: 0
+    }, 800);
+    return false;
+  });
+
+  function windowScroll($this) {
+    if ($this.scrollTop() > 100) {
+      $('.btn-scroll').show().fadeIn();
+    } else {
+      $('.btn-scroll').fadeOut().hide();
     }
+  }
+
+  windowScroll($(window));
+  $(window).scroll(function () {
+    windowScroll($(this));
   });
 })(jQuery);
 
@@ -37605,7 +37636,7 @@ window._ = __webpack_require__(/*! material-icons */ "./node_modules/material-ic
       submitButtonId.attr('action', "".concat(BaseURL, "/pay-with-paystack"));
       $('.btn-submit').attr('disabled', false);
     } else if (value === 'paypal') {
-      submitButtonId.attr('action', "".concat(BaseURL, "/pay-with-paypal"));
+      submitButtonId.attr('action', "".concat(BaseURL, "/create-payment"));
       $('.btn-submit').attr('disabled', false);
     } else {
       $('.btn-submit').attr('disabled', true);
@@ -37621,6 +37652,28 @@ window._ = __webpack_require__(/*! material-icons */ "./node_modules/material-ic
       fetchMetaDataValues();
       totalAmountInput.val(totalAmountInput.val() * 100);
     }
+  });
+})(jQuery);
+
+/***/ }),
+
+/***/ "./resources/js/file-upload.js":
+/*!*************************************!*\
+  !*** ./resources/js/file-upload.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function ($) {
+  var fileInput = $(".file-input"),
+      fileSelected = $(".file-selected"),
+      invalidTextField = $(".company-logo .invalid-feedback"),
+      fileNotSelected = 'No File Chosen';
+  fileInput.on('change', function () {
+    var filePath = $(this).val(),
+        fileArr = filePath.split("\\"),
+        fileName = fileArr[fileArr.length - 1];
+    fileSelected.html(fileName);
   });
 })(jQuery);
 
@@ -37682,9 +37735,17 @@ window._ = __webpack_require__(/*! material-icons */ "./node_modules/material-ic
       },
       app_full_name: "required",
       description: "required",
-      website: {
+      company_website: {
         url: true
-      }
+      },
+      company_name: "required",
+      company_logo: "required",
+      logo_sample: "required",
+      voice_type: "required",
+      video_script: "required",
+      artist_gender: "required",
+      artist_accent: "required",
+      video_speed: "required"
     },
     messages: {
       password_confirmation: {

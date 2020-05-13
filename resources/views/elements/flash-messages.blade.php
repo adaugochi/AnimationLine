@@ -8,7 +8,7 @@
         {!! session()->get('status') !!}
         <span aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">&times;</span>
     </div>
-@elseif(session()->has('email'))
+@elseif(session()->has('error'))
     <div class="alert alert-danger alert-animated fadeIn">
         {!! session()->get('error') !!}
         <span aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">&times;</span>

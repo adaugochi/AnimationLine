@@ -70,7 +70,7 @@
                                 <span class="discount">0.00</span>
                             </p>
                         </div>
-                        @if($hasDiscount < 1)
+                        @if($hasDiscount != 0)
                             <div class="d-flex justify-content-between discount-field">
                                 <div>
                                     <input type="text" class="card-form__input form-control coupon-code">
@@ -83,7 +83,7 @@
                                 </div>
                             </div>
                             <div class="d-none justify-content-between discount-success">
-                                <span class="text-success fs-20">Discount Applied Sucessfully</span>
+                                <span class="text-success fs-20">Discount Applied Successfully</span>
                                 <span><i class="material-icons text-success fs-28">check</i></span>
                             </div>
                         @endif

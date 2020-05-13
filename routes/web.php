@@ -22,21 +22,17 @@ Route::get('/animation-text/bronze', 'PricingController@textBronze')->name('text
 Route::get('/animation-text/silver', 'PricingController@textSilver')->name('text-silver');
 Route::get('/animation-text/gold', 'PricingController@textGold')->name('text-gold');
 
+Route::get('/pay-with-paypal', 'PricingController@paywithpaypal');
 Route::get('/execute-payment', 'PaymentController@executePayment');
 Route::get('/cancel-payment', 'PaymentController@cancelPayment');
 Route::get('/payment/callback', 'PaymentController@handleGatewayCallback');
-Route::post('/pay-with-paypal', 'PaymentController@createPayment');
+Route::post('/create-payment', 'PaymentController@createPayment');
 Route::post('/pay-with-paystack', 'PaymentController@redirectToGateway');
 
-Route::get('/brief/2D-animation-video/bronze/{id}', 'BriefController@videoBronze');
-Route::get('/brief/2D-animation-video/silver/{id}', 'BriefController@videoSilver');
-Route::get('/brief/2D-animation-video/gold/{id}', 'BriefController@videoGold');
-Route::get('/brief/logo-animation/bronze/{id}', 'BriefController@logoBronze');
-Route::get('/brief/logo-animation/silver/{id}', 'BriefController@logoSilver');
-Route::get('/brief/logo-animation/gold/{id}', 'BriefController@logoGold');
-Route::get('/brief/kinetic-text-typography-animation/bronze/{id}', 'BriefController@textBronze');
-Route::get('/brief/kinetic-text-typography-animation/silver/{id}', 'BriefController@textSilver');
-Route::get('/brief/kinetic-text-typography-animation/gold/{id}', 'BriefController@textGold');
+Route::get('/brief/2D-animation-video/{package}/{id}', 'BriefController@videoService');
+Route::get('/brief/logo-animation/{package}/{id}', 'BriefController@logoService');
+Route::get('/brief/kinetic-text-typography-animation/{package}/{id}', 'BriefController@textService');
+Route::get('/brief/completed', 'BriefController@completed');
 Route::post('/create-brief', 'BriefController@createBrief')->name('create-brief');
 Route::post('/edit-brief', 'BriefController@updateBrief')->name('edit-brief');
 

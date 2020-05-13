@@ -1,4 +1,4 @@
-<div class="pb-5">
+<div class="{{ $classWrap }}">
     <div class="py-0 py-md-4 {{ $addClass }}">
         <div class="row">
             <div class="col">

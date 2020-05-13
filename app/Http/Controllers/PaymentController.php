@@ -47,15 +47,15 @@ class PaymentController extends Controller
     public function createPayment(Request $request)
     {
         $this->validate(request(), [
-            'city' => 'required|alpha',
-            'state' => 'required|alpha',
-            'country' => 'required|alpha',
+            'city' => 'required',
+            'state' => 'required',
+            'country' => 'required',
             'sales_amount' => 'required',
             'discount_price' => 'required',
             'amount' => 'required',
             'email' => 'required',
             'currency' => 'required',
-            'package' => 'required|alpha',
+            'package' => 'required',
             'payment_method' => 'required',
             'service' => 'required'
         ]);
@@ -106,14 +106,13 @@ class PaymentController extends Controller
         DB::beginTransaction();
         $postRequest = session()->get('billing');
         $paymentId = request('paymentId');
-        $payerId = Utils::GenerateToken();
+        $payerId = request('PayerID');
 
         $billing->create($postRequest, $paymentId, $payerId);
         if (!$billing->save()) {
             DB::rollBack();
         }
         $totalAmount = Session::get('billing.amount');
-
         $payment = Payment::get($paymentId, $this->apiContext);
 
         $execution = new PaymentExecution();
@@ -122,26 +121,20 @@ class PaymentController extends Controller
         $transaction = new Transaction();
         $amount = new Amount();
 
-        $amount->setCurrency('USD');
+        $amount->setCurrency($postRequest['currency']);
         $amount->setTotal($totalAmount);
         $transaction->setAmount($amount);
-
         $execution->addTransaction($transaction);
         $result = $payment->execute($execution, $this->apiContext);
 
         if ($result->getState() == 'approved') {
-            $slug = Utils::slug($billing->service);
+            $slug = Utils::slug($postRequest['service']);
             session()->forget('billing');
             DB::commit();
-            return redirect('/brief/'.$slug.'/'.$billing->package.'/'.$billing->id)
+            return redirect('/brief/'.$slug.'/'.$postRequest['package'].'/'.$billing->id)
                 ->with(['success' => Message::PAYMENT_SUCCESSFUL]);
         }
 
-        return redirect('/home')->with(['error' => Message::PAYMENT_UNSUCCESSFUL]);
-    }
-
-    public function cancelPayment()
-    {
         return redirect('/home')->with(['error' => Message::PAYMENT_UNSUCCESSFUL]);
     }
 

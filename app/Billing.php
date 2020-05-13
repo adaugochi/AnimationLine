@@ -24,12 +24,17 @@ use Illuminate\Database\Eloquent\Model;
  * @property mixed currency
  * @property string payment_method
  * @property mixed id
+ * @property string status
  */
 class Billing extends Model
 {
+    const IN_PROGRESS = 'in-progress';
+    const COMPLETED = 'completed';
+    const DELIVERED = 'delivered';
+
     protected $fillable = [
         'package', 'currency', 'sales_amount', 'amount', 'has_discount', 'discount_price', 'payment_status',
-        'city', 'state', 'country', 'service', 'payment_method'
+        'city', 'state', 'country', 'service', 'payment_method', 'status'
     ];
 
     public function user()
@@ -54,6 +59,7 @@ class Billing extends Model
         $this->currency = $request['currency'];
         $this->payment_method = $request['payment_method'];
         $this->user_id = auth()->user()->id;
+        $this->status = self::IN_PROGRESS;
 
         if ((int)$discountPrice !== 0) {
             $this->has_discount = 1;

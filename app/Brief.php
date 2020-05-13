@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Brief extends Model
 {
     protected $fillable = [
-        'app_full_name', 'description', 'website', 'billing_id', 'voiceover_artist', 'country_accent',
+        'company_name', 'company_logo', 'company_website', 'video_script', 'artist_gender', 'artist_accent',
+        'voice_type', 'video_speed', 'logo_sample', 'other_info', 'billing_id',
     ];
 }

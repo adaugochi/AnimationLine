@@ -37,6 +37,7 @@
                         <h5>Silver Package</h5>
                         <h2 class="font-weight-bold text-white fs-50">$149.99</h2>
                         <p>1080P video quality</p>
+                        <p>Voiceover</p>
                         <p>Background Music</p>
                         <p>Overlay Text</p>
                         <p>Logo Transparency</p>
@@ -59,6 +60,7 @@
                         <h2 class="font-weight-bold text-brand-primary fs-50">$229.99</h2>
                         <p>4K video quality</p>
                         <p>Sound Effect</p>
+                        <p>Voiceover</p>
                         <p>Background Music</p>
                         <p>Overlay Text</p>
                         <p>Perfect Loop</p>

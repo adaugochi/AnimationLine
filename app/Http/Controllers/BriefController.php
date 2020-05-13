@@ -15,50 +15,31 @@ class BriefController extends Controller
         $this->middleware('auth');
     }
 
-    public function videoBronze($id)
-    {
-
-    }
-
-    public function videoSilver($id)
-    {
-
-    }
-
-    public function videoGold($id)
+    public function logoService($package, $id)
     {
         $result = self::getBrief($id);
-        dd($result);
+        $isEdit = $result['isEdit'];
+        $brief = $result['brief'];
+
+        return view('brief.logo', compact('package', 'isEdit', 'brief', 'id'));
     }
 
-    public function logoBronze($id)
+    public function textService($package, $id)
     {
+        $result = self::getBrief($id);
+        $isEdit = $result['isEdit'];
+        $brief = $result['brief'];
 
+        return view('brief.text', compact('package', 'isEdit', 'brief', 'id'));
     }
 
-    public function logoSilver($id)
+    public function videoService($package, $id)
     {
+        $result = self::getBrief($id);
+        $isEdit = $result['isEdit'];
+        $brief = $result['brief'];
 
-    }
-
-    public function logoGold($id)
-    {
-        dd($id);
-    }
-
-    public function textBronze($id)
-    {
-
-    }
-
-    public function textSilver($id)
-    {
-
-    }
-
-    public function textGold($id)
-    {
-        dd($id);
+        return view('brief.video', compact('package', 'isEdit', 'brief', 'id'));
     }
 
     /**
@@ -67,8 +48,6 @@ class BriefController extends Controller
      */
     private static function getBrief($id)
     {
-        $email = auth()->user()->email;
-        $fullName = auth()->user()->getFullName();
         $isEdit = false;
         $isRecordExist = Billing::where('id', $id)->first();
         if (!$isRecordExist) {
@@ -78,18 +57,23 @@ class BriefController extends Controller
         if ($brief) {
             $isEdit = true;
         }
-        return ['isEdit' => $isEdit, 'email' => $email, 'fullName' => $fullName, 'brief' => $brief];
+        return ['isEdit' => $isEdit, 'brief' => $brief];
     }
 
     private function validateData(Request $request)
     {
         $validateData = $request->validate([
             'billing_id' => 'required',
-            'app_full_name' => 'required',
-            'country_accent' => 'required',
-            'voiceover_artist' => 'required',
-            'website' => '',
-            'description' => 'required'
+            'company_name' => 'required',
+            'company_logo' => 'required',
+            'company_website' => '',
+            'video_script' => '',
+            'artist_gender' => '',
+            'artist_accent' => '',
+            'voice_type' => '',
+            'video_speed' => '',
+            'logo_sample' => '',
+            'other_info' => '',
         ]);
 
         return $validateData;
@@ -110,14 +94,20 @@ class BriefController extends Controller
             DB::rollBack();
         }
 
-        $isUpdated = DB::table('billings')->where('id', $request->billing_id)->update(['has_brief' => 1]);
+        $isUpdated = DB::table('billings')
+            ->where('id', $request->billing_id)
+            ->update(['has_brief' => 1]);
         if (!$isUpdated) {
             DB::rollBack();
         }
 
         DB::commit();
-        return redirect('/home')->with(['success' => 'Brief completed successfully']);
+        return redirect('/brief/completed');
+    }
 
+    public function completed()
+    {
+        return view('brief.complete');
     }
 
     /**

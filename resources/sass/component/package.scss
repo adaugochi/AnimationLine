@@ -1,0 +1,46 @@
+.url-icon {
+  position: absolute;
+  line-height: 2.3;
+  padding-left: 14px;
+  color: #7e7c7c;
+}
+
+input[name=company_website] {
+  padding-left: 38px;
+}
+
+.file {
+  &-input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+
+  &-label {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 1.42;
+    letter-spacing: 0.38px;
+    color: #3b3b3d;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+  }
+
+  &-placeholder {
+    border: 1px solid #ced4da;
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    margin-right: 10px;
+    background-color: $white;
+  }
+
+  &-selected {
+    font-size: 12px;
+    display: inline-block;
+  }
+}

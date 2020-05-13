@@ -49,9 +49,17 @@
             },
             app_full_name: "required",
             description: "required",
-            website : {
+            company_website : {
                 url: true
-            }
+            },
+            company_name: "required",
+            company_logo: "required",
+            logo_sample: "required",
+            voice_type: "required",
+            video_script: "required",
+            artist_gender: "required",
+            artist_accent: "required",
+            video_speed: "required"
         },
         messages: {
             password_confirmation: {
