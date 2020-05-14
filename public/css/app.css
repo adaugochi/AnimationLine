@@ -11003,7 +11003,7 @@ a.text-dark:focus {
 
 .card {
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
-  padding: 25px;
+  padding: 30px;
   background: #ffffff;
   border: none;
   border-radius: 8px !important;
@@ -11037,7 +11037,7 @@ a.text-dark:focus {
 }
 
 .card-form__wrapper .form-group {
-  margin-bottom: 15px !important;
+  margin-bottom: 20px !important;
 }
 
 .card-form__wrapper .form-group .checkbox input {
@@ -11533,6 +11533,7 @@ input[name=company_website] {
   border-radius: 4px;
   margin-right: 10px;
   background-color: #ffffff;
+  cursor: pointer;
 }
 
 .file-selected {

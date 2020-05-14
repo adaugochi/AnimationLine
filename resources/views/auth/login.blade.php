@@ -4,13 +4,13 @@
 @section('auth-header', 'Login')
 @section('content')
     <div class="form-group">
-        <input type="text" class="card-form__input rounded form-control @error('email') is-invalid @enderror"
-               name="email" placeholder="Email Address" autocomplete="true">
+        <input class="card-form__input rounded form-control @error('email') is-invalid @enderror"
+               type="text" name="email" placeholder="Email Address" autocomplete="true">
         @include('elements.error', ['fieldName' => 'email'])
     </div>
     <div class="form-group">
-        <input type="password" class="card-form__input rounded form-control @error('password') is-invalid @enderror"
-               name="password" placeholder="Password" autocomplete="true">
+        <input class="card-form__input rounded form-control @error('password') is-invalid @enderror"
+               type="password" name="password" placeholder="Password" autocomplete="true">
         @include('elements.error', ['fieldName' => 'password'])
         @if (Route::has('password.request'))
             <a class="text-brand-primary fs-12 d-block mt-3" href="{{ route('password.request') }}">

@@ -37,6 +37,7 @@ input[name=company_website] {
     border-radius: 4px;
     margin-right: 10px;
     background-color: $white;
+    cursor: pointer;
   }
 
   &-selected {

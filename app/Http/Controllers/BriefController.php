@@ -65,14 +65,14 @@ class BriefController extends Controller
         $validateData = $request->validate([
             'billing_id' => 'required',
             'company_name' => 'required',
-            'company_logo' => 'required',
+            'company_logo' => 'required|mimes:jpeg,png,jpg|max:2000000',
             'company_website' => '',
             'video_script' => '',
             'artist_gender' => '',
             'artist_accent' => '',
             'voice_type' => '',
             'video_speed' => '',
-            'logo_sample' => '',
+            'logo_sample' => 'mimes:jpeg,png,jpg|max:2000000',
             'other_info' => '',
         ]);
 
@@ -88,7 +88,21 @@ class BriefController extends Controller
      */
     public function createBrief(Request $request, Brief $brief)
     {
+        self::validateData($request);
         DB::beginTransaction();
+
+        $companyLogo = '';
+        $sampleLogo = '';
+
+        if ($request->hasFile('logo_sample')) {
+            $sampleLogo = $request->logo_sample->getClientOriginalName();
+            $request->logo_sample->storeAs('public/sample-logos', $sampleLogo);
+        }
+
+        if ($request->hasFile('company_logo')) {
+            $companyLogo = $request->company_logo->getClientOriginalName();
+            $request->company_logo->storeAs('public/company-logos', $companyLogo);
+        }
 
         if (!$brief->create(self::validateData($request))) {
             DB::rollBack();

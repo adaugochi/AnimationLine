@@ -7,10 +7,14 @@
         return this.optional(element) || value.length === 6;
     }, "Invalid postal code");
 
+    $.validator.addMethod('filesize', function (value, element) {
+        return this.optional(element) || (element.files[0].size <= 2000000)
+    }, 'File size is greater 2MB');
+
     $('.validateForm').validate({
         onsubmit: true,
         onchange: true,
-        onblur: false,
+        onblur: true,
         onkeyup: false,
         rules: {
             city: "required",
@@ -53,8 +57,14 @@
                 url: true
             },
             company_name: "required",
-            company_logo: "required",
-            logo_sample: "required",
+            company_logo: {
+                required: true,
+                filesize: true,
+            },
+            logo_sample: {
+                required: true,
+                filesize: true,
+            },
             voice_type: "required",
             video_script: "required",
             artist_gender: "required",

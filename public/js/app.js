@@ -37430,6 +37430,19 @@ __webpack_require__(/*! ./file-upload */ "./resources/js/file-upload.js");
 
 (function ($) {
   var submitButtonId = $("#validateForm");
+  $('.password-show').on('click', function () {
+    var icon = $(this).find('.fa');
+
+    if (icon.hasClass('fa-eye-slash')) {
+      icon.removeClass('fa-eye-slash');
+      icon.addClass('fa-eye');
+      $(this).siblings().prop('type', 'text');
+    } else {
+      icon.addClass('fa-eye-slash');
+      icon.removeClass('fa-eye');
+      $(this).siblings().prop('type', 'password');
+    }
+  });
   $('.nav li a').each(function () {
     if (this.href === window.location.href) {
       $(this).addClass('active-class');
@@ -37666,14 +37679,29 @@ window._ = __webpack_require__(/*! material-icons */ "./node_modules/material-ic
 
 (function ($) {
   var fileInput = $(".file-input"),
-      fileSelected = $(".file-selected"),
-      invalidTextField = $(".company-logo .invalid-feedback"),
+      filePlaceHolder = $(".file-placeholder"),
       fileNotSelected = 'No File Chosen';
-  fileInput.on('change', function () {
-    var filePath = $(this).val(),
-        fileArr = filePath.split("\\"),
-        fileName = fileArr[fileArr.length - 1];
-    fileSelected.html(fileName);
+  filePlaceHolder.each(function () {
+    $(this).on('click', function () {
+      var fileField = $(this).parent().parent().find('.file-input');
+      fileField.click();
+    });
+  });
+  fileInput.each(function () {
+    var fileSelected = $(this).parent().find('.file-selected'),
+        fileError = $(this).siblings('.error');
+    $(this).on('change', function () {
+      if (this.files[0].size <= 2000000) {
+        fileError.html("");
+        var filePath = $(this).val(),
+            fileArr = filePath.split("\\"),
+            fileName = fileArr[fileArr.length - 1];
+        fileSelected.html(fileName);
+      } else {
+        fileError.html("File size is greater than 2MB");
+        fileSelected.html(fileNotSelected);
+      }
+    });
   });
 })(jQuery);
 
@@ -37693,10 +37721,13 @@ window._ = __webpack_require__(/*! material-icons */ "./node_modules/material-ic
   jQuery.validator.addMethod("length", function (value, element) {
     return this.optional(element) || value.length === 6;
   }, "Invalid postal code");
+  $.validator.addMethod('filesize', function (value, element) {
+    return this.optional(element) || element.files[0].size <= 2000000;
+  }, 'File size is greater 2MB');
   $('.validateForm').validate({
     onsubmit: true,
     onchange: true,
-    onblur: false,
+    onblur: true,
     onkeyup: false,
     rules: {
       city: "required",
@@ -37739,8 +37770,14 @@ window._ = __webpack_require__(/*! material-icons */ "./node_modules/material-ic
         url: true
       },
       company_name: "required",
-      company_logo: "required",
-      logo_sample: "required",
+      company_logo: {
+        required: true,
+        filesize: true
+      },
+      logo_sample: {
+        required: true,
+        filesize: true
+      },
       voice_type: "required",
       video_script: "required",
       artist_gender: "required",

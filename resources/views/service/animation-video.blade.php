@@ -21,7 +21,7 @@
                         <h2 class="font-weight-bold text-brand-primary fs-50">$99.99</h2>
                         <p>720P video quality</p>
                         <p>Background music</p>
-                        <p>120 No. of words</p>
+                        <p>Up to 120 No. of words</p>
                         <p>Delivered in 5 Days</p>
                         <p>Up to 3 reviews</p>
                         <div>

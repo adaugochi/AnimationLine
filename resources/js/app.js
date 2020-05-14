@@ -6,6 +6,19 @@ require('./file-upload');
 (function ($) {
     let submitButtonId = $("#validateForm");
 
+    $('.password-show').on('click', function () {
+       let icon = $(this).find('.fa');
+       if (icon.hasClass('fa-eye-slash')) {
+           icon.removeClass('fa-eye-slash');
+           icon.addClass('fa-eye');
+           $(this).siblings().prop('type', 'text')
+       } else {
+           icon.addClass('fa-eye-slash');
+           icon.removeClass('fa-eye');
+           $(this).siblings().prop('type', 'password')
+       }
+    });
+
     $('.nav li a').each(function() {
         if (this.href === window.location.href) {
             $(this).addClass('active-class');

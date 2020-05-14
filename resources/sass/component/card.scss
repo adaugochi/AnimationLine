@@ -1,6 +1,6 @@
 .card {
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
-  padding: 25px;
+  padding: 30px;
   background: $white;
   border: none;
   border-radius: 8px !important;
@@ -33,7 +33,7 @@
   &-form {
     &__wrapper {
       .form-group {
-        margin-bottom: 15px !important;
+        margin-bottom: 20px !important;
         .checkbox {
           input {
             vertical-align: middle;
