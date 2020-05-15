@@ -43,11 +43,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @author Maryfaith Mgbede <adaamgbede@gmail.com>
+     */
     public function payments()
     {
         return $this->hasMany(Billing::class);
     }
 
+    /**
+     * @return string
+     * @author Maryfaith Mgbede <adaamgbede@gmail.com>
+     */
     public function getFullName()
     {
         return $this->first_name . ' ' . $this->last_name;

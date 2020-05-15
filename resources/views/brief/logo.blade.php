@@ -28,7 +28,9 @@
                         </label>
                         <div>
                             <span class="file-placeholder">Choose File</span>
-                            <span class="file-selected">No File Chosen</span>
+                            <span class="file-selected">
+                                {{ $isEdit ? $brief->company_logo : 'No File Chosen' }}
+                            </span>
                         </div>
                         <input type="file" id="company-logo"
                                class="file-input form-control-file @error('company_logo') is-invalid @enderror"
@@ -44,7 +46,9 @@
                         </label>
                         <div>
                             <span class="file-placeholder">Choose File</span>
-                            <span class="file-selected">No File Chosen</span>
+                            <span class="file-selected">
+                                {{ $isEdit ? $brief->logo_sample : 'No File Chosen' }}
+                            </span>
                         </div>
                         <input type="file" id="sample-logo"
                                class="file-input form-control-file @error('logo_sample') is-invalid @enderror"

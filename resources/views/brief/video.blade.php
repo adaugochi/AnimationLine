@@ -14,7 +14,7 @@
                     <p>Please proceed to update your brief</p>
                 @endif
             </div>
-            <form class="card-form__wrapper validateForm" method="post"
+            <form class="card-form__wrapper validateForm" method="post" enctype="multipart/form-data"
                   action="{{ $isEdit ? route('edit-brief') : route('create-brief') }}">
                 <input type="hidden" name="billing_id" value="{{ $id }}">
                 @csrf
@@ -28,7 +28,9 @@
                         </label>
                         <div>
                             <span class="file-placeholder">Choose File</span>
-                            <span class="file-selected">No File Chosen</span>
+                            <span class="file-selected">
+                                {{ $isEdit ? $brief->company_logo : 'No File Chosen' }}
+                            </span>
                         </div>
                         <input type="file" id="company-logo"
                                class="file-input form-control-file @error('company_logo') is-invalid @enderror"

@@ -57,14 +57,6 @@
                 url: true
             },
             company_name: "required",
-            company_logo: {
-                required: true,
-                filesize: true,
-            },
-            logo_sample: {
-                required: true,
-                filesize: true,
-            },
             voice_type: "required",
             video_script: "required",
             artist_gender: "required",

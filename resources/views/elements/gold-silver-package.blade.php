@@ -3,7 +3,7 @@
         Accent of the voice over artist<span class="text-danger">*</span>
     </label>
     <select name="artist_accent" class="card-form__input form-control"
-            data-value="{{ $isEdit ? $brief->country_accent : '' }}" id="accent">
+            data-value="{{ $isEdit ? $brief->artist_accent : '' }}" id="accent">
         <option value="">Which country accent will you prefer?</option>
         @foreach(\App\Country::getAllCountries() as $country)
             <option value="{{ $country->code }}">{{ $country->name }}</option>

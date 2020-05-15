@@ -47,7 +47,10 @@
 
     $(document).ready(function () {
         addSelectedAttr($("#accent"));
-        addSelectedAttr($("#artist"))
+        addSelectedAttr($("#artist"));
+        addSelectedAttr($("#speed"));
+        addSelectedAttr($("#voice"));
+        addSelectedAttr($("#gender"))
     });
 
     applyCoupon.click(function (e) {

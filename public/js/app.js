@@ -37615,6 +37615,9 @@ window._ = __webpack_require__(/*! material-icons */ "./node_modules/material-ic
   $(document).ready(function () {
     addSelectedAttr($("#accent"));
     addSelectedAttr($("#artist"));
+    addSelectedAttr($("#speed"));
+    addSelectedAttr($("#voice"));
+    addSelectedAttr($("#gender"));
   });
   applyCoupon.click(function (e) {
     e.preventDefault();
@@ -37690,6 +37693,13 @@ window._ = __webpack_require__(/*! material-icons */ "./node_modules/material-ic
   fileInput.each(function () {
     var fileSelected = $(this).parent().find('.file-selected'),
         fileError = $(this).siblings('.error');
+
+    if (fileSelected.text().trim() === fileNotSelected) {
+      fileError.html("This field is required");
+    } else {
+      fileError.html("");
+    }
+
     $(this).on('change', function () {
       if (this.files[0].size <= 2000000) {
         fileError.html("");
@@ -37770,14 +37780,6 @@ window._ = __webpack_require__(/*! material-icons */ "./node_modules/material-ic
         url: true
       },
       company_name: "required",
-      company_logo: {
-        required: true,
-        filesize: true
-      },
-      logo_sample: {
-        required: true,
-        filesize: true
-      },
       voice_type: "required",
       video_script: "required",
       artist_gender: "required",

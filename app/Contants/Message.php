@@ -15,5 +15,6 @@ class Message
 
     const PAYMENT_UNSUCCESSFUL = 'Payment was unsuccessful';
     const PAYMENT_SUCCESSFUL = 'Payment was successful';
+    const BRIEF_UPDATED = 'Could not updated brief. Please try again';
 
 }

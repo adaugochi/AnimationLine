@@ -14,6 +14,12 @@
         let fileSelected = $(this).parent().find('.file-selected'),
             fileError = $(this).siblings('.error');
 
+        if (fileSelected.text().trim() === fileNotSelected) {
+            fileError.html("This field is required");
+        } else {
+            fileError.html("");
+        }
+
        $(this).on('change', function () {
            if (this.files[0].size <= 2000000) {
                fileError.html("");

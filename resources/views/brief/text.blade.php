@@ -15,7 +15,7 @@
                 @endif
             </div>
 
-            <form class="card-form__wrapper validateForm" method="post"
+            <form class="card-form__wrapper validateForm" method="post" enctype="multipart/form-data"
                   action="{{ $isEdit ? route('edit-brief') : route('create-brief') }}">
                 <input type="hidden" name="billing_id" value="{{ $id }}">
                 @csrf
@@ -26,7 +26,7 @@
                             Speed of the video<span class="text-danger">*</span>
                         </label>
                         <select name="video_speed" class="card-form__input form-control"
-                                data-value="{{ $isEdit ? $brief->video_speed : '' }}" id="accent">
+                                data-value="{{ $isEdit ? $brief->video_speed : '' }}" id="speed">
                             <option value="">What speed do you prefer?</option>
                             <option value="slow">Slow</option>
                             <option value="medium">Medium</option>
@@ -41,11 +41,12 @@
                         </label>
                         <div>
                             <span class="file-placeholder">Choose File</span>
-                            <span class="file-selected">No File Chosen</span>
+                            <span class="file-selected">
+                                {{ $isEdit ? $brief->company_logo : 'No File Chosen' }}
+                            </span>
                         </div>
-                        <input type="file" id="company-logo"
-                               class="file-input form-control-file @error('company_logo') is-invalid @enderror"
-                               name="company_logo" accept="[&quot;.png, .jpg, .jpeg &quot;]">
+                        <input type="file" id="company-logo" name="company_logo" accept="['.png, .jpg, .jpeg']"
+                               class="file-input form-control-file @error('company_logo') is-invalid @enderror">
                         <label class="error" for="company-logo"></label>
                         @include('elements.error', ['fieldName' => 'company_logo'])
                     </div>

@@ -4,17 +4,27 @@ namespace App\Http\Controllers;
 
 use App\Billing;
 use App\Brief;
+use App\Contants\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 class BriefController extends Controller
 {
+    /**
+     * BriefController constructor.
+     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
+    /**
+     * @param $package
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @author Maryfaith Mgbede <adaamgbede@gmail.com>
+     */
     public function logoService($package, $id)
     {
         $result = self::getBrief($id);
@@ -24,6 +34,12 @@ class BriefController extends Controller
         return view('brief.logo', compact('package', 'isEdit', 'brief', 'id'));
     }
 
+    /**
+     * @param $package
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @author Maryfaith Mgbede <adaamgbede@gmail.com>
+     */
     public function textService($package, $id)
     {
         $result = self::getBrief($id);
@@ -33,6 +49,12 @@ class BriefController extends Controller
         return view('brief.text', compact('package', 'isEdit', 'brief', 'id'));
     }
 
+    /**
+     * @param $package
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @author Maryfaith Mgbede <adaamgbede@gmail.com>
+     */
     public function videoService($package, $id)
     {
         $result = self::getBrief($id);
@@ -66,14 +88,7 @@ class BriefController extends Controller
             'billing_id' => 'required',
             'company_name' => 'required',
             'company_logo' => 'required|mimes:jpeg,png,jpg|max:2000000',
-            'company_website' => '',
-            'video_script' => '',
-            'artist_gender' => '',
-            'artist_accent' => '',
-            'voice_type' => '',
-            'video_speed' => '',
-            'logo_sample' => 'mimes:jpeg,png,jpg|max:2000000',
-            'other_info' => '',
+            'logo_sample' => 'mimes:jpeg,png,jpg|max:2000000'
         ]);
 
         return $validateData;
@@ -90,35 +105,28 @@ class BriefController extends Controller
     {
         self::validateData($request);
         DB::beginTransaction();
+        $billingId = $request->billing_id;
 
-        $companyLogo = '';
-        $sampleLogo = '';
-
-        if ($request->hasFile('logo_sample')) {
-            $sampleLogo = $request->logo_sample->getClientOriginalName();
-            $request->logo_sample->storeAs('public/sample-logos', $sampleLogo);
-        }
-
-        if ($request->hasFile('company_logo')) {
-            $companyLogo = $request->company_logo->getClientOriginalName();
-            $request->company_logo->storeAs('public/company-logos', $companyLogo);
-        }
-
-        if (!$brief->create(self::validateData($request))) {
+        $brief->create($request, $request->all(), $billingId);
+        if (!$brief->save()) {
             DB::rollBack();
+            return redirect('/home')->with(['error' => Message::BRIEF_UPDATED]);
         }
 
-        $isUpdated = DB::table('billings')
-            ->where('id', $request->billing_id)
-            ->update(['has_brief' => 1]);
+        $isUpdated = DB::table('billings')->where('id', $billingId)->update(['has_brief' => 1]);
         if (!$isUpdated) {
             DB::rollBack();
+            return redirect('/home')->with(['error' => Message::BRIEF_UPDATED]);
         }
 
         DB::commit();
         return redirect('/brief/completed');
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @author Maryfaith Mgbede <adaamgbede@gmail.com>
+     */
     public function completed()
     {
         return view('brief.complete');
@@ -132,8 +140,14 @@ class BriefController extends Controller
     public function updateBrief(Request $request)
     {
         $brief = Brief::where('billing_id', request('billing_id'))->first();
-        $brief->update(self::validateData($request));
+        if (!$brief) {
+            return redirect('/home')->with(['error' => 'Could not find this record']);
+        }
 
+        $brief->create($request, $request->all());
+        if (!$brief->save()) {
+            return redirect('/home')->with(['error' => Message::BRIEF_UPDATED]);
+        }
         return redirect('/home')->with(['success' => 'Brief updated successfully']);
     }
 }

@@ -32,16 +32,29 @@ class Billing extends Model
     const COMPLETED = 'completed';
     const DELIVERED = 'delivered';
 
+    /**
+     * @var array
+     */
     protected $fillable = [
         'package', 'currency', 'sales_amount', 'amount', 'has_discount', 'discount_price', 'payment_status',
         'city', 'state', 'country', 'service', 'payment_method', 'status'
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @author Maryfaith Mgbede <adaamgbede@gmail.com>
+     */
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * @param $request
+     * @param $paymentId
+     * @param $payerId
+     * @author Maryfaith Mgbede <adaamgbede@gmail.com>
+     */
     public function create($request, $paymentId, $payerId)
     {
         $discountPrice = $request['discount_price'];
@@ -67,16 +80,28 @@ class Billing extends Model
         $this->save();
     }
 
+    /**
+     * @return false|string
+     * @author Maryfaith Mgbede <adaamgbede@gmail.com>
+     */
     public function formatDate()
     {
         return date("jS F Y h:i A", strtotime($this->created_at));
     }
 
+    /**
+     * @return string
+     * @author Maryfaith Mgbede <adaamgbede@gmail.com>
+     */
     public function getCurrencyAndAmount()
     {
         return $this->currency . ' ' . ($this->currency === 'NGN' ? number_format($this->amount/100) : $this->amount);
     }
 
+    /**
+     * @return mixed
+     * @author Maryfaith Mgbede <adaamgbede@gmail.com>
+     */
     public static function hasDiscount()
     {
         return self::where('user_id', auth()->user()->id)->where('has_discount', 1)->count();
