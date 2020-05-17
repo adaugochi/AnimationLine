@@ -1,16 +1,11 @@
-@if (session()->has('success'))
-    <div class="alert alert-success alert-animated fadeIn">
-        {!! session()->get('success') !!}
-        <span aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">&times;</span>
-    </div>
-@elseif(session()->has('status'))
-    <div class="alert alert-success alert-animated fadeIn">
-        {!! session()->get('status') !!}
-        <span aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">&times;</span>
-    </div>
-@elseif(session()->has('error'))
-    <div class="alert alert-danger alert-animated fadeIn">
-        {!! session()->get('error') !!}
-        <span aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">&times;</span>
-    </div>
-@endif
+<script>
+    @if (Session::has('success'))
+    toastr.success("{{ Session::get('success')  }}");
+
+    @elseif (session()->has('status'))
+    toastr.success("{{ session()->get('status') }}");
+
+    @elseif (session()->has('error'))
+    toastr.error("{{ session()->get('error') }}");
+    @endif
+</script>

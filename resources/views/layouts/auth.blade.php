@@ -14,7 +14,6 @@
                     </div>
 
                     <div class="wd-300 wd-xs-350 bg-white auth_wrapper">
-                        @include('elements.flash-messages')
                         <div class="fs-28 mb-3 font-weight-lighter text-brand-primary">
                             @yield('auth-header')
                         </div>
@@ -25,7 +24,8 @@
         </form>
     </main>
 
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    @include('elements.flash-messages')
     @yield('scripts')
 </body>
 </html>

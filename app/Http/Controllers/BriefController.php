@@ -87,8 +87,8 @@ class BriefController extends Controller
         $validateData = $request->validate([
             'billing_id' => 'required',
             'company_name' => 'required',
-            'company_logo' => 'required|mimes:jpeg,png,jpg|max:2000000',
-            'logo_sample' => 'mimes:jpeg,png,jpg|max:2000000'
+            'company_logo' => 'required|image|mimes:jpeg,png,jpg,svg,gif|max:2048',
+            'logo_sample' => 'image|mimes:jpeg,png,jpg|max:2048'
         ]);
 
         return $validateData;

@@ -3,7 +3,6 @@
 @section('content')
     <div class="mx-auto mb-5">
         <div class="card">
-            @include('elements.flash-messages')
             @if(sizeof($billings) > 0)
                 <h4 class="mb-3">Latest Transactions</h4>
                 <div class="table-responsive">

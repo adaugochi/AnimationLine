@@ -4,7 +4,7 @@
     <div class="mx-auto mb-5">
         <div class="card">
             <form class="card-form__wrapper validateForm" id="validateForm"
-                  method="post" action="/pay-with-paypal">
+                  method="post" action="/create-payment">
                 @csrf
                 <input type="hidden" value="{{ $amount }}" id="backUpSaleAmt">
                 <input type="hidden" name="sales_amount" value="{{ $amount }}" id="saleAmt">

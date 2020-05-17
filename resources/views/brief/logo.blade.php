@@ -14,7 +14,7 @@
                     <p>Please proceed to update your brief</p>
                 @endif
             </div>
-            <form class="card-form__wrapper validateForm" method="post" enctype="multipart/form-data"
+            <form class="card-form__wrapper validateForm briefForm" method="post" enctype="multipart/form-data"
                   action="{{ $isEdit ? route('edit-brief') : route('create-brief') }}">
                 <input type="hidden" name="billing_id" value="{{ $id }}">
                 @csrf
@@ -29,13 +29,12 @@
                         <div>
                             <span class="file-placeholder">Choose File</span>
                             <span class="file-selected">
-                                {{ $isEdit ? $brief->company_logo : 'No File Chosen' }}
+                                {{ $isEdit ? $brief->orig_company_logo_name : 'No File Chosen' }}
                             </span>
                         </div>
                         <input type="file" id="company-logo"
                                class="file-input form-control-file @error('company_logo') is-invalid @enderror"
-                               name="company_logo" accept="[&quot;.png, .jpg, .jpeg &quot;]">
-                        <label class="error" for="company-logo"></label>
+                               name="company_logo" accept="['.png, .jpg, .jpeg, .svg, .gif']">
                         @include('elements.error', ['fieldName' => 'company_logo'])
                     </div>
                     <div class="form-group col-md-6 sample-logo">
@@ -47,12 +46,12 @@
                         <div>
                             <span class="file-placeholder">Choose File</span>
                             <span class="file-selected">
-                                {{ $isEdit ? $brief->logo_sample : 'No File Chosen' }}
+                                {{ $isEdit ? $brief->orig_logo_sample_name : 'No File Chosen' }}
                             </span>
                         </div>
                         <input type="file" id="sample-logo"
                                class="file-input form-control-file @error('logo_sample') is-invalid @enderror"
-                               name="logo_sample" accept="[&quot;.png, .jpg, .jpeg &quot;]">
+                               name="logo_sample" accept="['.png, .jpg, .jpeg, .svg, .gif']">
                         <label class="error" for="sample-logo"></label>
                         @include('elements.error', ['fieldName' => 'logo_sample'])
                     </div>

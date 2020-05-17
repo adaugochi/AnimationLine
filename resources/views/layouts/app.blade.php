@@ -20,7 +20,7 @@
                     <img src="{{ asset('img/logo.svg') }}" class="navbar-logo">
                 </div>
                 <span class="navbar-toggler" data-toggle="collapse" data-target="#myNavbar">
-                    <i class="material-icons">menu</i>
+                    <i class="fa fa-bars" aria-hidden="true"></i>
                 </span>
                 <div class="collapse navbar-collapse justify-content-end" id="myNavbar">
                     <ul class="nav navbar-nav ">

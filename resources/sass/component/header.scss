@@ -81,10 +81,11 @@
   &-toggler {
     border-color: unset !important;
     border: unset !important;
+    color: $brand-grey !important;
     cursor: pointer;
-    .material-icons {
-      color: $white;
-      background: $brand-orange;
+    i {
+      //color: $white;
+      //background: $brand-orange;
       padding: 3px 4px;
       border-radius: 4px;
     }

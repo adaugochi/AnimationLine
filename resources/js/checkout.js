@@ -85,10 +85,10 @@
         totalAmountInput.val(backUpSaleAmt.val());
 
         if (value === 'paystack') {
-            submitButtonId.attr('action', `${BaseURL}/pay-with-paystack`);
+            submitButtonId.attr('action', '/pay-with-paystack');
             $('.btn-submit').attr('disabled', false)
         } else if (value === 'paypal') {
-            submitButtonId.attr('action', `${BaseURL}/create-payment`);
+            submitButtonId.attr('action', '/create-payment');
             $('.btn-submit').attr('disabled', false)
         } else {
             $('.btn-submit').attr('disabled', true)

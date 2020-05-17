@@ -12,9 +12,6 @@ try {
 
     require('bootstrap');
     require('jquery-validation');
-    require('material-icons')
-    // require('datatables.net');
-    // require('datatables.net-dt');
 } catch (e) {}
 
 /**
@@ -24,9 +21,6 @@ try {
  */
 
 //window.axios = require('axios');
-
-window._ = require('material-icons');
-
 //window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /**
@@ -45,3 +39,4 @@ window._ = require('material-icons');
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+window.toastr = require('toastr');

@@ -24,7 +24,7 @@
                     <img src="{{ asset('img/logo.svg') }}" class="navbar-logo">
                 </a>
                 <span class="navbar-toggler" data-toggle="collapse" data-target="#myNavbar">
-                    <i class="material-icons">menu</i>
+                    <i class="fa fa-bars" aria-hidden="true"></i>
                 </span>
                 <div class="collapse navbar-collapse justify-content-end" id="myNavbar">
                     <ul class="nav navbar-nav">
@@ -32,7 +32,7 @@
                             <a class="nav-link text-gray" href="/home">Dashboard</a>
                         </li>
                         <li class="ml-md-3">
-                            <a class="btn btn-brand-primary-outline" href="{{ route('logout') }}"
+                            <a class="btn btn-brand-primary" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                document.getElementById('logout-form').submit();">
                                 {{ __('LOGOUT') }}
@@ -59,11 +59,10 @@
         @include('elements.sub-footer')
     </footer>
 
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <script>
-        let rapidApiKey = "{{ env('RAPID_API_KEY') }}";
-        let IPToken = "{{ env('IP_TOKEN') }}";
         let BaseURL = "{{ env('BASE_URL') }}"
     </script>
+    @include('elements.flash-messages')
 </body>
 </html>

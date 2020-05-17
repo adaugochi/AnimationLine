@@ -11013,13 +11013,33 @@ a.text-dark:focus {
   box-shadow: unset;
 }
 
-.card-image-width {
-  width: 50%;
+@media (min-width: 992px) {
+  .card-image-width {
+    width: 50% !important;
+  }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .card-height {
     height: 400px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .card-height {
+    height: 500px;
+  }
+}
+
+@media (min-width: 992px) {
+  .card-height-350 {
+    height: 350px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .card-height-350 {
+    height: 450px;
   }
 }
 
@@ -11070,6 +11090,10 @@ a.text-dark:focus {
 
 .card-form__input.valid {
   border-color: #38c172;
+}
+
+label {
+  margin-bottom: unset !important;
 }
 
 label.error {
@@ -11372,12 +11396,11 @@ label.error {
 .navbar-toggler {
   border-color: unset !important;
   border: unset !important;
+  color: #3d3d3d !important;
   cursor: pointer;
 }
 
-.navbar-toggler .material-icons {
-  color: #ffffff;
-  background: #ff5a1a;
+.navbar-toggler i {
   padding: 3px 4px;
   border-radius: 4px;
 }
