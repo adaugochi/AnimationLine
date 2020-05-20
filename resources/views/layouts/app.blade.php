@@ -115,7 +115,7 @@
                         </p>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <label class="footer-label fs-20">Locate Us</label>
+                        <label class="footer-label fs-20">Contact Address</label>
                         <p>
                             <i class="fa fa-clock-o text-brand-primary mr-1"></i>
                             Mon - Sat 9:00 a.m. - 5:00 p.m. Sunday Closed

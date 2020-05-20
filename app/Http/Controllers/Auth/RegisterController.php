@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Contants\Message;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
@@ -86,6 +87,6 @@ class RegisterController extends Controller
     {
         $this->validator($request->all())->validate();
         event(new Registered($user = $this->create($request->all())));
-        return Redirect::to('/login')->with(['success' => 'Registration was successfully!']);
+        return Redirect::to('/login')->with(['success' => Message::SIGNUP_SUCCESSFUL]);
     }
 }

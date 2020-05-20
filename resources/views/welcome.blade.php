@@ -6,37 +6,31 @@
     <img src="{{ asset('img/header.svg') }}">
 @endsection()
 @section('content')
-    <section id="whyUs" class="py-100">
-        <div class="container text-center">
-            <h1 class="page-title">Why Choose AnimationLine?</h1>
-            <p class="fs-18">
-                AnimationLine has been the #1 World Leading Video Animation Company . We are sure a trial
-                will convince you, that's why we go above and beyond to create unique & professional
-                Animation video at an affordable price.
-            </p>
-
-            <div class="mt-5">
-                <div class="row">
-                    @include('elements.why', [
-                        'img' => 'img/professional.svg',
-                        'header' => 'Professional', 'mt4' => '',
-                        'body' => 'Our team of experienced designers are on hand to create an awesome
-                                   video animation for your business.'
-                    ])
-                    @include('elements.why', [
-                        'img' => 'img/affordable.svg',
-                        'header' => 'Affordable', 'mt4' => 'mt-4',
-                        'body' => 'We pride ourselves on the most cost-effective video animation & understand
-                                   the need to keep costs low but quality high.'
-                    ])
-                    @include('elements.why', [
-                        'img' => 'img/perfection.svg',
-                        'header' => 'Perfection', 'mt4' => 'mt-4',
-                        'body' => "We're not happy until you are happy, that's why we offer a 100% money back
-                                   guarantee plus unlimited revisions are available"
-                    ])
-                </div>
-            </div>
+    <section id="services" class="py-100 text-center">
+        <div class="container">
+            <h1 class="page-title mb-4 mb-md-3">Our Services</h1>
+            @include('elements.service', [
+                'header' => 'Create A 2D Animation Video',
+                'addClass' => '', 'img' => 'img/video.gif', 'classWrap' => 'pb-5',
+                'body' => 'Create a professional and high-quality animation video that will capture
+                           your audience and boost your sales revenue.',
+                'link' => '/animation-video'
+            ])
+            @include('elements.service', [
+                'header' => 'Create Your Logo With Animation',
+                'addClass' => 'service__inverted', 'classWrap' => 'pb-5',
+                'img' => 'img/logo.gif',
+                'link' => '/animation-logo',
+                'body' => 'Do you wish for your Logo to come alive? We will transform your logo into
+                           an awesome 3D moving animation video.'
+            ])
+            @include('elements.service', [
+                'header' => 'Create A Kinetic Text Typography Animation',
+                'addClass' => '', 'img' => 'img/text.gif', 'classWrap' => '',
+                'link' => '/animation-text',
+                'body' => 'Design your text and make them attractive and engaging to the audience.
+                           Make your words captivating and creative'
+            ])
         </div>
     </section>
     <section id="works" class="text-center text-white">
@@ -70,31 +64,37 @@
             </div>
         </div>
     </section>
-    <section id="services" class="py-100 text-center">
-        <div class="container">
-            <h1 class="page-title mb-4 mb-md-3">Our Services</h1>
-            @include('elements.service', [
-                'header' => 'Create A 2D Animation Video',
-                'addClass' => '', 'img' => 'img/video.gif', 'classWrap' => 'pb-5',
-                'body' => 'Create a professional and high-quality animation video that will capture
-                           your audience and boost your sales revenue.',
-                'link' => '/animation-video'
-            ])
-            @include('elements.service', [
-                'header' => 'Create Your Logo With Animation',
-                'addClass' => 'service__inverted', 'classWrap' => 'pb-5',
-                'img' => 'img/logo.gif',
-                'link' => '/animation-logo',
-                'body' => 'Do you wish for your Logo to come alive? We will transform your logo into
-                           an awesome 3D moving animation video.'
-            ])
-            @include('elements.service', [
-                'header' => 'Create A Kinetic Text Typography Animation',
-                'addClass' => '', 'img' => 'img/text.gif', 'classWrap' => '',
-                'link' => '/animation-text',
-                'body' => 'Design your text and make them attractive and engaging to the audience.
-                           Make your words captivating and creative'
-            ])
+    <section id="whyUs" class="py-100">
+        <div class="container text-center">
+            <h1 class="page-title">Why Choose AnimationLine?</h1>
+            <p class="fs-18">
+                AnimationLine has been the #1 World Leading Video Animation Company . We are sure a trial
+                will convince you, that's why we go above and beyond to create unique & professional
+                Animation video at an affordable price.
+            </p>
+
+            <div class="mt-5">
+                <div class="row">
+                    @include('elements.why', [
+                        'img' => 'img/professional.svg',
+                        'header' => 'Professional', 'mt4' => '',
+                        'body' => 'Our team of experienced designers are on hand to create an awesome
+                                   video animation for your business.'
+                    ])
+                    @include('elements.why', [
+                        'img' => 'img/affordable.svg',
+                        'header' => 'Affordable', 'mt4' => 'mt-4',
+                        'body' => 'We pride ourselves on the most cost-effective video animation & understand
+                                   the need to keep costs low but quality high.'
+                    ])
+                    @include('elements.why', [
+                        'img' => 'img/perfection.svg',
+                        'header' => 'Perfection', 'mt4' => 'mt-4',
+                        'body' => "We're not happy until you are happy, that's why we offer a 100% money back
+                                   guarantee plus unlimited revisions are available"
+                    ])
+                </div>
+            </div>
         </div>
     </section>
     <section id="customer" class="py-100 bg-white text-center">

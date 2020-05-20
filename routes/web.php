@@ -22,11 +22,11 @@ Route::get('/animation-text/silver', 'PricingController@textSilver')->name('text
 Route::get('/animation-text/gold', 'PricingController@textGold')->name('text-gold');
 
 Route::get('/pay-with-paypal', 'PricingController@paywithpaypal');
-Route::get('/execute-payment', 'PaymentController@executePayment');
-Route::get('/cancel-payment', 'PaymentController@cancelPayment');
+Route::get('/execute-payment', 'PaymentController@executePayment')->name('execute-payment');
+Route::get('/cancel-payment', 'PaymentController@cancelPayment')->name('cancel-payment');
 Route::get('/payment/callback', 'PaymentController@handleGatewayCallback');
-Route::post('/create-payment', 'PaymentController@createPayment');
-Route::post('/pay-with-paystack', 'PaymentController@redirectToGateway');
+Route::post('/create-payment', 'PaymentController@createPayment')->name('create-payment');
+Route::post('/pay-with-paystack', 'PaymentController@redirectToGateway')->name('pay-with-paystack');
 
 Route::get('/brief/2D-animation-video/{package}/{id}', 'BriefController@videoService');
 Route::get('/brief/logo-animation/{package}/{id}', 'BriefController@logoService');

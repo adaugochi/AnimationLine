@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Contants\Message;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
@@ -41,6 +42,16 @@ class LoginController extends Controller
     }
 
     /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @author Maryfaith Mgbede <adaamgbede@gmail.com>
+     */
+    protected function sendFailedLoginResponse(Request $request)
+    {
+        return redirect()->back()->with(['error' => Message::LOGIN_INCORRECT]);
+    }
+
+    /**
      * Get the needed authorization credentials from the request.
      *
      * @param Request $request
@@ -51,6 +62,7 @@ class LoginController extends Controller
         if (filter_var($request->get('email'), FILTER_VALIDATE_EMAIL)) {
             return ['email' => $request->get('email'), 'password'=>$request->get('password')];
         }
+        dd(1);
         return $request->only($this->username(), 'password');
     }
 
