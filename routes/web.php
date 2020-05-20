@@ -1,6 +1,5 @@
 <?php
 Route::get('/', function () { return view('welcome');});
-Route::get('/contact', function () { return view('contact');})->name('contact');
 
 Route::get('/animation-logo', function () {
     return view('service.animation-logo');
@@ -39,3 +38,5 @@ Route::post('/edit-brief', 'BriefController@updateBrief')->name('edit-brief');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/contact', 'ContactController@index')->name('contact');;
+Route::post('/submit-contact', 'ContactController@submitContact');

@@ -38,6 +38,10 @@
                 required: true,
                 email: true
             },
+            contact_email: {
+                required: true,
+                email: true
+            },
             postal_code: {
                 digits: true,
                 length: true
@@ -53,6 +57,7 @@
             },
             app_full_name: "required",
             description: "required",
+            message: "required",
             company_website : {
                 url: true
             },

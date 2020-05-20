@@ -37550,6 +37550,10 @@ window.toastr = __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.
         required: true,
         email: true
       },
+      contact_email: {
+        required: true,
+        email: true
+      },
       postal_code: {
         digits: true,
         length: true
@@ -37565,6 +37569,7 @@ window.toastr = __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.
       },
       app_full_name: "required",
       description: "required",
+      message: "required",
       company_website: {
         url: true
       },
@@ -37596,15 +37601,27 @@ window.toastr = __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.
 
 /***/ }),
 
+/***/ "./resources/sass/toastr.scss":
+/*!************************************!*\
+  !*** ./resources/sass/toastr.scss ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!*************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
-  \*************************************************************/
+/*!******************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/toastr.scss ***!
+  \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! C:\wamp64\www\active-mockup\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\wamp64\www\active-mockup\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\wamp64\www\active-mockup\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\wamp64\www\active-mockup\resources\sass\toastr.scss */"./resources/sass/toastr.scss");
 
 
 /***/ })

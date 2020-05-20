@@ -12,7 +12,7 @@
             <p class="text-center fs-18">You want to contact us for some business proposition?</p>
             <div class="mx-auto">
                 <div class="card">
-                    <form class="card-form__wrapper validateForm" method="post" action="">
+                    <form class="card-form__wrapper validateForm" method="post" action="/submit-contact">
                         @csrf
                         <div class="row">
                             <div class="form-group col-md-6">
@@ -25,21 +25,21 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="card-form__label">Contact Mail<span class="text-danger">*</span></label>
-                                <input type="text" name="email" class="card-form__input form-control" autocomplete="true">
+                                <input type="text" name="contact_email" class="card-form__input form-control" autocomplete="true">
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="card-form__label">Company Name</label>
-                                <input type="text" name="company_name" class="card-form__input form-control" autocomplete="true">
+                                <input type="text" name="contact_company_name" class="card-form__input form-control" autocomplete="true">
                             </div>
                             <div class="form-group col-md-12">
                                 <label class="card-form__label">
                                     What would you like us to do for you?<span class="text-danger">*</span>
                                 </label>
-                                <textarea class="card-form__input form-control" rows="5" name="description"
+                                <textarea class="card-form__input form-control" rows="5" name="message"
                                           placeholder="Some messages..."></textarea>
                             </div>
                         </div>
-                        <button class="btn btn-brand-primary py-3 px-5 text-uppercase btn-submit">
+                        <button class="btn btn-brand-primary py-3 px-5 text-uppercase">
                             Send Message
                         </button>
                     </form>

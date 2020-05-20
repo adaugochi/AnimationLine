@@ -15,6 +15,13 @@ class Message
 
     const PAYMENT_UNSUCCESSFUL = 'Payment was unsuccessful';
     const PAYMENT_SUCCESSFUL = 'Payment was successful';
-    const BRIEF_UPDATED = 'Could not updated brief. Please try again';
+    const PAYMENT_CREATION = 'Some error occurred, could not executive payment';
+    const BRIEF_NOT_UPDATE = 'Could not update brief. Please try again';
+    const BRIEF_NOT_SAVE = 'Could not save brief. Please try again';
+    const BRIEF_NOT_FOUND = 'Could not find a record associated with the brief';
+    const UPDATE_BILLING = 'Sorry, an error occur while trying to save brief. Please try again later';
+    const BILLING_NOT_FOUND = 'Could not find billing details';
+    const BILLING_NOT_SAVE = 'Could not save billing information. Please try again';
 
+    const CONTACT_SUCCESS = 'Thank you for contacting us. Our support team will get across to you';
 }

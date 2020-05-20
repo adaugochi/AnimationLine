@@ -87,7 +87,7 @@ class PaymentController extends Controller
         try {
             $payment->create($this->apiContext);
         } catch (Exception $ex) {
-            return redirect('/home')->with(['error' => 'Some error occurred, could not approve payment']);
+            return redirect('/home')->with(['error' => Message::PAYMENT_CREATION]);
         }
 
         return redirect($payment->getApprovalLink());
@@ -101,7 +101,7 @@ class PaymentController extends Controller
     public function executePayment(Billing $billing)
     {
         if (!session()->has('billing')) {
-            return redirect('/home')->with(['error' => 'Could not find billing details']);
+            return redirect('/home')->with(['error' => Message::BILLING_NOT_FOUND]);
         }
         DB::beginTransaction();
         $postRequest = session()->get('billing');
@@ -111,6 +111,7 @@ class PaymentController extends Controller
         $billing->create($postRequest, $paymentId, $payerId);
         if (!$billing->save()) {
             DB::rollBack();
+            return redirect('/home')->with(['error' => Message::BILLING_NOT_SAVE]);
         }
         $totalAmount = Session::get('billing.amount');
         $payment = Payment::get($paymentId, $this->apiContext);
@@ -157,8 +158,6 @@ class PaymentController extends Controller
      */
     public function handleGatewayCallback(Billing $billing)
     {
-        DB::beginTransaction();
-
         $paymentDetails = Paystack::getPaymentData();
         $postRequest = $paymentDetails['data']['metadata'];
         $paymentId = Paystack::genTranxRef();
@@ -168,9 +167,8 @@ class PaymentController extends Controller
         if ($paymentDetails['data']['status'] == 'success') {
             $billing->create($postRequest, $paymentId, $payerId);
             if (!$billing->save()) {
-                DB::rollBack();
+                return redirect('/home')->with(['error' => Message::BILLING_NOT_SAVE]);
             }
-            DB::commit();
             return redirect('/brief/'.$slug.'/'.$postRequest['package'].'/'.$billing->id)
                 ->with(['success' => Message::PAYMENT_SUCCESSFUL]);
         }

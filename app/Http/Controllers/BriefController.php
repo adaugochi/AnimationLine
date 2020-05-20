@@ -73,7 +73,7 @@ class BriefController extends Controller
         $isEdit = false;
         $isRecordExist = Billing::where('id', $id)->first();
         if (!$isRecordExist) {
-            return Redirect::to('/home')->with(['error' => 'Could not found billing detail by ID ' . $id]);
+            return Redirect::to('/home')->with(['error' => Message::BILLING_NOT_FOUND]);
         }
         $brief = Brief::where('billing_id', $id)->first();
         if ($brief) {
@@ -110,13 +110,15 @@ class BriefController extends Controller
         $brief->create($request, $request->all(), $billingId);
         if (!$brief->save()) {
             DB::rollBack();
-            return redirect('/home')->with(['error' => Message::BRIEF_UPDATED]);
+            return redirect('/home')->with(['error' => Message::BRIEF_NOT_SAVE]);
         }
 
-        $isUpdated = DB::table('billings')->where('id', $billingId)->update(['has_brief' => 1]);
+        $isUpdated = DB::table('billings')
+            ->where('id', $billingId)
+            ->update(['has_brief' => 1]);
         if (!$isUpdated) {
             DB::rollBack();
-            return redirect('/home')->with(['error' => Message::BRIEF_UPDATED]);
+            return redirect('/home')->with(['error' => Message::UPDATE_BILLING]);
         }
 
         DB::commit();
@@ -141,12 +143,12 @@ class BriefController extends Controller
     {
         $brief = Brief::where('billing_id', request('billing_id'))->first();
         if (!$brief) {
-            return redirect('/home')->with(['error' => 'Could not find this record']);
+            return redirect('/home')->with(['error' => Message::BRIEF_NOT_FOUND]);
         }
 
         $brief->create($request, $request->all());
         if (!$brief->save()) {
-            return redirect('/home')->with(['error' => Message::BRIEF_UPDATED]);
+            return redirect('/home')->with(['error' => Message::BRIEF_NOT_UPDATE]);
         }
         return redirect('/home')->with(['success' => 'Brief updated successfully']);
     }
