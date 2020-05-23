@@ -115,7 +115,7 @@ class BriefController extends Controller
 
         $isUpdated = DB::table('billings')
             ->where('id', $billingId)
-            ->update(['has_brief' => 1]);
+            ->update(['has_brief' => 1, 'status' => Billing::IN_PROGRESS]);
         if (!$isUpdated) {
             DB::rollBack();
             return redirect('/home')->with(['error' => Message::UPDATE_BILLING]);

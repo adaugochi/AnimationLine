@@ -26,9 +26,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property mixed id
  * @property string status
  */
-class Billing extends Model
+class Billing extends BaseModel
 {
     const IN_PROGRESS = 'in-progress';
+    const DRAFT = 'draft';
     const COMPLETED = 'completed';
     const DELIVERED = 'delivered';
 
@@ -72,21 +73,12 @@ class Billing extends Model
         $this->currency = $request['currency'];
         $this->payment_method = $request['payment_method'];
         $this->user_id = auth()->user()->id;
-        $this->status = self::IN_PROGRESS;
+        //$this->status = self::IN_PROGRESS;
 
         if ((int)$discountPrice !== 0) {
             $this->has_discount = 1;
         }
         $this->save();
-    }
-
-    /**
-     * @return false|string
-     * @author Maryfaith Mgbede <adaamgbede@gmail.com>
-     */
-    public function formatDate()
-    {
-        return date("jS F Y h:i A", strtotime($this->created_at));
     }
 
     /**

@@ -9,9 +9,12 @@
         discountText = $('.discount'),
         discountField = $(".discount-field"),
         discountSuccess = $(".discount-success"),
-        paymentMethod = $("#paymentMethod"),
+        paymentMethod = $('input[type=radio][name=payment_method]'),
         backUpSaleAmt = $("#backUpSaleAmt"),
         submitButtonId = $("#validateForm"),
+        payNowButton = $('.btn-submit'),
+        paystackInput = $("#paystack"),
+        paypalInput = $('#paypal'),
         couponCode = 'NEW10',
         metaData = $('#metadata');
 
@@ -28,8 +31,8 @@
             city = $('#city').val();
 
         let details = {
-            'sales_amount':saleAmt, 'discount_price':discount, 'payment_method':payment, 'package':pack,
-            'service':service, 'city':city, 'state':state, 'country':country, 'amount':totalAmt, 'currency':currency
+            'sales_amount':saleAmt, 'discount_price':discount, 'payment_method':payment, 'currency':currency,
+            'service':service, 'city':city, 'state':state, 'country':country, 'amount':totalAmt, 'package':pack
         };
         metaData.val(JSON.stringify(details));
     }
@@ -74,7 +77,7 @@
         }
     });
 
-    function convertMoney(value) {
+    function convertMoney() {
         discountField.addClass('d-flex');
         discountField.removeClass('d-none');
         discountSuccess.addClass('d-none');
@@ -84,27 +87,29 @@
         totalAmountText.text(backUpSaleAmt.val());
         totalAmountInput.val(backUpSaleAmt.val());
 
-        if (value === 'paystack') {
+        if (paystackInput.is(':checked')) {
             submitButtonId.attr('action', '/pay-with-paystack');
-            $('.btn-submit').attr('disabled', false)
-        } else if (value === 'paypal') {
+            payNowButton.attr('disabled', false);
+        } else if (paypalInput.is(':checked')) {
             submitButtonId.attr('action', '/create-payment');
-            $('.btn-submit').attr('disabled', false)
+            payNowButton.attr('disabled', false);
         } else {
-            $('.btn-submit').attr('disabled', true)
+            payNowButton.attr('disabled', true)
         }
     }
-    convertMoney(paymentMethod.val());
-
+    convertMoney();
     paymentMethod.on('change', function () {
-        convertMoney($(this).val())
+        convertMoney()
     });
 
     submitButtonId.on('submit', function (e) {
-        if (paymentMethod.val() === 'paystack') {
+        if (!paystackInput.is(':checked') && !paypalInput.is(':checked')) {
+            e.preventDefault();
+            $('#paymentWrap').append('<div class="error">This field is required</div>')
+        }
+        if (paystackInput.is(':checked')) {
             fetchMetaDataValues();
             totalAmountInput.val(totalAmountInput.val() * 100)
         }
     })
-
 })(jQuery);

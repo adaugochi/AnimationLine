@@ -2,9 +2,9 @@
 @section('title', 'Dashboard')
 @section('content')
     <div class="mx-auto mb-5">
-        <div class="card">
+        <h5 class="mb-3">Latest Transactions</h5>
+        <div class="card card-table">
             @if(sizeof($billings) > 0)
-                <h4 class="mb-3">Latest Transactions</h4>
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
@@ -14,11 +14,12 @@
                             <th class="field-name"><span>Total Amount</span></th>
                             <th class="field-name"><span>Package</span></th>
                             <th class="field-name"><span>Payment ID</span></th>
+                            <th class="field-name"><span>Status</span></th>
                             <th class="field-name"><span>Created At</span></th>
                             <th class="field-name"><span>Action</span></th>
                         </tr>
                         </thead>
-                        <tbody class="fs-12">
+                        <tbody>
                         @foreach($billings as $key => $billing)
                             <tr>
                                 <td>{{ $key+1 }}</td>
@@ -32,18 +33,27 @@
                                     </span>
                                 </td>
                                 <td>{{ $billing->payment_id }}</td>
+                                <td>
+                                    <span class="font-weight-bold status status-{{ $billing->status }}">
+                                        {{ ucwords(str_replace('-', ' ', $billing->status)) }}
+                                    </span>
+                                </td>
                                 <td>{{ $billing->formatDate() }}</td>
                                 <td>
                                     <a href="/brief/{{ \App\helpers\Utils::slug($billing->service) }}/{{ $billing->package }}/{{ $billing->id }}"
                                        class="fs-20 text-gray">
-                                        @if(!$billing->has_brief)
+                                        @if($billing->status === \App\Billing::DRAFT)
                                             <i class="fa fa-pencil-square-o" aria-hidden="true"
                                                data-toggle="tooltip" data-placement="top"
                                                title="complete brief"></i>
-                                        @else
+                                        @elseif($billing->status === \App\Billing::IN_PROGRESS)
                                             <i class="fa fa-eye" aria-hidden="true"
                                                 data-toggle="tooltip" data-placement="top"
                                                 title="view brief"></i>
+                                        @elseif($billing->status === \App\Billing::COMPLETED)
+                                            <i class="fa fa-eye" aria-hidden="true"
+                                               data-toggle="tooltip" data-placement="top"
+                                               title="view brief"></i>
                                         @endif
                                     </a>
                                 </td>

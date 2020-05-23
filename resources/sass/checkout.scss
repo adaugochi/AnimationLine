@@ -14,3 +14,10 @@
   padding: 10px;
   border-radius: 16px;
 }
+
+.payment-logo {
+  height: 50px;
+  @include media-breakpoint-up(lg) {
+    height: 40px;
+  }
+}

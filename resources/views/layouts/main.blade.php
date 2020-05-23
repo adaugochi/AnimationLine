@@ -21,7 +21,7 @@
         <nav class="navbar navbar-expand-md bg-white navbar-dark navbar-wrapper">
             <div class="container">
                 <a href="/" class="navbar-brand">
-                    <img src="{{ asset('img/logo.svg') }}" class="navbar-logo">
+                    <img src="{{ asset('img/logo.svg') }}" class="navbar-logo" alt="AnimationLine Logo">
                 </a>
                 <span class="navbar-toggler" data-toggle="collapse" data-target="#myNavbar">
                     <i class="fa fa-bars" aria-hidden="true"></i>
@@ -32,14 +32,7 @@
                             <a class="nav-link text-gray" href="/home">Dashboard</a>
                         </li>
                         <li class="ml-md-3">
-                            <a class="btn btn-brand-primary" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                               document.getElementById('logout-form').submit();">
-                                {{ __('LOGOUT') }}
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
+                            @include('elements.logout-button')
                         </li>
                     </ul>
                 </div>
@@ -56,7 +49,7 @@
         </section>
     </main>
     <footer id="footer">
-        @include('elements.sub-footer')
+        @include('elements.sub-footer', ['isPortal' => true])
     </footer>
 
     <script src="{{ asset('js/app.js') }}"></script>

@@ -17,7 +17,7 @@
         <nav class="navbar navbar-expand-lg navbar-wrapper">
             <div class="container">
                 <div class="navbar-brand">
-                    <img src="{{ asset('img/logo.svg') }}" class="navbar-logo">
+                    <img src="{{ asset('img/logo.svg') }}" class="navbar-logo" alt="AnimationLine Logo">
                 </div>
                 <span class="navbar-toggler" data-toggle="collapse" data-target="#myNavbar">
                     <i class="fa fa-bars" aria-hidden="true"></i>
@@ -46,7 +46,11 @@
                         <li><a class="nav-link nav-active" href="{{ route('contact') }}">Contact Us</a></li>
                         <li><a class="nav-link nav-active" href="#">Blog</a></li>
                         <li class="ml-3">
+                            @guest
                             <a class="btn btn-brand-primary" href="{{ route('login') }}">Sign In</a>
+                            @else
+                                @include('elements.logout-button')
+                            @endguest
                         </li>
                     </ul>
                 </div>
@@ -62,7 +66,13 @@
                         <p class="text-gray fs-18 ">
                             @yield('body-text')
                         </p>
-                        <a href="{{ route('login') }}" class="btn-brand-white mt-3 py-3 btn px-5">Get Started</a>
+                        @guest
+                            <a href="{{ route('login') }}" class="btn-brand-white mt-3 py-3 btn px-5">Get Started</a>
+                        @else
+                            <a href="{{ route('home') }}" class="btn-brand-white mt-3 py-3 btn px-5">
+                                Go To Dashboard
+                            </a>
+                        @endguest
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-7">
@@ -118,15 +128,15 @@
                         <label class="footer-label fs-20">Contact Address</label>
                         <p>
                             <i class="fa fa-clock-o text-brand-primary mr-1"></i>
-                            Mon - Sat 9:00 a.m. - 5:00 p.m. Sunday Closed
+                            Available anytime
                         </p>
+                        {{--<p>--}}
+                            {{--<i class="fa fa-map-marker text-brand-primary mr-1"></i>--}}
+                            {{--29, ogo-oluwa street, Sabo junction, Lagos State Nigeria--}}
+                        {{--</p>--}}
                         <p>
-                            <i class="fa fa-map-marker text-brand-primary mr-1"></i>
-                            123 Main Street, Lekki, Lagos State Nigeria
-                        </p>
-                        <p>
-                            <i class="fa fa-phone text-brand-primary mr-1"></i>
-                            +234-708-177-5767, +234-813-095-9873
+                            <i class="fa fa-globe text-brand-primary mr-1"></i>
+                            @include('elements.social')
                         </p>
                         <p>
                             <i class="fa fa-envelope text-brand-primary mr-1"></i>
@@ -135,7 +145,7 @@
                     </div>
                 </div>
             </div>
-            @include('elements.sub-footer')
+            @include('elements.sub-footer', ['isPortal' => false])
         </section>
     </main>
 

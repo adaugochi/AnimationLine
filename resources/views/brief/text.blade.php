@@ -25,7 +25,7 @@
                         <label class="card-form__label">
                             Speed of the video<span class="text-danger">*</span>
                         </label>
-                        <select name="video_speed" class="card-form__input form-control"
+                        <select name="video_speed" class="card-form__input form-control custom-select"
                                 data-value="{{ $isEdit ? $brief->video_speed : '' }}" id="speed">
                             <option value="">What speed do you prefer?</option>
                             <option value="slow">Slow</option>

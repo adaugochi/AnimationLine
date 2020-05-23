@@ -1,0 +1,19 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+//Core
+@import "core/variables";
+@import "core/layout";
+
+//Components
+@import "component/text";
+@import "component/button";
+@import "component/card";
+@import "component/table";
+@import "component/portal-header";
+@import "component/portal-sidebar";
+@import "component/portal-content";
+@import "component/portal-footer";

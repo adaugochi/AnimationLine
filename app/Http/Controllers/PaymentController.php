@@ -34,7 +34,7 @@ class PaymentController extends Controller
                 config('services.paypal.secret') // secret key
             )
         );
-
+        $this->apiContext->setConfig(['mode' => config('services.paypal.mode')]); // mode
         $this->middleware('auth');
     }
 
@@ -86,11 +86,10 @@ class PaymentController extends Controller
 
         try {
             $payment->create($this->apiContext);
+            return redirect($payment->getApprovalLink());
         } catch (Exception $ex) {
             return redirect('/home')->with(['error' => Message::PAYMENT_CREATION]);
         }
-
-        return redirect($payment->getApprovalLink());
     }
 
     /**

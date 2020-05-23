@@ -40,3 +40,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/contact', 'ContactController@index')->name('contact');;
 Route::post('/submit-contact', 'ContactController@submitContact');
+
+Route::get('/admin/home', 'AdminHomeController@index')->name('admin.home');
+Route::get('/admin/user/clients', 'UserController@getClients')->name('user.client');
+Route::get('/admin/user/administrators', 'UserController@getAdmin')->name('user.admin');
+Route::get('/admin/orders', 'OrderController@index')->name('admin.order');

@@ -4,6 +4,14 @@
   background: $white;
   border: none;
   border-radius: 8px !important;
+  transition: transform .3s;
+  &-table {
+    padding: 0 !important;
+  }
+
+  &-zoom:hover {
+    transform: scale(1.1);
+  }
 
   &.customer {
     &:hover {

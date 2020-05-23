@@ -1,14 +1,15 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
 
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
 // Variables
-@import 'variables';
+@import 'core/variables';
+@import "core/layout";
 
 // mixins
 @import "mixins";
-
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
 
 // Component
 @import "component/button";

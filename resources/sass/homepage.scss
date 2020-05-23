@@ -1,26 +1,3 @@
-html, body {
-  height: 100%;
-}
-
-body {
-  overflow-x: hidden;
-  overflow-y: auto;
-  margin: 0;
-  padding: 0;
-  color: $brand-grey;
-  font-family: 'Nunito', sans-serif;
-  display: block;
-  position: relative;
-}
-
-p {
-  font-weight: 300;
-}
-
-.bd-radius {
-  border-radius: 50%;
-}
-
 // Why Us
 .page-title:after {
   @include headerBottomBorder(1px auto)
@@ -41,42 +18,6 @@ p {
   background-size: cover;
   padding-top: 50px;
   padding-bottom: 50px;
-}
-
-.m {
-  &t-60 {
-    margin-top: 60px
-  }
-}
-
-.p {
-  &y-100 {
-    padding-top: 100px;
-    padding-bottom: 100px;
-  }
-  &-10-15 {
-    padding: 10px 15px;
-  }
-  &b-100 {
-    padding-bottom: 100px;
-  }
-  &y-12 {
-    padding: 12px 0;
-  }
-  &b {
-    &-6 {
-      padding-bottom: 3.5rem;
-    }
-    &-md-6 {
-      @include media-breakpoint-up(md) {
-        padding-bottom: 3.5rem;
-      }
-    }
-  }
-}
-
-.cursor-pointer {
-  cursor: pointer;
 }
 
 .service {

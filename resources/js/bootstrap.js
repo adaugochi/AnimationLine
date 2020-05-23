@@ -12,6 +12,7 @@ try {
 
     require('bootstrap');
     require('jquery-validation');
+    require('jquery-slimscroll');
 } catch (e) {}
 
 /**

@@ -28,26 +28,35 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label class="card-form__label">Country<span class="text-danger">*</span></label>
-                            <select name="country" class="card-form__input form-control" id="country" autocomplete="true">
+                            <select name="country" class="card-form__input form-control custom-select" id="country" autocomplete="true">
                                 <option value="">Please choose a country</option>
                                 @foreach(\App\Country::getAllCountries() as $country)
                                     <option value="{{ $country->code }}">{{ $country->name }}</option>
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-6" id="paymentWrap">
                             <label class="card-form__label">
                                 Payment Method<span class="text-danger">*</span>
                             </label>
-                            <select name="payment_method" class="card-form__input form-control" id="paymentMethod">
-                                <option>Please choose a payment method that is applicable</option>
-                                <option value="paypal">PayPal</option>
-                                <option value="paystack">Paystack</option>
-                            </select>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="paypal" name="payment_method"
+                                       class="custom-control-input" value="paypal">
+                                <label class="custom-control-label" for="paypal">
+                                    <img src="{{ asset('img/pay.webp') }}" class="payment-logo"/>
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline mt-4 mt-lg-0">
+                                <input type="radio" id="paystack" name="payment_method"
+                                       class="custom-control-input" value="paystack">
+                                <label class="custom-control-label" for="paystack">
+                                    <img src="{{ asset('img/paystack-logo.png') }}" class="payment-logo"/>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="basic-payment__wrapper my-5">
+                <div class="basic-payment__wrapper my-4">
                     <h3>Payment Details</h3>
                     <p>
                         By clicking on the button below, <b>you will be transferred to PayPal/Paystack</b>

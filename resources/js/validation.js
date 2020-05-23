@@ -18,7 +18,6 @@
         onkeyup: false,
         rules: {
             city: "required",
-            payment_method: "required",
             country_accent: "required",
             country: "required",
             voiceover_artist: "required",

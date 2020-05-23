@@ -1,12 +1,17 @@
 .table {
   .field-name {
     text-transform: uppercase;
-    font-size: 11px;
+    font-size: 12px;
     padding: 0.7rem !important;
     font-family: 'Arial', sans-serif;
   }
-  td {
-    padding: 0.4rem !important;
+  @include media-breakpoint-down(md) {
+    td {
+      min-width: 150px;
+      &:first-child {
+        min-width: unset;
+      }
+    }
   }
 }
 
@@ -17,6 +22,7 @@
   text-transform: capitalize;
   border: 1px solid transparent;
   border-radius: 30px;
+  font-size: 12px;
   &-bronze {
     color: darken($pink, 10%);
     background-color: lighten($pink, 20%);
@@ -28,6 +34,22 @@
   &-gold{
     color: darken($gold, 10%);
     background-color: lighten($gold, 30%);
+  }
+  &-in-progress {
+    color: darken($danger, 10%);
+    background-color: lighten($danger, 20%);
+  }
+  &-completed {
+    color: darken($purple, 10%);
+    background-color: lighten($purple, 20%);
+  }
+  &-delivered{
+    color: darken($success, 10%);
+    background-color: lighten($success, 30%);
+  }
+  &-draft{
+    color: darken($gray, 10%);
+    background-color: lighten($gray, 30%);
   }
 }
 
@@ -57,9 +79,10 @@
     padding: 0.5rem 0.75rem;
     margin-left: -1px;
     line-height: 1.25;
+    border-radius: 8px;
     color: $brand-orange;
     background-color: $white;
-    border: 1px solid $brand-off-white;
+    border: unset !important;
     &:focus, &:hover {
       color: darken($brand-orange, 10%);
       text-decoration: none;

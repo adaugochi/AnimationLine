@@ -33,6 +33,7 @@ return [
     'paypal' => [
         'id' => env('PAYPAL_CLIENT_ID'),
         'secret' => env('PAYPAL_SECRET'),
+        'mode' => env('PAYPAL_MODE'),
         'url' => [
             'execute' => env('BASE_URL'). '/execute-payment',
             'cancel'=> env('BASE_URL'). '/cancel-payment'
