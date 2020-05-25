@@ -6,7 +6,7 @@
         <div class="feature-content">
             <h5>{{ $header }}</h5>
             <p>
-                {{ $body }}
+                {!! $body !!}
             </p>
         </div>
     </div>

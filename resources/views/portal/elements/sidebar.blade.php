@@ -14,10 +14,10 @@
                 </a>
             </li>
             <li>
-                <a href="" data-toggle="collapse" data-target="#subMenu1">
+                <div data-toggle="collapse" data-target="#subMenu1">
                     <i class="fa fa-users md-48 icon" aria-hidden="true"></i>
                     <span class="nav-label">Users<i class="pl-2 fa fa-caret-down"></i></span>
-                </a>
+                </div>
                 <div id="subMenu1" class="sub-menu collapse">
                     <span class="sub-menu__items">
                         <a href="{{ route('user.client') }}">
@@ -31,14 +31,14 @@
                     </span>
                 </div>
             </li>
-            <li>
-                <a href="" data-toggle="collapse" data-target="#subMenu4">
-                    <i class="md-48 icon material-icons">settings</i>
-                    <span class="nav-label">
-                        Settings
-                    </span>
-                </a>
-            </li>
+            {{--<li>--}}
+                {{--<a href="" data-toggle="collapse" data-target="#subMenu4">--}}
+                    {{--<i class="md-48 icon material-icons">settings</i>--}}
+                    {{--<span class="nav-label">--}}
+                        {{--Settings--}}
+                    {{--</span>--}}
+                {{--</a>--}}
+            {{--</li>--}}
         </ul>
     </section>
 </aside>

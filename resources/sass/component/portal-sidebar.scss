@@ -23,7 +23,7 @@
     li {
       position: relative;
       display: block;
-      a {
+      a, div {
         position: relative;
         display: block;
         padding: 14px 0;
@@ -39,7 +39,7 @@
       margin-top: 32px;
     }
 
-    a {
+    a, div {
       color: $white;
       text-align: center;
       white-space: nowrap;

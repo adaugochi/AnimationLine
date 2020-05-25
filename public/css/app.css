@@ -10891,7 +10891,6 @@ body {
 
 body {
   font-family: "Nunito", sans-serif;
-  font-size: 14px;
   background-color: #efefef !important;
   color: #3d3d3d;
   overflow-x: hidden;
@@ -10902,6 +10901,7 @@ body {
 
 body p {
   font-weight: 300;
+  font-size: 14px;
 }
 
 body a {
@@ -10951,6 +10951,11 @@ body .pb-6 {
   body .pb-md-6 {
     padding-bottom: 3.5rem;
   }
+}
+
+.modal#policyModal,
+.modal#tcModal {
+  overflow-y: auto;
 }
 
 .btn {
@@ -11237,7 +11242,7 @@ label.error {
 .status {
   display: inline-block;
   padding: 0 10px;
-  text-transform: capitalize;
+  text-transform: uppercase;
   border: 1px solid transparent;
   border-radius: 30px;
   font-size: 12px;

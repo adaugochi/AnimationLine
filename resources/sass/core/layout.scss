@@ -4,7 +4,6 @@ html, body {
 
 body {
   font-family: 'Nunito', sans-serif;
-  font-size: $body-font;
   background-color: $bg-light-gray !important;
   color: $brand-grey;
   overflow-x: hidden;
@@ -14,6 +13,7 @@ body {
 
   p {
     font-weight: 300;
+    font-size: $body-font;
   }
 
   a {
@@ -61,5 +61,11 @@ body {
         }
       }
     }
+  }
+}
+
+.modal {
+  &#policyModal, &#tcModal {
+    overflow-y: auto;
   }
 }

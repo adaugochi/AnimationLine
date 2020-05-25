@@ -153,22 +153,12 @@
                     'header' => 'Your Data is Secure',
                     'body' => 'We use a 256-bit encryption protocol to keep your private data secure at all times.'
                 ])
-                <div class="col-md-4">
-                    <div class="feature-box">
-                        <div class="icon">
-                            <i class="material-icons">contact_support</i>
-                        </div>
-                        <div class="feature-content">
-                            <h5>Customer Support</h5>
-                            <p class="mb-2">
-                                For support, contact
-                                <span class="text-brand-primary text-underline text-break">
-                                    support@animationline.com
-                                </span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                @include('elements.guarantee', [
+                    'iconName' => 'contact_support',
+                    'header' => 'Customer Support',
+                    'body' => 'For support, contact <span class="text-brand-primary text-underline text-break">
+                               support@animationline.com</span>'
+                ])
             </div>
         </div>
     </section>

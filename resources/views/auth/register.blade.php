@@ -30,9 +30,12 @@
     <div class="fs-12 form-group">
         By clicking the “Sign Up” button, you agree to AnimationLine's
         <span data-toggle="modal" data-target="#tcModal" class="cursor-pointer text-brand-primary">
-            terms and condition
+            terms of service
         </span>.
-        @include('elements.modal', ['modalId' => 'tcModal', 'modalTitle' => 'Terms & Conditions'])
+        @include('elements.modal', [
+            'modalId' => 'tcModal', 'modalTitle' => 'Terms of Service',
+            'modalBody' => \App\Contants\Message::TERMS_AND_CONDITIONS
+        ])
     </div>
     <button type="submit" class="btn btn-lg btn-brand-primary btn-block text-uppercase py-12">Sign Up</button>
     <div class="mt-3 text-center fs-12">

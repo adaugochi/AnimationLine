@@ -102,16 +102,24 @@
                         <p data-toggle="modal" data-target="#policyModal" class="cursor-pointer">
                             <span>
                                 <i class="fa fa-thumb-tack text-brand-primary mr-1"></i>
-                                Privacy policy
+                                Privacy Policy
                             </span>
-                            @include('elements.modal', ['modalId' => 'policyModal', 'modalTitle' => 'Privacy Policy'])
+                            @include('elements.modal', [
+                                'modalId' => 'policyModal',
+                                'modalTitle' => 'Privacy Policy',
+                                'modalBody' => \App\Contants\Message::POLICY_AND_PRIVACY
+                            ])
                         </p>
                         <p data-toggle="modal" data-target="#tcModal" class="cursor-pointer">
                             <span>
                                 <i class="fa fa-thumb-tack text-brand-primary mr-1"></i>
-                                Terms & Conditions
+                                Terms of Service
                             </span>
-                            @include('elements.modal', ['modalId' => 'tcModal', 'modalTitle' => 'Terms & Conditions'])
+                            @include('elements.modal', [
+                                'modalId' => 'tcModal',
+                                'modalTitle' => 'Terms of Service',
+                                'modalBody' => \App\Contants\Message::TERMS_AND_CONDITIONS
+                            ])
                         </p>
                         <p class="cursor-pointer">
                             <a href="{{ route('contact') }}" class="text-decoration-none text-white">

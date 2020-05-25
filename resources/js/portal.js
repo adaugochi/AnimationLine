@@ -42,4 +42,10 @@ require('./jquery.name.badges');
         size: 40
     });
 
+    $('.side-menu li a').each(function() {
+        if (this.href === window.location.href) {
+            $(this).css('color', '#ff5a1a');
+        }
+    });
+
 })(jQuery);
