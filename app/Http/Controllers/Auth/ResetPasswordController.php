@@ -65,6 +65,7 @@ class ResetPasswordController extends Controller
      */
     protected function sendResetResponse(Request $request)
     {
-        return redirect($this->redirectTo)->with('success', 'Password reset was successfully, you can now login...!');
+        return redirect($this->redirectTo)
+            ->with('success', 'Password reset was successfully, you can now login...!');
     }
 }

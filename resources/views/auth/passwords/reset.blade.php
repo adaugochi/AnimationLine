@@ -3,9 +3,10 @@
 @section('route', $pwdUpdate)
 @section('auth-header', 'Reset Password')
 @section('content')
+    <input type="hidden" name="token" value="{{ $token }}">
     <div class="form-group">
         <input type="text" class="card-form__input rounded form-control @error('email') is-invalid @enderror"
-               name="email" placeholder="Email Address">
+               name="email" placeholder="Email Address" value="{{ $email }}" readonly>
         @include('elements.error', ['fieldName' => 'email'])
     </div>
     <div class="form-group">
