@@ -1,11 +1,11 @@
 @extends('layouts.auth')
 @section('title', 'Reset Password')
-@section('route', route('password.update'))
+@section('route', $pwdUpdate)
 @section('auth-header', 'Reset Password')
 @section('content')
     <div class="form-group">
         <input type="text" class="card-form__input rounded form-control @error('email') is-invalid @enderror"
-               name="email" placeholder="Email Address" value="{{ $email }}" readonly>
+               name="email" placeholder="Email Address">
         @include('elements.error', ['fieldName' => 'email'])
     </div>
     <div class="form-group">
@@ -22,6 +22,6 @@
     </button>
 
     <div class="mt-5 text-center">
-        <a href="{{ url('login') }}" class="text-brand-primary fs-12"> Back to Login</a>
+        <a href="{{ $loginRoute }}" class="text-brand-primary fs-12">Back to Login</a>
     </div>
 @endsection

@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Contants\Message;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -42,6 +42,17 @@ class LoginController extends Controller
     }
 
     /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @author Maryfaith Mgbede <adaamgbede@gmail.com>
+     */
+    public function showLoginForm()
+    {
+        $loginRoute = route('login');
+        $forgotPwdRoute = route('password.request');
+        return view('auth.login', compact('loginRoute', 'forgotPwdRoute'));
+    }
+
+    /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      * @author Maryfaith Mgbede <adaamgbede@gmail.com>
@@ -62,15 +73,18 @@ class LoginController extends Controller
         if (filter_var($request->get('email'), FILTER_VALIDATE_EMAIL)) {
             return ['email' => $request->get('email'), 'password'=>$request->get('password')];
         }
-        dd(1);
         return $request->only($this->username(), 'password');
     }
 
-    protected function authenticated(Request $request, $user){
-        if($user->user_type_id === User::ADMIN) {
-            return redirect()->intended('/admin/home'); //redirect to admin panel
-        }
-
-        return redirect()->intended($this->redirectTo); //redirect to standard user homepage
+    /**
+     * Log the user out of the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function logout(Request $request)
+    {
+        Auth::guard('web')->logout();
+        return redirect('/');
     }
 }

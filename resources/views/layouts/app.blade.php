@@ -46,11 +46,11 @@
                         <li><a class="nav-link nav-active" href="{{ route('contact') }}">Contact Us</a></li>
                         <li><a class="nav-link nav-active" href="#">Blog</a></li>
                         <li class="ml-3">
-                            @guest
-                            <a class="btn btn-brand-primary" href="{{ route('login') }}">Sign In</a>
-                            @else
+                            @if(\Auth::guard('web')->check())
                                 @include('elements.logout-button')
-                            @endguest
+                            @else
+                                <a class="btn btn-brand-primary" href="{{ route('login') }}">Sign In</a>
+                            @endif
                         </li>
                     </ul>
                 </div>
@@ -66,13 +66,15 @@
                         <p class="text-gray fs-18 ">
                             @yield('body-text')
                         </p>
-                        @guest
-                            <a href="{{ route('login') }}" class="btn-brand-white mt-3 py-3 btn px-5">Get Started</a>
-                        @else
+                        @if(\Auth::guard('web')->check())
                             <a href="{{ route('home') }}" class="btn-brand-white mt-3 py-3 btn px-5">
                                 Go To Dashboard
                             </a>
-                        @endguest
+                        @else
+                            <a href="{{ route('login') }}" class="btn-brand-white mt-3 py-3 btn px-5">
+                                Get Started
+                            </a>
+                        @endif
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-7">

@@ -13,7 +13,11 @@
                 <span class="nav-text mr-3">{{ auth()->user()->getFullName() }}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-                <a class="dropdown-item" href="#">Logout</a>
+                <a class="dropdown-item" href="{{ route('admin.logout') }}" onclick="event.preventDefault();
+                   document.getElementById('logout-form').submit();">Logout</a>
+                <form id="logout-form" action="{{ route('admin.logout') }}" method="POST">
+                    @csrf
+                </form>
             </div>
         </div>
     </div>

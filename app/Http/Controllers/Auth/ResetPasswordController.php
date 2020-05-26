@@ -47,6 +47,16 @@ class ResetPasswordController extends Controller
         ])->save();
     }
 
+    public function showResetForm(Request $request, $token = null)
+    {
+        $loginRoute = route('login');
+        $pwdUpdate = route('password.update');
+        return view('auth.passwords.reset')->with([
+            'token' => $token, 'email' => $request->email,
+            'loginRoute' => $loginRoute, 'pwdUpdate' => $pwdUpdate
+        ]);
+    }
+
     /**
      * Get the response for a successful password reset.
      *

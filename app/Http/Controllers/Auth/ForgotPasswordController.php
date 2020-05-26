@@ -32,6 +32,18 @@ class ForgotPasswordController extends Controller
     }
 
     /**
+     * Display the form to request a password reset link.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showLinkRequestForm()
+    {
+        $loginRoute = route('login');
+        $pwdResetEmail = route('password.email');
+        return view('auth.passwords.email', compact('loginRoute', 'pwdResetEmail'));
+    }
+
+    /**
      * Get the response for a successful password reset link.
      *
      * @param Request $request

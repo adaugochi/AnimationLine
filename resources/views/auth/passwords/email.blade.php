@@ -1,6 +1,6 @@
 @extends('layouts.auth')
 @section('title', 'Forget Password')
-@section('route', route('password.email'))
+@section('route', $pwdResetEmail)
 @section('auth-header', 'Forget Password')
 @section('content')
     <div class="form-group">
@@ -12,6 +12,6 @@
         Send Password Reset Link
     </button>
     <div class="mt-5 text-center">
-        <a href="{{ url('login') }}" class="text-brand-primary fs-12"> Back to Login</a>
+        <a href="{{ $loginRoute }}" class="text-brand-primary fs-12">Back to Login</a>
     </div>
 @endsection

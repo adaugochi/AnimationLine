@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 /**
  * @property mixed first_name
  * @property mixed last_name
+ * @property mixed user_type_id
  */
 class User extends Authenticatable
 {
@@ -23,7 +24,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'password', 'user_type_id'
+        'first_name', 'last_name', 'email', 'password'
     ];
 
     /**

@@ -38,10 +38,19 @@ Route::post('/edit-brief', 'BriefController@updateBrief')->name('edit-brief');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/contact', 'ContactController@index')->name('contact');;
+Route::get('/contact', 'ContactController@index')->name('contact');
 Route::post('/submit-contact', 'ContactController@submitContact');
 
-Route::get('/admin/home', 'AdminHomeController@index')->name('admin.home');
-Route::get('/admin/user/clients', 'UserController@getClients')->name('user.client');
-Route::get('/admin/user/administrators', 'UserController@getAdmin')->name('user.admin');
-Route::get('/admin/orders', 'OrderController@index')->name('admin.order');
+Route::prefix('admin')->group(function () {
+    Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+    Route::get('/forgot-password', 'Auth\AdminLoginController@forgotPassword')->name('admin.forgot-password');
+    Route::get('/password/reset/{token}', 'Auth\AdminLoginController@resetPasswordForm')->name('admin.password.reset');
+    Route::post('/sign-in', 'Auth\AdminLoginController@signIn')->name('admin.sign-in');
+    Route::post('/send-forgot-password', 'Auth\AdminLoginController@sendForgotPassword')->name('admin.send-forgot-password');
+    Route::post('/password/update', 'Auth\AdminLoginController@reset')->name('admin.password.update');
+    Route::post('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
+    Route::get('/home', 'AdminHomeController@index')->name('admin.home');
+    Route::get('/user/clients', 'UserController@getClients')->name('user.client');
+    Route::get('/user/administrators', 'UserController@getAdmin')->name('user.admin');
+    Route::get('/orders', 'OrderController@index')->name('admin.order');
+});
