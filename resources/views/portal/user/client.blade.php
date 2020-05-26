@@ -37,7 +37,7 @@
             </div>
         @else
             <div class="empty-state">
-                <span class="material-icons empty-state__icon icon-grey">payment</span>
+                <i class="fa fa-users  empty-state__icon icon-grey" aria-hidden="true"></i>
                 <p class="empty-state__description mt-2">No Client has been added.</p>
             </div>
         @endif

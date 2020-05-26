@@ -58,4 +58,6 @@ Route::prefix('admin')->group(function () {
     Route::get('/user/clients', 'UserController@getClients')->name('user.client');
     Route::get('/user/administrators', 'UserController@getAdmin')->name('user.admin');
     Route::get('/orders', 'OrderController@index')->name('admin.order');
+    Route::get('/orders/brief/{id}', 'OrderController@viewBrief')->name('admin.brief');
+    Route::get('/contacts', 'AdminHomeController@getContacts')->name('admin.contacts');
 });

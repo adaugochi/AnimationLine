@@ -1,5 +1,5 @@
 @extends('portal.layouts.main')
-@section('title', 'Order')
+@section('title', 'Orders')
 @section('header-breadcrumb')
     <li class="active">Orders</li>
 @endsection()
@@ -44,11 +44,15 @@
                                             data-toggle="dropdown">
                                         Actions
                                     </button>
-                                    <div class="dropdown-menu dropdown__custom-navbar">
-                                        <a class="dropdown-item" href="#">View Brief</a>
+                                    <div class="dropdown-menu dropdown__custom">
+                                        @if($billing->has_brief)
+                                            <a class="dropdown-item" href="{{ route('admin.brief', $billing->id) }}">
+                                                View Brief
+                                            </a>
+                                            <a class="dropdown-item" href="#">Mark as In-Review</a>
+                                            <a class="dropdown-item" href="#">Mark as Delivered</a>
+                                        @endif
                                         <a class="dropdown-item" href="#">View Profile</a>
-                                        <a class="dropdown-item" href="#">In Review</a>
-                                        <a class="dropdown-item" href="#">Delivered</a>
                                     </div>
                                 </div>
                             </td>

@@ -55,3 +55,11 @@
     }
   }
 }
+
+.dropdown {
+  &__custom {
+    .dropdown-item {
+      font-size: $body-font !important;
+    }
+  }
+}
