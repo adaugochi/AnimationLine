@@ -55,9 +55,13 @@ Route::prefix('admin')->group(function () {
 
     // Portal routes
     Route::get('/home', 'AdminHomeController@index')->name('admin.home');
-    Route::get('/user/clients', 'UserController@getClients')->name('user.client');
+    Route::get('/user/clients', 'UserController@getClients')->name('user.clients');
     Route::get('/user/administrators', 'UserController@getAdmin')->name('user.admin');
     Route::get('/orders', 'OrderController@index')->name('admin.order');
     Route::get('/orders/brief/{id}', 'OrderController@viewBrief')->name('admin.brief');
+    Route::get('/user/client/{id}/transactions', 'UserController@showClientTransactions')->name('client.transaction');
     Route::get('/contacts', 'AdminHomeController@getContacts')->name('admin.contacts');
+
+    Route::post('/complete', 'OrderController@complete')->name('complete');
+    Route::post('/deliver', 'OrderController@deliver')->name('deliver');
 });

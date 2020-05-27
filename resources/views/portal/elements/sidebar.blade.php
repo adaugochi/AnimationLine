@@ -20,7 +20,7 @@
                 </div>
                 <div id="subMenu1" class="sub-menu collapse">
                     <span class="sub-menu__items">
-                        <a href="{{ route('user.client') }}">
+                        <a href="{{ route('user.clients') }}">
                             <span class="">Clients</span>
                         </a>
                     </span>

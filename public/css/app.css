@@ -11175,6 +11175,31 @@ body .pb-6 {
   border-color: #38c172;
 }
 
+.card__title {
+  border-bottom: 1px solid #adb5bd;
+  margin-bottom: 0.5rem;
+}
+
+.card__icon.blue {
+  color: #0020dd;
+}
+
+.card__icon.pink {
+  color: #f66d9b;
+}
+
+.card__icon.green {
+  color: #38c172;
+}
+
+.card__icon.orange {
+  color: #f6993f;
+}
+
+.card__icon.indigo {
+  color: #6574cd;
+}
+
 label {
   margin-bottom: unset !important;
 }
@@ -11272,7 +11297,7 @@ label.error {
   background-color: #eb8c95;
 }
 
-.status-completed {
+.status-in-review {
   color: #7836da;
   background-color: #cfb7f2;
 }

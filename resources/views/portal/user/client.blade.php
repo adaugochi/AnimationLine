@@ -28,7 +28,9 @@
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->formatDate() }}</td>
                             <td>
-                                <a href="#" class="btn btn-brand-primary">View</a>
+                                <a href="{{ route('client.transaction', $user->id) }}" class="btn btn-brand-primary">
+                                    View
+                                </a>
                             </td>
                         </tr>
                     @endforeach

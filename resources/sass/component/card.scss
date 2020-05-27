@@ -87,6 +87,28 @@
       }
     }
   }
+
+  &__title {
+    border-bottom: 1px solid $brand-accent;
+    margin-bottom: 0.5rem;
+  }
+  &__icon {
+    &.blue {
+      color: $blue;
+    }
+    &.pink {
+      color: $pink;
+    }
+    &.green {
+      color: $green;
+    }
+    &.orange {
+      color: $orange;
+    }
+    &.indigo {
+      color: $indigo;
+    }
+  }
 }
 
 label {

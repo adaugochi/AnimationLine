@@ -108,7 +108,9 @@
                             </span>
                             @include('elements.modal', [
                                 'modalId' => 'policyModal',
+                                'modalSize' => 'modal-lg',
                                 'modalTitle' => 'Privacy Policy',
+                                'modalForm' => false,
                                 'modalBody' => \App\Contants\Message::POLICY_AND_PRIVACY
                             ])
                         </p>
@@ -119,7 +121,9 @@
                             </span>
                             @include('elements.modal', [
                                 'modalId' => 'tcModal',
+                                'modalSize' => 'modal-lg',
                                 'modalTitle' => 'Terms of Service',
+                                'modalForm' => false,
                                 'modalBody' => \App\Contants\Message::TERMS_AND_CONDITIONS
                             ])
                         </p>

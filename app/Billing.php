@@ -30,8 +30,12 @@ class Billing extends BaseModel
 {
     const IN_PROGRESS = 'in-progress';
     const DRAFT = 'draft';
-    const COMPLETED = 'completed';
+    const COMPLETED = 'in-review';
     const DELIVERED = 'delivered';
+
+    const VIDEO = '2D animation video';
+    const LOGO = 'logo animation';
+    const TEXT = 'kinetic text typography animation';
 
     /**
      * @var array

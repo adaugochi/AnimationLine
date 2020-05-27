@@ -1,6 +1,6 @@
 <!-- The Modal -->
 <div class="modal fade" id="{{ $modalId }}">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog {{ $modalSize }}">
         <div class="modal-content">
 
             <!-- Modal Header -->
@@ -11,13 +11,23 @@
 
             <!-- Modal body -->
             <div class="modal-body text-gray">
-                {!! $modalBody !!}
+                {!! $modalForm ? '' : $modalBody !!}
+                @if($modalForm)
+                    <form method="post" action="{{ $modalAction }}">
+                        @csrf
+                        <input type="hidden" name="id" value="{{ $id }}">
+                        <p>{{ $modalMsg }}</p>
+                        <button type="submit" class="btn btn-success float-right">Yes</button>
+                    </form>
+                @endif
             </div>
 
             <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-brand-primary" data-dismiss="modal">Ok</button>
-            </div>
+            @if(!$modalForm)
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-brand-primary" data-dismiss="modal">Close</button>
+                </div>
+            @endif
         </div>
     </div>
 </div>

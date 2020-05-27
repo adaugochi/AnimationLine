@@ -26,6 +26,8 @@ class Message
     const BILLING_NOT_FOUND = 'Could not find billing details';
     const BILLING_NOT_SAVE = 'Could not save billing information. Please try again';
     const CONTACT_SUCCESS = 'Thank you for contacting us. Our support team will get across to you';
+    const REVIEW_MSG = 'Are you sure this project is completed and wants to mark as review for client to review?';
+    const DELIVERED_MSG = 'Are you sure you want to mark the project as delivered';
 
     const TERMS_AND_CONDITIONS = "
         <p>

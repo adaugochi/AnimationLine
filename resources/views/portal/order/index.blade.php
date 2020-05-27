@@ -28,14 +28,14 @@
                             </td>
                             <td>{{ $billing->getCurrencyAndAmount() }}</td>
                             <td>
-                                    <span class="font-weight-bold status status-{{ $billing->package }}">
-                                        {{ $billing->package }}
-                                    </span>
+                                <span class="font-weight-bold status status-{{ $billing->package }}">
+                                    {{ $billing->package }}
+                                </span>
                             </td>
                             <td>
-                                    <span class="font-weight-bold status status-{{ $billing->status }}">
-                                        {{ ucwords(str_replace('-', ' ', $billing->status)) }}
-                                    </span>
+                                <span class="font-weight-bold status status-{{ $billing->status }}">
+                                    {{ ucwords(str_replace('-', ' ', $billing->status)) }}
+                                </span>
                             </td>
                             <td>{{ $billing->formatDate() }}</td>
                             <td>
@@ -49,11 +49,40 @@
                                             <a class="dropdown-item" href="{{ route('admin.brief', $billing->id) }}">
                                                 View Brief
                                             </a>
-                                            <a class="dropdown-item" href="#">Mark as In-Review</a>
-                                            <a class="dropdown-item" href="#">Mark as Delivered</a>
+                                            <span class="dropdown-item cursor-pointer"
+                                                  data-toggle="modal" data-target="#reviewModal{{$billing->id}}">
+                                                Mark as In-Review
+                                            </span>
+                                            <span class="dropdown-item cursor-pointer"
+                                                  data-toggle="modal" data-target="#deliveredModal">
+                                                Mark as Delivered
+                                            </span>
+                                        @else
+                                            <a class="dropdown-item">
+                                                Send Reminder
+                                            </a>
                                         @endif
-                                        <a class="dropdown-item" href="#">View Profile</a>
                                     </div>
+                                    @include('elements.modal', [
+                                        'modalId' => 'reviewModal'.$billing->id,
+                                        'modalSize' => 'modal-sm',
+                                        'modalTitle' => 'Complete Service',
+                                        'modalForm' => true,
+                                        'modalAction' => route('complete'),
+                                        'id' => $billing->id,
+                                        'modalMsg' => \App\Contants\Message::REVIEW_MSG,
+                                        'modalBody' => ""
+                                    ])
+                                    @include('elements.modal', [
+                                        'modalId' => 'deliveredModal',
+                                        'modalSize' => 'modal-sm',
+                                        'modalTitle' => 'Deliver Service',
+                                        'modalForm' => true,
+                                        'modalAction' => route('deliver'),
+                                        'id' => $billing->id,
+                                        'modalMsg' => \App\Contants\Message::DELIVERED_MSG,
+                                        'modalBody' => ''
+                                    ])
                                 </div>
                             </td>
                         </tr>
