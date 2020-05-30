@@ -31,7 +31,7 @@
                             <a class="nav-link dropdown-toggle text-gray" id="navbardrop" data-toggle="dropdown">
                                 Pricing
                             </a>
-                            <div class="dropdown-menu dropdown-menu-sm-right dropdown-menu-lg-left dropdown__custom-navbar">
+                            <div class="dropdown-menu dropdown-custom-menu dropdown-menu-sm-right dropdown-menu-lg-left dropdown__custom-navbar">
                                 <a class="dropdown-item" href="{{ route('animation-logo') }}">
                                     Create your logo with animation
                                 </a>
@@ -106,11 +106,10 @@
                                 <i class="fa fa-thumb-tack text-brand-primary mr-1"></i>
                                 Privacy Policy
                             </span>
-                            @include('elements.modal', [
+                            @include('modals.policy-terms-modal', [
                                 'modalId' => 'policyModal',
                                 'modalSize' => 'modal-lg',
                                 'modalTitle' => 'Privacy Policy',
-                                'modalForm' => false,
                                 'modalBody' => \App\Contants\Message::POLICY_AND_PRIVACY
                             ])
                         </p>
@@ -119,11 +118,10 @@
                                 <i class="fa fa-thumb-tack text-brand-primary mr-1"></i>
                                 Terms of Service
                             </span>
-                            @include('elements.modal', [
+                            @include('modals.policy-terms-modal', [
                                 'modalId' => 'tcModal',
                                 'modalSize' => 'modal-lg',
                                 'modalTitle' => 'Terms of Service',
-                                'modalForm' => false,
                                 'modalBody' => \App\Contants\Message::TERMS_AND_CONDITIONS
                             ])
                         </p>

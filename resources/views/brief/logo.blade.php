@@ -34,7 +34,7 @@
                         </div>
                         <input type="file" id="company-logo"
                                class="file-input form-control-file @error('company_logo') is-invalid @enderror"
-                               name="company_logo" accept="['.png, .jpg, .jpeg, .svg, .gif']">
+                               name="company_logo" accept="['.png, .jpg, .jpeg, .svg, .gif, .webp']">
                         @include('elements.error', ['fieldName' => 'company_logo'])
                     </div>
                     <div class="form-group col-md-6 sample-logo">
@@ -51,7 +51,7 @@
                         </div>
                         <input type="file" id="sample-logo"
                                class="file-input form-control-file @error('logo_sample') is-invalid @enderror"
-                               name="logo_sample" accept="['.png, .jpg, .jpeg, .svg, .gif']">
+                               name="logo_sample" accept="['.png, .jpg, .jpeg, .svg, .gif, .webp']">
                         <label class="error" for="sample-logo"></label>
                         @include('elements.error', ['fieldName' => 'logo_sample'])
                     </div>

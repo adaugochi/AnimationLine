@@ -38,6 +38,7 @@ Route::post('/edit-brief', 'BriefController@updateBrief')->name('edit-brief');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/order/{id}', 'HomeController@viewOrder')->name('order');
 Route::get('/contact', 'ContactController@index')->name('contact');
 Route::post('/submit-contact', 'ContactController@submitContact');
 
@@ -61,7 +62,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/orders/brief/{id}', 'OrderController@viewBrief')->name('admin.brief');
     Route::get('/user/client/{id}/transactions', 'UserController@showClientTransactions')->name('client.transaction');
     Route::get('/contacts', 'AdminHomeController@getContacts')->name('admin.contacts');
+    Route::get('/blogs', 'BlogController@index')->name('admin.blogs');
 
-    Route::post('/complete', 'OrderController@complete')->name('complete');
-    Route::post('/deliver', 'OrderController@deliver')->name('deliver');
+    Route::post('/send-order', 'OrderController@complete')->name('complete');
+    Route::post('/deliver-order', 'OrderController@deliver')->name('deliver');
 });

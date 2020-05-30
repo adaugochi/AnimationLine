@@ -13,7 +13,8 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Active Mockup'),
+    'name' => env('APP_NAME', 'AnimationLine'),
+    'email' => 'support@animationline.com',
 
     /*
     |--------------------------------------------------------------------------

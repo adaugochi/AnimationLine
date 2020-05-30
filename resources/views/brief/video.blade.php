@@ -34,7 +34,7 @@
                         </div>
                         <input type="file" id="company-logo"
                                class="file-input form-control-file @error('company_logo') is-invalid @enderror"
-                               name="company_logo" accept="['.png, .jpg, .jpeg, .svg, .gif']">
+                               name="company_logo" accept="['.png, .jpg, .jpeg, .svg, .gif, .webp']">
                         @include('elements.error', ['fieldName' => 'company_logo'])
                     </div>
 

@@ -60,6 +60,10 @@
             company_website : {
                 url: true
             },
+            order_url: {
+                required: true,
+                url: true
+            },
             company_name: "required",
             voice_type: "required",
             video_script: "required",

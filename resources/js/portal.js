@@ -1,4 +1,5 @@
 require('./bootstrap');
+require('./validation');
 require('./jquery.name.badges');
 
 (function ($) {

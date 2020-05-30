@@ -11391,7 +11391,7 @@ label.error {
   color: #666;
 }
 
-.dropdown-menu {
+.dropdown-custom-menu {
   transition: all 0.5s;
   max-height: 0;
   display: block;
@@ -11399,7 +11399,7 @@ label.error {
   opacity: 0;
 }
 
-.dropdown.show .dropdown-menu {
+.dropdown.show .dropdown-custom-menu {
   max-height: 200px;
   opacity: 1;
 }

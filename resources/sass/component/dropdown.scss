@@ -1,12 +1,12 @@
 .dropdown {
-  &-menu {
+  &-custom-menu {
     transition: all 0.5s;
     max-height: 0;
     display: block;
     overflow: hidden;
     opacity: 0;
   }
-  &.show &-menu {
+  &.show &-custom-menu {
     max-height: 200px;
     opacity: 1;
   }

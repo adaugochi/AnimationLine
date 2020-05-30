@@ -2,6 +2,15 @@
 @section('title', 'Dashboard')
 @section('content')
     <div class="mx-auto mb-5">
+        @if(sizeof($reviewStatus) > 0)
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>Your order ready!</strong> Click on View Order on the dropdown of Action button to see it
+                and leave a revision if need be or accept the order
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
         <h5 class="mb-3">Latest Transactions</h5>
         <div class="card card-table">
             @if(sizeof($billings) > 0)
@@ -13,7 +22,6 @@
                             <th class="field-name"><span>Service</span></th>
                             <th class="field-name"><span>Total Amount</span></th>
                             <th class="field-name"><span>Package</span></th>
-                            <th class="field-name"><span>Payment ID</span></th>
                             <th class="field-name"><span>Status</span></th>
                             <th class="field-name"><span>Created At</span></th>
                             <th class="field-name"><span>Action</span></th>
@@ -32,7 +40,6 @@
                                         {{ $billing->package }}
                                     </span>
                                 </td>
-                                <td>{{ $billing->payment_id }}</td>
                                 <td>
                                     <span class="font-weight-bold status status-{{ $billing->status }}">
                                         {{ ucwords(str_replace('-', ' ', $billing->status)) }}
@@ -40,22 +47,19 @@
                                 </td>
                                 <td>{{ $billing->formatDate() }}</td>
                                 <td>
-                                    <a href="/brief/{{ \App\helpers\Utils::slug($billing->service) }}/{{ $billing->package }}/{{ $billing->id }}"
-                                       class="fs-20 text-gray">
-                                        @if($billing->status === \App\Billing::DRAFT)
-                                            <i class="fa fa-pencil-square-o" aria-hidden="true"
-                                               data-toggle="tooltip" data-placement="top"
-                                               title="complete brief"></i>
-                                        @elseif($billing->status === \App\Billing::IN_PROGRESS)
-                                            <i class="fa fa-eye" aria-hidden="true"
-                                                data-toggle="tooltip" data-placement="top"
-                                                title="view brief"></i>
-                                        @elseif($billing->status === \App\Billing::COMPLETED)
-                                            <i class="fa fa-eye" aria-hidden="true"
-                                               data-toggle="tooltip" data-placement="top"
-                                               title="view brief"></i>
-                                        @endif
-                                    </a>
+                                    @if($billing->status === \App\Billing::DRAFT)
+                                        <a href="/brief/{{\App\helpers\Utils::slug($billing->service)}}/{{$billing->package }}/{{ $billing->id }}"
+                                           class="btn btn-secondary">
+                                            Complete Brief
+                                        </a>
+                                    @elseif($billing->status === \App\Billing::IN_PROGRESS)
+                                        <a href="/brief/{{\App\helpers\Utils::slug($billing->service)}}/{{$billing->package }}/{{ $billing->id }}"
+                                           class="btn btn-secondary">
+                                            View Brief
+                                        </a>
+                                    @elseif($billing->status === \App\Billing::COMPLETED)
+                                        <a href="/order/{{$billing->id}}" class="btn btn-secondary">View Order</a>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

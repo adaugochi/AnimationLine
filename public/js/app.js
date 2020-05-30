@@ -38067,6 +38067,10 @@ window.toastr = __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.
       company_website: {
         url: true
       },
+      order_url: {
+        required: true,
+        url: true
+      },
       company_name: "required",
       voice_type: "required",
       video_script: "required",

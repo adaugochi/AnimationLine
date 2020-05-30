@@ -37,6 +37,12 @@
                     <span class="nav-label">Contacts</span>
                 </a>
             </li>
+            <li>
+                <a href="{{ route('admin.blogs') }}">
+                    <i class="fa fa-archive md-48 icon" aria-hidden="true"></i>
+                    <span class="nav-label">Blogs</span>
+                </a>
+            </li>
             {{--<li>--}}
                 {{--<a href="" data-toggle="collapse" data-target="#subMenu4">--}}
                     {{--<i class="md-48 icon material-icons">settings</i>--}}

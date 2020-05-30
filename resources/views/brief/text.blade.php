@@ -45,7 +45,8 @@
                                 {{ $isEdit ? $brief->orig_company_logo_name : 'No File Chosen' }}
                             </span>
                         </div>
-                        <input type="file" id="company-logo" name="company_logo" accept="['.png, .jpg, .jpeg, .svg, .gif']"
+                        <input type="file" id="company-logo" name="company_logo"
+                               accept="['.png, .jpg, .jpeg, .svg, .gif, .webp']"
                                class="file-input form-control-file @error('company_logo') is-invalid @enderror">
                         <label class="error" for="company-logo"></label>
                         @include('elements.error', ['fieldName' => 'company_logo'])

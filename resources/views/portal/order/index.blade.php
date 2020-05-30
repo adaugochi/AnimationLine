@@ -44,44 +44,42 @@
                                             data-toggle="dropdown">
                                         Actions
                                     </button>
-                                    <div class="dropdown-menu dropdown__custom">
+                                    <div class="dropdown-menu">
                                         @if($billing->has_brief)
                                             <a class="dropdown-item" href="{{ route('admin.brief', $billing->id) }}">
                                                 View Brief
                                             </a>
-                                            <span class="dropdown-item cursor-pointer"
-                                                  data-toggle="modal" data-target="#reviewModal{{$billing->id}}">
-                                                Mark as In-Review
-                                            </span>
-                                            <span class="dropdown-item cursor-pointer"
-                                                  data-toggle="modal" data-target="#deliveredModal">
-                                                Mark as Delivered
-                                            </span>
+                                            @if($billing->status !== \App\Billing::COMPLETED)
+                                                <span class="dropdown-item cursor-pointer" data-toggle="modal"
+                                                      data-target="#reviewModal{{$billing->id}}">
+                                                    Mark as In-Review
+                                                </span>
+                                            @endif
+                                            @if($billing->status !== \App\Billing::DELIVERED)
+                                                <span class="dropdown-item cursor-pointer" data-toggle="modal"
+                                                      data-target="#deliveredModal{{$billing->id}}">
+                                                    Mark as Delivered
+                                                </span>
+                                            @endif
                                         @else
-                                            <a class="dropdown-item">
-                                                Send Reminder
-                                            </a>
+                                            <a class="dropdown-item">Send Reminder</a>
                                         @endif
                                     </div>
-                                    @include('elements.modal', [
+                                    @include('modals.review-modal', [
                                         'modalId' => 'reviewModal'.$billing->id,
-                                        'modalSize' => 'modal-sm',
-                                        'modalTitle' => 'Complete Service',
-                                        'modalForm' => true,
+                                        'modalSize' => 'modal-md',
+                                        'modalTitle' => 'Send Order To Customer',
                                         'modalAction' => route('complete'),
-                                        'id' => $billing->id,
-                                        'modalMsg' => \App\Contants\Message::REVIEW_MSG,
-                                        'modalBody' => ""
+                                        'userId' => $billing->user_id,
+                                        'billingId' => $billing->id
                                     ])
-                                    @include('elements.modal', [
-                                        'modalId' => 'deliveredModal',
+                                    @include('modals.confirm-modal', [
+                                        'modalId' => 'deliveredModal'.$billing->id,
                                         'modalSize' => 'modal-sm',
-                                        'modalTitle' => 'Deliver Service',
-                                        'modalForm' => true,
+                                        'modalTitle' => 'Deliver Order',
                                         'modalAction' => route('deliver'),
                                         'id' => $billing->id,
-                                        'modalMsg' => \App\Contants\Message::DELIVERED_MSG,
-                                        'modalBody' => ''
+                                        'modalMsg' => \App\Contants\Message::DELIVERED_MSG
                                     ])
                                 </div>
                             </td>
