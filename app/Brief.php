@@ -19,7 +19,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string orig_logo_sample_name
  * @property string orig_company_logo_name
  */
-class Brief extends Model
+class Brief extends BaseModel
 {
     /**
      * @var array
@@ -29,6 +29,15 @@ class Brief extends Model
         'voice_type', 'video_speed', 'logo_sample', 'other_info', 'billing_id', 'orig_logo_sample_name',
         'orig_company_logo_name'
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @author Maryfaith Mgbede <adaamgbede@gmail.com>
+     */
+    public function billing()
+    {
+        return $this->belongsTo(Billing::class);
+    }
 
     /**
      * @param $request

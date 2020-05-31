@@ -19,7 +19,7 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        '/create-payment',
-        '/pay-with-paystack'
+//        '/create-payment',
+//        '/pay-with-paystack'
     ];
 }

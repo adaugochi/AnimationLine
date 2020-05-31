@@ -30,6 +30,7 @@ class Billing extends BaseModel
 {
     const IN_PROGRESS = 'in-progress';
     const DRAFT = 'draft';
+    const CONFIRM = 'confirm';
     const COMPLETED = 'in-review';
     const DELIVERED = 'delivered';
 
@@ -55,6 +56,15 @@ class Billing extends BaseModel
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @author Maryfaith Mgbede <adaamgbede@gmail.com>
+     */
+    public function order()
+    {
+        return $this->hasOne(Order::class);
+    }
+
+    /**
      * @param $request
      * @param $paymentId
      * @param $payerId
@@ -77,7 +87,6 @@ class Billing extends BaseModel
         $this->currency = $request['currency'];
         $this->payment_method = $request['payment_method'];
         $this->user_id = auth()->user()->id;
-        //$this->status = self::IN_PROGRESS;
 
         if ((int)$discountPrice !== 0) {
             $this->has_discount = 1;

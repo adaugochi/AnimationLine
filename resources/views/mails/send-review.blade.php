@@ -3,7 +3,7 @@
     <h1>Hi {{ $data['name'] }},</h1>
 
     <p>
-        The Service you ordered: <span class="text-brand">{{ ucwords($data['service']) }}</span>
+        The Service you ordered: <span class="text-brand">{{ ucwords($data['service']) }} Package</span>
         is ready for your review. Please login to your dashboard to the link.
     </p>
 
@@ -17,7 +17,6 @@
 
     <style>
         .text-brand {
-            color: #ff5a1a;
             font-weight: bold;
         }
     </style>

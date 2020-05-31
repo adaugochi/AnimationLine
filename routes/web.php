@@ -39,6 +39,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/order/{id}', 'HomeController@viewOrder')->name('order');
+Route::post('/send-positive-review', 'HomeController@sendPositiveReview')->name('pos.review');
+Route::post('/send-negative-review', 'HomeController@sendNegativeReview')->name('neg.review');
 Route::get('/contact', 'ContactController@index')->name('contact');
 Route::post('/submit-contact', 'ContactController@submitContact');
 

@@ -10953,6 +10953,12 @@ body .pb-6 {
   }
 }
 
+.d-content-center {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+}
+
 .modal#policyModal,
 .modal#tcModal {
   overflow-y: auto;
@@ -11026,10 +11032,19 @@ body .pb-6 {
 .btn-scroll {
   font-size: 22px;
   text-align: center;
+  width: 50px;
+  height: 50px;
+  padding: 7px 10px;
+  border-radius: 25px !important;
   position: fixed;
   bottom: 60px;
   right: 20px;
   z-index: 99999;
+}
+
+.btn-link {
+  font-size: 22px;
+  text-align: center;
   width: 50px;
   height: 50px;
   padding: 7px 10px;
@@ -11061,18 +11076,6 @@ body .pb-6 {
   background-color: #eeeeee !important;
   border-color: #eeeeee !important;
   opacity: 1;
-}
-
-.alert {
-  border: unset;
-}
-
-.alert-success {
-  border-left: 6px solid #1d643b !important;
-}
-
-.alert-danger {
-  border-left: 6px solid #761b18 !important;
 }
 
 .card {
@@ -11312,6 +11315,11 @@ label.error {
   background-color: #e6e6e6;
 }
 
+.status-confirm {
+  color: #117a8b;
+  background-color: #7adeee;
+}
+
 .pagination {
   margin-top: 10px !important;
   float: right;
@@ -11356,6 +11364,11 @@ label.error {
   min-height: 300px;
   padding: 30px 0 20px;
   text-align: center;
+}
+
+.empty-state.order {
+  min-height: 0 !important;
+  padding: 20px 0 20px;
 }
 
 .empty-state__icon {
@@ -11661,6 +11674,10 @@ label.error {
 
 .fs-16 {
   font-size: 16px;
+}
+
+.fs-22 {
+  font-size: 22px;
 }
 
 .url-icon {

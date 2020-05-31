@@ -10,7 +10,7 @@
             color: #737373;
         }
 
-        h1, a {
+        a {
             color: #ff5a1a
         }
 

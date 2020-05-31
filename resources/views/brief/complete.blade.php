@@ -2,7 +2,7 @@
 @section('title', 'Brief Completed')
 
 @section('content')
-    <div class="mx-auto mb-5">
+    <div class="mx-auto">
         <div class="row">
             <div class="col-md-6 col-lg-5 py-5 py-md-0 pt-lg-5 text-md-left text-center">
                 <div class="header-text">

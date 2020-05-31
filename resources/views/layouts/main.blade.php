@@ -40,7 +40,7 @@
         </nav>
     </header>
 
-    <main class="mt-4 container" style="min-height: calc(100vh - 54px - 80px - 23px)">
+    <main class="mt-4 mb-5 container" style="min-height: calc(100vh - 54px - 80px - 65px)">
         <section class="">
             <h4 class="text-gray">
                 <span class="font-paris">{{ $greeting }} - {{ ucfirst(auth()->user()->first_name) }}</span>

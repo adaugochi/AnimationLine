@@ -37692,6 +37692,8 @@ __webpack_require__(/*! ./checkout */ "./resources/js/checkout.js");
 
 __webpack_require__(/*! ./file-upload */ "./resources/js/file-upload.js");
 
+__webpack_require__(/*! ./order */ "./resources/js/order.js");
+
 (function ($) {
   var submitButtonId = $("#validateForm");
   $('.password-show').on('click', function () {
@@ -38001,6 +38003,59 @@ window.toastr = __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.
 
 /***/ }),
 
+/***/ "./resources/js/order.js":
+/*!*******************************!*\
+  !*** ./resources/js/order.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function ($) {
+  var questionWrap = $('.question_wrap');
+  $('.btn-copy').on('click', function (e) {
+    var $temp = $("<input>");
+    $("body").append($temp);
+    $temp.val($('.copy-url').val()).select();
+    document.execCommand("copy");
+    $temp.remove();
+  });
+  var negative = '.negative',
+      positive = '.positive';
+  var posTemplate = $('#positive').html();
+  var negTemplate = $('#negative').html();
+
+  function renderTemplate(res, template) {
+    if ($(res).length) {
+      $(res).remove();
+    }
+
+    questionWrap.append(template);
+    $('.reviewForm').on('submit', function (e) {
+      $('.error').remove();
+
+      if (!$.trim($(this).find('.comment').val())) {
+        e.preventDefault();
+        $(this).find('.form-group').append('<label class="error">This field is required</label>');
+      }
+    });
+  }
+
+  $('.btn-yes').on('click', function () {
+    renderTemplate(negative, posTemplate);
+  });
+  $('.btn-no').on('click', function () {
+    renderTemplate(positive, negTemplate);
+  });
+  $("[data-toggle='popover']").popover();
+  $('[data-toggle="popover"]').click(function () {
+    setTimeout(function () {
+      $('.popover').remove();
+    }, 1000);
+  });
+})(jQuery);
+
+/***/ }),
+
 /***/ "./resources/js/validation.js":
 /*!************************************!*\
   !*** ./resources/js/validation.js ***!
@@ -38076,7 +38131,8 @@ window.toastr = __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.
       video_script: "required",
       artist_gender: "required",
       artist_accent: "required",
-      video_speed: "required"
+      video_speed: "required",
+      comment: "required"
     },
     messages: {
       password_confirmation: {

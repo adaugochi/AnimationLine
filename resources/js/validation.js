@@ -69,7 +69,8 @@
             video_script: "required",
             artist_gender: "required",
             artist_accent: "required",
-            video_speed: "required"
+            video_speed: "required",
+            comment: "required"
         },
         messages: {
             password_confirmation: {

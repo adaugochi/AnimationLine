@@ -96,7 +96,7 @@
                         </div>
                         <div class="d-flex justify-content-between py-1">
                             <label>Accent of the Artist:</label>
-                            <span>{{ $brief->artist_accent ?: '---'}}</span>
+                            <span>{{ \Illuminate\Support\Arr::get($countries, $brief->artist_accent) ?: '---'}}</span>
                         </div>
                         <div class="d-flex justify-content-between py-1">
                             <label>Voice Type:</label>

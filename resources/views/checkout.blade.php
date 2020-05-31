@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('title', 'Checkout')
 @section('content')
-    <div class="mx-auto mb-5">
+    <div class="mx-auto">
         <div class="card">
             <form class="card-form__wrapper validateForm" id="validateForm"
                   method="post" action="/create-payment">

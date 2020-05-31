@@ -64,6 +64,12 @@ body {
   }
 }
 
+.d-content-center {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+}
+
 .modal {
   &#policyModal, &#tcModal {
     overflow-y: auto;

@@ -2,6 +2,7 @@ require('./bootstrap');
 require('./validation');
 require('./checkout');
 require('./file-upload');
+require('./order');
 
 (function ($) {
     let submitButtonId = $("#validateForm");
@@ -71,5 +72,4 @@ require('./file-upload');
     $(window).scroll(function(){
         windowScroll($(this))
     });
-
 })(jQuery);

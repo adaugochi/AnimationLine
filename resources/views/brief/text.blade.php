@@ -2,7 +2,7 @@
 @section('title', 'Brief')
 
 @section('content')
-    <div class="mx-auto mb-5">
+    <div class="mx-auto">
         <div class="card">
             <h3>{{ $isEdit ? 'Edit' : 'Complete Your' }} Brief</h3>
             <div class="empty-state">
