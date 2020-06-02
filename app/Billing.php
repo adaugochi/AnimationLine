@@ -33,6 +33,7 @@ class Billing extends BaseModel
     const CONFIRM = 'confirm';
     const COMPLETED = 'in-review';
     const DELIVERED = 'delivered';
+    const PENDING = 'pending';
 
     const VIDEO = '2D animation video';
     const LOGO = 'logo animation';

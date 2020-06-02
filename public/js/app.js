@@ -37692,6 +37692,8 @@ __webpack_require__(/*! ./checkout */ "./resources/js/checkout.js");
 
 __webpack_require__(/*! ./file-upload */ "./resources/js/file-upload.js");
 
+__webpack_require__(/*! ./popover */ "./resources/js/popover.js");
+
 __webpack_require__(/*! ./order */ "./resources/js/order.js");
 
 (function ($) {
@@ -38046,6 +38048,18 @@ window.toastr = __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.
   $('.btn-no').on('click', function () {
     renderTemplate(positive, negTemplate);
   });
+})(jQuery);
+
+/***/ }),
+
+/***/ "./resources/js/popover.js":
+/*!*********************************!*\
+  !*** ./resources/js/popover.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function ($) {
   $("[data-toggle='popover']").popover();
   $('[data-toggle="popover"]').click(function () {
     setTimeout(function () {

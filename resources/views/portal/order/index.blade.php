@@ -45,24 +45,31 @@
                                         Actions
                                     </button>
                                     <div class="dropdown-menu">
-                                        @if($billing->has_brief)
+                                        @if(!in_array($billing->status, [\App\Billing::DELIVERED, \App\Billing::DRAFT]))
                                             <a class="dropdown-item" href="{{ route('admin.brief', $billing->id) }}">
                                                 View Brief
                                             </a>
-                                            @if($billing->status !== \App\Billing::COMPLETED)
-                                                <span class="dropdown-item cursor-pointer" data-toggle="modal"
-                                                      data-target="#reviewModal{{$billing->id}}">
-                                                    Mark as In-Review
-                                                </span>
-                                            @endif
-                                            @if($billing->status !== \App\Billing::DELIVERED)
-                                                <span class="dropdown-item cursor-pointer" data-toggle="modal"
-                                                      data-target="#deliveredModal{{$billing->id}}">
-                                                    Mark as Delivered
-                                                </span>
-                                            @endif
-                                        @else
+                                        @endif
+                                        @if(in_array($billing->status, [\App\Billing::IN_PROGRESS, \App\Billing::PENDING]))
+                                            <span class="dropdown-item cursor-pointer" data-toggle="modal"
+                                                  data-target="#reviewModal{{$billing->id}}">Mark as In-Review
+                                            </span>
+                                        @endif
+                                        @if(in_array($billing->status, [\App\Billing::CONFIRM, \App\Billing::COMPLETED]))
+                                            <span class="dropdown-item cursor-pointer" data-toggle="modal"
+                                                 data-target="#deliveredModal{{$billing->id}}">Mark as Delivered
+                                            </span>
+                                        @endif
+                                        @if($billing->status === \App\Billing::PENDING)
+                                            <a class="dropdown-item" href="{{ route('order.comment', $billing->id) }}">
+                                                View Comments
+                                            </a>
+                                        @endif
+                                        @if($billing->status === \App\Billing::DRAFT)
                                             <a class="dropdown-item">Send Reminder</a>
+                                        @endif
+                                        @if($billing->status === \App\Billing::DELIVERED)
+                                            <a class="dropdown-item">View Detail</a>
                                         @endif
                                     </div>
                                     @include('modals.review-modal', [

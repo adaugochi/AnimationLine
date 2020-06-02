@@ -108,18 +108,17 @@ class BriefController extends Controller
         DB::beginTransaction();
         $billingId = $request->billing_id;
 
-        $brief->create($request, $request->all(), $billingId);
-        if (!$brief->save()) {
+        try {
+            $brief->create($request, $request->all(), $billingId);
+            $brief->save();
+
+            $billing = $brief->billing;
+            $billing->status = Billing::IN_PROGRESS;
+            $billing->has_brief = Billing::YES;
+            $billing->save();
+        } catch (\Exception $ex) {
             DB::rollBack();
             return redirect(self::HOME_URL)->with(['error' => Message::BRIEF_NOT_SAVE]);
-        }
-
-        $billing = $brief->billing;
-        $billing->status = Billing::IN_PROGRESS;
-        $billing->has_brief = Billing::YES;
-        if (!$billing->save()) {
-            DB::rollBack();
-            return redirect(self::HOME_URL)->with(['error' => Message::UPDATE_BILLING]);
         }
 
         DB::commit();

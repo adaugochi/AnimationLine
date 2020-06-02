@@ -1,6 +1,7 @@
 require('./bootstrap');
 require('./validation');
 require('./jquery.name.badges');
+require('./popover');
 
 (function ($) {
     let sidebarToggle = $(".custom-navbar__sidebar-toggle");

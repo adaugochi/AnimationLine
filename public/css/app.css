@@ -11320,6 +11320,11 @@ label.error {
   background-color: #7adeee;
 }
 
+.status-pending {
+  color: #f47f0e;
+  background-color: #fde7d1;
+}
+
 .pagination {
   margin-top: 10px !important;
   float: right;

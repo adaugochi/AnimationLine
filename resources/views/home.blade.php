@@ -4,7 +4,7 @@
     <div class="mx-auto">
         @if(sizeof($reviewStatus) > 0)
             <div class="alert alert-info alert-dismissible fade show" role="alert">
-                <strong>Your order ready!</strong> Click on <strong>View Order</strong> button to see it
+                <strong>Your order is ready!</strong> Click on <strong>View Order</strong> button to see it
                 and leave a revision if need be or accept the order
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>

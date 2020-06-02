@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Billing;
+use App\Contants\Message;
 use App\Order;
 use App\Revision;
 use Illuminate\Http\Request;
@@ -45,22 +46,31 @@ class HomeController extends Controller
         return view('order', compact('order'));
     }
 
-    public function sendPositiveReview(Request $request)
+    protected function validateRevision($request)
     {
         $request->validate([
             'order_id' => 'required',
             'comment' => 'required'
         ]);
+    }
 
-        $revision = (new Revision)->create($request->all(), Revision::YES);
+    public function sendPositiveReview(Request $request)
+    {
+        $this->validateRevision($request);
+        $revision = (new Revision)->create($request->all(), Revision::YES, Billing::CONFIRM);
         if ($revision) {
-            return redirect(route('home'))->with(['success' => 'Your response was sent successfully']);
+            return redirect(route('home'))->with(['success' => Message::REVISION_SENT]);
         }
-        return redirect()->back()->with(['error' => 'Your response was not sent successfully']);
+        return redirect()->back()->with(['error' => Message::REVISION_NOT_SENT]);
     }
 
     public function sendNegativeReview(Request $request)
     {
-
+        $this->validateRevision($request);
+        $revision = (new Revision)->create($request->all(), Revision::NO, Billing::PENDING);
+        if ($revision) {
+            return redirect(route('home'))->with(['success' => Message::REVISION_SENT]);
+        }
+        return redirect()->back()->with(['error' => Message::REVISION_NOT_SENT]);
     }
 }

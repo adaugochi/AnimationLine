@@ -34,7 +34,7 @@
     color: darken($cyan, 10%);
     background-color: lighten($cyan, 20%);
   }
-  &-gold{
+  &-gold {
     color: darken($gold, 10%);
     background-color: lighten($gold, 30%);
   }
@@ -46,17 +46,21 @@
     color: darken($purple, 10%);
     background-color: lighten($purple, 20%);
   }
-  &-delivered{
+  &-delivered {
     color: darken($success, 10%);
     background-color: lighten($success, 30%);
   }
-  &-draft{
+  &-draft {
     color: darken($gray, 10%);
     background-color: lighten($gray, 30%);
   }
-  &-confirm{
+  &-confirm {
     color: darken($info, 10%);
     background-color: lighten($info, 30%);
+  }
+  &-pending {
+    color: darken($orange, 10%);
+    background-color: lighten($orange, 30%);
   }
 }
 

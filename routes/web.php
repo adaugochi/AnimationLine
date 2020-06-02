@@ -68,4 +68,5 @@ Route::prefix('admin')->group(function () {
 
     Route::post('/send-order', 'OrderController@complete')->name('complete');
     Route::post('/deliver-order', 'OrderController@deliver')->name('deliver');
+    Route::get('/order/comments/{id}', 'OrderController@getComments')->name('order.comment');
 });

@@ -107,11 +107,6 @@ class PaymentController extends Controller
         $paymentId = request('paymentId');
         $payerId = request('PayerID');
 
-        $billing->create($postRequest, $paymentId, $payerId);
-        if (!$billing->save()) {
-            DB::rollBack();
-            return redirect('/home')->with(['error' => Message::BILLING_NOT_SAVE]);
-        }
         $totalAmount = Session::get('billing.amount');
         $payment = Payment::get($paymentId, $this->apiContext);
 
@@ -127,15 +122,22 @@ class PaymentController extends Controller
         $execution->addTransaction($transaction);
         $result = $payment->execute($execution, $this->apiContext);
 
-        if ($result->getState() == 'approved') {
-            $slug = Utils::slug($postRequest['service']);
-            session()->forget('billing');
-            DB::commit();
-            return redirect('/brief/'.$slug.'/'.$postRequest['package'].'/'.$billing->id)
-                ->with(['success' => Message::PAYMENT_SUCCESSFUL]);
-        }
+        try {
+            if ($result->getState() == 'approved') {
+                $billing->create($postRequest, $paymentId, $payerId);
+                $billing->save();
 
-        return redirect('/home')->with(['error' => Message::PAYMENT_UNSUCCESSFUL]);
+                $slug = Utils::slug($postRequest['service']);
+                session()->forget('billing');
+                DB::commit();
+                return redirect('/brief/'.$slug.'/'.$postRequest['package'].'/'.$billing->id)
+                    ->with(['success' => Message::PAYMENT_SUCCESSFUL]);
+            }
+
+        } catch (\Exception $ex) {
+            DB::rollBack();
+            return redirect('/home')->with(['error' => Message::PAYMENT_UNSUCCESSFUL]);
+        }
     }
 
     /**

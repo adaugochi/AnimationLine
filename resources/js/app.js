@@ -2,6 +2,7 @@ require('./bootstrap');
 require('./validation');
 require('./checkout');
 require('./file-upload');
+require('./popover');
 require('./order');
 
 (function ($) {
