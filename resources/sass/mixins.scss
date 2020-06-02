@@ -25,3 +25,7 @@
   padding: 7px 10px;
   border-radius: 25px !important;
 }
+
+@mixin borderTopColor($color) {
+  border-top: 4px solid $color;
+}

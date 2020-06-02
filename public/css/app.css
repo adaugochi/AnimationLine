@@ -11203,6 +11203,56 @@ body .pb-6 {
   color: #6574cd;
 }
 
+.card-dashboard .card {
+  padding: 16px !important;
+}
+
+.card-dashboard-icon {
+  font-size: 24px;
+  height: 48px;
+  width: 48px;
+  border-radius: 24px;
+  text-align: center;
+  line-height: 48px;
+  margin-top: 1rem;
+}
+
+.card-dashboard-icon.pink {
+  color: #f66d9b;
+  background-color: #fccddd;
+}
+
+.card-dashboard-icon.gray {
+  color: #3d3d3d;
+  background-color: #bdbdbd;
+}
+
+.card-dashboard-icon.green {
+  color: #38c172 !important;
+  background-color: #abe7c4;
+}
+
+.card-dashboard-icon.indigo {
+  color: #6574cd !important;
+  background-color: #d9dcf3;
+}
+
+.card-border-top.pink {
+  border-top: 4px solid #f66d9b;
+}
+
+.card-border-top.indigo {
+  border-top: 4px solid #6574cd;
+}
+
+.card-border-top.green {
+  border-top: 4px solid #38c172;
+}
+
+.card-border-top.gray {
+  border-top: 4px solid #3d3d3d;
+}
+
 label {
   margin-bottom: unset !important;
 }

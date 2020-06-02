@@ -8,20 +8,7 @@
                     <div class="alert alert-success fade show" role="alert">
                         Here is the link to your order. Please double click on the button to copy to clipboard
                     </div>
-                    <div class="form-group">
-                        <div class="mb-4">
-                            <button class="btn btn-brand-primary btn-link">
-                                <i class="fa fa-paperclip" aria-hidden="true"></i>
-                            </button>
-                            <label class="pl-2 fs-20 font-weight-bold">Get Link</label>
-                            <button class="btn btn-info btn-lg float-right btn-copy"
-                                    data-toggle="popover" data-content="Copied!" data-placement="top">
-                                Copy Link
-                            </button>
-                        </div>
-                        <input type="text" class="form-control card-form__input copy-url"
-                            value="{{ $order->order_url }}">
-                    </div>
+                    @include('elements.copy-link', ['orderURL' => $order->order_url])
                 </div>
             </div>
             <div class="col-lg-6 mt-4 mt-lg-0">

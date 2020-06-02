@@ -69,7 +69,9 @@
                                             <a class="dropdown-item">Send Reminder</a>
                                         @endif
                                         @if($billing->status === \App\Billing::DELIVERED)
-                                            <a class="dropdown-item">View Detail</a>
+                                            <a class="dropdown-item" href="{{ route('order.detail', $billing->id) }}">
+                                                View Detail
+                                            </a>
                                         @endif
                                     </div>
                                     @include('modals.review-modal', [

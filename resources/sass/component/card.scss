@@ -109,6 +109,53 @@
       color: $indigo;
     }
   }
+
+  &-dashboard {
+    .card {
+      padding: 16px !important;
+    }
+
+    &-icon {
+      font-size: 24px;
+      height: 48px;
+      width: 48px;
+      border-radius: 24px;
+      text-align: center;
+      line-height: 48px;
+      margin-top: 1rem;
+      &.pink {
+        color: $pink;
+        background-color: lighten($pink, 20%);
+      }
+      &.gray {
+        color: $brand-gray;
+        background-color: lighten($brand-gray, 50%);
+      }
+      &.green {
+        color: $green !important;
+        background-color: lighten($green, 30%);
+      }
+      &.indigo {
+        color: $indigo !important;
+        background-color: lighten($indigo, 30%);
+      }
+    }
+  }
+
+  &-border-top {
+    &.pink {
+      @include borderTopColor($pink)
+    }
+    &.indigo {
+      @include borderTopColor($indigo)
+    }
+    &.green {
+      @include borderTopColor($green)
+    }
+    &.gray {
+      @include borderTopColor($brand-gray)
+    }
+  }
 }
 
 label {

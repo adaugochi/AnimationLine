@@ -57,6 +57,15 @@
                                            class="btn btn-secondary">
                                             View Brief
                                         </a>
+                                    @elseif($billing->status === \App\Billing::DELIVERED)
+                                        <span class="btn btn-secondary" data-toggle="modal"
+                                              data-target="#getOrderModal{{$billing->id}}">Your Order
+                                        </span>
+                                        @include('modals.get-order-modal', [
+                                            'modalId' => 'getOrderModal'.$billing->id,
+                                            'modalSize' => 'modal-md',
+                                            'link' => $billing->order->order_url
+                                        ])
                                     @elseif($billing->status === \App\Billing::COMPLETED)
                                         <a href="/order/{{$billing->id}}" class="btn btn-secondary">View Order</a>
                                     @endif
