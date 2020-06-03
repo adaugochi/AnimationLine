@@ -3,6 +3,12 @@
 @section('header-breadcrumb')
     <li class="active">Blogs</li>
 @endsection()
+@section('content-header-right')
+    <a href="{{ route('new.blog') }}" class="btn btn-brand-primary">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        Add Post
+    </a>
+@endsection()
 @section('content-body')
     <div class="card card-table">
         @if(sizeof($blogs) > 0)

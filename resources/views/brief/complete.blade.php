@@ -13,7 +13,7 @@
                         Your order is currently in progress as our admin as successfully receive
                         your brief. Our support team will get across to you soon.
                     </p>
-                    <a href="/home" class="btn-brand-white mt-3 py-3 btn px-5">
+                    <a href="{{ route('home') }}" class="btn-brand-white mt-3 py-3 btn px-5">
                         Go to dashboard
                     </a>
                 </div>

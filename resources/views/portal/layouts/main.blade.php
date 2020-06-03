@@ -21,16 +21,13 @@
                     <div class="clearfix">
                         <div class="row">
                             <div class="col-md-7">
-                                <h1 class="content-header__title">@yield('title')</h1>
+                                <h1 class="content-header__title">
+                                    @yield('title') @yield('content-header-right')
+                                </h1>
                                 <ol class="breadcrumb">
                                     <li><a href="/">Home</a></li>
                                     @yield('header-breadcrumb')
                                 </ol>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="content-header__right">
-                                    @yield('content-header-right')
-                                </div>
                             </div>
                         </div>
                     </div>

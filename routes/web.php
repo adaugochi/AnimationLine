@@ -64,10 +64,15 @@ Route::prefix('admin')->group(function () {
     Route::get('/orders/brief/{id}', 'OrderController@viewBrief')->name('admin.brief');
     Route::get('/user/client/{id}/transactions', 'UserController@showClientTransactions')->name('client.transaction');
     Route::get('/contacts', 'AdminHomeController@getContacts')->name('admin.contacts');
-    Route::get('/blogs', 'BlogController@index')->name('admin.blogs');
 
+    //Orders
     Route::post('/send-order', 'OrderController@complete')->name('complete');
     Route::post('/deliver-order', 'OrderController@deliver')->name('deliver');
     Route::get('/order/comments/{id}', 'OrderController@getComments')->name('order.comment');
     Route::get('/order/details/{id}', 'OrderController@showOrderDetails')->name('order.detail');
+    Route::get('/send-reminder/{id}', 'OrderController@sendReminder')->name('reminder');
+
+    //Blog
+    Route::get('/blogs', 'BlogController@index')->name('admin.blogs');
+    Route::get('/new-blog', 'BlogController@newBlog')->name('new.blog');
 });

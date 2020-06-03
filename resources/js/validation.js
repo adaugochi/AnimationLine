@@ -70,7 +70,9 @@
             artist_gender: "required",
             artist_accent: "required",
             video_speed: "required",
-            comment: "required"
+            comment: "required",
+            title: "required",
+            body: "required"
         },
         messages: {
             password_confirmation: {

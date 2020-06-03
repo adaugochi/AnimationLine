@@ -27,7 +27,8 @@
                             </td>
                             <td>{{ $contact->contact_email }}</td>
                             <td>{{ $contact->contact_company_name }}</td>
-                            <td>{{ $billing->formatDate() }}</td>
+                            <td>{{ $contact->message }}</td>
+                            <td>{{ $contact->formatDate() }}</td>
                         </tr>
                     @endforeach
                     </tbody>

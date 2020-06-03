@@ -1,5 +1,6 @@
 require('./bootstrap');
 require('./validation');
+require('./file-upload');
 require('./jquery.name.badges');
 require('./popover');
 

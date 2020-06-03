@@ -1,3 +1,7 @@
+<?php
+use App\Billing;
+use App\helpers\Utils;
+?>
 @extends('layouts.main')
 @section('title', 'Dashboard')
 @section('content')
@@ -31,9 +35,7 @@
                         @foreach($billings as $key => $billing)
                             <tr>
                                 <td>{{ $key+1 }}</td>
-                                <td>
-                                    {{ ucfirst($billing->service) }}
-                                </td>
+                                <td>{{ ucfirst($billing->service) }}</td>
                                 <td>{{ $billing->getCurrencyAndAmount() }}</td>
                                 <td>
                                     <span class="font-weight-bold status status-{{ $billing->package }}">
@@ -47,17 +49,17 @@
                                 </td>
                                 <td>{{ $billing->formatDate() }}</td>
                                 <td>
-                                    @if($billing->status === \App\Billing::DRAFT)
-                                        <a href="/brief/{{\App\helpers\Utils::slug($billing->service)}}/{{$billing->package }}/{{ $billing->id }}"
+                                    @if($billing->status === Billing::DRAFT)
+                                        <a href="/brief/{{Utils::slug($billing->service)}}/{{$billing->package }}/{{ $billing->id }}"
                                            class="btn btn-secondary">
                                             Complete Brief
                                         </a>
-                                    @elseif($billing->status === \App\Billing::IN_PROGRESS)
-                                        <a href="/brief/{{\App\helpers\Utils::slug($billing->service)}}/{{$billing->package }}/{{ $billing->id }}"
+                                    @elseif($billing->status === Billing::IN_PROGRESS)
+                                        <a href="/brief/{{Utils::slug($billing->service)}}/{{$billing->package }}/{{ $billing->id }}"
                                            class="btn btn-secondary">
                                             View Brief
                                         </a>
-                                    @elseif($billing->status === \App\Billing::DELIVERED)
+                                    @elseif($billing->status === Billing::DELIVERED)
                                         <span class="btn btn-secondary" data-toggle="modal"
                                               data-target="#getOrderModal{{$billing->id}}">Your Order
                                         </span>
@@ -66,7 +68,7 @@
                                             'modalSize' => 'modal-md',
                                             'link' => $billing->order->order_url
                                         ])
-                                    @elseif($billing->status === \App\Billing::COMPLETED)
+                                    @elseif($billing->status === Billing::COMPLETED)
                                         <a href="/order/{{$billing->id}}" class="btn btn-secondary">View Order</a>
                                     @endif
                                 </td>

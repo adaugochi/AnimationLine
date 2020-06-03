@@ -1,3 +1,8 @@
+<?php
+use App\Billing;
+use App\Contants\Message;
+?>
+
 @extends('portal.layouts.main')
 @section('title', 'Orders')
 @section('header-breadcrumb')
@@ -45,30 +50,32 @@
                                         Actions
                                     </button>
                                     <div class="dropdown-menu">
-                                        @if(!in_array($billing->status, [\App\Billing::DELIVERED, \App\Billing::DRAFT]))
+                                        @if(!in_array($billing->status, [Billing::DELIVERED, Billing::DRAFT]))
                                             <a class="dropdown-item" href="{{ route('admin.brief', $billing->id) }}">
                                                 View Brief
                                             </a>
                                         @endif
-                                        @if(in_array($billing->status, [\App\Billing::IN_PROGRESS, \App\Billing::PENDING]))
+                                        @if(in_array($billing->status, [Billing::IN_PROGRESS, Billing::PENDING]))
                                             <span class="dropdown-item cursor-pointer" data-toggle="modal"
                                                   data-target="#reviewModal{{$billing->id}}">Mark as In-Review
                                             </span>
                                         @endif
-                                        @if(in_array($billing->status, [\App\Billing::CONFIRM, \App\Billing::COMPLETED]))
+                                        @if(in_array($billing->status, [Billing::CONFIRM, Billing::COMPLETED]))
                                             <span class="dropdown-item cursor-pointer" data-toggle="modal"
                                                  data-target="#deliveredModal{{$billing->id}}">Mark as Delivered
                                             </span>
                                         @endif
-                                        @if($billing->status === \App\Billing::PENDING)
+                                        @if($billing->status === Billing::PENDING)
                                             <a class="dropdown-item" href="{{ route('order.comment', $billing->id) }}">
                                                 View Comments
                                             </a>
                                         @endif
-                                        @if($billing->status === \App\Billing::DRAFT)
-                                            <a class="dropdown-item">Send Reminder</a>
+                                        @if($billing->status === Billing::DRAFT)
+                                            <a class="dropdown-item" href="{{ route('reminder', $billing->id) }}">
+                                                Send Reminder
+                                            </a>
                                         @endif
-                                        @if($billing->status === \App\Billing::DELIVERED)
+                                        @if($billing->status === Billing::DELIVERED)
                                             <a class="dropdown-item" href="{{ route('order.detail', $billing->id) }}">
                                                 View Detail
                                             </a>
@@ -88,7 +95,7 @@
                                         'modalTitle' => 'Deliver Order',
                                         'modalAction' => route('deliver'),
                                         'id' => $billing->id,
-                                        'modalMsg' => \App\Contants\Message::DELIVERED_MSG
+                                        'modalMsg' => Message::DELIVERED_MSG
                                     ])
                                 </div>
                             </td>
