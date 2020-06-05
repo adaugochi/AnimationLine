@@ -10,11 +10,12 @@ class Message
     const PRICING_HEADER_TEXT = "Our offers are very affordable";
     const PRICING_BODY_TEXT = "We offer 3 straight forward packages to match everyones needs";
 
-    const CONTACT_HEADER_TEXT = "Let hear from you";
+    const CONTACT_HEADER_TEXT = "Get in touch with us!";
     const CONTACT_BODY_TEXT = "We love to hear from our customer. Please fill out the form below";
 
-    const BLOG_HEADER_TEXT = "Let hear from you";
-    const BLOG_BODY_TEXT = "We love to hear from our customer. Please fill out the form below";
+    const BLOG_HEADER_TEXT = "Let get you informed";
+    const BLOG_BODY_TEXT = "Stay up to date with the latest news and AnimationLine product updates.
+     For more in-depth content, including webinars, case studies, and more.";
 
     const SIGNUP_SUCCESSFUL = 'Registration was successfully! you can now login';
     const LOGIN_INCORRECT = 'You entered an incorrect login credentials';
