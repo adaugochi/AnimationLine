@@ -38,7 +38,6 @@
   }
 
   &-wrapper {
-    height: 80px;
     @include media-breakpoint-up(lg) {
       height: 80px;
     }

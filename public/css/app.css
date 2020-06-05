@@ -11546,10 +11546,6 @@ label.error {
   }
 }
 
-.navbar-wrapper {
-  height: 80px;
-}
-
 @media (min-width: 992px) {
   .navbar-wrapper {
     height: 80px;
@@ -11920,5 +11916,45 @@ input[name=company_website] {
   margin-left: 20px;
   cursor: pointer;
   transition: all 0.5s;
+}
+
+.blog__header-img-width {
+  width: 100% !important;
+}
+
+@media (min-width: 768px) {
+  .blog__header-img-width {
+    width: 75% !important;
+  }
+}
+
+.blog__wrapper {
+  padding: 20px 0;
+  border-bottom: 1px solid #bbb;
+}
+
+.blog__img {
+  width: 100px;
+  height: 100px;
+}
+
+@media (min-width: 992px) {
+  .blog__img {
+    width: 200px;
+    height: 120px;
+  }
+}
+
+.blog__title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #3d3d3d !important;
+  cursor: pointer;
+}
+
+@media (min-width: 992px) {
+  .blog__title {
+    font-size: 20px;
+  }
 }
 

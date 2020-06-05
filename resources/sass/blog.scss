@@ -1,0 +1,29 @@
+.blog {
+  &__header-img-width {
+    width: 100% !important;
+    @include media-breakpoint-up(md) {
+      width: 75% !important;
+    }
+  }
+  &__wrapper {
+    padding: 20px 0;
+    border-bottom: 1px solid #bbb;
+  }
+  &__img {
+    width: 100px;
+    height: 100px;
+    @include media-breakpoint-up(lg) {
+      width: 200px;
+      height: 120px;
+    }
+  }
+  &__title {
+    font-size: 16px;
+    font-weight: bold;
+    color: $brand-gray !important;
+    cursor: pointer;
+    @include media-breakpoint-up(lg) {
+      font-size: 20px;
+    }
+  }
+}

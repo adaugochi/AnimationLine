@@ -1,5 +1,7 @@
 <?php
 Route::get('/', function () { return view('welcome');});
+Route::get('/our-blog', 'UserBlogController@index')->name('blog');
+Route::get('/our-blog/{id}', 'UserBlogController@showPost')->name('show.post');
 
 Route::get('/animation-logo', function () {
     return view('service.animation-logo');
@@ -74,5 +76,8 @@ Route::prefix('admin')->group(function () {
 
     //Blog
     Route::get('/blogs', 'BlogController@index')->name('admin.blogs');
-    Route::get('/new-blog', 'BlogController@newBlog')->name('new.blog');
+    Route::get('/new-post', 'BlogController@newPost')->name('new.blog');
+    Route::post('/save-post', 'BlogController@savePost')->name('save.post');
+    Route::get('/edit-post/{id}', 'BlogController@editPost')->name('edit.post');
+    Route::get('/view-post/{id}', 'BlogController@viewPost')->name('view.post');
 });

@@ -21,6 +21,7 @@
                         <th class="field-name"><span>Title</span></th>
                         <th class="field-name"><span>Content</span></th>
                         <th class="field-name"><span>Created At</span></th>
+                        <th class="field-name"><span>Action</span></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -29,8 +30,24 @@
                             <td>{{ $key+1 }}</td>
                             <td>{{ $blog->admin->getFullName() }}</td>
                             <td>{{ $blog->title }}</td>
-                            <td>{{ $blog->body }}</td>
+                            <td>{!! mb_strimwidth($blog->body, 0, 100, "...") !!}</td>
                             <td>{{ $blog->formatDate() }}</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn btn-secondary dropdown-toggle"
+                                            data-toggle="dropdown">
+                                        Actions
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="{{ route('edit.post', $blog->id) }}">
+                                            Edit Post
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('view.post', $blog->id) }}">
+                                            View Post
+                                        </a>
+                                    </div>
+                                </div>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>
