@@ -165,3 +165,7 @@ label {
     color: $red;
   }
 }
+
+textarea.card-form__input {
+  resize: none;
+}

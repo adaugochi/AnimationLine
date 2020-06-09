@@ -42,7 +42,7 @@
                 </a>
             </p>
             <p class="cursor-pointer">
-                <a href="/" class="text-decoration-none text-white">
+                <a href="{{ route('blog') }}" class="text-decoration-none text-white">
                     <i class="fa fa-thumb-tack text-brand-primary mr-1"></i> Blog
                 </a>
             </p>

@@ -34,6 +34,10 @@ class Message
     const DELIVERED_MSG = 'Are you sure you want to mark this order as delivered';
     const REVISION_NOT_SENT = 'Your response was not sent successfully';
     const REVISION_SENT = 'Your response was sent successfully';
+    
+    const RESET_PWD_TOKEN = 'Your password reset token has expired. Please go to forget password to
+    request for new token';
+    const RESET_PWD_SUCCESS = 'Password reset was successfully. You can now login...!';
 
     const TERMS_AND_CONDITIONS = "
         <p>

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Notifications\UserResetPasswordNotification;
 use App\Traits\FormatDateTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -52,5 +53,15 @@ class User extends Authenticatable
     public function payments()
     {
         return $this->hasMany(Billing::class);
+    }
+    
+    /**
+     * Send the password reset notification.
+     * @param string $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new UserResetPasswordNotification($token));
     }
 }

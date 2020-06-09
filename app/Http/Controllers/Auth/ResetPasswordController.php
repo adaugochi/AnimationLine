@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Contants\Message;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
@@ -67,5 +68,12 @@ class ResetPasswordController extends Controller
     {
         return redirect($this->redirectTo)
             ->with('success', 'Password reset was successfully, you can now login...!');
+    }
+    
+    protected function sendResetFailedResponse(Request $request, $response)
+    {
+        return redirect()->back()
+            ->withInput($request->only('email'))
+            ->with(['error' => 'Your password reset token has expired. Please go to forget password to request for new token']);
     }
 }

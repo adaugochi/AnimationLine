@@ -16,7 +16,7 @@ use App\Billing;
                 </div>
                 <div class="d-flex justify-content-between py-1">
                     <label>Email Address:</label>
-                    <span class="text-brand-primary text-underline">{{ $billing->user->email }}</span>
+                    <span class="text-brand-primary text-underline text-break">{{ $billing->user->email }}</span>
                 </div>
                 <div class="d-flex justify-content-between py-1">
                     <label>Country:</label>
@@ -24,11 +24,11 @@ use App\Billing;
                 </div>
                 <div class="d-flex justify-content-between py-1">
                     <label>State:</label>
-                    <span>{{ $billing->state }}</span>
+                    <span>{{ ucwords($billing->state) }}</span>
                 </div>
                 <div class="d-flex justify-content-between py-1">
                     <label>City:</label>
-                    <span>{{ $billing->city }}</span>
+                    <span>{{ ucwords($billing->city) }}</span>
                 </div>
             </div>
         </div>

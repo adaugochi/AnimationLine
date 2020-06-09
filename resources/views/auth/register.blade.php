@@ -32,8 +32,10 @@
         <span data-toggle="modal" data-target="#tcModal" class="cursor-pointer text-brand-primary">
             terms of service
         </span>.
-        @include('elements.modal', [
-            'modalId' => 'tcModal', 'modalTitle' => 'Terms of Service',
+        @include('modals.policy-terms-modal', [
+            'modalId' => 'tcModal',
+            'modalTitle' => 'Terms of Service',
+            'modalSize' => 'modal-lg',
             'modalBody' => \App\Contants\Message::TERMS_AND_CONDITIONS
         ])
     </div>

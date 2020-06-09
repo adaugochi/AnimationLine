@@ -10,7 +10,7 @@
         <div class="container">
             <h2 class="page-title">Pricing</h2>
             <p class="fs-18">
-                In case you desire more than the packages listed above or you wish for a custom animation, kindly
+                In case you desire more than the packages listed below or you wish for a custom animation, kindly
                 send an email to <span class="text-brand-primary">support@animationline.com</span>
                 and we will send get back to you as early as possible.
             </p>
