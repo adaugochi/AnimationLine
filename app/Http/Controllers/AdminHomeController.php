@@ -45,4 +45,10 @@ class AdminHomeController extends Controller
         $contact = Contact::find($id);
         return view('portal.contact.view', compact('contact'));
     }
+
+    public function getReviews()
+    {
+        $reviews = Revision::where('is_satisfied', 1)->orderBy('id', 'DESC')->paginate(10);
+        return view('portal.reviews', compact('reviews'));
+    }
 }

@@ -14,6 +14,12 @@
                 </a>
             </li>
             <li>
+                <a href="{{ route('admin.reviews') }}">
+                    <i class="fa fa-comments md-48 icon" aria-hidden="true"></i>
+                    <span class="nav-label">Reviews</span>
+                </a>
+            </li>
+            <li>
                 <div data-toggle="collapse" data-target="#subMenu1">
                     <i class="fa fa-users md-48 icon" aria-hidden="true"></i>
                     <span class="nav-label">Users<i class="pl-2 fa fa-caret-down"></i></span>
