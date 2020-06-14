@@ -33,7 +33,7 @@ class UserController extends Controller
 
     public function showClientTransactions($userId = null)
     {
-        $billings = Billing::where('user_id', $userId)->get();
+        $billings = Billing::where('user_id', $userId)->orderBy('id', 'DESC')->paginate(15);
         return view('portal.user.transaction', compact('billings'));
     }
 }

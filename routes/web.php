@@ -37,7 +37,8 @@ Route::get('/brief/completed', 'BriefController@completed');
 Route::post('/create-brief', 'BriefController@createBrief')->name('create-brief');
 Route::post('/edit-brief', 'BriefController@updateBrief')->name('edit-brief');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
+Route::get('email/verify/{id}', 'Auth\VerificationController@emailVerify')->name('auth.email.verify');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/order/{id}', 'HomeController@viewOrder')->name('order');

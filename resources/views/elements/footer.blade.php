@@ -38,7 +38,7 @@
             </p>
             <p class="cursor-pointer">
                 <a href="{{ route('contact') }}" class="text-decoration-none text-white">
-                    <i class="fa fa-thumb-tack text-brand-primary mr-1"></i> Contact
+                    <i class="fa fa-thumb-tack text-brand-primary mr-1"></i> Help Center
                 </a>
             </p>
             <p class="cursor-pointer">

@@ -9,8 +9,10 @@
         <div class="collapse navbar-collapse justify-content-end" id="myNavbar">
             <ul class="nav navbar-nav ">
                 <li><a class="nav-link nav-active" href="/">Home</a></li>
-                <li><a class="nav-link nav-active" href="/#whyUs">Why Us</a></li>
-                <li><a class="nav-link nav-active" href="/#services">Services</a></li>
+                @if(request()->route()->getName() === null)
+                    <li><a class="nav-link nav-active" href="/#whyUs">Why Us</a></li>
+                    <li><a class="nav-link nav-active" href="/#services">Services</a></li>
+                @endif
                 <li class="dropdown">
                     <a class="nav-link dropdown-toggle text-gray" id="navbardrop" data-toggle="dropdown">
                         Pricing

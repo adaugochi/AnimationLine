@@ -21,7 +21,7 @@ class PricingController extends Controller
 
     public function videoBronze()
     {
-        $amount = 4.99;
+        $amount = 99.99;
         $package = self::BRONZE;
         $service = self::VIDEO;
         return view('checkout', compact('amount', 'package', 'service'));

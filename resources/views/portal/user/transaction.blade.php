@@ -6,4 +6,5 @@
     <li class="active">Transactions</li>
 @endsection()
 @section('content-body')
+    @include('portal.elements.list-view-orders')
 @endsection

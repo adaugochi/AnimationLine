@@ -86,6 +86,7 @@ class RegisterController extends Controller
     {
         $this->validator($request->all())->validate();
         event(new Registered($user = $this->create($request->all())));
-        return Redirect::to('/login')->with(['success' => Message::SIGNUP_SUCCESSFUL]);
+        return Redirect::to(route('auth.email.verify', $user->id))
+            ->with(['success' => Message::SIGNUP_SUCCESSFUL]);
     }
 }

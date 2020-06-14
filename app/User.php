@@ -3,7 +3,9 @@
 namespace App;
 
 use App\Notifications\UserResetPasswordNotification;
+use App\Notifications\UserVerifyEmailNotification;
 use App\Traits\FormatDateTrait;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -12,7 +14,7 @@ use Illuminate\Notifications\Notifiable;
  * @property mixed last_name
  * @property mixed user_type_id
  */
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable, FormatDateTrait;
 
@@ -63,5 +65,10 @@ class User extends Authenticatable
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new UserResetPasswordNotification($token));
+    }
+
+    public function sendEmailVerificationNotification()
+    {
+        $this->notify(new UserVerifyEmailNotification());
     }
 }

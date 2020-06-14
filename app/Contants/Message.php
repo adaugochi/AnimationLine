@@ -17,7 +17,7 @@ class Message
     const BLOG_BODY_TEXT = "Stay up to date with the latest news and AnimationLine product updates.
      For more in-depth content, including webinars, case studies, and more.";
 
-    const SIGNUP_SUCCESSFUL = 'Registration was successfully! you can now login';
+    const SIGNUP_SUCCESSFUL = 'Registration was successfully! Please check your email to verify your account';
     const LOGIN_INCORRECT = 'You entered an incorrect login credentials';
 
     const PAYMENT_UNSUCCESSFUL = 'Payment was unsuccessful';

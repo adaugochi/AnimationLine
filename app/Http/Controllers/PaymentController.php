@@ -35,7 +35,7 @@ class PaymentController extends Controller
             )
         );
         $this->apiContext->setConfig(['mode' => config('services.paypal.mode')]); // mode
-        $this->middleware('auth');
+        $this->middleware(['auth','verified']);
     }
 
     /**

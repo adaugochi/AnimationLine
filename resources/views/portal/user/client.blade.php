@@ -14,6 +14,7 @@
                         <th class="field-name"><span>S/N</span></th>
                         <th class="field-name"><span>Name</span></th>
                         <th class="field-name"><span>Email Address</span></th>
+                        <th class="field-name"><span>Total Orders</span></th>
                         <th class="field-name"><span>Created At</span></th>
                         <th class="field-name"><span>Action</span></th>
                     </tr>
@@ -26,6 +27,7 @@
                                 {{ $user->getFullName() }}
                             </td>
                             <td>{{ $user->email }}</td>
+                            <td>{{ count($user->payments) }}</td>
                             <td>{{ $user->formatDate() }}</td>
                             <td>
                                 <a href="{{ route('client.transaction', $user->id) }}" class="btn btn-brand-primary">

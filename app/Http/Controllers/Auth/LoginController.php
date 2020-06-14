@@ -52,19 +52,29 @@ class LoginController extends Controller
         return view('auth.login', compact('loginRoute', 'forgotPwdRoute'));
     }
 
+    public function login()
+    {
+        if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){
+            $user = Auth::user();
+            if($user->email_verified_at !== NULL) {
+                return redirect(route('home'));
+            }
+            $user->sendEmailVerificationNotification();
+        }
+        return $this->sendFailedLoginResponse();
+    }
+
     /**
-     * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      * @author Maryfaith Mgbede <adaamgbede@gmail.com>
      */
-    protected function sendFailedLoginResponse(Request $request)
+    protected function sendFailedLoginResponse()
     {
         return redirect()->back()->with(['error' => Message::LOGIN_INCORRECT]);
     }
 
     /**
      * Get the needed authorization credentials from the request.
-     *
      * @param Request $request
      * @return array
      */
@@ -78,7 +88,6 @@ class LoginController extends Controller
 
     /**
      * Log the user out of the application.
-     *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */

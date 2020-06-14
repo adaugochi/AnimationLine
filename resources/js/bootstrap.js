@@ -42,3 +42,8 @@ try {
 //     encrypted: true
 // });
 window.toastr = require('toastr');
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});

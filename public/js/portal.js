@@ -39247,6 +39247,11 @@ try {
 
 
 window.toastr = __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.js");
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  }
+});
 
 /***/ }),
 
