@@ -67,6 +67,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/orders/brief/{id}', 'OrderController@viewBrief')->name('admin.brief');
     Route::get('/user/client/{id}/transactions', 'UserController@showClientTransactions')->name('client.transaction');
     Route::get('/contacts', 'AdminHomeController@getContacts')->name('admin.contacts');
+    Route::get('/contacts/{id}', 'AdminHomeController@showContact')->name('admin.contact');
 
     //Orders
     Route::post('/send-order', 'OrderController@complete')->name('complete');

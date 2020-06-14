@@ -37,6 +37,12 @@ class AdminHomeController extends Controller
     public function getContacts()
     {
         $contacts = Contact::orderBy('id', 'DESC')->paginate(15);
-        return view('portal.contact', compact('contacts'));
+        return view('portal.contact.index', compact('contacts'));
+    }
+
+    public function showContact($id = null)
+    {
+        $contact = Contact::find($id);
+        return view('portal.contact.view', compact('contact'));
     }
 }

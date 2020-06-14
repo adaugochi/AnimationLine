@@ -16,6 +16,7 @@
                         <th class="field-name"><span>Company Name</span></th>
                         <th class="field-name"><span>Message</span></th>
                         <th class="field-name"><span>Created At</span></th>
+                        <th class="field-name"><span>Action</span></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -27,8 +28,14 @@
                             </td>
                             <td>{{ $contact->contact_email }}</td>
                             <td>{{ $contact->contact_company_name }}</td>
-                            <td>{{ $contact->message }}</td>
+                            <td>{{ mb_strimwidth($contact->message, 0, 50, "...") }}</td>
                             <td>{{ $contact->formatDate() }}</td>
+                            <td>
+                                <a href="{{ route('admin.contact', $contact->id) }}"
+                                   class="btn btn-brand-primary">
+                                    View
+                                </a>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>
