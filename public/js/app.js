@@ -39216,6 +39216,8 @@ __webpack_require__(/*! ./popover */ "./resources/js/popover.js");
 
 __webpack_require__(/*! ./order */ "./resources/js/order.js");
 
+__webpack_require__(/*! ./google-recaptcha */ "./resources/js/google-recaptcha.js");
+
 (function ($) {
   var submitButtonId = $("#validateForm");
   $('.password-show').on('click', function () {
@@ -39527,6 +39529,44 @@ $.ajaxSetup({
         fileSelected.html(fileNotSelected);
       }
     });
+  });
+})(jQuery);
+
+/***/ }),
+
+/***/ "./resources/js/google-recaptcha.js":
+/*!******************************************!*\
+  !*** ./resources/js/google-recaptcha.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function ($) {
+  $('.validateForm').on('submit', function (e) {
+    var rcResponse = grecaptcha.getResponse();
+
+    if (!rcResponse.length) {
+      e.preventDefault();
+      $(this).find('.g-recaptcha').parent().append('<label class="error">Please verify reCAPTCHA</label>');
+    }
+  });
+  var reCaptcha = $('.g-recaptcha');
+
+  function rescaleCaptcha() {
+    var width = reCaptcha.parent().width();
+
+    if (width < 302) {
+      var scale = width / 302;
+      reCaptcha.css('transform', 'scale(' + scale + ')');
+      reCaptcha.css('-webkit-transform', 'scale(' + scale + ')');
+      reCaptcha.css('transform-origin', '0 0');
+      reCaptcha.css('-webkit-transform-origin', '0 0');
+    }
+  }
+
+  rescaleCaptcha();
+  $(window).resize(function () {
+    rescaleCaptcha();
   });
 })(jQuery);
 

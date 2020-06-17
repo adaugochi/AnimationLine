@@ -38,10 +38,16 @@
                                 <textarea class="card-form__input form-control" rows="5" name="message"
                                           placeholder="Some messages..."></textarea>
                             </div>
-                        </div>
-                        <button class="btn btn-brand-primary py-3 px-5 text-uppercase">
-                            Send Message
-                        </button>
+                            <div class="form-group col-md-12">
+                                <div class="g-recaptcha" data-sitekey="{{ env('CAPTCHA_SITE_KEY') }}"></div>
+                                    @if ($errors->has('g-recaptcha-response'))
+                                        <span class="invalid-feedback fs-12" style="display: block;">
+                                            <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+                        <button class="btn btn-brand-primary py-3 px-5 text-uppercase">Send Message</button>
                     </form>
                 </div>
             </div>

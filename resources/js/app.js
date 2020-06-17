@@ -4,6 +4,7 @@ require('./checkout');
 require('./file-upload');
 require('./popover');
 require('./order');
+require('./google-recaptcha');
 
 (function ($) {
     let submitButtonId = $("#validateForm");

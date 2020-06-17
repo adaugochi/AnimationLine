@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Contact;
 use App\Contants\Message;
+use App\Rules\Captcha;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -19,6 +20,7 @@ class ContactController extends Controller
             'first_name' => 'required',
             'last_name' => 'required',
             'contact_email' => 'required|email',
+            'g-recaptcha-response' => new Captcha(),
             'message' => 'required',
             'contact_company_name' => ''
         ]);
