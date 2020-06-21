@@ -1,6 +1,6 @@
 @extends('mails.layouts.html')
 @section('content')
-    <h1>Hi {{ $data['name'] }},</h1>
+    <h3>Hi {{ $data['name'] }},</h3>
 
     <p>
         The Service you ordered: <span class="text-brand">{{ ucwords($data['service']) }} Package</span>

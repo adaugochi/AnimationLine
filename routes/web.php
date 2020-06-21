@@ -22,6 +22,9 @@ Route::get('/animation-logo/gold', 'PricingController@logoGold')->name('logo-gol
 Route::get('/animation-text/bronze', 'PricingController@textBronze')->name('text-bronze');
 Route::get('/animation-text/silver', 'PricingController@textSilver')->name('text-silver');
 Route::get('/animation-text/gold', 'PricingController@textGold')->name('text-gold');
+Route::post('/save-billing-details', 'PricingController@saveBilling')->name('save-billing');
+Route::get('/proceed-payment/{id}', 'PricingController@proceedToPayment')->name('proceed-payment');
+Route::post('/save-payment', 'PricingController@savePayment')->name('save-payment');
 
 Route::get('/pay-with-paypal', 'PricingController@paywithpaypal');
 Route::get('/execute-payment', 'PaymentController@executePayment')->name('execute-payment');
@@ -75,7 +78,8 @@ Route::prefix('admin')->group(function () {
     Route::post('/deliver-order', 'OrderController@deliver')->name('deliver');
     Route::get('/order/comments/{id}', 'OrderController@getComments')->name('order.comment');
     Route::get('/order/details/{id}', 'OrderController@showOrderDetails')->name('order.detail');
-    Route::get('/send-reminder/{id}', 'OrderController@sendReminder')->name('reminder');
+    Route::get('/send-reminder/{id}', 'OrderController@sendReminder')->name('brief-reminder');
+    Route::get('/payment-reminder/{id}', 'OrderController@paymentReminder')->name('payment-reminder');
 
     //Blog
     Route::get('/blogs', 'BlogController@index')->name('admin.blogs');

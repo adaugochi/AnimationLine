@@ -1,38 +1,20 @@
 (function ($) {
-    let applyCoupon = $(".apply-coupon"),
-        errorText = $(".err-text"),
-        couponVal = $('.coupon-code'),
-        saleAmountInput = $('#saleAmt'),
-        totalAmountInput = $('#totalAmt'),
-        discountInput = $('#discount'),
-        totalAmountText = $('.total-amount'),
-        discountText = $('.discount'),
-        discountField = $(".discount-field"),
-        discountSuccess = $(".discount-success"),
+    let totalAmountInput = $('#totalAmt'),
         paymentMethod = $('input[type=radio][name=payment_method]'),
-        backUpSaleAmt = $("#backUpSaleAmt"),
         submitButtonId = $("#validateForm"),
         payNowButton = $('.btn-submit'),
         paystackInput = $("#paystack"),
         paypalInput = $('#paypal'),
-        couponCode = 'NEW10',
         metaData = $('#metadata');
 
     function fetchMetaDataValues() {
-        let saleAmt = saleAmountInput.val(),
-            discount = discountInput.val(),
-            payment = paymentMethod.val(),
-            pack = $('#package').val(),
+        let billingId = $('#billingId').val(),
             service = $('#service').val(),
-            totalAmt = totalAmountInput.val(),
-            currency = $('#currency').val(),
-            state = $('#state').val(),
-            country = $('#country').val(),
-            city = $('#city').val();
+            pack = $('#package').val(),
+            transactionRef = $('#txRef').val();
 
         let details = {
-            'sales_amount':saleAmt, 'discount_price':discount, 'payment_method':payment, 'currency':currency,
-            'service':service, 'city':city, 'state':state, 'country':country, 'amount':totalAmt, 'package':pack
+            'reference': transactionRef, 'billing_id': billingId, 'service': service, 'package': pack
         };
         metaData.val(JSON.stringify(details));
     }
@@ -56,37 +38,7 @@
         addSelectedAttr($("#gender"))
     });
 
-    applyCoupon.click(function (e) {
-        e.preventDefault();
-
-        if (couponVal.val() === couponCode) {
-            let discountAmount = saleAmountInput.val() * 0.10;
-            discountInput.val(discountAmount.toFixed(2));
-            discountText.text(commaSeparated(discountAmount.toFixed(2)));
-
-            let totalAmount = saleAmountInput.val() - discountAmount.toFixed(2);
-            totalAmountInput.val(totalAmount);
-            totalAmountText.text(commaSeparated(totalAmount.toFixed(2)));
-
-            discountField.removeClass('d-flex');
-            discountField.addClass('d-none');
-            discountSuccess.removeClass('d-none');
-            discountSuccess.addClass('d-flex');
-        } else {
-            errorText.removeClass('d-none')
-        }
-    });
-
     function convertMoney() {
-        discountField.addClass('d-flex');
-        discountField.removeClass('d-none');
-        discountSuccess.addClass('d-none');
-        discountSuccess.removeClass('d-flex');
-        discountInput.val(0);
-        discountText.text("0.00");
-        totalAmountText.text(backUpSaleAmt.val());
-        totalAmountInput.val(backUpSaleAmt.val());
-
         if (paystackInput.is(':checked')) {
             submitButtonId.attr('action', '/pay-with-paystack');
             payNowButton.attr('disabled', false);

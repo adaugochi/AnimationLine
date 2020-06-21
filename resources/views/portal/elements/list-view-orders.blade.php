@@ -44,7 +44,7 @@ use App\Contants\Message;
                                     Actions
                                 </button>
                                 <div class="dropdown-menu">
-                                    @if(!in_array($billing->status, [Billing::DELIVERED, Billing::DRAFT]))
+                                    @if(in_array($billing->status, [Billing::IN_PROGRESS, Billing::PENDING, Billing::COMPLETED]))
                                         <a class="dropdown-item" href="{{ route('admin.brief', $billing->id) }}">
                                             View Brief
                                         </a>
@@ -52,7 +52,7 @@ use App\Contants\Message;
                                     @if(in_array($billing->status, [Billing::IN_PROGRESS, Billing::PENDING]))
                                         <span class="dropdown-item cursor-pointer" data-toggle="modal"
                                               data-target="#reviewModal{{$billing->id}}">Mark as In-Review
-                                            </span>
+                                        </span>
                                     @endif
                                     @if(in_array($billing->status, [Billing::CONFIRM, Billing::COMPLETED]))
                                         <span class="dropdown-item cursor-pointer" data-toggle="modal"
@@ -65,13 +65,18 @@ use App\Contants\Message;
                                         </a>
                                     @endif
                                     @if($billing->status === Billing::DRAFT)
-                                        <a class="dropdown-item" href="{{ route('reminder', $billing->id) }}">
+                                        <a class="dropdown-item" href="{{ route('brief-reminder', $billing->id) }}">
                                             Send Reminder
                                         </a>
                                     @endif
                                     @if($billing->status === Billing::DELIVERED)
                                         <a class="dropdown-item" href="{{ route('order.detail', $billing->id) }}">
                                             View Detail
+                                        </a>
+                                    @endif
+                                    @if($billing->status === Billing::UNPAID)
+                                        <a class="dropdown-item" href="{{ route('payment-reminder', $billing->id) }}">
+                                            Payment Reminder
                                         </a>
                                     @endif
                                 </div>

@@ -49,7 +49,12 @@ use App\helpers\Utils;
                                 </td>
                                 <td>{{ $billing->formatDate() }}</td>
                                 <td>
-                                    @if($billing->status === Billing::DRAFT)
+                                    @if($billing->status === Billing::UNPAID)
+                                        <a href="{{ route('proceed-payment', $billing->id) }}"
+                                           class="btn btn-secondary">
+                                            Pay Now
+                                        </a>
+                                    @elseif($billing->status === Billing::DRAFT)
                                         <a href="/brief/{{Utils::slug($billing->service)}}/{{$billing->package }}/{{ $billing->id }}"
                                            class="btn btn-secondary">
                                             Complete Brief

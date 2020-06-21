@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Billing;
 use App\Contants\Message;
 use App\helpers\Utils;
+use App\Mail\SendPaymentMail;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Mail;
 use PayPal\Api\Amount;
 use PayPal\Api\Payer;
 use PayPal\Api\Payment;
@@ -46,19 +46,18 @@ class PaymentController extends Controller
      */
     public function createPayment(Request $request)
     {
-        $this->validate(request(), [
-            'city' => 'required',
-            'state' => 'required',
-            'country' => 'required',
-            'sales_amount' => 'required',
-            'discount_price' => 'required',
-            'amount' => 'required',
-            'email' => 'required',
-            'currency' => 'required',
-            'package' => 'required',
+        $validateData = $this->validate(request(), [
             'payment_method' => 'required',
-            'service' => 'required'
+            'billing_id' => 'required',
+            'reference' => 'required'
         ]);
+
+        $billing = Billing::find($request->billing_id);
+        $billing = $billing->update($validateData);
+        if (!$billing) {
+            return redirect(route('home'))
+                ->with('error', 'could not update billing detail. Please try again');
+        }
 
         session()->put('billing', $request->all());
 
@@ -93,87 +92,92 @@ class PaymentController extends Controller
     }
 
     /**
-     * @param Billing $billing
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      * @author Maryfaith Mgbede <adaamgbede@gmail.com>
      */
-    public function executePayment(Billing $billing)
+    public function executePayment()
     {
         if (!session()->has('billing')) {
             return redirect('/home')->with(['error' => Message::BILLING_NOT_FOUND]);
         }
-        DB::beginTransaction();
+
         $postRequest = session()->get('billing');
-        $paymentId = request('paymentId');
-        $payerId = request('PayerID');
+        $billing = Billing::find($postRequest['billing_id']);
+        $user = $billing->user;
+        $slug = Utils::slug($billing->service);
 
-        $totalAmount = Session::get('billing.amount');
-        $payment = Payment::get($paymentId, $this->apiContext);
-
+        $payment = Payment::get(request('paymentId'), $this->apiContext);
         $execution = new PaymentExecution();
-        $execution->setPayerId($payerId);
-
+        $execution->setPayerId(request('PayerID'));
         $transaction = new Transaction();
         $amount = new Amount();
-
         $amount->setCurrency($postRequest['currency']);
-        $amount->setTotal($totalAmount);
+        $amount->setTotal($postRequest['amount']);
         $transaction->setAmount($amount);
         $execution->addTransaction($transaction);
         $result = $payment->execute($execution, $this->apiContext);
 
-        try {
-            if ($result->getState() == 'approved') {
-                $billing->create($postRequest, $paymentId, $payerId);
-                $billing->save();
-
-                $slug = Utils::slug($postRequest['service']);
-                session()->forget('billing');
-                DB::commit();
-                return redirect('/brief/'.$slug.'/'.$postRequest['package'].'/'.$billing->id)
-                    ->with(['success' => Message::PAYMENT_SUCCESSFUL]);
-            }
-
-        } catch (\Exception $ex) {
-            DB::rollBack();
-            return redirect('/home')->with(['error' => Message::PAYMENT_UNSUCCESSFUL]);
+        if ($result->getState() === 'approved') {
+            $billing->status = Billing::DRAFT;
+            $billing->save();
+            Mail::to($user->email)->send(new SendPaymentMail(['name' => $user->getFullName()]));
+            session()->forget('billing');
+            return redirect('/brief/'.$slug.'/'.$billing->package.'/'.$billing->id)
+                ->with(['success' => Message::PAYMENT_SUCCESSFUL]);
         }
+        return redirect('/home')->with(['error' => Message::PAYMENT_UNSUCCESSFUL]);
     }
 
     /**
      * Redirect the User to Paystack Payment Page
      * @param Request $request
      * @return mixed
+     * @throws \Illuminate\Validation\ValidationException
      * @author Maryfaith Mgbede <adaamgbede@gmail.com>
      */
     public function redirectToGateway(Request $request)
     {
+        $validateData = $this->validate(request(), [
+            'payment_method' => 'required',
+            'billing_id' => 'required',
+            'reference' => 'required'
+        ]);
+
+        $billing = Billing::find($request->billing_id);
+        $billing = $billing->update($validateData);
+        if (!$billing) {
+            return redirect(route('home'))
+                ->with('error', 'could not update billing detail. Please try again');
+        }
         return Paystack::getAuthorizationUrl()->redirectNow();
     }
 
     /**
      * Obtain Paystack payment information
      * @author Maryfaith Mgbede <adaamgbede@gmail.com>
-     * @param Billing $billing
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function handleGatewayCallback(Billing $billing)
+    public function handleGatewayCallback()
     {
         $paymentDetails = Paystack::getPaymentData();
-        $postRequest = $paymentDetails['data']['metadata'];
-        $paymentId = Paystack::genTranxRef();
-        $payerId = Utils::GenerateToken();
+        $data = $paymentDetails['data'];
+        $postRequest = $data['metadata'];
+        $status = $data['status'];
+        $txRef = $data['reference'];
+        $billingId = $postRequest['billing_id'];
+        $billing = Billing::find($billingId);
+        $user = $billing->user;
         $slug = Utils::slug($postRequest['service']);
 
-        if ($paymentDetails['data']['status'] == 'success') {
-            $billing->create($postRequest, $paymentId, $payerId);
-            if (!$billing->save()) {
-                return redirect('/home')->with(['error' => Message::BILLING_NOT_SAVE]);
-            }
-            return redirect('/brief/'.$slug.'/'.$postRequest['package'].'/'.$billing->id)
+        if ($status === 'success' && $txRef === $billing->reference) {
+            $billing->status = Billing::DRAFT;
+            $billing->save();
+            Mail::to($user->email)->send(new SendPaymentMail(['name' => $user->getFullName()]));
+            return redirect('/brief/'.$slug.'/'.$postRequest['package'].'/'.$billingId)
                 ->with(['success' => Message::PAYMENT_SUCCESSFUL]);
+        } elseif ($txRef !== $billing->reference) {
+            return redirect('/home')->with(['error' => 'Incorrect transaction reference token']);
         }
-
         return redirect('/home')->with(['error' => Message::PAYMENT_UNSUCCESSFUL]);
     }
 }

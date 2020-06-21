@@ -33,7 +33,7 @@ use App\Billing;
             </div>
         </div>
     </div>
-    <div class="col-lg-6 mt-4 mt-lg-0">
+    <div class="col-lg-6 mt-5 mt-lg-0">
         <div class="card">
             <div class="card__title fs-20 pb-1">
                 <i class="fa fa-credit-card-alt pr-2 card__icon pink" aria-hidden="true"></i>
@@ -65,7 +65,7 @@ use App\Billing;
             </div>
         </div>
     </div>
-    <div class="col-lg-6 mt-4">
+    <div class="col-lg-6 mt-5">
         <div class="card">
             <div class="card__title fs-20 pb-1">
                 <i class="fa fa-sticky-note pr-2 card__icon green" aria-hidden="true"></i>
@@ -117,7 +117,7 @@ use App\Billing;
             </div>
         </div>
     </div>
-    <div class="col-lg-3 mt-4">
+    <div class="col-lg-3 mt-5">
         <div class="card">
             <div class="card__title fs-20 pb-1">
                 <i class="fa fa-camera pr-2 card__icon orange" aria-hidden="true"></i>

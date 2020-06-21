@@ -18,7 +18,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-6 col-lg-7">
                 <img src="{{ asset('img/completed.svg') }}" class="w-100">
             </div>
         </div>

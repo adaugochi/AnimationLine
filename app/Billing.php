@@ -2,29 +2,21 @@
 
 namespace App;
 
-use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Model;
+use Exception;
 
 /**
- * @property mixed sales_amount
- * @property mixed discount_price
  * @property mixed amount
  * @property mixed package
  * @property int user_id
- * @property int has_discount
  * @property string city
  * @property string state
  * @property string country
  * @property mixed service
- * @property string payment_status
- * @property mixed payment_id
- * @property mixed payer_id
  * @property mixed token
  * @property mixed created_at
- * @property mixed currency
- * @property string payment_method
  * @property mixed id
  * @property string status
+ * @property string currency
  */
 class Billing extends BaseModel
 {
@@ -34,6 +26,7 @@ class Billing extends BaseModel
     const COMPLETED = 'in-review';
     const DELIVERED = 'delivered';
     const PENDING = 'pending';
+    const UNPAID = 'un-paid';
 
     const VIDEO = '2D animation video';
     const LOGO = 'logo animation';
@@ -43,8 +36,8 @@ class Billing extends BaseModel
      * @var array
      */
     protected $fillable = [
-        'package', 'currency', 'sales_amount', 'amount', 'has_discount', 'discount_price', 'payment_status',
-        'city', 'state', 'country', 'service', 'payment_method', 'status'
+        'package', 'currency', 'amount', 'city', 'state', 'country', 'service', 'status',
+        'payment_method', 'currency', 'reference'
     ];
 
     /**
@@ -67,32 +60,25 @@ class Billing extends BaseModel
 
     /**
      * @param $request
-     * @param $paymentId
-     * @param $payerId
+     * @return mixed
      * @author Maryfaith Mgbede <adaamgbede@gmail.com>
+     * @throws Exception
      */
-    public function create($request, $paymentId, $payerId)
+    public function create($request)
     {
-        $discountPrice = $request['discount_price'];
-
         $this->city = $request['city'];
         $this->state = $request['state'];
         $this->country = $request['country'];
         $this->service = $request['service'];
-        $this->sales_amount = $request['sales_amount'];
-        $this->discount_price = $discountPrice;
         $this->amount = $request['amount'];
-        $this->package = $request['package'];
-        $this->payment_id = $paymentId;
-        $this->payer_id = $payerId;
         $this->currency = $request['currency'];
-        $this->payment_method = $request['payment_method'];
+        $this->package = $request['package'];
         $this->user_id = auth()->user()->id;
 
-        if ((int)$discountPrice !== 0) {
-            $this->has_discount = 1;
+        if (!$this->save()) {
+            throw new Exception('Could not save billing information');
         }
-        $this->save();
+        return $this->id;
     }
 
     /**

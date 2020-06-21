@@ -11379,6 +11379,11 @@ textarea.card-form__input {
   background-color: #fde7d1;
 }
 
+.status-un-paid {
+  color: #bd2130;
+  background-color: #f3b7bd;
+}
+
 .pagination {
   margin-top: 10px !important;
   float: right;

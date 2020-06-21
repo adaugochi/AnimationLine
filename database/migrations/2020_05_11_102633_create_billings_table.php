@@ -23,16 +23,12 @@ class CreateBillingsTable extends Migration
             $table->string('country');
             $table->string('package');
             $table->string('service');
-            $table->string('currency');
-            $table->string('sales_amount');
-            $table->string('discount_price');
-            $table->string('has_discount')->default(0);
             $table->string('has_brief')->default(0);
             $table->string('amount');
-            $table->string('status')->default('draft'); //in-progress completed delivered
-            $table->string('payment_id')->nullable();
-            $table->string('payment_method');
-            $table->string('payer_id');
+            $table->string('currency');
+            $table->string('payment_method')->nullable();
+            $table->string('reference')->nullable();
+            $table->string('status')->default('un-paid'); //in-progress completed delivered
             $table->timestamps();
         });
     }

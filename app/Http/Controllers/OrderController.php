@@ -4,14 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Billing;
 use App\Brief;
-use App\Contants\Message;
 use App\Country;
+use App\Mail\sendPaymentReminderMail;
 use App\Mail\SendReminderMail;
 use App\Mail\SendReviewMail;
 use App\Order;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
@@ -140,5 +139,23 @@ class OrderController extends Controller
             return redirect()->back()->with(['error' => 'Could not send reminder email']);
         }
         return redirect()->back()->with(['success' => 'Send reminder email was sent successfully']);
+    }
+
+    public function paymentReminder($billingId)
+    {
+        $billing = Billing::find($billingId);
+        $user = $billing->user;
+
+        $data = [
+            'name' => $user->getFullName(),
+            'service' => $billing->service . ', ' . $billing->package
+        ];
+
+        try {
+            Mail::to($user->email)->send(new SendPaymentReminderMail($data));
+        } catch (\Exception $ex) {
+            return redirect()->back()->with(['error' => 'Could not payment reminder email']);
+        }
+        return redirect()->back()->with(['success' => 'Payment reminder email was sent successfully']);
     }
 }

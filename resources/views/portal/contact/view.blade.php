@@ -14,7 +14,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 mt-5 mt-md-0">
             <div class="card">
                 <div>
                     <label class="font-weight-bold fs-18">Name:</label>

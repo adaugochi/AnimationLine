@@ -36,13 +36,13 @@
                 <tr>
                     <td style="background-color: #FFFFFF;border-bottom: 1px solid #EDEDED">
                         <img src="{{ asset('img/logo.svg') }}" alt="AnimationLine"
-                             style="margin: 25px auto; display: block; height: 60px">
+                             style="margin: 25px auto; display: block; height: 50px; width: 100%">
                     </td>
                 </tr>
                 <tr>
                     <td style="background-color: #FFFFFF;padding: 30px 70px; font-size: 16px; line-height: 1.5;">
                         @yield('content')
-                        <p>Thanks, <br>The AnimationLine Team</p>
+                        <p>Cheers, <br>The AnimationLine Team</p>
                     </td>
                 </tr>
             </table>

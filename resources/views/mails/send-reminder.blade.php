@@ -1,6 +1,6 @@
 @extends('mails.layouts.html')
 @section('content')
-    <h1>Hi {{ $data['name'] }},</h1>
+    <h3>Hi {{ $data['name'] }},</h3>
 
     <p>
         This email is to remind you that the service you ordered:
