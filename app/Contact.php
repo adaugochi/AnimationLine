@@ -2,9 +2,6 @@
 
 namespace App;
 
-use App\Traits\FormatDateTrait;
-use Illuminate\Database\Eloquent\Model;
-
 class Contact extends BaseModel
 {
     protected $fillable = [

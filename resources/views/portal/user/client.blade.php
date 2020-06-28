@@ -15,6 +15,7 @@
                         <th class="field-name"><span>Name</span></th>
                         <th class="field-name"><span>Email Address</span></th>
                         <th class="field-name"><span>Total Orders</span></th>
+                        <th class="field-name"><span>Status</span></th>
                         <th class="field-name"><span>Created At</span></th>
                         <th class="field-name"><span>Action</span></th>
                     </tr>
@@ -28,6 +29,17 @@
                             </td>
                             <td>{{ $user->email }}</td>
                             <td>{{ count($user->payments) }}</td>
+                            <td>
+                                @if($user->email_verified_at)
+                                    <span class="font-weight-bold status status-verified }}">
+                                        VERIFIED
+                                    </span>
+                                @else
+                                    <span class="font-weight-bold status status-unverified }}">
+                                        UNVERIFIED
+                                    </span>
+                                @endif
+                            </td>
                             <td>{{ $user->formatDate() }}</td>
                             <td>
                                 <a href="{{ route('client.transaction', $user->id) }}" class="btn btn-brand-primary">

@@ -36,22 +36,22 @@
                                     </label>
                                     <div class="custom-control custom-radio custom-control-inline">
                                         <input type="radio" id="paypal" name="payment_method"
-                                               class="custom-control-input" value="paypal">
+                                               class="custom-control-input" value="paypal" checked>
                                         <label class="custom-control-label" for="paypal">
-                                            <img src="{{ asset('img/pay.webp') }}" class="payment-logo"/>
+                                            <img src="{{ asset('img/paypal.jpg') }}" class="payment-logo"/>
                                         </label>
                                     </div>
-                                    <div class="custom-control custom-radio custom-control-inline mt-4 mt-lg-0">
-                                        <input type="radio" id="paystack" name="payment_method"
-                                               class="custom-control-input" value="paystack">
-                                        <label class="custom-control-label" for="paystack">
-                                            <img src="{{ asset('img/paystack-logo.png') }}" class="payment-logo"/>
-                                        </label>
-                                    </div>
+                                    {{--<div class="custom-control custom-radio custom-control-inline mt-4 mt-lg-0">--}}
+                                        {{--<input type="radio" id="paystack" name="payment_method"--}}
+                                               {{--class="custom-control-input" value="paystack">--}}
+                                        {{--<label class="custom-control-label" for="paystack">--}}
+                                            {{--<img src="{{ asset('img/paystack-logo.png') }}" class="payment-logo"/>--}}
+                                        {{--</label>--}}
+                                    {{--</div>--}}
                                 </div>
                                 <p>
-                                    By clicking on the button below, <b>you will be transferred to PayPal/Paystack</b>
-                                    to confirm your payment. Then, you will be redirected back to finalize your order.
+                                    By clicking on the button below, <strong>you will be transferred to PayPal</strong>
+                                    to make your payment. Then, you will be redirected back to finalize your order.
                                 </p>
                                 <div class="basic-payment__card-box">
                                     <h4>{{ ucfirst($billing->package) }} Package</h4>

@@ -5,7 +5,7 @@
 @section('content')
     <div class="form-group">
         <input class="card-form__input rounded form-control @error('email') is-invalid @enderror"
-               type="text" name="email" placeholder="Email Address" autocomplete="true">
+               type="text" name="email" placeholder="Email Address" autocomplete="true" value="{{ old('email') }}">
         @include('elements.error', ['fieldName' => 'email'])
     </div>
     <div class="form-group">

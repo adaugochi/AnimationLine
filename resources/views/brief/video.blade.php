@@ -22,9 +22,9 @@
                     @include('elements.basic-brief')
                     <div class="form-group col-md-6 company-logo">
                         <label for="company-logo" class="card-form__label">
-                                <span class="file-label">
-                                    Company's Logo<span class="text-danger">*</span>
-                                </span>
+                            <span class="file-label">
+                                Company's Logo<span class="text-danger">*</span>
+                            </span>
                         </label>
                         <div>
                             <span class="file-placeholder">Choose File</span>

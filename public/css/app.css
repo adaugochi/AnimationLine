@@ -11359,7 +11359,8 @@ textarea.card-form__input {
   background-color: #cfb7f2;
 }
 
-.status-delivered {
+.status-delivered,
+.status-verified {
   color: #1e7e34;
   background-color: #86e29b;
 }
@@ -11379,7 +11380,8 @@ textarea.card-form__input {
   background-color: #fde7d1;
 }
 
-.status-un-paid {
+.status-un-paid,
+.status-unverified {
   color: #bd2130;
   background-color: #f3b7bd;
 }

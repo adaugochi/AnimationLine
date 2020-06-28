@@ -1,4 +1,7 @@
 <?php
+
+//use Illuminate\Support\Facades\Artisan;
+
 Route::get('/', function () { return view('welcome');});
 Route::get('/our-blog', 'UserBlogController@index')->name('blog');
 Route::get('/our-blog/{id}', 'UserBlogController@showPost')->name('show.post');
@@ -87,4 +90,9 @@ Route::prefix('admin')->group(function () {
     Route::post('/save-post', 'BlogController@savePost')->name('save.post');
     Route::get('/edit-post/{id}', 'BlogController@editPost')->name('edit.post');
     Route::get('/view-post/{id}', 'BlogController@viewPost')->name('view.post');
+});
+
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('cache:clear');
+    // return what you want
 });

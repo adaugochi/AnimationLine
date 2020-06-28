@@ -27,14 +27,14 @@ use App\Contants\Message;
                         </td>
                         <td>{{ $billing->getCurrencyAndAmount() }}</td>
                         <td>
-                                <span class="font-weight-bold status status-{{ $billing->package }}">
-                                    {{ $billing->package }}
-                                </span>
+                            <span class="font-weight-bold status status-{{ $billing->package }}">
+                                {{ $billing->package }}
+                            </span>
                         </td>
                         <td>
-                                <span class="font-weight-bold status status-{{ $billing->status }}">
-                                    {{ ucwords(str_replace('-', ' ', $billing->status)) }}
-                                </span>
+                            <span class="font-weight-bold status status-{{ $billing->status }}">
+                                {{ ucwords(str_replace('-', ' ', $billing->status)) }}
+                            </span>
                         </td>
                         <td>{{ $billing->formatDate() }}</td>
                         <td>

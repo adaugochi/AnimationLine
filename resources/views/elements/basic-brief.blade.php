@@ -17,11 +17,11 @@
         Company's Name<span class="text-danger">*</span>
     </label>
     <input type="text" name="company_name" class="card-form__input form-control"
-           value="{{ $isEdit ? $brief->company_name : '' }}">
+           value="{{ $isEdit ? $brief->company_name : old('company_name') }}">
 </div>
 <div class="form-group col-md-6">
     <label class="card-form__label">Company's Website</label>
     <i class="fa fa-link url-icon"></i>
     <input type="text" name="company_website" class="card-form__input form-control"
-           value="{{ $isEdit ? $brief->company_website : '' }}" placeholder="URL">
+           value="{{ $isEdit ? $brief->company_website : old('company_website') }}" placeholder="URL">
 </div>

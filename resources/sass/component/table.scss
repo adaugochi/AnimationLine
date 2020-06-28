@@ -46,7 +46,7 @@
     color: darken($purple, 10%);
     background-color: lighten($purple, 20%);
   }
-  &-delivered {
+  &-delivered, &-verified {
     color: darken($success, 10%);
     background-color: lighten($success, 30%);
   }
@@ -62,7 +62,7 @@
     color: darken($orange, 10%);
     background-color: lighten($orange, 30%);
   }
-  &-un-paid {
+  &-un-paid, &-unverified {
     color: darken($danger, 10%);
     background-color: lighten($danger, 30%);
   }

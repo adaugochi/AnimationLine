@@ -5,22 +5,22 @@
 @section('content')
     <div class="form-group">
         <input type="text" class="card-form__input rounded form-control @error('first_name') is-invalid @enderror"
-               name="first_name" placeholder="First Name" autocomplete="true">
+               name="first_name" placeholder="First Name" autocomplete="true" value="{{ old('first_name') }}">
         @include('elements.error', ['fieldName' => 'first_name'])
     </div>
     <div class="form-group">
         <input type="text" class="card-form__input rounded form-control @error('last_name') is-invalid @enderror"
-               name="last_name" placeholder="Last Name" autocomplete="true">
+               name="last_name" placeholder="Last Name" autocomplete="true" value="{{ old('last_name') }}">
         @include('elements.error', ['fieldName' => 'last_name'])
     </div>
     <div class="form-group">
         <input type="text" class="card-form__input rounded form-control @error('email') is-invalid @enderror"
-               name="email" placeholder="Email Address" autocomplete="true">
+               name="email" placeholder="Email Address" autocomplete="true" value="{{ old('email') }}">
         @include('elements.error', ['fieldName' => 'email'])
     </div>
     <div class="form-group">
         <input type="password" class="card-form__input rounded form-control @error('password') is-invalid @enderror"
-               name="password" placeholder="Password" id="password">
+               name="password" placeholder="Password" id="password" value="{{ old('password') }}">
         @include('elements.error', ['fieldName' => 'password'])
     </div>
     <div class="form-group">

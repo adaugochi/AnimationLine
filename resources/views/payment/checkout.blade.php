@@ -9,11 +9,11 @@
     <input type="hidden" name="currency" value="USD" id="currency">
     <div class="form-group">
         <label class="card-form__label">City<span class="text-danger">*</span></label>
-        <input type="text" name="city" class="form-control card-form__input" id="city">
+        <input type="text" name="city" class="form-control card-form__input" id="city" value="{{ old('city') }}">
     </div>
     <div class="form-group">
         <label class="card-form__label">State<span class="text-danger">*</span></label>
-        <input type="text" name="state" class="card-form__input form-control" id="state">
+        <input type="text" name="state" class="card-form__input form-control" id="state" value="{{ old('state') }}">
     </div>
     <div class="form-group">
         <label class="card-form__label">Country<span class="text-danger">*</span></label>
