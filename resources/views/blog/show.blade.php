@@ -21,11 +21,11 @@
     <section class="py-100">
         <div class="container">
             <div class="card">
-                <div class="mb-4">
-                    <img src="{{ asset('blog/images/'. $blog->image_url) }}" class="w-100">
+                <div class="mb-4 text-center">
+                    <img src="{{ asset('blog/images/'. $blog->image_url) }}" class="blog__view-img">
                 </div>
                 <h2>{{ $blog->title }}</h2>
-                <p>{!! $blog->body !!}</p>
+                <div class="blog__post">{!! $blog->body !!}</div>
             </div>
         </div>
     </section>

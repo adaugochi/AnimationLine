@@ -35,7 +35,7 @@
             <table style="width: 600px; padding: 0; border: 1px solid #EDEDED; border-spacing: 0px; margin: 0px auto;">
                 <tr>
                     <td style="background-color: #FFFFFF;border-bottom: 1px solid #EDEDED">
-                        <img src="{{ asset('img/logo.svg') }}" alt="AnimationLine"
+                        <img src="{{ url('img/logo.svg') }}" alt="AnimationLine"
                              style="margin: 25px auto; display: block; height: 50px; width: 100%">
                     </td>
                 </tr>

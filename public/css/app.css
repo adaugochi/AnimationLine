@@ -11969,3 +11969,21 @@ input[name=company_website] {
   }
 }
 
+.blog__post p {
+  font-size: 16px !important;
+}
+
+.blog__post a {
+  color: #ff5a1a !important;
+}
+
+.blog__view-img {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .blog__view-img {
+    width: 50%;
+  }
+}
+
