@@ -13,9 +13,9 @@ class UserBlogController extends Controller
         return view('blog.index', compact('blogs'));
     }
 
-    public function showPost($id = null)
+    public function showPost($key = null)
     {
-        $blog = Blog::find($id);
+        $blog = Blog::where('key', $key)->first();
         if (!$blog) {
             return redirect(route('blog'))->with(['error' => 'Page Not Found']);
         }

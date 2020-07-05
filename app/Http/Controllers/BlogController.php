@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+use App\helpers\Utils;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -49,6 +50,7 @@ class BlogController extends Controller
         $blog->admin_id = auth()->user()->id;
         $blog->title = $request->title;
         $blog->body = $request->body;
+        $blog->key = Utils::slug($request->title);
 
         if($blog->save()){
             return redirect(route('admin.blogs'))->with(['success' => 'Post was successfully created.']);
@@ -57,15 +59,21 @@ class BlogController extends Controller
         }
     }
 
-    public function viewPost($id)
+    public function viewPost($key)
     {
-        $blog = Blog::find($id);
+        $blog = Blog::where('key', $key)->first();
+        if (!$blog) {
+            return redirect(route('admin.blogs'))->with(['error' => 'Article does not exist']);
+        }
         return view('portal.blog.view', compact('blog'));
     }
 
-    public function editPost($id)
+    public function editPost($key = null)
     {
-        $blog = Blog::find($id);
+        $blog = Blog::where('key', $key)->first();
+        if (!$blog) {
+            return redirect(route('admin.blogs'))->with(['error' => 'Article does not exist']);
+        }
         $isEdit = true;
         return view('portal.blog.new', compact('isEdit', 'blog'));
     }

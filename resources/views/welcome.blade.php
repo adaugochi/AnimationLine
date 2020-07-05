@@ -145,8 +145,8 @@
             <div class="row mt-5 text-left">
                 @include('elements.guarantee', [
                     'iconName' => 'check_circle_outline',
-                    'header' => '30 Days Refund Policy',
-                    'body' => 'If you are not 100% satisfied with your order, you have 30 days to request a full refund.'
+                    'header' => '7 Days Refund Policy',
+                    'body' => 'If you are not 100% satisfied with your order, you have 7 days to request a full refund.'
                 ])
                 @include('elements.guarantee', [
                     'iconName' => 'lock_outline',

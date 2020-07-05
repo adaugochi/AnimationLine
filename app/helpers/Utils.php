@@ -8,7 +8,7 @@ class Utils
 {
     public static function slug($str)
     {
-        return str_replace(' ', '-', $str);
+        return str_replace(' ', '-', strtolower($str));
     }
 
     public static function generateToken()

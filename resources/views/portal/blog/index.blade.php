@@ -4,7 +4,7 @@
     <li class="active">Blogs</li>
 @endsection()
 @section('content-header-right')
-    <a href="{{ route('new.blog') }}" class="btn btn-brand-primary">
+    <a href="{{ route('new.blog') }}" class="btn btn-lg btn-brand-primary">
         <i class="fa fa-plus" aria-hidden="true"></i>
         Add Post
     </a>
@@ -39,10 +39,10 @@
                                         Actions
                                     </button>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="{{ route('edit.post', $blog->id) }}">
+                                        <a class="dropdown-item" href="{{ route('edit.post', $blog->key) }}">
                                             Edit Post
                                         </a>
-                                        <a class="dropdown-item" href="{{ route('view.post', $blog->id) }}">
+                                        <a class="dropdown-item" href="{{ route('view.post', $blog->key) }}">
                                             View Post
                                         </a>
                                     </div>

@@ -16,7 +16,7 @@
                             <div class="d-flex blog__wrapper">
                                 <img src="{{ asset('blog/images/'. $blog->image_url) }}" class="blog__img"/>
                                 <div class="blog__text-wrapper pl-3 text-left">
-                                    <a href="{{ route('show.post', $blog->id) }}" class="cursor-pointer">
+                                    <a href="{{ route('show.post', $blog->key) }}" class="cursor-pointer">
                                         <label class="blog__title">{{ $blog->title }}</label>
                                     </a>
                                     <p>{{ $blog->formatDate() }}</p>
