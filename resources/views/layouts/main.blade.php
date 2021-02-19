@@ -52,7 +52,7 @@
         @include('elements.sub-footer', ['isPortal' => true])
     </footer>
 
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="/js/app.js'"></script>
     <script>
         let BaseURL = "{{ env('BASE_URL') }}"
     </script>

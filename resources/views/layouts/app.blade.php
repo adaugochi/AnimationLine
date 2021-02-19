@@ -51,7 +51,7 @@
         </section>
     </main>
 
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="/js/app.js"></script>
     @include('elements.flash-messages')
 </body>
 </html>
