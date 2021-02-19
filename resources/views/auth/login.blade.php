@@ -4,12 +4,12 @@
 @section('auth-header', 'Login')
 @section('content')
     <div class="form-group">
-        <input class="card-form__input rounded form-control @error('email') is-invalid @enderror"
+        <input class="card-form__input rounded form-control form-control-lg @error('email') is-invalid @enderror"
                type="text" name="email" placeholder="Email Address" autocomplete="true" value="{{ old('email') }}">
         @include('elements.error', ['fieldName' => 'email'])
     </div>
     <div class="form-group">
-        <input class="card-form__input rounded form-control @error('password') is-invalid @enderror"
+        <input class="card-form__input rounded form-control form-control-lg @error('password') is-invalid @enderror"
                type="password" name="password" placeholder="Password" autocomplete="true">
         @include('elements.error', ['fieldName' => 'password'])
         <a class="text-brand-primary fs-12 d-block mt-3" href="{{ $forgotPwdRoute }}">

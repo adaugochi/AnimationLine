@@ -4,7 +4,7 @@
 @section('auth-header', 'Forget Password')
 @section('content')
     <div class="form-group">
-        <input type="text" class="card-form__input rounded form-control @error('email') is-invalid @enderror"
+        <input type="text" class="card-form__input rounded form-control form-control-lg @error('email') is-invalid @enderror"
                name="email" placeholder="Email Address">
         @include('elements.error', ['fieldName' => 'email'])
     </div>

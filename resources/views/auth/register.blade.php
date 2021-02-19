@@ -4,12 +4,12 @@
 @section('auth-header', 'Register')
 @section('content')
     <div class="form-group">
-        <input type="text" class="card-form__input rounded form-control @error('first_name') is-invalid @enderror"
+        <input type="text" class="card-form__input rounded form-control form-control-lg @error('first_name') is-invalid @enderror"
                name="first_name" placeholder="First Name" autocomplete="true" value="{{ old('first_name') }}">
         @include('elements.error', ['fieldName' => 'first_name'])
     </div>
     <div class="form-group">
-        <input type="text" class="card-form__input rounded form-control @error('last_name') is-invalid @enderror"
+        <input type="text" class="card-form__input rounded form-control form-control-lg @error('last_name') is-invalid @enderror"
                name="last_name" placeholder="Last Name" autocomplete="true" value="{{ old('last_name') }}">
         @include('elements.error', ['fieldName' => 'last_name'])
     </div>
@@ -19,12 +19,12 @@
         @include('elements.error', ['fieldName' => 'email'])
     </div>
     <div class="form-group">
-        <input type="password" class="card-form__input rounded form-control @error('password') is-invalid @enderror"
+        <input type="password" class="card-form__input rounded form-control form-control-lg @error('password') is-invalid @enderror"
                name="password" placeholder="Password" id="password" value="{{ old('password') }}">
         @include('elements.error', ['fieldName' => 'password'])
     </div>
     <div class="form-group">
-        <input type="password" class="card-form__input rounded form-control @error('password') is-invalid @enderror"
+        <input type="password" class="card-form__input rounded form-control form-control-lg @error('password') is-invalid @enderror"
                name="password_confirmation" placeholder="Re-enter Password">
     </div>
     <div class="fs-12 form-group">
